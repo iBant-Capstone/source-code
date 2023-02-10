@@ -5,37 +5,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { Button } from 'react-native';
 import { ScrollView } from 'react-native-web';
 
-// TODO: PUT IN DIFFERENT FILE AND IMPORT FROM THE TOP
-const InformationHub = ({navigation}) => {
-  return (
-    <ScrollView>
-      <Button
-        title="Go to Jane's profile"
-        onPress={() =>
-          navigation.navigate('Profile', {name: 'Jane'})
-        }
-      />
-      <Button
-        title="Go to BACCalc"
-        onPress={() =>
-          navigation.navigate('BACCalc')
-        }
-      />
-    </ScrollView>
-  );
-};
-const Profile = ({navigation, route}) => {
-  return <Text>This is {route.params.name}'s profile</Text>;
-};
-const AboutUs = ({navigation, route}) => {
-  return <Text>Here are some things about us!</Text>;
-};
-const BACCalc = ({navigation, route}) => {
-  return <Text>Get drunk!</Text>;
-};
+import Profile from './components/Profile.js'
+import BACCalc from './components/BACCalc.js'
+import InformationHub from './components/InformationHub.js'
+import AboutUs from './components/AboutUs.js'
 
-
-// Actual beginning of App.js
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -43,7 +17,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
+          name="InformationHub"
           component={InformationHub}
           options={{title: 'Welcome'}}
         />
