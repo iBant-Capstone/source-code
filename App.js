@@ -1,9 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { Button } from 'react-native';
-import { ScrollView } from 'react-native-web';
 
 import Profile from './components/Profile.js'
 import BACCalc from './components/BACCalc.js'
