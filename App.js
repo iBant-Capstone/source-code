@@ -1,40 +1,23 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-
-
-
 import Profile from './screens/Profile.js'
 import BACCalc from './screens/BACCalc.js'
 import InformationHub from './screens/InformationHub.js'
 import AboutUs from './screens/AboutUs.js'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
 export default function App() {
-  function Nav() {
-    return (
-      <NavBar.Navigator tabBarPosition='bottom'>
-        <NavBar.Screen name="InformationHub" component={InformationHub} options={{title: 'Welcome'}}/>
-        <NavBar.Screen name="AboutUs" component={AboutUs} />
-        <NavBar.Screen name="BACCalc" component={BACCalc} />
-        {/* <NavBar.Screen name="Profile" component={Profile} options={{name: 'Jane'}} /> */}
-      </NavBar.Navigator>
-    );
-  }
 
   return ( 
     <NavigationContainer>
-      
-        <Tab.Navigator  screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+        <Tab.Navigator  
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-
+            // taking icon names straight from Ionicons
             if (route.name === 'Hub') {
               iconName = focused ? 'ios-book' : 'ios-book-outline';
             } else if (route.name === 'About') {
@@ -44,8 +27,6 @@ export default function App() {
             } else if (route.name === 'Profile') {
               iconName = focused ? 'ios-person' : 'ios-person-outline';
             }
-
-            // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: '#CF5260',

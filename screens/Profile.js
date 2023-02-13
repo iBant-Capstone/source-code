@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native';
-
-
+import {Text, View } from 'react-native';
+import * as StyleSheet from '../components/styles';
 import Title from "../components/Title";
+
+let styles = StyleSheet.styles;
 const headerTitle = 'Profile Page';
 
 
@@ -14,17 +15,6 @@ const Profile = () => {
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    centered: {
-      alignItems: 'center',
-      padding: "15px",
-    }
-  });
+
 
 export default Profile
