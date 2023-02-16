@@ -1,19 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import * as StyleSheet from '../components/styles';
+
+let styles = StyleSheet.styles;
 
 const Title = ({ title }) => (
   <View style={styles.headerContainer}>
     <Text style={styles.headerText}>{title.toUpperCase()}</Text>
   </View>
 );
-const styles = StyleSheet.create({
-  headerContainer: {
-    marginTop: 40
-  },
-  headerText: {
-    color: 'black',
-    fontSize: 22,
-    fontWeight: '500'
-  }
-});
+
 export default Title;
