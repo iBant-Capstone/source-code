@@ -31,23 +31,20 @@ export default function App() {
           },
           tabBarActiveTintColor: '#CF5260',
           tabBarInactiveTintColor: 'black',
+          tabBarLabel:() => {return null},
         })}
         >
           <Tab.Screen
             name="Hub"
             component={InformationHub}
           />
-          <Tab.Screen 
-            name="Profile" 
-            component={Profile} 
-          />
-          <Tab.Screen
-            name="About"
-            component={AboutUs} 
-          />
           <Tab.Screen
             name="BAC Calc"
             component={BACCalc} 
+          />
+          <Tab.Screen 
+            name="Profile" 
+            component={Profile} 
           />
         </Tab.Navigator>
       
