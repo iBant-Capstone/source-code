@@ -3,7 +3,7 @@ import { styles } from './styles';
 import Title from './Title';
 import Collapsible from 'react-native-collapsible'
 import Accordion from 'react-native-collapsible/Accordion';
-import data from '../json/topics/alcoholphysicaleffects.json'
+import data from '../json/topics.json'
 
 // import React in our code
 import React, {useState} from 'react';
