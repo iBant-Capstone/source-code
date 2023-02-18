@@ -5,8 +5,7 @@ import Title from "../components/Title";
 let styles = StyleSheet.styles;
 const headerTitle = 'About Us Page';
 
-
-const AboutUs = () => {
+const AboutUs = ({ navigation }) => {
     return (
         <View style={styles.centered}>
             <Title title={headerTitle} />
