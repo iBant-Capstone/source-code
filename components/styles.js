@@ -12,6 +12,13 @@ export const styles = StyleSheet.create({
     centered: {
       alignItems: 'center',
       padding: "15px",
-    }
-  });
+    },
+    modal: {
+      flex: 0.75, 
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#fff',
+    },
+  }
+);
 

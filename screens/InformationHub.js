@@ -16,6 +16,7 @@ const InformationHub = ({ navigation }) => {
                 title="Go to Profile"
                 onPress={() => navigation.navigate('Profile')}
             />
+            <Popup/>
         </View>
     );
 };
