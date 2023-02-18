@@ -1,4 +1,4 @@
-import {Text, View } from 'react-native';
+import {Text, View, Button} from 'react-native';
 import * as StyleSheet from '../components/styles';
 import Title from "../components/Title";
 
@@ -10,6 +10,12 @@ const AddDrink = ({route, navigation}) => {
     return (
         <View style={styles.centered}>
             <Text>{route.params.title}</Text>
+            <Button
+                onPress={() => navigation.navigate('BACCalc', { title: 'Add a Drink' })}
+                title="Add Drink"
+                color="#841584"
+                accessibilityLabel="Learn more about this purple button"
+            />
         </View>
     );
 }
