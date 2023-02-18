@@ -6,6 +6,7 @@ import BACCalc from './screens/BACCalc.js'
 import InformationHub from './screens/InformationHub.js'
 import AboutUs from './screens/AboutUs.js'
 import InfoHubPage from './components/InfoHubPage.js';
+import AddDrink from './screens/AddDrink.js'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -20,6 +21,10 @@ export default function App() {
         <Stack.Screen
           name='InfoHubPage'
           component={InfoHubPage}
+        />
+        <Stack.Screen
+          name='AddDrink'
+          component={AddDrink}
         />
       </Stack.Navigator>
       <Tab.Navigator
