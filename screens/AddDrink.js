@@ -3,13 +3,13 @@ import * as StyleSheet from '../components/styles';
 import Title from "../components/Title";
 
 let styles = StyleSheet.styles;
-const headerTitle = 'AddDrinks';
 
-const AddDrink = () => {
+// TODO: add a button to add drinks to an array that can be passed to BACCalc
+
+const AddDrink = ({route, navigation}) => {
     return (
         <View style={styles.centered}>
-            <Title title={headerTitle} />
-            <Text style={styles.centered}> Add Your Drinks</Text>
+            <Text>{route.params.title}</Text>
         </View>
     );
 }

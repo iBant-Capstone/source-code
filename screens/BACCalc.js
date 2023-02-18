@@ -7,10 +7,12 @@ import AddDrink from "./AddDrink.js"
 let styles = StyleSheet.styles;
 const headerTitle = 'BAC Calculator';
 
-const BACCalc = ({ navigation }) => {
+const BACCalc = ({route, navigation}) => {
 
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
+
+    
 
     // TODO: make the Add Drink button navigate to the AddDrink.js page
     // TODO: build the cards of the drinks added below the add drink button
@@ -34,7 +36,7 @@ const BACCalc = ({ navigation }) => {
             />
             <Text style={styles.centered}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text>
             <Button
-                onPress={() => navigation.navigate(AddDrink)}
+                onPress={() => navigation.navigate('AddDrinkPage', { title: 'Add a Drink' })}
                 title="Add Drink"
                 color="#841584"
                 accessibilityLabel="Learn more about this purple button"
