@@ -1,0 +1,48 @@
+[
+    {
+        "topicid": "Alcohol Physical Effects",
+        "qa": [
+            {
+                "question": "When will I start to feel the effects of alcohol?",
+                "answer": "In healthy people, blood circulates through the body in 90 seconds, which means they can begin to feel the effects of alcohol within 15 to 45 minutes after the first drink.",
+                "sources": [
+                    "Source 14"
+                ]
+            },
+            {
+                "question": "How long does alcohol metabolism take?",
+                "answer": "The liver can metabolize **one standard drink an hour**. Factors such as age, weight, gender, personal metabolism, and amount of food eaten also play a role in how fast the body can processes alcohol. A person's blood alcohol concentration (BAC) level is **reduced by 0.015 per hour** or at an average rate of .015 g/100mL/hour. This process cannot be sped up with time, sleep, food, or other methods. *You cannot flush alcohol out of your system once it's in!*",
+                "sources": [
+                    "Source 14"
+                ]
+            },
+            {
+                "question": "How long does alcohol stay in my system?",
+                "answer": "This is how long alcohol can be detected in a person's system [depending on how the alcohol is being measured]: **Blood**: Up to 6 hours; **Breath**: 12-24 hours; **Saliva**: 12-24 hours; **Urine**: 12-24 hours; **Hair**: 90 Days.",
+                "sources": [
+                    "Source 14"
+                ]
+            },
+            {
+                "question": "How do I know when I'm drunk?",
+                "answer": "The effects of alcohol vary from person to person, and it may take some people a quicker or longer time to start seeing signs of intoxication when drinking the same amount of alcohol. Typically, for **males** with little to no tolerance, they may begin to show some signs of intoxication when their BAC reaches **0.05%**. A **woman** who weighs 150 pounds will reach a BAC of 0.10% after drinking about 4 drinks in an hour. With little or no alcohol tolerance, **general impairment levels** are observed at the following BAC levels: - **0.05%** = detectible; - **0.07%** = driving impaired; - *Note: **0.08%** is the **federal limit** to legally drive in the United States, but you can be impaired and arrested even if your BAC is under 0.08%*; - **0.10%** = intoxicated; - **0.20%** = decreased consciousness; - **0.30%** = unconscious; - **0.40%** = fatal. When a person with BAC levels between 0.10% and 0.20% does not show obvious signs of intoxication, it typically means they've developed a tolerance for alcohol. This means they most likely are regularly drinking heavily and are showing characteristics of dependence.",
+                "sources": [
+                    "Source 14",
+                    "Source 15"
+                ]
+            }
+        ]
+    },
+    {
+        "topicid": "Standard Drink Sizes",
+        "qa": [
+            {
+                "question": "What is a standard drink?",
+                "answer": "In the United States, one 'standard' drink (or one alcoholic drink equivalent) contains roughly **14 grams (0.6 fluid ounces) of pure alcohol**, which is found in: 12 ounces of regular beer, which is usually about 5% alcohol; 5 ounces of wine, which is typically about 12% alcohol; or 1.5 ounces of distilled spirits, which is about 40% alcohol.",
+                "sources": [
+                    "Source 3"
+                ]
+            }
+        ]
+    }
+]
