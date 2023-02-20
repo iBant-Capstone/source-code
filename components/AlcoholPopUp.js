@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {Button, View, Text } from 'react-native';
+import { styles } from './styles';
 import * as StyleSheet from './styles';
 import Modal from "react-native-modal";
 
-let styles = StyleSheet.styles;
+// let styles = StyleSheet.styles;
 
 function Popup()
 {

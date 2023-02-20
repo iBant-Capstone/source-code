@@ -1,4 +1,4 @@
-import { Button, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import * as StyleSheet from '../components/styles';
 import Title from "../components/Title";
 import Popup from '../components/AlcoholPopUp';
@@ -18,33 +18,44 @@ let InfoPage = (props) => {
   return (
     <View style={styles.centered}>
       <Title title={headerTitle} />
-      <Text style={styles.centered}> This is the Information Hub: Learn about alcohol and its effects on you!</Text>
-      <Button
-        title="Common Alcohol Types"
-        // onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'page 1' })}
-      />
-      <Button
-        title="Alcohol Physical Effects"
-        onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Alcohol Physical Effects' })}
-      />
-      <Button
-        title="BAC Levels and Effects"
-        onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'BAC Levels and Effects' })}
-      />
-      <Button
-        title="Standard Drink Sizes"
-        onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Standard Drink Sizes' })}
-      />
-      <Button
-        title="Measuring Alcohol Content"
-        onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Measuring Alcohol Content' })}
-      />
-      <Button
-        title="Social Drinking"
-        onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Social Drinking' })}
-      />
+      <Text style={styles.centered}>This is the Information Hub: Learn about alcohol and its effects on you!</Text>
+      <View style={styles.twoButtonRow}>
+        <Pressable
+          style={styles.infoHubButton}
+          onPress={() => props.navigation.navigate('CommonAlcoholTypes')}>
+          <Text style={styles.infoHubButtonText}>Common Alcohol Types</Text>
+        </Pressable>
+        <Pressable
+          style={styles.infoHubButton}
+          title="Alcohol Physical Effects"
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Alcohol Physical Effects' })}>
+          <Text style={styles.infoHubButtonText}>Alcohol Physical Effects</Text>
+        </Pressable>
+        <Pressable
+          style={styles.infoHubButton}
+          title="BAC Levels and Effects"
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'BAC Levels and Effects' })}>
+          <Text style={styles.infoHubButtonText}>BAC Levels and Effects</Text>
+        </Pressable>
+        <Pressable
+          style={styles.infoHubButton}
+          title="Standard Drink Sizes"
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Standard Drink Sizes' })}>
+          <Text style={styles.infoHubButtonText}>Standard Drink Sizes</Text>
+        </Pressable>
+        <Pressable
+          style={styles.infoHubButton}
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Measuring Alcohol Content' })}>
+          <Text style={styles.infoHubButtonText}>Measuring Alcohol Content</Text>
+        </Pressable>
+        <Pressable
+          style={styles.infoHubButton}
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Social Drinking' })}>
+          <Text style={styles.infoHubButtonText}>Social Drinking</Text>
+        </Pressable>
+      </View>
       {/* <Popup/> */}
-    </View>
+    </View >
   );
 }
 
