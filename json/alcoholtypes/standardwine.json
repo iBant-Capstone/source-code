@@ -3,7 +3,9 @@
     "description": "Made by fermentation from grapes, fruits, berries, rice, or honey.",
     "abv": "10-15%",
     "fun fact": "The most common standard wine types are: red wine, white wine, rose, dessert wine, and sparkling wine.",
-    "fun fact source": "Source 8",
+    "fun fact sources": [
+        "Source 8"
+    ],
     "tags": [
         "Undistilled/Fermented",
         "Wine"

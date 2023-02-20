@@ -1,0 +1,12 @@
+{
+    "alcoholid": "Hard Cider",
+    "description": "Fermented apple juice.",
+    "abv": "5-7%",
+    "fun fact": "By US law, hard cider must contain at least 50% apple juice.",
+    "fun fact sources": [
+        "Source 11"
+    ],
+    "tags": [
+        "Undistilled/Fermented"
+    ]
+}

@@ -3,7 +3,9 @@
     "description": "Wines that are “fortified” with distilled alcohol such as brandy.",
     "abv": "16-24%",
     "fun fact": "The most common fortified wine types are: port wine, sherry, madeira, marsala, vermouth.",
-    "fun fact source": "Source 6",
+    "fun fact sources": [
+        "Source 6"
+    ],
     "tags": [
         "Undistilled/Fermented",
         "Wine"

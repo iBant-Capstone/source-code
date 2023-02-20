@@ -3,7 +3,9 @@
     "description": "The most popular alcoholic beverage worldwide.",
     "abv": "4-8%",
     "fun fact": "Beer ABV varies depending on type: “light beers” only have 2-4% ABV while “malt liquors” have 6-8% ABV.",
-    "fun fact source": "Source 2",
+    "fun fact sources": [
+        "Source 2"
+    ],
     "tags": [
         "Undistilled/Fermented"
     ]

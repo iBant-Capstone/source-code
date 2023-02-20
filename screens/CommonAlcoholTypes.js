@@ -41,6 +41,24 @@ const CommonAlcoholTypes = ({ navigation }) => {
                     <Popup isOpen={isChampagneOpen} onChangeModal={onChangeChampagneModal} alcoholName="Champagne"/>
                     <Text style={styles.alcoholTypesButtonText}>Champagne</Text>
                 </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    // onPress={() => props.navigation.navigate('')}
+                    >
+                    <Text style={styles.alcoholTypesButtonText}>Hard Cider</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    // onPress={() => props.navigation.navigate('')}
+                    >
+                    <Text style={styles.alcoholTypesButtonText}>Mead</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    // onPress={() => props.navigation.navigate('')}
+                    >
+                    <Text style={styles.alcoholTypesButtonText}>Saké</Text>
+                </Pressable>
             </View>
         </View>
     );
