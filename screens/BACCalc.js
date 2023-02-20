@@ -12,12 +12,12 @@ const BACCalc = ({route, navigation}) => {
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
 
-    // React component displaying all the keys (eventually drinks)
+    // React component displaying all the keys (eventually keys = drinks)
     const AsyncKeys = () => {
-        // the AsyncKeys component uses the useState and useEffect hooks to retrieve the keys from 
-        // async storage and store them in the component state. 
+        // stores the keys in the component's state. 
         const [keys, setKeys] = useState([]);
 
+        // retrieves the keys from async storage
         useEffect(() => {
             async function getKeys() {
               try {
@@ -31,6 +31,7 @@ const BACCalc = ({route, navigation}) => {
             getKeys();
         }, []);
 
+        // Returns the JSX to display
         return (
             <View>
               <Text>Keys in async storage:</Text>
