@@ -1,164 +1,96 @@
-import { Text, View } from 'react-native';
+import {
+    Text,
+    View,
+    LayoutAnimation,
+    ScrollView,
+    UIManager,
+    TouchableOpacity,
+    Platform,
+} from 'react-native';
 import { styles } from './styles';
 import Title from './Title';
-import Collapsible from 'react-native-collapsible'
-import Accordion from 'react-native-collapsible/Accordion';
 import data from '../json/topics.json'
 
 // import React in our code
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 
-// import all the components we are going to use
-import {
+const ExpandableComponent = ({ item, onClickFunction }) => {
+    //Custom Component for the Expandable List
+    const [layoutHeight, setLayoutHeight] = useState(0);
 
-  TouchableOpacity,
-} from 'react-native';
+    useEffect(() => {
+        if (item.isExpanded) {
+            setLayoutHeight(null);
+        } else {
+            setLayoutHeight(0);
+        }
+    }, [item.isExpanded]);
 
-// import for the animation of Collapse and Expand
-import * as Animatable from 'react-native-animatable';
+    return (
+        <View>
+            {/*Header of the Expandable List Item*/}
+            <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={onClickFunction}
+                style={styles.topicQuestion}>
+                <Text style={styles.topicQuestionText}>{item.question}</Text>
+            </TouchableOpacity>
+            <View
+                style={{
+                    height: layoutHeight,
+                    overflow: 'hidden',
+                }}>
+                {/*Content under the header of the Expandable List Item*/}
+                <Text style={styles.topicAnswer}>
+                    {item.answer}
+                </Text>
+            </View>
+        </View>
+    );
+};
 
-
+// Page to export 
 const InfoTopicPage = ({ route }) => {
+    // Get all question and answer of topic 
     const topicData = data.find(object => {
         return object.topicid === route.params.title
     })
     const CONTENT = topicData.qa
 
-    // const AccordionView = () => {
-    //     const state = {
-    //         activeSections: [],
-    //     };
+    const [listDataSource, setListDataSource] = useState(CONTENT);
 
-    //     const _renderSectionTitle = (section) => {
-    //         return (
-    //           <View>
-    //             <Text>{section.answer}</Text>
-    //           </View>
-    //         );
-    //       };
+    if (Platform.OS === 'android') {
+        UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
 
-    //     const _renderHeader = (section) => {
-    //         return (
-    //             <View>
-    //                 <Text>{section.question}</Text>
-    //             </View>
-    //         );
-    //     };
+    const updateLayout = (index) => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+        const array = [...listDataSource];
+        // Allow multiple select
+        array[index]['isExpanded'] = !array[index]['isExpanded'];
 
-    //     const _renderContent = (section) => {
-    //         return (
-    //             <View>
-    //                 <Text>{section.answer}</Text>
-    //             </View>
-    //         );
-    //     };
-
-    //     const _updateSections = (activeSections) => {
-    //         this.setState({ activeSections });
-    //     };
-
-    //     return (
-    //         <Accordion
-    //             activeSections={[0]}
-    //             sections={CONTENT}
-    //             renderSectionTitle={_renderSectionTitle(CONTENT)}
-    //             renderHeader={_renderHeader(CONTENT)}
-    //             renderContent={_renderContent(CONTENT)}
-    //             onChange={_updateSections(CONTENT)}
-    //             expandMultiple={true}
-    //         />
-    //     );
-    // }
-
-    // Default active selector
-    const [activeSections, setActiveSections] = useState([]);
-    // Collapsed condition for the single collapsible
-    const [collapsed, setCollapsed] = useState(true);
-
-    const toggleExpanded = () => {
-        // Toggling the state of single Collapsible
-        setCollapsed(!collapsed);
-    };
-
-    const setSections = (sections) => {
-        // Setting up a active section state
-        setActiveSections(
-            sections.includes(undefined) ? [] : sections
-        );
-    };
-
-    const renderHeader = (section, _, isActive) => {
-        // Accordion header view
-        return (
-            <Animatable.View
-                duration={400}
-                // style={[
-                //     styles.header,
-                //     isActive ? styles.active : styles.inactive
-                // ]}
-                transition="backgroundColor">
-                <Text 
-                // style={styles.headerText}
-                >
-                    {section.question}
-                </Text>
-            </Animatable.View>
-        );
-    };
-
-    const renderContent = (section, _, isActive) => {
-        // Accordion Content view
-        return (
-            <Animatable.View
-                duration={400}
-                // style={[
-                //     styles.content,
-                //     isActive ? styles.active : styles.inactive
-                // ]}
-                transition="backgroundColor">
-                <Animatable.Text
-                    animation={isActive ? 'bounceIn' : undefined}
-                    style={{ textAlign: 'center' }}
-                    >
-                    {section.answer}
-                </Animatable.Text>
-            </Animatable.View>
-        );
+        setListDataSource(array);
     };
 
     return (
         <View style={styles.centered}>
             <Title title={route.params.title} />
-            <Collapsible collapsed={true}>
-                {/* <AccordionView /> */}
-                <Accordion
-                    activeSections={activeSections}
-                    // For any default active section
-                    sections={CONTENT}
-                    // Title and content of accordion
-                    touchableComponent={TouchableOpacity}
-                    // Which type of touchable component you want
-                    // It can be the following Touchables
-                    // TouchableHighlight, TouchableNativeFeedback
-                    // TouchableOpacity , TouchableWithoutFeedback
-                    expandMultiple={true}
-                    // If you want to expand multiple at a time
-                    renderHeader={renderHeader}
-                    // Header Component(View) to render
-                    renderContent={renderContent}
-                    // Content Component(View) to render
-                    onChange={setSections}
-                // Setting the state of active sections
-                />
-            </Collapsible>
-            {/* <Text>On page {JSON.stringify(CONTENT)}</Text> */}
+            <View style={{ flexDirection: 'row', padding: 10 }}>
+            </View>
+            <ScrollView>
+                {listDataSource.map((item, key) => (
+                    <ExpandableComponent
+                        key={item.question}
+                        onClickFunction={() => {
+                            updateLayout(key);
+                        }}
+                        item={item}
+                    />
+                ))}
+            </ScrollView>
+
         </View>
     )
 }
-
-
-
-
-
 
 export default InfoTopicPage;

@@ -19,6 +19,23 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       backgroundColor: '#fff',
     },
+    // For expandables
+    container: {
+      flex: 1,
+    },
+    topicQuestion: {
+      backgroundColor: '#F5FCFF',
+      padding: 20,
+    },
+    topicQuestionText: {
+      fontSize: 16,
+      fontWeight: '500',
+    },
+    topicAnswer: {
+      fontSize: 16,
+      color: '#606070',
+      padding: 10,
+    }
   }
 );
 
