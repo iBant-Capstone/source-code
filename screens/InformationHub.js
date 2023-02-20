@@ -52,6 +52,16 @@ let InfoPage = (props) => {
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Social Drinking' })}>
           <Text style={styles.infoHubButtonText}>Social Drinking</Text>
         </Pressable>
+        <Pressable
+          style={styles.infoHubButton}
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Drinking Safety Tips' })}>
+          <Text style={styles.infoHubButtonText}>Drinking Safety Tips</Text>
+        </Pressable>
+        <Pressable
+          style={styles.infoHubButton}
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Resources' })}>
+          <Text style={styles.infoHubButtonText}>Resources</Text>
+        </Pressable>
       </View>
       {/* <Popup/> */}
     </View >
