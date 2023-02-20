@@ -34,6 +34,25 @@
         ]
     },
     {
+        "topicid": "BAC Levels and Effects",
+        "qa": [
+            {
+                "question": "What is Blood Alcohol Concentration (BAC)?",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            },
+            {
+                "question": "How do we calculate BAC?",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            }
+        ]
+    },
+    {
         "topicid": "Standard Drink Sizes",
         "qa": [
             {
@@ -41,6 +60,105 @@
                 "answer": "In the United States, one 'standard' drink (or one alcoholic drink equivalent) contains roughly **14 grams (0.6 fluid ounces) of pure alcohol**, which is found in: 12 ounces of regular beer, which is usually about 5% alcohol; 5 ounces of wine, which is typically about 12% alcohol; or 1.5 ounces of distilled spirits, which is about 40% alcohol.",
                 "sources": [
                     "Source 3"
+                ]
+            }
+        ]
+    },
+    {
+        "topicid": "Measuring Alcohol Content",
+        "qa": [
+            {
+                "question": "What is Alcohol by Volume (ABV)?",
+                "answer": "**Alcohol by volume (ABV)** is the number of milliliters of ethanol per 100 milliliters (or 3.4 fl.oz.) in a solution. ABV is the most common metric used in the United States. ABV can indicate how you feel after drinking an alcoholic beverage and can also tell you how strong that beverage might taste in terms of alcohol content. ABV is typically calculated using a hydrometer or alcoholmeter. **ABV formula:** ABV = (Final gravity - Original gravity) X 131.25. The drink's **original gravity** is the hydrometer reading before yeast is pitched and the drink's **final gravity** is the hydrometer's reading after the completion of the fermentation process. (There are also calculators available to know the precise ABV metrics of a drink.)",
+                "sources": [
+                    "Source 2",
+                    "Source 4",
+                    "Source 11"
+                ]
+            },
+            {
+                "question": "What is alcohol proof?",
+                "answer": "Alcohol proof is twice the percentage of alcohol by volume. For example, a drink which has 50% ABV will be 100 proof.",
+                "sources": [
+                    "Source 2"
+                ]
+            }
+        ]
+    },
+    {
+        "topicid": "Social Drinking",
+        "qa": [
+            {
+                "question": "What are some social drinking tips?",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            },
+            {
+                "question": "How can I help others who are drunk?",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            },
+            {
+                "question": "How can I decline a drink?",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            }
+        ]
+    },
+    {
+        "topicid": "Drinking Safety Tips",
+        "qa": [
+            {
+                "question": "What are some drinking safety tips?",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            },
+            {
+                "question": "How can I avoid drink spiking/tampering?",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            },
+            {
+                "question": "How can I recognize alcohol poisoning, and what should I do?",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            }
+        ]
+    },
+    {
+        "topicid": "Resources",
+        "qa": [
+            {
+                "question": "Resources if you or a loved one is struggling with alcohol abuse",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            },
+            {
+                "question": "Resources to learn more about alcohol types and consumption",
+                "answer": "",
+                "sources": [
+                    "Source "
+                ]
+            },
+            {
+                "question": "Resources to learn more about drinking safely",
+                "answer": "",
+                "sources": [
+                    "Source "
                 ]
             }
         ]
