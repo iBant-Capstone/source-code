@@ -7,7 +7,7 @@ import {
     ScrollView,
     UIManager,
     TouchableOpacity,
-    Platform,
+    Platform
 } from 'react-native';
 // Import styles
 import { styles } from './styles';
@@ -15,6 +15,8 @@ import { styles } from './styles';
 import Title from './Title';
 // Import json data of topic q and as
 import data from '../json/topics.json'
+// Import icons
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const ExpandableComponent = ({ item, onClickFunction }) => {
     // Custom Component for the Expandable List
@@ -23,10 +25,13 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
     useEffect(() => {
         if (item.isExpanded) {
             setLayoutHeight(null);
+
         } else {
             setLayoutHeight(0);
         }
     }, [item.isExpanded]);
+
+    const iconName = item.isExpanded ? "chevron-down-outline" : "chevron-up-outline"
 
     return (
         <View>
@@ -34,8 +39,11 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
             <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={onClickFunction}
-                style={styles.topicQuestion}>
-                <Text style={styles.topicQuestionText}>{item.question}</Text>
+                style={item.isExpanded ? styles.expandedQuestion : styles.topicQuestion}>
+                    <View style={styles.twoButtonRow}>
+                        <Text style={styles.topicQuestionText}>{item.question}</Text>
+                        <Ionicons name={iconName} color='#606070' size={16} style={styles.questionIcon} />
+                    </View>
             </TouchableOpacity>
             <View
                 style={{
