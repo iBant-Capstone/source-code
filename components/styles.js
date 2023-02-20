@@ -35,6 +35,16 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       color: '#606070',
       padding: 10,
+    },
+    // For buttons on Info Hub main page
+    infoHubButton: {
+      backgroundColor: '#CF5260',
+      padding: 12,
+      borderRadius: 8
+    },
+    infoHubButtonText: {
+      fontFamily: 'Roboto',
+      color: 'white'
     }
   }
 );

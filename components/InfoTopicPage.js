@@ -1,3 +1,5 @@
+// import React in our code
+import React, { useState, useEffect } from 'react';
 import {
     Text,
     View,
@@ -7,15 +9,15 @@ import {
     TouchableOpacity,
     Platform,
 } from 'react-native';
+// Import styles
 import { styles } from './styles';
+// Import Title component
 import Title from './Title';
+// Import json data of topic q and as
 import data from '../json/topics.json'
 
-// import React in our code
-import React, { useState, useEffect } from 'react';
-
 const ExpandableComponent = ({ item, onClickFunction }) => {
-    //Custom Component for the Expandable List
+    // Custom Component for the Expandable List
     const [layoutHeight, setLayoutHeight] = useState(0);
 
     useEffect(() => {
@@ -74,7 +76,6 @@ const InfoTopicPage = ({ route }) => {
 
     return (
         <View style={styles.centered}>
-            <Title title={route.params.title} />
             <View style={{ flexDirection: 'row', padding: 10 }}>
             </View>
             <ScrollView>

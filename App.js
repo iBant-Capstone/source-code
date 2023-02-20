@@ -22,26 +22,32 @@ export default function App() {
         <Stack.Screen
           name='InformationHub'
           component={InformationHub}
+          options={{headerShown:false}}
         />
         <Stack.Screen
           name='Profile'
           component={Profile}
+          options={{headerShown:false}}
         />
         <Stack.Screen
           name='AboutUs'
           component={AboutUs}
+          options={{headerShown:false}}
         />
         <Stack.Screen
           name='BACCalc'
           component={BACCalc}
+          options={{headerShown:false}}
         />
         <Stack.Screen
           name='InfoTopicPage'
           component={InfoTopicPage}
+          options={({route}) => ({title: route.params.title})}
         />
         <Stack.Screen
           name='AddDrinkPage'
           component={AddDrinkPage}
+          options={{headerShown:false}}
         />
         
       </Stack.Navigator>
