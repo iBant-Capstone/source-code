@@ -1,6 +1,5 @@
-import {Text, View, Button} from 'react-native';
+import {Text, View, Button, AsyncStorage} from 'react-native';
 import * as StyleSheet from '../components/styles';
-import Title from "../components/Title";
 
 let styles = StyleSheet.styles;
 
@@ -11,11 +10,16 @@ const AddDrink = ({route, navigation}) => {
         <View style={styles.centered}>
             <Text>{route.params.title}</Text>
             <Button
-                onPress={() => navigation.navigate('BACCalc', { title: 'Add a Drink' })}
+                onPress={() => navigation.navigate('BACCalc', { title: 'Add a Drink', drinks: route.params.drinks.push("Another Drink") })}
                 title="Add Drink"
                 color="#841584"
                 accessibilityLabel="Learn more about this purple button"
             />
+            {
+                route.params.drinks.map((drink, index) => (
+                    <Text key={index}>{drink}</Text>
+                ))
+            }
         </View>
     );
 }
