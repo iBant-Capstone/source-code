@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View, Button, AsyncStorage} from 'react-native';
 import * as StyleSheet from '../components/styles';
-import Title from "../components/Title";
-import AddDrink from "./AddDrink.js"
+
 
 let styles = StyleSheet.styles;
-const headerTitle = 'BAC Calculator';
+
 
 const BACCalc = ({route, navigation}) => {
 
@@ -17,7 +16,7 @@ const BACCalc = ({route, navigation}) => {
 
     // If we haven't already added a drink yet then initialize the drinks array 
     if (typeof route.drinks == 'undefined') {
-        route.drinks = []
+        route.params.drinks = []
     } 
 
     // TODO: create the array that will hold the different drinks that people add
