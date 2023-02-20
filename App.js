@@ -7,14 +7,13 @@ import BACCalc from './screens/BACCalc.js'
 import InformationHub from './screens/InformationHub.js'
 import AboutUs from './screens/AboutUs.js'
 import InfoTopicPage from './components/InfoTopicPage.js';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 
 const Stack = createStackNavigator();
 
-
+// Create all screens within the Stack Navigator - this will allow us to navigate to them even if they are not explicitly within the nav bar. 
 export default function App() {
-
   return (
     <NavigationContainer>
       <Stack.Navigator>
