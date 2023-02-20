@@ -7,6 +7,7 @@ import BACCalc from './screens/BACCalc.js'
 import InformationHub from './screens/InformationHub.js'
 import AboutUs from './screens/AboutUs.js'
 import InfoTopicPage from './components/InfoTopicPage.js';
+import AddDrinkPage from './screens/AddDrink.js'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
@@ -38,6 +39,11 @@ export default function App() {
           name='InfoTopicPage'
           component={InfoTopicPage}
         />
+        <Stack.Screen
+          name='AddDrinkPage'
+          component={AddDrinkPage}
+        />
+        
       </Stack.Navigator>
 
     </NavigationContainer>
