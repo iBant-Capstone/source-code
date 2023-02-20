@@ -21,17 +21,37 @@ export const styles = StyleSheet.create({
     },
     // For expandables
     topicQuestion: {
-      backgroundColor: '#F5FCFF',
-      padding: 20,
+      backgroundColor: '#FFFFFF',
+      paddingHorizontal: 15,
+      paddingVertical: 10,
+      borderBottomColor: '#E9E9E9',
+      borderBottomWidth: 1
     },
     topicQuestionText: {
       fontSize: 16,
       fontWeight: '500',
+      color: '#CF5361',
+      // marginHorizontal: '5%',
+      marginRight: '5%',
+      width: '80%',
     },
     topicAnswer: {
-      fontSize: 16,
-      color: '#606070',
-      padding: 10,
+      fontSize: 14,
+      color: '#000000',
+      paddingHorizontal: 15,
+      paddingVertical: 10,
+      backgroundColor: '#F2C0C5'
+    },
+    expandedQuestion: {
+      backgroundColor: '#F2C0C5',
+      paddingHorizontal: 15,
+      paddingVertical: 10
+    },
+    // For down/up arrow for question toggle
+    questionIcon :{
+      paddingHorizontal: 15,
+      paddingVertical: 10,
+      width: '10%',
     },
     // For buttons on Info Hub main page
     infoHubButton: {

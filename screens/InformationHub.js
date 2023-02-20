@@ -13,6 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 let styles = StyleSheet.styles;
 const headerTitle = 'Information Hub';
 
+// page content is here
 let InfoPage = (props) => {
   return (
     <View style={styles.centered}>
@@ -52,12 +53,25 @@ let InfoPage = (props) => {
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Social Drinking' })}>
           <Text style={styles.infoHubButtonText}>Social Drinking</Text>
         </Pressable>
+        <Pressable
+          style={styles.infoHubButton}
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Drinking Safety Tips' })}>
+          <Text style={styles.infoHubButtonText}>Drinking Safety Tips</Text>
+        </Pressable>
+        <Pressable
+          style={styles.infoHubButton}
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Resources' })}>
+          <Text style={styles.infoHubButtonText}>Resources</Text>
+        </Pressable>
       </View>
       {/* <Popup/> */}
     </View >
   );
 }
 
+
+// Information Hub is the "home page of the app"
+// Everything below this is part of the navigation bar.
 const Tab = createBottomTabNavigator();
 
 const InformationHub = ({ navigation }) => {
