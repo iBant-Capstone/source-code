@@ -45,7 +45,7 @@ const BACCalc = ({route, navigation}) => {
             />
             <Text style={styles.centered}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text>
             <Button
-                onPress={() => navigation.navigate('AddDrinkPage', { title: 'Add a Drink' })}
+                onPress={() => navigation.navigate('AddDrinkPage', { title: 'Add a Drink', drinks: route.drinks})}
                 title="Add Drink"
                 color="#841584"
                 accessibilityLabel="Learn more about this purple button"

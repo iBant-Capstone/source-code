@@ -16,6 +16,11 @@ const AddDrink = ({route, navigation}) => {
                 color="#841584"
                 accessibilityLabel="Learn more about this purple button"
             />
+            {
+                route.params.drinks.map((drink, index) => (
+                    <Text key={index}>{drink}</Text>
+                ))
+            }
         </View>
     );
 }
