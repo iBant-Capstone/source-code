@@ -20,9 +20,6 @@ export const styles = StyleSheet.create({
       backgroundColor: '#fff',
     },
     // For expandables
-    container: {
-      flex: 1,
-    },
     topicQuestion: {
       backgroundColor: '#F5FCFF',
       padding: 20,
@@ -40,12 +37,36 @@ export const styles = StyleSheet.create({
     infoHubButton: {
       backgroundColor: '#CF5260',
       padding: 12,
-      borderRadius: 8
+      borderRadius: 8,
+      marginBottom: 8,
+      marginHorizontal: '1%',
+      minWidth: '48%',
+      maxWidth: '48%',
+      textAlign: 'left'
     },
     infoHubButtonText: {
-      fontFamily: 'Roboto',
+      // fontFamily: 'Roboto',
       color: 'white'
-    }
+    },
+    twoButtonRow: {
+      flexDirection: 'row',
+      flexWrap: 'wrap'
+    },
+
+    // For buttons on Alcohol Types page
+    alcoholTypesButton: {
+      backgroundColor: '#FFEDD3',
+      padding: 12,
+      borderRadius: 4,
+      marginBottom: 8,
+      marginHorizontal: '1%',
+      minWidth: '48%',
+      textAlign: 'center'
+    },
+    alcoholTypesButtonText: {
+      // fontFamily: 'Roboto',
+      color: 'black'
+    },
   }
 );
 
