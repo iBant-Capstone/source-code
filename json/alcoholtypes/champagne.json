@@ -3,7 +3,9 @@
     "description": "The most common sparking wine, usually used for celebration.",
     "abv": "16-24%",
     "fun fact": "Champagne's sparkling comes from injecting carbon dioxide or via natural fermentation processes.",
-    "fun fact source": "Source 8",
+    "fun fact sources": [
+        "Source 8"
+    ],
     "tags": [
         "Undistilled/Fermented",
         "Wine"

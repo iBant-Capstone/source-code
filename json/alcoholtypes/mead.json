@@ -1,0 +1,12 @@
+{
+    "alcoholid": "Mead",
+    "description": "A blend of water and fermented honey (also referred to as honey wine).",
+    "abv": "7-20%",
+    "fun fact": "Mead ABV varies depending on the maker and ingredients: sack meads have high ABV (up to 20%), while dry meads have lower ABV values, ranging from 8% to 12%.",
+    "fun fact sources": [
+        "Source 11"
+    ],
+    "tags": [
+        "Undistilled/Fermented"
+    ]
+}
