@@ -1,26 +1,21 @@
 import React, {useState} from 'react';
 import {Button, View, Text } from 'react-native';
-import { styles } from './styles';
 import * as StyleSheet from './styles';
 import Modal from "react-native-modal";
 
-// let styles = StyleSheet.styles;
+let styles = StyleSheet.styles;
 
-function Popup()
+function Popup(props)
 {
-    const [isOpen, setIsOpen] = useState(true);
 
-    function onChangeModal() {
-        setIsOpen(!isOpen);
-    }
-
+    
     return(
     //import json file based on popup name 
-    <View >
-        <Modal isVisible={isOpen}>
+    <View>
+        <Modal isVisible={props.isOpen} style={styles.modal}>
             <View>
-            <Text>Hello!</Text>
-            <Button title="Hide modal" onPress={onChangeModal} />
+            <Text>{"Hello, this is information about " + props.alcoholName + "!"}    </Text>
+            <Button title="Close" onPress={props.onChangeModal} />
             </View>
         </Modal>
     </View>
