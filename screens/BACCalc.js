@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, Button} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as StyleSheet from '../components/styles';
@@ -12,30 +12,36 @@ const BACCalc = ({route, navigation}) => {
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
 
-    // TEST DATA FOR CARDS AT THE BOTTOM
-    route.drinks = ["mimosa", "sake"]
+    // React component displaying all the keys (eventually drinks)
+    const AsyncKeys = () => {
+        // the AsyncKeys component uses the useState and useEffect hooks to retrieve the keys from 
+        // async storage and store them in the component state. 
+        const [keys, setKeys] = useState([]);
 
-    // If we haven't already added a drink yet then initialize the drinks array 
-    if (typeof route.drinks == 'undefined') {
-        route.params.drinks = []
-    } 
+        useEffect(() => {
+            async function getKeys() {
+              try {
+                const keys = await AsyncStorage.getAllKeys();
+                setKeys(keys);
+              } catch (error) {
+                console.log(error);
+              }
+            }
 
+            getKeys();
+        }, []);
 
-    const getAllKeys = async () => {
-        try {
-          const keys = await AsyncStorage.getAllKeys();
-          console.log('Async storage keys:', keys);
-        } catch (error) {
-          console.log(error);
-        }
+        return (
+            <View>
+              <Text>Keys in async storage:</Text>
+              {keys.map((key) => (
+                <Text key={key}>{key}</Text>
+              ))}
+            </View>
+        );
     }
 
-    getAllKeys()
-
-    // TODO: create the array that will hold the different drinks that people add
-    // TODO: pass the array to AddDrinks page
-    // TODO: create a button in AddDrinks that adds a drink to the array
-    // TODO: create a simple text display of the array on the BACCAlc page 
+    // TODO: figure out how to retrieve and simply display the data drom async storage
     // TODO: build the cards of the drinks added below the add drink button
     // TODO: make the BAC number updateable
     // TODO: add a buffer div to the top of the page
@@ -62,11 +68,7 @@ const BACCalc = ({route, navigation}) => {
                 color="#841584"
                 accessibilityLabel="Add a drink"
             />
-            {
-                route.drinks.map((drink, index) => (
-                    <Text key={index}>{drink}</Text>
-                ))
-            }
+            <AsyncKeys />
         </View>
     );
 };
