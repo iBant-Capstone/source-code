@@ -87,6 +87,12 @@ export const styles = StyleSheet.create({
       // fontFamily: 'Roboto',
       color: 'black'
     },
+
+    // For images
+    standardDrinkImg: {
+      maxWidth: 900,
+      maxHeight: 421
+    }
   }
 );
 
