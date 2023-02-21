@@ -92,7 +92,8 @@ export const styles = StyleSheet.create({
     // For images
     standardDrinkImg: {
       width: 300,
-      height: 140
+      height: 140,
+      marginTop: '5%'
     },
 
     // For about us buttons

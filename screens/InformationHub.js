@@ -82,7 +82,7 @@ const InformationHub = ({ navigation }) => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           // taking icon names straight from Ionicons
-          if (route.name === 'Hub') {
+          if (route.name === 'Information Hub') {
             iconName = focused ? 'ios-book' : 'ios-book-outline';
           } else if (route.name === 'About') {
             iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
@@ -99,7 +99,7 @@ const InformationHub = ({ navigation }) => {
       })}
     >
       <Tab.Screen
-        name="Hub"
+        name="Information Hub"
         component={InfoPage}
       />
       <Tab.Screen
