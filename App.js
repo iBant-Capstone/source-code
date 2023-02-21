@@ -9,7 +9,9 @@ import AboutUs from './screens/AboutUs.js'
 import InfoTopicPage from './components/InfoTopicPage.js';
 import AddDrinkPage from './screens/AddDrink.js'
 import CommonAlcoholTypes from './screens/CommonAlcoholTypes.js'
-
+import HowToUse from './screens/aboutScreens/HowToUse.js';
+import OurMission from './screens/aboutScreens/OurMission.js';
+import OurSources from './screens/aboutScreens/OurSources.js';
 
 
 const Stack = createStackNavigator();
@@ -53,6 +55,21 @@ export default function App() {
           name='CommonAlcoholTypes'
           component={CommonAlcoholTypes}
           options={({ route }) => ({ title: 'Common Alcohol Types' })}
+        />
+        <Stack.Screen
+          name='HowToUse'
+          component={HowToUse}
+          options={({ route }) => ({ title: 'How to Use' })}
+        />
+        <Stack.Screen
+          name='OurMission'
+          component={OurMission}
+          options={({ route }) => ({ title: 'Our Mission' })}
+        />
+        <Stack.Screen
+          name='OurSources'
+          component={OurSources}
+          options={({ route }) => ({ title: 'Our Sources' })}
         />
       </Stack.Navigator>
 

@@ -7,7 +7,8 @@ import {
     ScrollView,
     UIManager,
     TouchableOpacity,
-    Platform
+    Platform,
+    Image
 } from 'react-native';
 // Import styles
 import { styles } from './styles';
@@ -15,6 +16,8 @@ import { styles } from './styles';
 import data from '../json/topics.json'
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+// import drinkImage from '../assets/images/Standard_Drink_Sizes.png';
 
 const ExpandableComponent = ({ item, onClickFunction }) => {
     // Custom Component for the Expandable List
@@ -38,10 +41,10 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                 activeOpacity={0.8}
                 onPress={onClickFunction}
                 style={item.isExpanded ? styles.expandedQuestion : styles.topicQuestion}>
-                    <View style={styles.twoButtonRow}>
-                        <Text style={styles.topicQuestionText}>{item.question}</Text>
-                        <Ionicons name={iconName} color='#606070' size={16} style={styles.questionIcon} />
-                    </View>
+                <View style={styles.row}>
+                    <Text style={styles.topicQuestionText}>{item.question}</Text>
+                    <Ionicons name={iconName} color='#606070' size={16} style={styles.questionIcon} />
+                </View>
             </TouchableOpacity>
             <View
                 style={{
@@ -80,10 +83,24 @@ const InfoTopicPage = ({ route }) => {
         setListDataSource(array);
     };
 
+    const showImage = () => {
+        if (topicData.topicid === "Standard Drink Sizes") {
+            const imageUrl = require('../assets/images/Standard_Drink_Sizes.png')
+            return (
+                <View style={styles.container}>
+                    <Text style={styles.topicQuestionText}>Standard Drink Sizes Visualized</Text>
+                    <Image
+                        source={imageUrl}
+                        style={styles.standardDrinkImg}
+                        resizeMode='cover'
+                    />
+                </View>
+            )
+        }
+    }
+
     return (
         <View style={styles.centered}>
-            <View style={{ flexDirection: 'row', padding: 10 }}>
-            </View>
             <ScrollView>
                 {listDataSource.map((item, key) => (
                     <ExpandableComponent
@@ -94,6 +111,10 @@ const InfoTopicPage = ({ route }) => {
                         item={item}
                     />
                 ))}
+                <View style={styles.container}>
+                    {showImage()}
+                </View>
+
             </ScrollView>
 
         </View>

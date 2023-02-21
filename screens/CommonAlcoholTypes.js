@@ -49,7 +49,7 @@ const CommonAlcoholTypes = ({ navigation }) => {
     return (
         <View style={styles.centered}>
             <Text style={styles.centered}>Alcohol Types</Text>
-            <View style={styles.twoButtonRow}>
+            <View style={styles.row}>
                 <Pressable
                     style={styles.alcoholTypesButton}
                     onPress={() => changePopup("Beer")}

@@ -9,6 +9,11 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    row: {
+      flexDirection: 'row',
+      flexWrap: 'wrap'
+    },
+
     centered: {
       alignItems: 'center',
       padding: "15px",
@@ -68,10 +73,6 @@ export const styles = StyleSheet.create({
       // fontFamily: 'Roboto',
       color: 'white'
     },
-    twoButtonRow: {
-      flexDirection: 'row',
-      flexWrap: 'wrap'
-    },
 
     // For buttons on Alcohol Types page
     alcoholTypesButton: {
@@ -87,6 +88,35 @@ export const styles = StyleSheet.create({
       // fontFamily: 'Roboto',
       color: 'black'
     },
+
+    // For images
+    standardDrinkImg: {
+      width: 340,
+      height: 507,
+      marginTop: '5%'
+    },
+
+    // For about us buttons
+    aboutButton: {
+      backgroundColor: '#CF5260',
+      padding: 12,
+      borderRadius: 8,
+      marginBottom: 8,
+      marginHorizontal: '5%',
+      width: '90%',
+      textAlign: 'center'
+    },
+
+    // To place Rosie on left
+    rosieLeftImage: {
+      width: '40%', 
+      marginLeft: '5%'
+    },
+    rosieSpeechRight: {
+      maxWidth: '45%', 
+      marginHorizontal: '5%', 
+      marginVertical:'20%'
+    }
   }
 );
 
