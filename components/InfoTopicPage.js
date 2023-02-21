@@ -10,6 +10,7 @@ import {
     Platform,
     Image
 } from 'react-native';
+import { Table, Row } from 'react-native-table-component'
 // Import styles
 import { styles } from './styles';
 // Import json data of topic q and as
@@ -32,6 +33,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
         }
     }, [item.isExpanded]);
 
+    // Change arrow direction based on if it is expanded or not
     const iconName = item.isExpanded ? "chevron-up-outline" : "chevron-down-outline"
 
     return (
@@ -74,18 +76,21 @@ const InfoTopicPage = ({ route }) => {
         UIManager.setLayoutAnimationEnabledExperimental(true);
     }
 
+    // To add animation and expanded parameter
     const updateLayout = (index) => {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
         const array = [...listDataSource];
         // Allow multiple select
         array[index]['isExpanded'] = !array[index]['isExpanded'];
-
         setListDataSource(array);
     };
 
+    // Show standard drink sizes image if the topic is Standard Drink Sizes
     const showImage = () => {
         if (topicData.topicid === "Standard Drink Sizes") {
+            // Use require() to fetch image
             const imageUrl = require('../assets/images/Standard_Drink_Sizes.png')
+            // Return View component with Text and Image
             return (
                 <View style={styles.container}>
                     <Text style={styles.topicQuestionText}>Standard Drink Sizes Visualized</Text>
@@ -99,6 +104,12 @@ const InfoTopicPage = ({ route }) => {
         }
     }
 
+    // Show BAC table if the topic is BAC Levels and Effects
+    const showTable = () => {
+
+    }
+
+    // Return page view
     return (
         <View style={styles.centered}>
             <ScrollView>
