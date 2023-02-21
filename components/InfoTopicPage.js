@@ -88,7 +88,7 @@ const InfoTopicPage = ({ route }) => {
             const imageUrl = require('../assets/images/Standard_Drink_Sizes.png')
             return (
                 <View style={styles.container}>
-                    <Text style={styles.topicQuestionText}>Standard Drink Sizes Table</Text>
+                    <Text style={styles.topicQuestionText}>Standard Drink Sizes Visualized</Text>
                     <Image
                         source={imageUrl}
                         style={styles.standardDrinkImg}

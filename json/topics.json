@@ -70,13 +70,6 @@
                 "sources": [
                     "Source 3"
                 ]
-            },
-            {
-                "question": "*Standard Drink Sizes Table*",
-                "answer": "*TO-DO: figure out how to add drink sizes table*",
-                "sources": [
-                    "Source "
-                ]
             }
         ],
         "imgUrl": "../assets/images/Standard_Drink_Sizes.png"

@@ -91,8 +91,8 @@ export const styles = StyleSheet.create({
 
     // For images
     standardDrinkImg: {
-      width: 300,
-      height: 140,
+      width: 340,
+      height: 507,
       marginTop: '5%'
     },
 
