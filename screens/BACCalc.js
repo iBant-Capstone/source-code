@@ -22,6 +22,8 @@ const BACCalc = ({route, navigation}) => {
             async function getKeys() {
               try {
                 const keys = await AsyncStorage.getAllKeys();
+                const existingDrinks = await AsyncStorage.getItem('drinks');
+                console.log(existingDrinks)
                 setKeys(keys);
               } catch (error) {
                 console.log(error);
