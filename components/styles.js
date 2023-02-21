@@ -9,6 +9,11 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    row: {
+      flexDirection: 'row',
+      flexWrap: 'wrap'
+    },
+
     centered: {
       alignItems: 'center',
       padding: "15px",
@@ -68,10 +73,6 @@ export const styles = StyleSheet.create({
       // fontFamily: 'Roboto',
       color: 'white'
     },
-    twoButtonRow: {
-      flexDirection: 'row',
-      flexWrap: 'wrap'
-    },
 
     // For buttons on Alcohol Types page
     alcoholTypesButton: {
@@ -90,8 +91,8 @@ export const styles = StyleSheet.create({
 
     // For images
     standardDrinkImg: {
-      maxWidth: 900,
-      maxHeight: 421
+      width: 300,
+      height: 140
     },
 
     // For about us buttons
@@ -104,6 +105,17 @@ export const styles = StyleSheet.create({
       width: '90%',
       textAlign: 'center'
     },
+
+    // To place Rosie on left
+    rosieLeftImage: {
+      width: '40%', 
+      marginLeft: '5%'
+    },
+    rosieSpeechRight: {
+      maxWidth: '45%', 
+      marginHorizontal: '5%', 
+      marginVertical:'20%'
+    }
   }
 );
 

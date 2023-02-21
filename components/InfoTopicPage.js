@@ -17,7 +17,7 @@ import data from '../json/topics.json'
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import drinkImage from '../assets/images/Standard_Drink_Sizes.png';
+// import drinkImage from '../assets/images/Standard_Drink_Sizes.png';
 
 const ExpandableComponent = ({ item, onClickFunction }) => {
     // Custom Component for the Expandable List
@@ -41,7 +41,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                 activeOpacity={0.8}
                 onPress={onClickFunction}
                 style={item.isExpanded ? styles.expandedQuestion : styles.topicQuestion}>
-                <View style={styles.twoButtonRow}>
+                <View style={styles.row}>
                     <Text style={styles.topicQuestionText}>{item.question}</Text>
                     <Ionicons name={iconName} color='#606070' size={16} style={styles.questionIcon} />
                 </View>
@@ -85,11 +85,16 @@ const InfoTopicPage = ({ route }) => {
 
     const showImage = () => {
         if (topicData.topicid === "Standard Drink Sizes") {
+            const imageUrl = require('../assets/images/Standard_Drink_Sizes.png')
             return (
-                <Image
-                    source={drinkImage}
-                    style={styles.standardDrinkImg}
-                />
+                <View style={styles.container}>
+                    <Text style={styles.topicQuestionText}>Standard Drink Sizes Table</Text>
+                    <Image
+                        source={imageUrl}
+                        style={styles.standardDrinkImg}
+                        resizeMode='cover'
+                    />
+                </View>
             )
         }
     }
@@ -106,7 +111,10 @@ const InfoTopicPage = ({ route }) => {
                         item={item}
                     />
                 ))}
-                {showImage()}
+                <View style={styles.container}>
+                    {showImage()}
+                </View>
+
             </ScrollView>
 
         </View>

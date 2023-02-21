@@ -1,6 +1,5 @@
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View, Image, ImageBackground } from 'react-native';
 import * as StyleSheet from '../components/styles';
-import Title from "../components/Title";
 import Popup from '../components/AlcoholPopUp';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -11,15 +10,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 let styles = StyleSheet.styles;
-const headerTitle = 'Information Hub';
 
 // page content is here
 let InfoPage = (props) => {
   return (
-    <View style={styles.centered}>
-      <Title title={headerTitle} />
-      <Text style={styles.centered}>This is the Information Hub: Learn about alcohol and its effects on you!</Text>
-      <View style={styles.twoButtonRow}>
+    <View>
+      {/* <Text style={styles.centered}>This is the Information Hub: Learn about alcohol and its effects on you!</Text> */}
+      <View style={styles.row}>
+        <Image style={styles.rosieLeftImage} source={require('../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
+        <Text style={styles.rosieSpeechRight}>This is the Information Hub: Learn about alcohol and its effects on you!</Text>
+      </View>
+      <View style={[styles.row, styles.centered]}>
         <Pressable
           style={styles.infoHubButton}
           onPress={() => props.navigation.navigate('CommonAlcoholTypes')}>
