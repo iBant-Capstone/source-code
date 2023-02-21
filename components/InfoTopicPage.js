@@ -11,8 +11,6 @@ import {
 } from 'react-native';
 // Import styles
 import { styles } from './styles';
-// Import Title component
-import Title from './Title';
 // Import json data of topic q and as
 import data from '../json/topics.json'
 // Import icons
@@ -31,7 +29,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
         }
     }, [item.isExpanded]);
 
-    const iconName = item.isExpanded ? "chevron-down-outline" : "chevron-up-outline"
+    const iconName = item.isExpanded ? "chevron-up-outline" : "chevron-down-outline"
 
     return (
         <View>

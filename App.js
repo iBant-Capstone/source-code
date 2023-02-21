@@ -47,7 +47,7 @@ export default function App() {
         <Stack.Screen
           name='AddDrinkPage'
           component={AddDrinkPage}
-          options={{ headerShown: false }}
+          options={({route}) => ({title: 'Add Drink'})}
         />
         <Stack.Screen
           name='CommonAlcoholTypes'
