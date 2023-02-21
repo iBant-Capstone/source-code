@@ -17,7 +17,7 @@ let InfoPage = (props) => {
     <View>
       {/* <Text style={styles.centered}>This is the Information Hub: Learn about alcohol and its effects on you!</Text> */}
       <View style={styles.row}>
-        <Image style={styles.rosieLeftImage} source={require('../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
+        <Image style={styles.rosieLeftImage} source={require('../assets/avatars/Scientist_Rosie_shadow.png')} resizeMode='contain' />
         <Text style={styles.rosieSpeechRight}>Hi there, welcome to our Information Hub! What alcohol information are you looking for?</Text>
       </View>
       <View style={[styles.row, styles.centered]}>
