@@ -31,7 +31,8 @@
                     "Source 15"
                 ]
             }
-        ]
+        ],
+        "imgUrl": ""
     },
     {
         "topicid": "BAC Levels and Effects",
@@ -57,7 +58,8 @@
                     "Source "
                 ]
             }
-        ]
+        ],
+        "imgUrl": ""
     },
     {
         "topicid": "Standard Drink Sizes",
@@ -76,7 +78,8 @@
                     "Source "
                 ]
             }
-        ]
+        ],
+        "imgUrl": ""
     },
     {
         "topicid": "Measuring Alcohol Content",
@@ -97,7 +100,8 @@
                     "Source 2"
                 ]
             }
-        ]
+        ],
+        "imgUrl": ""
     },
     {
         "topicid": "Social Drinking",
@@ -123,7 +127,8 @@
                     "Source "
                 ]
             }
-        ]
+        ],
+        "imgUrl": ""
     },
     {
         "topicid": "Drinking Safety Tips",
@@ -149,7 +154,8 @@
                     "Source "
                 ]
             }
-        ]
+        ],
+        "imgUrl": ""
     },
     {
         "topicid": "Resources",
@@ -175,6 +181,7 @@
                     "Source "
                 ]
             }
-        ]
+        ],
+        "imgUrl": ""
     }
 ]
