@@ -92,7 +92,18 @@ export const styles = StyleSheet.create({
     standardDrinkImg: {
       maxWidth: 900,
       maxHeight: 421
-    }
+    },
+
+    // For about us buttons
+    aboutButton: {
+      backgroundColor: '#CF5260',
+      padding: 12,
+      borderRadius: 8,
+      marginBottom: 8,
+      marginHorizontal: '5%',
+      width: '90%',
+      textAlign: 'center'
+    },
   }
 );
 
