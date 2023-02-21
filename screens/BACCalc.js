@@ -13,32 +13,39 @@ const BACCalc = ({route, navigation}) => {
     const [onInside, changeInsideOut] = useState(true)
 
     // React component displaying all the keys (eventually keys = drinks)
-    const AsyncKeys = () => {
+    const AsyncDrinks = () => {
         // stores the keys in the component's state. 
-        const [keys, setKeys] = useState([]);
+        const [drinks, setDrinks] = useState([]);
 
-        // retrieves the keys from async storage
+        // retrieves the drinks from async storage
         useEffect(() => {
-            async function getKeys() {
+            async function getDrinks() {
               try {
-                const keys = await AsyncStorage.getAllKeys();
-                const existingDrinks = await AsyncStorage.getItem('drinks');
-                console.log(existingDrinks)
-                setKeys(keys);
+                // Get the list of drinks from the async storage
+                const drinksListAsync = await AsyncStorage.getItem('drinks');
+
+                // Get the parsed version of the drinkslist (or empy array if it's empty)
+                let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
+                console.log(drinksList)
+
+                // Set our state drinksList
+                setDrinks(drinksList);
               } catch (error) {
                 console.log(error);
               }
             }
 
-            getKeys();
+            getDrinks();
         }, []);
 
         // Returns the JSX to display
         return (
             <View>
-              <Text>Keys in async storage:</Text>
-              {keys.map((key) => (
-                <Text key={key}>{key}</Text>
+              <Text>Drinks in async storage:</Text>
+              {drinks.map((drink, index) => (
+                <View key={index}>
+                    <Text>Name: {drink.name}, Size: {drink.size}, Strength: {drink.strength}</Text>
+                </View>
               ))}
             </View>
         );
@@ -67,12 +74,18 @@ const BACCalc = ({route, navigation}) => {
             />
             <Text style={styles.centered}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text>
             <Button
-                onPress={() => navigation.navigate('AddDrinkPage', { title: 'Add a Drink', drinks: route.drinks})}
+                onPress={() => navigation.navigate('AddDrinkPage', { title: 'Add a Drink'})}
                 title="Add Drink"
                 color="#841584"
                 accessibilityLabel="Add a drink"
             />
-            <AsyncKeys />
+            <AsyncDrinks />
+            <Button
+                onPress={() => AsyncStorage.clear()}
+                title="Clear Drinks"
+                color="#841584"
+                accessibilityLabel="Add a drink"
+            />
         </View>
     );
 };
