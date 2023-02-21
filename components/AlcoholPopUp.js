@@ -8,7 +8,8 @@ let styles = StyleSheet.styles;
 function Popup(props)
 {
 
-    
+    console.log("popup is called");
+    console.log("is open", props.isOpen)
     return(
     //import json file based on popup name 
     <View>
