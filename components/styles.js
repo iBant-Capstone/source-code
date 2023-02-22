@@ -117,10 +117,22 @@ export const styles = StyleSheet.create({
       marginHorizontal: '5%', 
       marginVertical:'20%'
     },
-
+    // For info hub pages with special components
+    specialInfoItem: {
+      marginHorizontal: 15,
+      marginVertical: 10
+    },
+    // Table
     tableText: {
-      margin: 6
-    }
+      margin: 6,
+      fontSize: 14
+    },
+    headStyle: { 
+      height: 35,
+      textAlign: "center",
+      backgroundColor: '#DF8B94'
+    },
+    
   }
 );
 

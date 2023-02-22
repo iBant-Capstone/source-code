@@ -93,11 +93,11 @@ const InfoTopicPage = ({ route }) => {
             const imageUrl = require('../assets/images/Standard_Drink_Sizes.png')
             // Return View component with Text and Image
             return (
-                <View style={styles.container}>
-                    <Text style={styles.topicQuestionText}>Standard Drink Sizes Visualized</Text>
+                <View>
+                    <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>Standard Drink Sizes Visualized</Text>
                     <Image
                         source={imageUrl}
-                        style={styles.standardDrinkImg}
+                        style={[styles.standardDrinkImg, styles.specialInfoItem]}
                         resizeMode='cover'
                     />
                 </View>
@@ -110,10 +110,13 @@ const InfoTopicPage = ({ route }) => {
         if (topicData.topicid === "BAC Levels and Effects") {
             const headTable = ['BAC Level', 'Effects'];
             return (
-                <Table borderStyle={{ borderColor: 'black' }}>
-                    <Row data={headTable} />
-                    <Rows data={BACeffects} textStyle={styles.tableText}/>
-                </Table>
+                <View>
+                    <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>BAC Levels: Table</Text>
+                    <Table borderStyle={{ borderColor: '#606070', borderStyle: 'solid', borderWidth: 1 }} style={styles.specialInfoItem}>
+                        <Row data={headTable} style={styles.headStyle} textStyle={{ fontWeight: "600", color: "white" }} widthArr={[100, undefined]} />
+                        <Rows data={BACeffects} textStyle={styles.tableText} widthArr={[100, undefined]} />
+                    </Table>
+                </View>
             )
         }
     }
@@ -131,6 +134,7 @@ const InfoTopicPage = ({ route }) => {
                         item={item}
                     />
                 ))}
+
                 <View style={styles.container}>
                     {showImage()}
                     {showTable()}
