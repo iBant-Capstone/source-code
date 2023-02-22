@@ -10,11 +10,12 @@ import {
     Platform,
     Image
 } from 'react-native';
-import { Table, Row } from 'react-native-table-component'
+import { Table, Row, Rows } from 'react-native-table-component'
 // Import styles
 import { styles } from './styles';
 // Import json data of topic q and as
 import data from '../json/topics.json'
+import BACeffects from '../json/bac-levels.json'
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -106,7 +107,15 @@ const InfoTopicPage = ({ route }) => {
 
     // Show BAC table if the topic is BAC Levels and Effects
     const showTable = () => {
-
+        if (topicData.topicid === "BAC Levels and Effects") {
+            const headTable = ['BAC Level', 'Effects'];
+            return (
+                <Table borderStyle={{ borderColor: 'black' }}>
+                    <Row data={headTable} />
+                    <Rows data={BACeffects} textStyle={styles.tableText}/>
+                </Table>
+            )
+        }
     }
 
     // Return page view
@@ -124,6 +133,7 @@ const InfoTopicPage = ({ route }) => {
                 ))}
                 <View style={styles.container}>
                     {showImage()}
+                    {showTable()}
                 </View>
 
             </ScrollView>

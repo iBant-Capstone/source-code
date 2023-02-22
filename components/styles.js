@@ -116,6 +116,10 @@ export const styles = StyleSheet.create({
       maxWidth: '45%', 
       marginHorizontal: '5%', 
       marginVertical:'20%'
+    },
+
+    tableText: {
+      margin: 6
     }
   }
 );
