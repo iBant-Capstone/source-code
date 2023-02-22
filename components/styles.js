@@ -156,6 +156,10 @@ export const styles = StyleSheet.create({
     marginHorizontal: '5%',
     paddingVertical: '15px' 
   },
+  howToBoldText: {
+    fontWeight: '600',
+    color: '#CF5260'
+  }
 
 }
 );
