@@ -32,7 +32,12 @@ const CommonAlcoholTypes = ({ navigation }) => {
     }
     
     function getValue (alcoholName) {
-        isOpenArray.filter(alcohol => {if(alcohol.alcoholName === alcoholName) { return alcohol.isOpen;}})
+        for (let item in isOpenArray) {
+            let alcohol = isOpenArray[item];
+            if(alcohol.alcoholName === alcoholName) {
+                return isOpenArray[item].isPopupOpen 
+            }
+        }
     }
 
 
@@ -52,7 +57,7 @@ const CommonAlcoholTypes = ({ navigation }) => {
             <View style={styles.row}>
                 <Pressable
                     style={styles.alcoholTypesButton}
-                    onPress={() => changePopup("Beer")}
+                    onPress={() => {changePopup("Beer"); console.log("onPress callback"); console.log(getValue("Beer"))}}
                     >
                     <Popup isOpen={getValue("Beer")} onChangeModal={() => changePopup("Beer")} alcoholName="Beer"/> 
                     <Text style={styles.alcoholTypesButtonText}>Beer</Text>
