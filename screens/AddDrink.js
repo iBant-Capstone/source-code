@@ -26,20 +26,21 @@ const AddDrink = ({route, navigation}) => {
             time: timeInputValue
         }
 
-        console.log(newDrink)
+        console.log("new drink: " + JSON.stringify(newDrink))
 
         try {
-          const existingDrinks = await AsyncStorage.getItem('drinks');
-          const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
-    
-          drinks.push(JSON.stringify(newDrink));
-    
-          await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
-          setTextInputValue('');
-          setNameInputValue('');
-          setSizeInputValue('');
-          setStrengthInputValue('');
-          setTimeInputValue('');
+            const existingDrinks = await AsyncStorage.getItem('drinks');
+            const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
+        
+            drinks.push(JSON.stringify(newDrink));
+        
+            await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
+            //   setTextInputValue('');
+            //   setNameInputValue('');
+            //   setSizeInputValue('');
+            //   setStrengthInputValue('');
+            //   setTimeInputValue('');
+            navigation.navigate('BACCalc')
         } catch (error) {
           console.log(error);
         }
