@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
   // Rosie Related Styling:
   // To place Rosie on left
   rosieLeftImage: {
-    minWidth: '48%',
+    width: '48%',
     marginLeft: '5%',
     marginVertical: 10
   },
@@ -140,7 +140,22 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: '#CF5260',
     fontWeight: "500"
-  }
+  },
+  // How to Use page icons
+  howToIcon: {
+    fontSize: 'xxx-large'
+  },
+  howToIconContainer: {
+    width: '12%',
+    marginLeft: '5%',
+    alignContent: "center",
+    paddingVertical: '6%'
+  },
+  howToIconText: {
+    maxWidth: '73%',
+    marginHorizontal: '5%',
+    paddingVertical: '15px' 
+  },
 
 }
 );
