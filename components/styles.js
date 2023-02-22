@@ -3,6 +3,7 @@ import { StyleSheet} from 'react-native'
 
 
 export const styles = StyleSheet.create({
+  // Styling components for overall items
     container: {
       flex: 1,
       backgroundColor: '#fff',
@@ -24,6 +25,20 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       backgroundColor: '#fff',
     },
+    
+    // Rosie Related Styling:
+    // To place Rosie on left
+    rosieLeftImage: {
+      width: '40%', 
+      marginLeft: '5%'
+    },
+    rosieSpeechRight: {
+      maxWidth: '45%', 
+      marginHorizontal: '5%', 
+      marginVertical:'20%'
+    },
+
+    // **Info Hub page(s) styling: 
     // For expandables
     topicQuestion: {
       backgroundColor: '#FFFFFF',
@@ -36,7 +51,6 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       fontWeight: '500',
       color: '#CF5361',
-      // marginHorizontal: '5%',
       marginRight: '5%',
       width: '80%',
     },
@@ -73,50 +87,6 @@ export const styles = StyleSheet.create({
       // fontFamily: 'Roboto',
       color: 'white'
     },
-
-    // For buttons on Alcohol Types page
-    alcoholTypesButton: {
-      backgroundColor: '#FFEDD3',
-      padding: 12,
-      borderRadius: 4,
-      marginBottom: 8,
-      marginHorizontal: '1%',
-      minWidth: '48%',
-      textAlign: 'center'
-    },
-    alcoholTypesButtonText: {
-      // fontFamily: 'Roboto',
-      color: 'black'
-    },
-
-    // For images
-    standardDrinkImg: {
-      width: 340,
-      height: 507,
-      marginTop: '5%'
-    },
-
-    // For about us buttons
-    aboutButton: {
-      backgroundColor: '#CF5260',
-      padding: 12,
-      borderRadius: 8,
-      marginBottom: 8,
-      marginHorizontal: '5%',
-      width: '90%',
-      textAlign: 'center'
-    },
-
-    // To place Rosie on left
-    rosieLeftImage: {
-      width: '40%', 
-      marginLeft: '5%'
-    },
-    rosieSpeechRight: {
-      maxWidth: '45%', 
-      marginHorizontal: '5%', 
-      marginVertical:'20%'
-    },
     // For info hub pages with special components
     specialInfoItem: {
       marginHorizontal: 15,
@@ -132,6 +102,38 @@ export const styles = StyleSheet.create({
       textAlign: "center",
       backgroundColor: '#DF8B94'
     },
+    // Image
+    standardDrinkImg: {
+      width: 340,
+      height: 507,
+      marginTop: '5%'
+    },
+    // For buttons on Alcohol Types page
+    alcoholTypesButton: {
+      backgroundColor: '#FFEDD3',
+      padding: 12,
+      borderRadius: 4,
+      marginBottom: 8,
+      marginHorizontal: '1%',
+      minWidth: '48%',
+      textAlign: 'center'
+    },
+    alcoholTypesButtonText: {
+      // fontFamily: 'Roboto',
+      color: 'black'
+    },
+
+    // ** Profile page/About us pages styling
+    // For about us buttons
+    aboutButton: {
+      backgroundColor: '#CF5260',
+      padding: 12,
+      borderRadius: 8,
+      marginBottom: 8,
+      marginHorizontal: '5%',
+      width: '90%',
+      textAlign: 'center'
+    }
     
   }
 );
