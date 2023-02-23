@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
   },
 
   // Logo related styling:
-  largeLogo: {
+  largeLogoWithText: {
     maxWidth: '100%',
     maxHeight: '100%',
     marginTop: '10%'

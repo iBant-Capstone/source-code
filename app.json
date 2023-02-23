@@ -22,12 +22,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icons/BACtracker_logo.png",
+        "foregroundImage": "./assets/icons/BACtracker_logo_without_text.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/icons/BACtracker_logo.png"
+      "favicon": "./assets/icons/BACtracker_logo_without_text.png"
     }
   }
 }
