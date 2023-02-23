@@ -1,11 +1,8 @@
 import { Text, View, Pressable } from 'react-native';
 import * as StyleSheet from '../components/styles';
-import Title from "../components/Title";
 import { Image } from 'react-native';
 
 let styles = StyleSheet.styles;
-const headerTitle = 'Profile Page';
-
 
 const Profile = (props) => {
     return (
@@ -16,8 +13,6 @@ const Profile = (props) => {
             </View>
 
             <View style={styles.centered}>
-                {/* <Title title={headerTitle} /> */}
-                {/* <Text style={styles.centered}> This is the Profile: edit your information here!</Text> */}
                 <Pressable
                     style={styles.aboutButton}
                     onPress={() => props.navigation.navigate('HowToUse')}

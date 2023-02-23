@@ -3,19 +3,20 @@ import * as StyleSheet from '../components/styles';
 import Popup from '../components/AlcoholPopUp';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+// Import other nav bar pages
 import Profile from './Profile'
 import BACCalc from './BACCalc'
-import AboutUs from './AboutUs'
+
+// Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
+// Set style 
 let styles = StyleSheet.styles;
 
-// page content is here
+// Page to be returned
 let InfoPage = (props) => {
   return (
     <View>
-      {/* <Text style={styles.centered}>This is the Information Hub: Learn about alcohol and its effects on you!</Text> */}
       <View style={styles.row}>
         <Image style={styles.rosieLeftImage} source={require('../assets/avatars/Scientist_Rosie_shadow.png')} resizeMode='contain' />
         <Text style={styles.rosieSpeechRight}>Hi there, welcome to our Information Hub! What alcohol information are you looking for?</Text>
@@ -84,8 +85,6 @@ const InformationHub = ({ navigation }) => {
           // taking icon names straight from Ionicons
           if (route.name === 'Information Hub') {
             iconName = focused ? 'ios-book' : 'ios-book-outline';
-          } else if (route.name === 'About') {
-            iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
           } else if (route.name === 'BAC Calc') {
             iconName = focused ? 'ios-calculator' : 'ios-calculator-outline';
           } else if (route.name === 'Profile') {
