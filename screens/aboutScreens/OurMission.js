@@ -5,7 +5,7 @@ let styles = StyleSheet.styles;
 
 const OurMission = () => {
     return (
-        <View style={styles.container}>
+        <View style={styles.centerContainer}>
             <View style={styles.row}>
                 <Image style={styles.rosieLeftImage} source={require('../../assets/avatars/Casual_Rosie_shadow.png')} resizeMode='contain' />
                 <Text style={styles.rosieSpeechRight}>Our goal is to increase the user's knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!</Text>

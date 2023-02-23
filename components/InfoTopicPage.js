@@ -135,7 +135,7 @@ const InfoTopicPage = ({ route }) => {
                     />
                 ))}
 
-                <View style={styles.container}>
+                <View style={styles.centerContainer}>
                     {showImage()}
                     {showTable()}
                 </View>

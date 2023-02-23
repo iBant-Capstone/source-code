@@ -4,11 +4,18 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   // Styling components for overall items
-  container: {
+  centerContainer: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  leftContainer: {
+    flex: 1,
+    paddingHorizontal: '15px',
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
   },
   row: {
     flexDirection: 'row',
@@ -156,9 +163,17 @@ export const styles = StyleSheet.create({
     marginHorizontal: '5%',
     paddingVertical: '15px' 
   },
-  howToBoldText: {
+  // Text styling
+  redBoldText: {
     fontWeight: '600',
     color: '#CF5260'
+  },
+  link: {
+    textDecorationLine: 'underline',
+    color: '#387780',
+    marginVertical: 15,
+    fontSize: 14,
+    textAlign: 'left'
   }
 
 }
