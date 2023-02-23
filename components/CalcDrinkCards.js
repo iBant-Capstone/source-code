@@ -20,7 +20,7 @@ const CalcDrinkCards = () => {
                   // Get the list of drinks from the async storage
                   const drinksListAsync = await AsyncStorage.getItem('drinks');
       
-                  // Get the parsed version of the drinkslist (or empy array if it's empty)
+                  // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
                   let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
                   console.log("Drinks list: " + drinksList)
       
