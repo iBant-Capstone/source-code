@@ -121,24 +121,23 @@
                 "question": "What are some drinking safety tips?",
                 "answer": "Key tips for staying safe while drinking: 1. Never leave a drink unattended (either take it with you or throw it out, and avoid using the same cup to refill your drink); 2. Don't accept drinks from people you don't know or trust (if possible, go with the person to the bar to order a drink, watch it be poured, and carry it yourself); 3. Know what you're drinking (search up an ingredient if you don't recognize it); 4. Trust your instincts (if you feel unsafe, uncomfortable, or worried for any reason, go with your gut. Get somewhere safe and find someone you trust, or call law enforcement); 5. Check in with yourself (figure out your limits before you go out drinking, and check in with yourself periodically to register how you feel); 6. Be aware of sudden changes in how your body feels (if you feel changes and suspect you or a friend has been drugged, call 911 and inform the healthcare professionals. Tell a friend and have them take you to a safe place); 7. Keep an eye on your friends (if you're going out in a group, plan to arrive together and leave together. Check in with your friends and have them check in on you.); 8. Always have a plan to get home and have a backup plan (keep emergency contacts ready and have multiple options to get home); 9. Never mix alcohol with drugs (check the labels of any medication you're taking before drinking)",
                 "sources": [
-                    "Source 24",
-                    "Source 25",
-                    "iBant User Interviews"
+                    24,
+                    25
                 ]
             },
             {
                 "question": "How can I avoid drink spiking/tampering?",
                 "answer": "1. Never leave a drink unattended (either take it with you or throw it out, and avoid using the same cup to refill your drink); 2. Don't accept drinks from people you don't know or trust (if possible, go with the person to the bar to order a drink, watch it be poured, and carry it yourself); 3. Know what you're drinking (search up an ingredient if you don't recognize it)",
                 "sources": [
-                    "Source 24"
+                    24
                 ]
             },
             {
                 "question": "How can I recognize alcohol poisoning, and what should I do?",
                 "answer": "Signs of alcohol poisoning include: Vomiting, Seizures, Stupor or mental confusion, Unconsciousness and an inability to wake up, Hypothermia (low body temperature), Slow breathing (fewer than eight breaths per minute), Irregular breathing (more than 10 seconds between breaths). Be aware that alcohol poisoning can get worse even after a person has passed out. If you see any signs of alcohol poisoning, stay with that person and get help immediately! Call 911, be prepared to provide information, never leave the person alone, and ask bystanders to help.",                
                 "sources": [
-                    "Source 25",
-                    "Source 26"
+                    25,
+                    26
                 ]
             }
         ],
