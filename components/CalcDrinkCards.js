@@ -8,10 +8,11 @@ let styles = StyleSheet.styles;
 
 // React component displaying all the drinks
 const CalcDrinkCards = () => {
-    // stores the keys in the component's state. 
+    // stores the drinks in the component's state. 
     const [drinks, setDrinks] = useState([]);
 
-    // retrieves the drinks from async storage
+    // retrieves the drinks from async storage eveytime the component is refocused 
+    // (had to use a FocusEffect because the regular useEffect only remounted the component after a biger reload of the entire app)
     useFocusEffect(
         React.useCallback(() => {
             async function getDrinks() {

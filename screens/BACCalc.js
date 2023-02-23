@@ -13,9 +13,7 @@ const BACCalc = ({route, navigation}) => {
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
 
-    // TODO: add the right data to the async storage set method
     // TODO: build the cards of the drinks added below the add drink button
-    // TODO: MAYBE move the async keys component to it's own file?
     // TODO: make the BAC number updateable
     // TODO: add a buffer div to the top of the page
 
