@@ -25,7 +25,7 @@ const URLLink = ({ id, name, url }) => {
 
     return (
         <View style={styles.leftContainer}>
-            <Text style={{marginVertical: 5}}>
+            <Text style={styles.centered}>
                 <Text style={styles.redBoldText}>{id}: </Text><Text onPress={handlePress} style={styles.link}>{name}</Text>
             </Text>
         </View>

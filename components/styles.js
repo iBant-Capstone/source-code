@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   },
   leftContainer: {
     flex: 1,
-    paddingHorizontal: '15px',
+    // paddingHorizontal: '15px',
     backgroundColor: '#fff',
     flexDirection: 'row',
     justifyContent: 'flex-start'
@@ -171,9 +171,7 @@ export const styles = StyleSheet.create({
   link: {
     textDecorationLine: 'underline',
     color: '#387780',
-    marginVertical: 15,
-    fontSize: 14,
-    textAlign: 'left'
+    fontSize: 14
   }
 
 }
