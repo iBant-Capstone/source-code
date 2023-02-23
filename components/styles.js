@@ -47,6 +47,13 @@ export const styles = StyleSheet.create({
     marginVertical: 50
   },
 
+  // Logo related styling:
+  largeLogo: {
+    maxWidth: '100%',
+    maxHeight: '100%',
+    marginTop: '10%'
+  },
+
   // **Info Hub page(s) styling: 
   // For expandables
   topicQuestion: {
