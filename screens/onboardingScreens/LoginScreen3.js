@@ -11,6 +11,8 @@ const LoginScreen3 = () => {
             Welcome to our app, BACtracker! This is a tool  for young adults to explore and educate themselves about drinking alcohol.
             Our mission is to increase knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!
         </Text>
+        // add Next button
+        // add progress bar (circles) at bottom of screen -> not MVP
     );
 };
 
