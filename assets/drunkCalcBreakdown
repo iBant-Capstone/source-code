@@ -1,64 +1,10 @@
-HTMLElement.prototype.fadeOut = function() {
-    this.style.opacity = 0
-}
-,
-HTMLElement.prototype.fadeIn = function() {
-    setTimeout(()=>{
-        this.style.opacity = 1
-    }
-    , 100)
-}
-,
-HTMLElement.prototype.displayNone = function() {
-    this.style.display = "none"
-}
-,
-HTMLElement.prototype.displayBlock = function() {
-    this.style.display = "block"
-}
-,
-HTMLElement.prototype.displayInlineBlock = function() {
-    this.style.display = "inline-block"
-}
-,
-HTMLElement.prototype.displayFlex = function() {
-    this.style.display = "flex"
-}
-,
-HTMLElement.prototype.displayNoneFadeOut = function() {
-    this.fadeOut(),
-    this.displayNone()
-}
-,
-HTMLElement.prototype.displayBlockFadeIn = function() {
-    this.displayBlock(),
-    this.fadeIn()
-}
-,
-HTMLElement.prototype.displayFlexFadeIn = function() {
-    this.displayFlex(),
-    this.fadeIn()
-}
-,
-HTMLElement.prototype.clearHTML = function() {
-    this.innerHTML = ""
-}
-,
-HTMLElement.prototype.hideValidationMessage = function() {
-    this.firstChild && this.removeChild(this.firstChild),
-    this.style.opacity = 0
-}
-,
-HTMLElement.prototype.showValidationMessage = function(e) {
-    this.innerHTML = e,
-    this.style.opacity = 1
-}
-,
-navigator.serviceWorker && navigator.serviceWorker.register("./sw.js").then(function(e) {
-    console.log("Excellent, registered with scope: ", e.scope)
-});
+
+// Initialize the drinks consumed
 let drinksConsumed = []
   , personalDetails = {};
+
+
+// Show all the types of drinks
 const BAC_REDUCTION_PER_MINUTE = 25e-5
   , DRINK_DETAILS = {
     Beer: {
@@ -213,6 +159,8 @@ function setEventListeners() {
     ),
     window.addEventListener("keydown", checkIfUserIsTabbing)
 }
+
+// Unknown
 function createTimePicker() {
     flatpickr(document.querySelector("#time"), {
         enableTime: !0,
@@ -221,9 +169,13 @@ function createTimePicker() {
     }),
     document.querySelector("input#time").addEventListener("change", isDrinkTimeValid)
 }
+
+// Not relevant
 function checkIfUserIsTabbing(e) {
     "Tab" === e.key && document.body.classList.add("user-is-tabbing")
 }
+
+// Not relevat
 function setupPage() {
     showImperialHideMetricPersonalDetailsDivs(),
     setEventListeners(),
@@ -233,6 +185,8 @@ function setupPage() {
         scrollToTop()
     }
 }
+
+// Not relevant
 function scrollToTop() {
     window.scrollTo(0, 0)
 }
