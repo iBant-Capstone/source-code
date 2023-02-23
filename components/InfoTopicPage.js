@@ -18,8 +18,9 @@ import data from '../json/topics.json'
 import BACeffects from '../json/bac-levels.json'
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-// import drinkImage from '../assets/images/Standard_Drink_Sizes.png';
+// Import superscript
+import SuperscriptText from './Superscript';
+import { randomInt } from 'crypto';
 
 const ExpandableComponent = ({ item, onClickFunction }) => {
     // Custom Component for the Expandable List
@@ -36,6 +37,8 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
 
     // Change arrow direction based on if it is expanded or not
     const iconName = item.isExpanded ? "chevron-up-outline" : "chevron-down-outline"
+
+    let keyCount = 1;
 
     return (
         <View>
@@ -56,7 +59,12 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                 }}>
                 {/*Content under the header of the Expandable List Item*/}
                 <Text style={styles.topicAnswer}>
-                    {item.answer}
+                    {item.answer} {item.sources.map((source) => {
+                        keyCount++;
+                        return (
+                            <SuperscriptText sourceId={source} key={keyCount}/>
+                        )
+                    })}
                 </Text>
             </View>
         </View>

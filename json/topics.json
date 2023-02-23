@@ -6,29 +6,29 @@
                 "question": "When will I start to feel the effects of alcohol?",
                 "answer": "In healthy people, blood circulates through the body in 90 seconds, which means they can begin to feel the effects of alcohol within 15 to 45 minutes after the first drink.",
                 "sources": [
-                    "Source 14"
+                    14
                 ]
             },
             {
                 "question": "How long does alcohol metabolism take?",
                 "answer": "The liver can metabolize **one standard drink an hour**. Factors such as age, weight, gender, personal metabolism, and amount of food eaten also play a role in how fast the body can processes alcohol. A person's blood alcohol concentration (BAC) level is **reduced by 0.015 per hour** or at an average rate of .015 g/100mL/hour. This process cannot be sped up with time, sleep, food, or other methods. *You cannot flush alcohol out of your system once it's in!*",
                 "sources": [
-                    "Source 14"
+                    14
                 ]
             },
             {
                 "question": "How long does alcohol stay in my system?",
                 "answer": "This is how long alcohol can be detected in a person's system [depending on how the alcohol is being measured]: **Blood**: Up to 6 hours; **Breath**: 12-24 hours; **Saliva**: 12-24 hours; **Urine**: 12-24 hours; **Hair**: 90 Days.",
                 "sources": [
-                    "Source 14"
+                    14
                 ]
             },
             {
                 "question": "How do I know when I'm drunk?",
                 "answer": "The effects of alcohol vary from person to person, and it may take some people a quicker or longer time to start seeing signs of intoxication when drinking the same amount of alcohol. Typically, for **males** with little to no tolerance, they may begin to show some signs of intoxication when their BAC reaches **0.05%**. A **woman** who weighs 150 pounds will reach a BAC of 0.10% after drinking about 4 drinks in an hour. With little or no alcohol tolerance, **general impairment levels** are observed at the following BAC levels: - **0.05%** = detectible; - **0.07%** = driving impaired; - *Note: **0.08%** is the **federal limit** to legally drive in the United States, but you can be impaired and arrested even if your BAC is under 0.08%*; - **0.10%** = intoxicated; - **0.20%** = decreased consciousness; - **0.30%** = unconscious; - **0.40%** = fatal. When a person with BAC levels between 0.10% and 0.20% does not show obvious signs of intoxication, it typically means they've developed a tolerance for alcohol. This means they most likely are regularly drinking heavily and are showing characteristics of dependence.",
                 "sources": [
-                    "Source 14",
-                    "Source 15"
+                    14,
+                    15
                 ]
             }
         ],
@@ -41,15 +41,13 @@
                 "question": "What is Blood Alcohol Concentration (BAC)?",
                 "answer": "Blood Alcohol Concentration (BAC) refers to the percent of alcohol (ethyl alcohol or ethanol) in a person's blood stream. A BAC of .10% means that an individual's blood supply contains one part alcohol for every 1000 parts blood.",
                 "sources": [
-                    "Source 20"
+                    20
                 ]
             },
             {
                 "question": "How do we calculate BAC?",
                 "answer": "*TO-DO: add info about the exact algorithm we use to calculate BAC (reference DrunkCalc)*",
-                "sources": [
-                    "Source "
-                ]
+                "sources": []
             }
         ],
         "imgUrl": ""
@@ -61,7 +59,7 @@
                 "question": "What is a standard drink?",
                 "answer": "In the United States, one 'standard' drink (or one alcoholic drink equivalent) contains roughly **14 grams (0.6 fluid ounces) of pure alcohol**, which is found in: 12 ounces of regular beer, which is usually about 5% alcohol; 5 ounces of wine, which is typically about 12% alcohol; or 1.5 ounces of distilled spirits, which is about 40% alcohol.",
                 "sources": [
-                    "Source 3"
+                    3
                 ]
             }
         ],
@@ -74,16 +72,16 @@
                 "question": "What is Alcohol by Volume (ABV)?",
                 "answer": "**Alcohol by volume (ABV)** is the number of milliliters of ethanol per 100 milliliters (or 3.4 fl.oz.) in a solution. ABV is the most common metric used in the United States. ABV can indicate how you feel after drinking an alcoholic beverage and can also tell you how strong that beverage might taste in terms of alcohol content. ABV is typically calculated using a hydrometer or alcoholmeter. **ABV formula:** ABV = (Final gravity - Original gravity) X 131.25. The drink's **original gravity** is the hydrometer reading before yeast is pitched and the drink's **final gravity** is the hydrometer's reading after the completion of the fermentation process. (There are also calculators available to know the precise ABV metrics of a drink.)",
                 "sources": [
-                    "Source 2",
-                    "Source 4",
-                    "Source 11"
+                    2,
+                    4,
+                    11
                 ]
             },
             {
                 "question": "What is alcohol proof?",
                 "answer": "Alcohol proof is twice the percentage of alcohol by volume. For example, a drink which has 50% ABV will be 100 proof.",
                 "sources": [
-                    "Source 2"
+                    2
                 ]
             }
         ],
@@ -96,23 +94,21 @@
                 "question": "What are some social drinking tips?",
                 "answer": "Key tips for drinking in a social setting: 1. Make a plan about how much alcohol you will (or won't) be drinking, and understand the impact of that alcohol on your body; 2. Go with a trusted friend who will look out for you; 3a. Eat before and during drinking sessions (drinking on an empty stomach means alcohol will enter your bloodstream faster); 3b. Avoid salty snacks while drinking (they can make you thirsty and more likely to drink more); 4. Drink plenty of water; 5. Don't mix alcohol with sugary or energy drinks; 6. Set yourself a drinks limit, count your drinks, and stick to your limit; 7. Slow your intake with alcohol-free drinks; 8. Avoid drinking games and shots (binge drinking is dangerous); 9. NEVER drink and drive, and have alternate routes home (like a designated driver or rideshare); 10. Be comfortable saying no, and leave if you feel uncomfortable or pressured.",
                 "sources": [
-                    "Source 23",
-                    "iBant User Interviews"
+                    23
                 ]
             },
             {
                 "question": "How can I help others who are drunk?",
                 "answer": "Key tips for helping someone who is intoxicated include: 1. Staying with the person; 2. Giving them food and water; 3. Preventing them from drinking more alcohol; 4. Placing them in the recovery position (laying on their side with a pillow to support their back); 5. Keeping them awake or monitoring their breathing if they fall asleep; 6. Getting them home safe.",
                 "sources": [
-                    "Source 21"
+                    21
                 ]
             },
             {
                 "question": "How can I decline a drink?",
                 "answer": "If you are offered a drink in a social setting and don't want to accept it, here are key tips to help decline: 1. Be confident when saying no (a simple 'no thank you' should be sufficient); 2. Bring a supportive friend; 3. Be the designated driver; 4. Tell a white lie (e.g., 'I'm on a budget and want to save money,' 'I have an appointment early tomorrow morning,' or 'I'm on medication that can't be mixed with alcohol'; 5. Keep a (non-alcoholic) beverage in your hand (making people less likely to offer you a drink); 6. Change the subject (e.g., you have to use the restroom, make a call, or go check in with a friend); 7. Know when to leave (if someone continues to pressure you to drink, simply leave the location).",
                 "sources": [
-                    "Source 22",
-                    "iBant User Interviews"
+                    22
                 ]
             }
         ],
@@ -124,23 +120,17 @@
             {
                 "question": "What are some drinking safety tips?",
                 "answer": "",
-                "sources": [
-                    "Source "
-                ]
+                "sources": []
             },
             {
                 "question": "How can I avoid drink spiking/tampering?",
                 "answer": "",
-                "sources": [
-                    "Source "
-                ]
+                "sources": []
             },
             {
                 "question": "How can I recognize alcohol poisoning, and what should I do?",
                 "answer": "",
-                "sources": [
-                    "Source "
-                ]
+                "sources": []
             }
         ],
         "imgUrl": ""
@@ -151,23 +141,17 @@
             {
                 "question": "Resources if you or a loved one is struggling with alcohol abuse",
                 "answer": "",
-                "sources": [
-                    "Source "
-                ]
+                "sources": []
             },
             {
                 "question": "Resources about alcohol types and consumption",
                 "answer": "",
-                "sources": [
-                    "Source "
-                ]
+                "sources": []
             },
             {
                 "question": "Resources about drinking safety",
                 "answer": "",
-                "sources": [
-                    "Source "
-                ]
+                "sources": []
             }
         ],
         "imgUrl": ""
