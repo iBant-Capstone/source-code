@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Button} from 'react-native';
+import {Text, View, Button, TextInput} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as StyleSheet from '../components/styles';
-import { TextInput } from 'react-native-web';
 
 let styles = StyleSheet.styles;
 
@@ -40,7 +39,7 @@ const AddDrink = ({route, navigation}) => {
             //   setSizeInputValue('');
             //   setStrengthInputValue('');
             //   setTimeInputValue('');
-            navigation.navigate('BACCalc')
+            navigation.goBack()
         } catch (error) {
           console.log(error);
         }

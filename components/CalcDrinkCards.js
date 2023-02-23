@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {View, Text } from 'react-native';
 import * as StyleSheet from './styles';
+import { useFocusEffect } from '@react-navigation/native'
 
 let styles = StyleSheet.styles;
 
@@ -11,25 +12,26 @@ const CalcDrinkCards = () => {
     const [drinks, setDrinks] = useState([]);
 
     // retrieves the drinks from async storage
-    useEffect(() => {
-        async function getDrinks() {
-          try {
-            // Get the list of drinks from the async storage
-            const drinksListAsync = await AsyncStorage.getItem('drinks');
-
-            // Get the parsed version of the drinkslist (or empy array if it's empty)
-            let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-            console.log("Drinks list: " + drinksList)
-
-            // Set our state drinksList
-            setDrinks(drinksList);
-          } catch (error) {
-            console.log(error);
-          }
-        }
-
-        getDrinks();
-    }, []);
+    useFocusEffect(
+        React.useCallback(() => {
+            async function getDrinks() {
+                try {
+                  // Get the list of drinks from the async storage
+                  const drinksListAsync = await AsyncStorage.getItem('drinks');
+      
+                  // Get the parsed version of the drinkslist (or empy array if it's empty)
+                  let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
+                  console.log("Drinks list: " + drinksList)
+      
+                  // Set our state drinksList
+                  setDrinks(drinksList);
+                } catch (error) {
+                  console.log(error);
+                }
+            }
+            getDrinks();
+        }, [])
+    );
 
     // Returns the JSX to display
     return (
