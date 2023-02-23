@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { Text, View, Linking, Alert } from 'react-native';
+import { Table, Row, TableWrapper, Cell } from 'react-native-table-component'
 import * as StyleSheet from '../../components/styles';
 
 // import all sources from json
@@ -24,23 +25,24 @@ const URLLink = ({ id, name, url }) => {
 
 
     return (
-        <View style={styles.leftContainer}>
-            <Text style={styles.centered}>
-                <Text style={styles.redBoldText}>{id}: </Text><Text onPress={handlePress} style={styles.link}>{name}</Text>
-            </Text>
-        </View>
+        <TableWrapper style={{flexDirection: 'row'}}>
+            <Cell data={id} width={35} textStyle={styles.tableId}/>
+            <Cell data={name} textStyle={styles.link} onPress={handlePress} />
+        </TableWrapper>
     );
 };
 
 // Page to return
 const OurSources = () => {
     return (
-        <View style={{backgroundColor: '#fff'}}>
-            <Text style={styles.centered}>Below are a list of our sources used to create this app</Text>
-            {sources.map((source) => {
-                return (
-                    <URLLink key={source.id} id={source.id} name={source.name} url={source.url} />)
-            })}
+        <View style={styles.centered}>
+            <Text style={{marginBottom: 10}}>Below are a list of our sources used to create this app</Text>
+            <Table>
+                {sources.map((source) => {
+                    return (
+                        <URLLink key={source.id} id={source.id} name={source.name} url={source.url} />)
+                })}
+            </Table>
         </View>
     );
 };

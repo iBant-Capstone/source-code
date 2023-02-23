@@ -111,6 +111,10 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     backgroundColor: '#DF8B94'
   },
+  tableId: {
+    margin: 6,
+    fontWeight: '600'
+  },
   // Image
   standardDrinkImg: {
     width: 340,
@@ -171,9 +175,9 @@ export const styles = StyleSheet.create({
   link: {
     textDecorationLine: 'underline',
     color: '#387780',
-    fontSize: 14
+    fontSize: 14,
+    margin: 5
   }
-
 }
 );
 
