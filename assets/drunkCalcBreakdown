@@ -4,7 +4,7 @@ let drinksConsumed = []
   , personalDetails = {};
 
 
-// Show all the types of drinks
+// USE Show all the types of drinks
 const BAC_REDUCTION_PER_MINUTE = 25e-5
   , DRINK_DETAILS = {
     Beer: {
@@ -190,18 +190,24 @@ function setupPage() {
 function scrollToTop() {
     window.scrollTo(0, 0)
 }
+
+// Not relevant
 function getUber() {
     window.open("https://m.uber.com/ul/?action=setPickup", "_blank")
 }
+
+//checks local storage
 function tryGetLocalStorage() {
     null !== localStorage.getItem("drinksConsumed") && (drinksConsumed = JSON.parse(localStorage.getItem("drinksConsumed"))).forEach(e=>{
         e.drinkConsumedTimeAsDateObject = setDateObjectSecondsAndMillisecondsToZero(new Date(e.drinkConsumedTimeAsDateObject)),
         e.drinkFullyAbsorbedTimeAsDateObject = setDateObjectSecondsAndMillisecondsToZero(new Date(e.drinkFullyAbsorbedTimeAsDateObject))
     }
     ),
+
     null !== localStorage.getItem("sex") && ("Female" === localStorage.getItem("sex") ? (document.querySelector("#female").checked = !0,
     personalDetails.sex = "Female") : (document.querySelector("#male").checked = !0,
     personalDetails.sex = "Male")),
+
     null !== localStorage.getItem("weight") && ("Pounds" === JSON.parse(localStorage.getItem("weight")).units ? (document.querySelector(".js-weight-metric-input-div").displayNone(),
     document.querySelector(".js-weight-imperial-input-div").displayBlock(),
     document.querySelector("#weight-lbs").value = Number(JSON.parse(localStorage.getItem("weight")).value),
@@ -215,6 +221,7 @@ function tryGetLocalStorage() {
         units: "Kilograms",
         value: Number(JSON.parse(localStorage.getItem("weight")).value)
     })),
+
     null !== localStorage.getItem("height") && ("Inches" === JSON.parse(localStorage.getItem("height")).units ? (document.querySelector(".js-height-metric-input-div").displayNone(),
     document.querySelector(".js-height-imperial-input-div").displayBlock(),
     document.querySelector("#height-ft").value = Math.floor(Number(JSON.parse(localStorage.getItem("height")).value / 12)),
@@ -231,6 +238,8 @@ function tryGetLocalStorage() {
     })),
     null !== localStorage.getItem("widmarkFactor") && (personalDetails.widmarkFactor = localStorage.getItem("widmarkFactor"))
 }
+
+// Set the local storage
 function setPersonalLocalStorage() {
     let e, t;
     e = "block" !== getComputedStyle(document.querySelector(".js-weight-metric-input-div"), null).display ? {
@@ -247,38 +256,56 @@ function setPersonalLocalStorage() {
         units: "Centimetres",
         value: Number(document.querySelector("input#height-cm").value)
     },
+
     localStorage.setItem("weight", JSON.stringify(e)),
     personalDetails.weight = e,
     localStorage.setItem("height", JSON.stringify(t)),
     personalDetails.height = t;
+
+    // Calulcate the height and weight to metric
     const o = calculateWeightKilograms(personalDetails.weight.units, personalDetails.weight.value)
       , i = calculateHeightMetres(personalDetails.height.units, personalDetails.height.value);
+
+    // find the widmark factor based off of height/weight/
     document.querySelector("#female").checked ? (localStorage.setItem("sex", "Female"),
     localStorage.setItem("widmarkFactor", calculateWidmarkFactorFemale(i, o)),
     personalDetails.sex = "Female",
+
     personalDetails.widmarkFactor = calculateWidmarkFactorFemale(i, o)) : (localStorage.setItem("sex", "Male"),
     localStorage.setItem("widmarkFactor", calculateWidmarkFactorMale(i, o, 30)),
     personalDetails.sex = "Male",
+
+    // Set the person's windmark formula using weight and height
     personalDetails.widmarkFactor = calculateWidmarkFactorMale(i, o, 30))
 }
+
+// USE set weight to kilograms
 function calculateWeightKilograms(e, t) {
     return "Kilograms" === e ? t : t / 2.205
 }
+
+// USE set the height to meters
 function calculateHeightMetres(e, t) {
     return "Centimetres" === e ? t / 100 : 2.54 * t / 100
 }
+
+// USE Calculate the widmark factor to use in BAC calc
 function calculateWidmarkFactorMale(e, t, o) {
     return .62544 + .13664 * e - t * (.00189 + .002425 / (e * e)) + 1 / (t * (.57986 + 2.54 * e - .02255 * o))
 }
 function calculateWidmarkFactorFemale(e, t) {
     return .50766 + .11165 * e - t * (.001612 + .0031 / (e * e)) - 1 / (t * (.62115 - 3.1665 * e))
 }
+
+// setting the drinks to local storage
 function setDrinkLocalStorage() {
     localStorage.setItem("drinksConsumed", JSON.stringify(drinksConsumed))
 }
+
+// Make a new drink
 function createDrink() {
     return {
-        drinkName: getDrinkName(),
+        drinkName: getDrinkName(), // currently
         drinkType: getDrinkType(),
         drinkStrength: getDrinkStrength(),
         drinkSize: getDrinkSize(),
@@ -290,7 +317,7 @@ function createDrink() {
         drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
     }
 }
-function getDrinkName() {
+function getDrinkName() { // drinkcocktail
     return isDrinkCocktail() ? getCocktailName() : getDrinkType()
 }
 function getDrinkType() {
@@ -328,7 +355,7 @@ function getDrinkConsumedTimeAsDateObject() {
 function setDateObjectSecondsAndMillisecondsToZero(e) {
     return new Date(e.setSeconds(0, 0))
 }
-function isDrinkCocktail() {
+function isDrinkCocktail() { // try ehre
     return "Cocktail" === getDrinkType()
 }
 function getCocktailName() {
@@ -355,6 +382,8 @@ function isCustomDrinkSizeML() {
 function getCocktailAlcoholGrams() {
     return Number(document.querySelector('input[name="cocktailChoice"]:checked').value)
 }
+
+// USE Calcylate alcohol grams
 function calculateAlcoholGrams(e, t) {
     return t * (1e3 * e) * .789
 }
@@ -458,12 +487,12 @@ function calculatePeak() {
 function calculateZeroTimeAsDateObject() {
     if (isZeroTimeSameAsLastDrinkTime())
         return getTimeOfLastDrinkAsDateObject();
-    let e = setDateObjectSecondsAndMillisecondsToZero(new Date(getTimeOfLastDrinkAsDateObject().getTime() + 6e4))
-      , t = calculateBAC(e);
+    let lastDrinkTime = setDateObjectSecondsAndMillisecondsToZero(new Date(getTimeOfLastDrinkAsDateObject().getTime() + 6e4))
+      , t = calculateBAC(lastDrinkTime);
     const o = getAlcoholFullyAbsorbedTimeAsDateObject();
     for (; t > 0; )
-        t = (e = setDateObjectSecondsAndMillisecondsToZero(new Date(e.getTime() + 6e4))) > o ? t - BAC_REDUCTION_PER_MINUTE : calculateBAC(e);
-    return e
+        t = (lastDrinkTime = setDateObjectSecondsAndMillisecondsToZero(new Date(lastDrinkTime.getTime() + 6e4))) > o ? t - BAC_REDUCTION_PER_MINUTE : calculateBAC(lastDrinkTime);
+    return lastDrinkTime
 }
 function isZeroTimeSameAsLastDrinkTime() {
     return 0 === calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date(getTimeOfLastDrinkAsDateObject().getTime() + 6e4)))
@@ -471,13 +500,16 @@ function isZeroTimeSameAsLastDrinkTime() {
 function getAlcoholFullyAbsorbedTimeAsDateObject() {
     return setDateObjectSecondsAndMillisecondsToZero(new Date(Math.max.apply(Math, drinksConsumed.map(e=>e.drinkFullyAbsorbedTimeAsDateObject))))
 }
+
+// This function iterates through the minutes between first drinking and now to calculate the BAC of evey minute
+// taking into account how much the BAC increases and how much it naturally decreases every single minute
 function calculateBAC(e) {
-    let t = getTimeDifferenceBetweenDateObjectsInMinutes(e, getTimeOfFirstDrinkAsDateObject())
-      , o = 0;
-    for (; t >= 0; )
-        o += increaseBACEveryMinute(e, t),
+    let minuteDiffNowAndFirstDrink = getTimeDifferenceBetweenDateObjectsInMinutes(e, getTimeOfFirstDrinkAsDateObject())
+      , o = 0; // o is the starting of the BAC
+    for (; minuteDiffNowAndFirstDrink >= 0; )
+        o += increaseBACEveryMinute(e, minuteDiffNowAndFirstDrink),
         o -= reduceBACEveryMinute(o),
-        t--;
+        minuteDiffNowAndFirstDrink--;
     return o
 }
 function getTimeOfFirstDrinkAsDateObject() {
@@ -492,16 +524,20 @@ function reduceBACEveryMinute(e) {
 function increaseBACEveryMinute(e, t) {
     let o = 0;
     const i = setDateObjectSecondsAndMillisecondsToZero(new Date(e.getTime() - 6e4 * t));
-    return drinksConsumed.forEach(e=>{
-        const t = getTimeDifferenceBetweenDateObjectsInMinutes(i, e.drinkConsumedTimeAsDateObject);
-        t >= 0 && e.drinkFullyAbsorbedTimeAsDateObject >= i && (o += calculateBACToAdd(e, t))
+    return drinksConsumed.forEach(drink=>{
+        const t = getTimeDifferenceBetweenDateObjectsInMinutes(i, drink.drinkConsumedTimeAsDateObject);
+        t >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= i && (o += calculateBACToAdd(drink, t))
     }
     ),
     o
 }
 function calculateBACToAdd(e, t) {
     const o = Number(e.drinkAlcoholGrams);
-    return (calculatePercentAlcoholAbsorbedByMinute(t, e.drinkHalfLife) - calculatePercentAlcoholAbsorbedByMinute(t - 1, e.drinkHalfLife)) * o / (personalDetails.widmarkFactor * calculateWeightKilograms(personalDetails.weight.units, personalDetails.weight.value) * 1e3) * 100
+    return (calculatePercentAlcoholAbsorbedByMinute(t, e.drinkHalfLife) - 
+        calculatePercentAlcoholAbsorbedByMinute(t - 1, e.drinkHalfLife)) * 
+        o / (personalDetails.widmarkFactor * 
+        calculateWeightKilograms(personalDetails.weight.units, 
+        personalDetails.weight.value) * 1e3) * 100
 }
 function calculatePercentAlcoholAbsorbedByMinute(e, t) {
     return e >= 0 ? (100 - 100 / 2 ** (e / t)) / 100 : 0
