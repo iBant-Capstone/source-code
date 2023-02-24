@@ -86,5 +86,104 @@
             "Undistilled/Fermented",
             "Wine"
         ]
+    },
+    {
+        "alcoholid": "Gin",
+        "description": "A spirit made from juniper berries.",
+        "abv": "35-60%",
+        "fun fact": "Most widely bought gin brands are 40% ABV or above, and some (e.g. “small-batch” or “boutique” gins) can be a lot higher.",
+        "fun fact sources": [
+            "Source 16"
+        ],
+        "tags": [
+            "Distilled"
+        ]
+    },
+    {
+        "alcoholid": "Brandy",
+        "description": "A spirit made from distilled wine.",
+        "abv": "35-60%",
+        "fun fact": "Cognac, a famous type of brandy, has 40% ABV.",
+        "fun fact sources": [
+            "Source 2"
+        ],
+        "tags": [
+            "Distilled"
+        ]
+    },
+    {
+        "alcoholid": "Whiskey",
+        "description": "A spirit made from fermented grain.",
+        "abv": "40-50%",
+        "fun fact": "The most common whiskey types are: scotch, bourbon, Irish and Canadian whiskeys. Whiskey ABV depends on how long the whiskey has aged.",
+        "fun fact sources": [
+            "Source 1"
+        ],
+        "tags": [
+            "Distilled"
+        ]
+    },
+    {
+        "alcoholid": "Rum",
+        "description": "A distilled drink made from fermented sugarcane or molasses.",
+        "abv": "40-75%",
+        "fun fact": "Typical rum ABV is 40%. Some rum is “overproof” and has alcohol concentration of at least 57.5% ABV. Most overproof rum exceeds this minimum, usually reaching 75.5% ABV.",
+        "fun fact sources": [
+            "Source 2"
+        ],
+        "tags": [
+            "Distilled"
+        ]
+    },
+    {
+        "alcoholid": "Tequila",
+        "description": "A type of liquor made from the Mexican agave plant.",
+        "abv": "40-55%",
+        "fun fact": "Tequila can be bottled anywhere from 35%-55% ABV but the US has a minimum of 40% ABV.",
+        "fun fact sources": [
+            "Source 17"
+        ],
+        "tags": [
+            "Distilled"
+        ]
+    },
+    {
+        "alcoholid": "Vodka",
+        "description": "A liquor usually made from fermented grains and potatoes.",
+        "abv": "40-50%",
+        "fun fact": "Standard vodka ABV in the US is 40%. Vodka has a neutral taste and is odorless and colorless.",
+        "fun fact sources": [
+            "Source 18"
+        ],
+        "tags": [
+            "Distilled"
+        ]
+    },
+    {
+        "alcoholid": "Absinthe",
+        "description": "A spirit made from a variety of leaves and herbs.",
+        "abv": "45-85%",
+        "fun fact": "Absinthe is a very potent drink, although there is no evidence that absinthe is a hallucinogen.",
+        "fun fact sources": [
+            "Source 2"
+        ],
+        "tags": [
+            "Distilled",
+            "Highly potent"
+        ]
+    },
+    {
+        "alcoholid": "Everclear",
+        "description": "A grain-based spirit with a heavy concentration of alcohol.",
+        "abv": "60-95%",
+        "fun fact": "Everclear is the most potent liquor on the market, and the stronger proof is illegal in many US states. The minimum Everclear ABV is 60%, but Everclear can also have 75.5% and 95% ABV.",
+        "fun fact sources": [
+            "Source 19",
+            "Source 2"
+        ],
+        "tags": [
+            "Distilled",
+            "Highly potent"
+        ]
     }
 ]
