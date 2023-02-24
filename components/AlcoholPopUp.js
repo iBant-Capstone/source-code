@@ -19,13 +19,15 @@ const Popup = (props) =>
     <View>
         <Modal isVisible={props.isOpen} style={styles.modal}>
             <View>
-            {data && <Text style={styles.title}>{data.alcoholid}</Text>}
+            {data && <Text style={styles.commonAlcTypeTitle}>{data.alcoholid}</Text>}
             <br/>
             {data && <Text style={styles.title}>{data.description}</Text>}
             <br/>
-            {data && <Text style={styles.title}>{data.abv}</Text>}
+            {data && <Text style={styles.title}><b>ABV: </b>{data.abv}</Text>}
             <br/>
-            {data && <Text style={styles.title}>{data.tags}</Text>}
+            {data && <Text style={styles.title}><b>Did you know? </b>{data.funFact}</Text>}
+            <br/>
+            {data && <Text style={styles.title}><em>{data.tags}</em></Text>}
             <Button title="Close" onPress={props.onChangeModal} />
             </View>
         </Modal>

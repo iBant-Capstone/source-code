@@ -3,8 +3,8 @@
         "alcoholid": "Beer",
         "description": "The most popular alcoholic beverage worldwide.",
         "abv": "4-8%",
-        "fun fact": "Beer ABV varies depending on type: “light beers” only have 2-4% ABV while “malt liquors” have 6-8% ABV.",
-        "fun fact sources": [
+        "funFact": "Beer ABV varies depending on type: “light beers” only have 2-4% ABV while “malt liquors” have 6-8% ABV.",
+        "funFactSources": [
             "Source 2"
         ],
         "tags": [
@@ -15,8 +15,8 @@
         "alcoholid": "Champagne",
         "description": "The most common sparking wine, usually used for celebration.",
         "abv": "16-24%",
-        "fun fact": "Champagne's sparkling comes from injecting carbon dioxide or via natural fermentation processes.",
-        "fun fact sources": [
+        "funFact": "Champagne's sparkling comes from injecting carbon dioxide or via natural fermentation processes.",
+        "funFactSources": [
             "Source 8"
         ],
         "tags": [
@@ -28,8 +28,8 @@
         "alcoholid": "Fortified Wine",
         "description": "Wines that are “fortified” with distilled alcohol such as brandy.",
         "abv": "16-24%",
-        "fun fact": "The most common fortified wine types are: port wine, sherry, madeira, marsala, vermouth.",
-        "fun fact sources": [
+        "funFact": "The most common fortified wine types are: port wine, sherry, madeira, marsala, vermouth.",
+        "funFactSources": [
             "Source 6"
         ],
         "tags": [
@@ -41,8 +41,8 @@
         "alcoholid": "Hard Cider",
         "description": "Fermented apple juice.",
         "abv": "5-7%",
-        "fun fact": "By US law, hard cider must contain at least 50% apple juice.",
-        "fun fact sources": [
+        "funFact": "By US law, hard cider must contain at least 50% apple juice.",
+        "funFactSources": [
             "Source 11"
         ],
         "tags": [
@@ -53,8 +53,8 @@
         "alcoholid": "Mead",
         "description": "A blend of water and fermented honey (also referred to as honey wine).",
         "abv": "7-20%",
-        "fun fact": "Mead ABV varies depending on the maker and ingredients: sack meads have high ABV (up to 20%), while dry meads have lower ABV values, ranging from 8% to 12%.",
-        "fun fact sources": [
+        "funFact": "Mead ABV varies depending on the maker and ingredients: sack meads have high ABV (up to 20%), while dry meads have lower ABV values, ranging from 8% to 12%.",
+        "funFactSources": [
             "Source 11"
         ],
         "tags": [
@@ -65,8 +65,8 @@
         "alcoholid": "Saké",
         "description": "A well-known Japanese drink made from fermented rice.",
         "abv": "13-17%",
-        "fun fact": "Sake has a mild taste with little acidity, bitterness or astringency. Cooking sake has a lower ABV, more concentrated flavor, and sometimes contains salt.",
-        "fun fact sources": [
+        "funFact": "Sake has a mild taste with little acidity, bitterness or astringency. Cooking sake has a lower ABV, more concentrated flavor, and sometimes contains salt.",
+        "funFactSources": [
             "Source 12",
             "Source 13"
         ],
@@ -78,8 +78,8 @@
         "alcoholid": "Standard Wine",
         "description": "Made by fermentation from grapes, fruits, berries, rice, or honey.",
         "abv": "10-15%",
-        "fun fact": "The most common standard wine types are: red wine, white wine, rose, dessert wine, and sparkling wine.",
-        "fun fact sources": [
+        "funFact": "The most common standard wine types are: red wine, white wine, rose, dessert wine, and sparkling wine.",
+        "funFactSources": [
             "Source 8"
         ],
         "tags": [
@@ -91,8 +91,8 @@
         "alcoholid": "Gin",
         "description": "A spirit made from juniper berries.",
         "abv": "35-60%",
-        "fun fact": "Most widely bought gin brands are 40% ABV or above, and some (e.g. “small-batch” or “boutique” gins) can be a lot higher.",
-        "fun fact sources": [
+        "funFact": "Most widely bought gin brands are 40% ABV or above, and some (e.g. “small-batch” or “boutique” gins) can be a lot higher.",
+        "funFactSources": [
             "Source 16"
         ],
         "tags": [
@@ -103,8 +103,8 @@
         "alcoholid": "Brandy",
         "description": "A spirit made from distilled wine.",
         "abv": "35-60%",
-        "fun fact": "Cognac, a famous type of brandy, has 40% ABV.",
-        "fun fact sources": [
+        "funFact": "Cognac, a famous type of brandy, has 40% ABV.",
+        "funFactSources": [
             "Source 2"
         ],
         "tags": [
@@ -115,8 +115,8 @@
         "alcoholid": "Whiskey",
         "description": "A spirit made from fermented grain.",
         "abv": "40-50%",
-        "fun fact": "The most common whiskey types are: scotch, bourbon, Irish and Canadian whiskeys. Whiskey ABV depends on how long the whiskey has aged.",
-        "fun fact sources": [
+        "funFact": "The most common whiskey types are: scotch, bourbon, Irish and Canadian whiskeys. Whiskey ABV depends on how long the whiskey has aged.",
+        "funFactSources": [
             "Source 1"
         ],
         "tags": [
@@ -127,8 +127,8 @@
         "alcoholid": "Rum",
         "description": "A distilled drink made from fermented sugarcane or molasses.",
         "abv": "40-75%",
-        "fun fact": "Typical rum ABV is 40%. Some rum is “overproof” and has alcohol concentration of at least 57.5% ABV. Most overproof rum exceeds this minimum, usually reaching 75.5% ABV.",
-        "fun fact sources": [
+        "funFact": "Typical rum ABV is 40%. Some rum is “overproof” and has alcohol concentration of at least 57.5% ABV. Most overproof rum exceeds this minimum, usually reaching 75.5% ABV.",
+        "funFactSources": [
             "Source 2"
         ],
         "tags": [
@@ -139,8 +139,8 @@
         "alcoholid": "Tequila",
         "description": "A type of liquor made from the Mexican agave plant.",
         "abv": "40-55%",
-        "fun fact": "Tequila can be bottled anywhere from 35%-55% ABV but the US has a minimum of 40% ABV.",
-        "fun fact sources": [
+        "funFact": "Tequila can be bottled anywhere from 35%-55% ABV but the US has a minimum of 40% ABV.",
+        "funFactSources": [
             "Source 17"
         ],
         "tags": [
@@ -151,8 +151,8 @@
         "alcoholid": "Vodka",
         "description": "A liquor usually made from fermented grains and potatoes.",
         "abv": "40-50%",
-        "fun fact": "Standard vodka ABV in the US is 40%. Vodka has a neutral taste and is odorless and colorless.",
-        "fun fact sources": [
+        "funFact": "Standard vodka ABV in the US is 40%. Vodka has a neutral taste and is odorless and colorless.",
+        "funFactSources": [
             "Source 18"
         ],
         "tags": [
@@ -163,8 +163,8 @@
         "alcoholid": "Absinthe",
         "description": "A spirit made from a variety of leaves and herbs.",
         "abv": "45-85%",
-        "fun fact": "Absinthe is a very potent drink, although there is no evidence that absinthe is a hallucinogen.",
-        "fun fact sources": [
+        "funFact": "Absinthe is a very potent drink, although there is no evidence that absinthe is a hallucinogen.",
+        "funFactSources": [
             "Source 2"
         ],
         "tags": [
@@ -176,8 +176,8 @@
         "alcoholid": "Everclear",
         "description": "A grain-based spirit with a heavy concentration of alcohol.",
         "abv": "60-95%",
-        "fun fact": "Everclear is the most potent liquor on the market, and the stronger proof is illegal in many US states. The minimum Everclear ABV is 60%, but Everclear can also have 75.5% and 95% ABV.",
-        "fun fact sources": [
+        "funFact": "Everclear is the most potent liquor on the market, and the stronger proof is illegal in many US states. The minimum Everclear ABV is 60%, but Everclear can also have 75.5% and 95% ABV.",
+        "funFactSources": [
             "Source 19",
             "Source 2"
         ],

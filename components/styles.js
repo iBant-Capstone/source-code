@@ -184,7 +184,13 @@ export const styles = StyleSheet.create({
     color: '#387780',
     fontSize: 14,
     margin: 5
-  }
+  },
+  commonAlcTypeTitle: {
+    fontSize: 24,
+    fontWeight: '500',
+    marginRight: '5%',
+    width: '80%',
+  },
 }
 );
 
