@@ -10,14 +10,17 @@ import {
     Platform,
     Image
 } from 'react-native';
+import { Table, Row, Rows } from 'react-native-table-component'
 // Import styles
 import { styles } from './styles';
 // Import json data of topic q and as
 import data from '../json/topics.json'
+import BACeffects from '../json/bac-levels.json'
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-// import drinkImage from '../assets/images/Standard_Drink_Sizes.png';
+// Import superscript
+import SuperscriptText from './Superscript';
+import { randomInt } from 'crypto';
 
 const ExpandableComponent = ({ item, onClickFunction }) => {
     // Custom Component for the Expandable List
@@ -32,7 +35,10 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
         }
     }, [item.isExpanded]);
 
+    // Change arrow direction based on if it is expanded or not
     const iconName = item.isExpanded ? "chevron-up-outline" : "chevron-down-outline"
+
+    let keyCount = 1;
 
     return (
         <View>
@@ -53,7 +59,12 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                 }}>
                 {/*Content under the header of the Expandable List Item*/}
                 <Text style={styles.topicAnswer}>
-                    {item.answer}
+                    {item.answer} {item.sources.map((source) => {
+                        keyCount++;
+                        return (
+                            <SuperscriptText sourceId={source} key={keyCount}/>
+                        )
+                    })}
                 </Text>
             </View>
         </View>
@@ -74,24 +85,27 @@ const InfoTopicPage = ({ route }) => {
         UIManager.setLayoutAnimationEnabledExperimental(true);
     }
 
+    // To add animation and expanded parameter
     const updateLayout = (index) => {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
         const array = [...listDataSource];
         // Allow multiple select
         array[index]['isExpanded'] = !array[index]['isExpanded'];
-
         setListDataSource(array);
     };
 
+    // Show standard drink sizes image if the topic is Standard Drink Sizes
     const showImage = () => {
         if (topicData.topicid === "Standard Drink Sizes") {
+            // Use require() to fetch image
             const imageUrl = require('../assets/images/Standard_Drink_Sizes.png')
+            // Return View component with Text and Image
             return (
-                <View style={styles.container}>
-                    <Text style={styles.topicQuestionText}>Standard Drink Sizes Visualized</Text>
+                <View>
+                    <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>Standard Drink Sizes Visualized</Text>
                     <Image
                         source={imageUrl}
-                        style={styles.standardDrinkImg}
+                        style={[styles.standardDrinkImg, styles.specialInfoItem]}
                         resizeMode='cover'
                     />
                 </View>
@@ -99,6 +113,23 @@ const InfoTopicPage = ({ route }) => {
         }
     }
 
+    // Show BAC table if the topic is BAC Levels and Effects
+    const showTable = () => {
+        if (topicData.topicid === "BAC Levels and Effects") {
+            const headTable = ['BAC Level', 'Effects'];
+            return (
+                <View>
+                    <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>BAC Levels: Table</Text>
+                    <Table borderStyle={{ borderColor: '#606070', borderStyle: 'solid', borderWidth: 1 }} style={styles.specialInfoItem}>
+                        <Row data={headTable} style={styles.headStyle} textStyle={{ fontWeight: "600", color: "white" }} widthArr={[100, undefined]} />
+                        <Rows data={BACeffects} textStyle={styles.tableText} widthArr={[100, undefined]} />
+                    </Table>
+                </View>
+            )
+        }
+    }
+
+    // Return page view
     return (
         <View style={styles.centered}>
             <ScrollView>
@@ -111,8 +142,10 @@ const InfoTopicPage = ({ route }) => {
                         item={item}
                     />
                 ))}
-                <View style={styles.container}>
+
+                <View style={styles.centerContainer}>
                     {showImage()}
+                    {showTable()}
                 </View>
 
             </ScrollView>
