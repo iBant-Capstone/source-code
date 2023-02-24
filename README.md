@@ -1,8 +1,7 @@
 # BACTracker Source Code
 This GitHub repository contains the code for our Capstone project.
-
-## About the Project
 <img align="right" width="150" height="150" src="./assets/icons/BACtracker_logo.png">
+## About the Project
 Through this project, our group has created and implemented a mobile application that serves as a toolkit on safe alcohol consumption practices for our fellow peers. The app provides a hub of information regarding alcohol consumption, safety practices, and general resources. Using user specific demographics and information, the app can also calculate the BAC (Blood Alcohol Content) of the user as they input the different drinks they have consumed. 
 
 ## About the GitHub
@@ -11,7 +10,7 @@ Through this project, our group has created and implemented a mobile application
 [License File:](./LICENSE) Outlines copyright and other software permissions of our project. 
 
 [Assets Directory:](./assets/) Contains more specific directories that contain visual elements used in our application
-<img align="right" height="200" src="./assets/avatars/Curious_Rosie_shadow.png">
+<img align="right" height="200" src="./assets/avatars/Curious_Rosie.png">
 - [Avatars directory:](./assets/avatars/) Contains image files of our avatar: Rosie
 - [Icons directory:](./assets/icons/) Contains image files of our logo
 - [Images directory:](./assets/images/) Contains other image files used in our app
