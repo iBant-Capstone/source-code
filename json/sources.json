@@ -113,6 +113,36 @@
         "id" : 23,
         "name": "Top 7 tips for safe drinking - healthdirect",
         "url": "https://www.healthdirect.gov.au/top-7-tips-for-safe-drinking"
+    },
+    {
+        "id" : 24,
+        "name": "Alcohol safety - Rainn.org",
+        "url": "https://www.rainn.org/articles/alcohol-safety"
+    },
+    {
+        "id" : 25,
+        "name": "Student guide to drinking responsibly - Edumed",
+        "url": "https://www.edumed.org/resources/student-guide-to-drinking-responsibly/"
+    },
+    {
+        "id" : 26,
+        "name": "Alcohol poisoning symptoms and causes - Mayo Clinic",
+        "url": "https://www.mayoclinic.org/diseases-conditions/alcohol-poisoning/symptoms-causes/syc-20354386 "
+    },
+    {
+        "id" : 27,
+        "name": "Flaticon (icon citations)",
+        "url": "https://www.flaticon.com/"
+    },
+    {
+        "id" : 28,
+        "name": "Standard Drink Sizes Chart (image citation) - Love to Know",
+        "url": "https://cocktails.lovetoknow.com/about-cocktails-tips-beyond/what-is-standard-drink-measurements-alcohol-explained "
+    },
+    {
+        "id" : 29,
+        "name": "Cute avatars (image citation, Rosie avatar inspiration) - Freepik",
+        "url": "https://www.freepik.com/free-photos-vectors/cute-avatar"
     }
     
 ]
