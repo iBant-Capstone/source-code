@@ -23,47 +23,47 @@ let InfoPage = (props) => {
       </View>
       <View style={[styles.row, styles.centered]}>
         <Pressable
-          style={styles.infoHubButton}
+          style={styles.mainRedButton}
           onPress={() => props.navigation.navigate('CommonAlcoholTypes')}>
-          <Text style={styles.infoHubButtonText}>Common Alcohol Types</Text>
+          <Text style={styles.mainRedButtonText}>Common Alcohol Types</Text>
         </Pressable>
         <Pressable
-          style={styles.infoHubButton}
+          style={styles.mainRedButton}
           title="Alcohol Physical Effects"
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Alcohol Physical Effects' })}>
-          <Text style={styles.infoHubButtonText}>Alcohol Physical Effects</Text>
+          <Text style={styles.mainRedButtonText}>Alcohol Physical Effects</Text>
         </Pressable>
         <Pressable
-          style={styles.infoHubButton}
+          style={styles.mainRedButton}
           title="BAC Levels and Effects"
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'BAC Levels and Effects' })}>
-          <Text style={styles.infoHubButtonText}>BAC Levels and Effects</Text>
+          <Text style={styles.mainRedButtonText}>BAC Levels and Effects</Text>
         </Pressable>
         <Pressable
-          style={styles.infoHubButton}
+          style={styles.mainRedButton}
           title="Standard Drink Sizes"
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Standard Drink Sizes' })}>
-          <Text style={styles.infoHubButtonText}>Standard Drink Sizes</Text>
+          <Text style={styles.mainRedButtonText}>Standard Drink Sizes</Text>
         </Pressable>
         <Pressable
-          style={styles.infoHubButton}
+          style={styles.mainRedButton}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Measuring Alcohol Content' })}>
-          <Text style={styles.infoHubButtonText}>Measuring Alcohol Content</Text>
+          <Text style={styles.mainRedButtonText}>Measuring Alcohol Content</Text>
         </Pressable>
         <Pressable
-          style={styles.infoHubButton}
+          style={styles.mainRedButton}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Social Drinking' })}>
-          <Text style={styles.infoHubButtonText}>Social Drinking</Text>
+          <Text style={styles.mainRedButtonText}>Social Drinking</Text>
         </Pressable>
         <Pressable
-          style={styles.infoHubButton}
+          style={styles.mainRedButton}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Drinking Safety Tips' })}>
-          <Text style={styles.infoHubButtonText}>Drinking Safety Tips</Text>
+          <Text style={styles.mainRedButtonText}>Drinking Safety Tips</Text>
         </Pressable>
         <Pressable
-          style={styles.infoHubButton}
+          style={styles.mainRedButton}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Resources' })}>
-          <Text style={styles.infoHubButtonText}>Resources</Text>
+          <Text style={styles.mainRedButtonText}>Resources</Text>
         </Pressable>
       </View>
       {/* <Popup/> */}

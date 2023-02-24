@@ -17,19 +17,19 @@ const Profile = (props) => {
                     style={styles.aboutButton}
                     onPress={() => props.navigation.navigate('HowToUse')}
                 >
-                    <Text style={styles.infoHubButtonText}>How to Use</Text>
+                    <Text style={styles.mainRedButtonText}>How to Use</Text>
                 </Pressable>
                 <Pressable
                     style={styles.aboutButton}
                     onPress={() => props.navigation.navigate('OurMission')}
                 >
-                    <Text style={styles.infoHubButtonText}>Our Mission</Text>
+                    <Text style={styles.mainRedButtonText}>Our Mission</Text>
                 </Pressable>
                 <Pressable
                     style={styles.aboutButton}
                     onPress={() => props.navigation.navigate('OurSources')}
                 >
-                    <Text style={styles.infoHubButtonText}>Our Sources</Text>
+                    <Text style={styles.mainRedButtonText}>Our Sources</Text>
                 </Pressable>
             </View>
         </View>

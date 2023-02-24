@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Button} from 'react-native';
+import {Text, View, Pressable} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as StyleSheet from '../components/styles';
 import CalcDrinkCards from '../components/CalcDrinkCards';
@@ -21,32 +21,36 @@ const BACCalc = ({route, navigation}) => {
     return (
         <View style={styles.centered}>
             <CurrentBAC />
-            <Button
+            <Pressable
                 onPress={() => changeInsideOut(true)}
-                title="Inside"
-                color="#841584"
                 accessibilityLabel="Change the description to the inside version"
-            />
-            <Button
+                style={styles.mainRedButton}
+            >
+                <Text style={styles.mainRedButtonText}>Inside</Text>
+            </Pressable>
+            <Pressable
                 onPress={() => changeInsideOut(false)}
-                title="Out"
-                color="#841584"
                 accessibilityLabel="Change the description to the outside version"
-            />
+                style={styles.mainRedButton}
+            >
+                <Text style={styles.mainRedButtonText}>Out</Text>
+            </Pressable>
             <Text style={styles.centered}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text>
-            <Button
+            <Pressable
                 onPress={() => navigation.navigate('AddDrinkPage', { title: 'Add a Drink'})}
-                title="Add Drink"
-                color="#841584"
                 accessibilityLabel="Add a drink"
-            />
+                style={styles.mainRedButton}
+            >
+                <Text style={styles.mainRedButtonText}>Add Drink</Text>
+            </Pressable>
             <CalcDrinkCards />
-            <Button
+            <Pressable
                 onPress={() => AsyncStorage.clear()}
-                title="Clear Drinks"
-                color="#841584"
                 accessibilityLabel="Add a drink"
-            />
+                style={styles.mainRedButton}
+            >
+                <Text style={styles.mainRedButtonText}>Clear Drinks</Text>
+            </Pressable>
         </View>
     );
 };

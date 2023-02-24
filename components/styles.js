@@ -93,8 +93,13 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     width: '10%',
   },
-  // For buttons on Info Hub main page
-  infoHubButton: {
+  // For info hub pages with special components
+  specialInfoItem: {
+    marginHorizontal: 15,
+    marginVertical: 10
+  },
+  // For buttons - red
+  mainRedButton: {
     backgroundColor: '#CF5260',
     padding: 12,
     borderRadius: 8,
@@ -104,15 +109,11 @@ export const styles = StyleSheet.create({
     maxWidth: '48%',
     textAlign: 'left'
   },
-  infoHubButtonText: {
+  mainRedButtonText: {
     // fontFamily: 'Roboto',
     color: 'white'
   },
-  // For info hub pages with special components
-  specialInfoItem: {
-    marginHorizontal: 15,
-    marginVertical: 10
-  },
+
   // Table
   tableText: {
     margin: 6,
@@ -133,7 +134,7 @@ export const styles = StyleSheet.create({
     height: 425,
     marginTop: '5%'
   },
-  // For buttons on Alcohol Types page
+  // For Alcohol Types page
   alcoholTypesButton: {
     backgroundColor: '#FFEDD3',
     padding: 12,
@@ -146,6 +147,12 @@ export const styles = StyleSheet.create({
   alcoholTypesButtonText: {
     // fontFamily: 'Roboto',
     color: 'black'
+  },
+  commonAlcTypeTitle: {
+    fontSize: 24,
+    fontWeight: '500',
+    marginRight: '5%',
+    width: '80%',
   },
 
   // ** Profile page/About us pages styling
@@ -189,12 +196,6 @@ export const styles = StyleSheet.create({
     color: '#387780',
     fontSize: 14,
     margin: 5
-  },
-  commonAlcTypeTitle: {
-    fontSize: 24,
-    fontWeight: '500',
-    marginRight: '5%',
-    width: '80%',
   },
 }
 );
