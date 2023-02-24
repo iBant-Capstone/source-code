@@ -92,8 +92,13 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     width: '10%',
   },
-  // For buttons on Info Hub main page
-  infoHubButton: {
+  // For info hub pages with special components
+  specialInfoItem: {
+    marginHorizontal: 15,
+    marginVertical: 10
+  },
+  // For buttons - red
+  mainRedButton: {
     backgroundColor: '#CF5260',
     padding: 12,
     borderRadius: 8,
@@ -103,15 +108,11 @@ export const styles = StyleSheet.create({
     maxWidth: '48%',
     textAlign: 'left'
   },
-  infoHubButtonText: {
+  mainRedButtonText: {
     // fontFamily: 'Roboto',
     color: 'white'
   },
-  // For info hub pages with special components
-  specialInfoItem: {
-    marginHorizontal: 15,
-    marginVertical: 10
-  },
+
   // Table
   tableText: {
     margin: 6,
