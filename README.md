@@ -60,13 +60,3 @@ Emiri Nishizawa: emirin1@uw.edu
 Roshni Srikanth: rsrika@uw.edu
 <br>
 Gisele Fox: gjfox@uw.edu
-
-<style>
-td {
-   border: none!important;
-   min
-},
-table {
-    margin: 0;
-}
-</style>
