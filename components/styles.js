@@ -125,7 +125,7 @@ export const styles = StyleSheet.create({
   // Image
   standardDrinkImg: {
     width: 340,
-    height: 507,
+    height: 425,
     marginTop: '5%'
   },
   // For buttons on Alcohol Types page
