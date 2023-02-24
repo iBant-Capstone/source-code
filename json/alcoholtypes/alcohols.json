@@ -1,0 +1,90 @@
+[
+    {
+        "alcoholid": "Beer",
+        "description": "The most popular alcoholic beverage worldwide.",
+        "abv": "4-8%",
+        "fun fact": "Beer ABV varies depending on type: “light beers” only have 2-4% ABV while “malt liquors” have 6-8% ABV.",
+        "fun fact sources": [
+            "Source 2"
+        ],
+        "tags": [
+            "Undistilled/Fermented"
+        ]
+    },
+    {
+        "alcoholid": "Champagne",
+        "description": "The most common sparking wine, usually used for celebration.",
+        "abv": "16-24%",
+        "fun fact": "Champagne's sparkling comes from injecting carbon dioxide or via natural fermentation processes.",
+        "fun fact sources": [
+            "Source 8"
+        ],
+        "tags": [
+            "Undistilled/Fermented",
+            "Wine"
+        ]
+    },
+    {
+        "alcoholid": "Fortified Wine",
+        "description": "Wines that are “fortified” with distilled alcohol such as brandy.",
+        "abv": "16-24%",
+        "fun fact": "The most common fortified wine types are: port wine, sherry, madeira, marsala, vermouth.",
+        "fun fact sources": [
+            "Source 6"
+        ],
+        "tags": [
+            "Undistilled/Fermented",
+            "Wine"
+        ]
+    },
+    {
+        "alcoholid": "Hard Cider",
+        "description": "Fermented apple juice.",
+        "abv": "5-7%",
+        "fun fact": "By US law, hard cider must contain at least 50% apple juice.",
+        "fun fact sources": [
+            "Source 11"
+        ],
+        "tags": [
+            "Undistilled/Fermented"
+        ]
+    },
+    {
+        "alcoholid": "Mead",
+        "description": "A blend of water and fermented honey (also referred to as honey wine).",
+        "abv": "7-20%",
+        "fun fact": "Mead ABV varies depending on the maker and ingredients: sack meads have high ABV (up to 20%), while dry meads have lower ABV values, ranging from 8% to 12%.",
+        "fun fact sources": [
+            "Source 11"
+        ],
+        "tags": [
+            "Undistilled/Fermented"
+        ]
+    },
+    {
+        "alcoholid": "Saké",
+        "description": "A well-known Japanese drink made from fermented rice.",
+        "abv": "13-17%",
+        "fun fact": "Sake has a mild taste with little acidity, bitterness or astringency. Cooking sake has a lower ABV, more concentrated flavor, and sometimes contains salt.",
+        "fun fact sources": [
+            "Source 12",
+            "Source 13"
+        ],
+        "tags": [
+            "Undistilled/Fermented"
+        ]
+    },
+    {
+        "alcoholid": "Standard Wine",
+        "description": "Made by fermentation from grapes, fruits, berries, rice, or honey.",
+        "abv": "10-15%",
+        "fun fact": "The most common standard wine types are: red wine, white wine, rose, dessert wine, and sparkling wine.",
+        "fun fact sources": [
+            "Source 8"
+        ],
+        "tags": [
+            "Undistilled/Fermented",
+            "Wine"
+        ]
+    }
+]

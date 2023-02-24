@@ -5,17 +5,27 @@ import Modal from "react-native-modal";
 
 let styles = StyleSheet.styles;
 
-function Popup(props)
-{
 
-    console.log("popup is called");
-    console.log("is open", props.isOpen)
-    return(
-    //import json file based on popup name 
+
+const Popup = (props) =>
+{
+   
+   let data = undefined;
+   if(props.data != undefined) {
+        data = props.data[0];
+   }
+   return(
+     
     <View>
         <Modal isVisible={props.isOpen} style={styles.modal}>
             <View>
-            <Text>{"Hello, this is information about " + props.alcoholName + "!"}    </Text>
+            {data && <Text style={styles.title}>{data.alcoholid}</Text>}
+            <br/>
+            {data && <Text style={styles.title}>{data.description}</Text>}
+            <br/>
+            {data && <Text style={styles.title}>{data.abv}</Text>}
+            <br/>
+            {data && <Text style={styles.title}>{data.tags}</Text>}
             <Button title="Close" onPress={props.onChangeModal} />
             </View>
         </Modal>
