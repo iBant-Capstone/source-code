@@ -21,7 +21,15 @@ const CommonAlcoholTypes = ({ navigation }) => {
             {alcoholName: "Champagne", isPopupOpen: false, index: 2},
             {alcoholName: "Hard Cider", isPopupOpen: false, index: 3},       
             {alcoholName: "Mead", isPopupOpen: false, index: 4},       
-            {alcoholName: "Saké", isPopupOpen: false, index: 5}    
+            {alcoholName: "Saké", isPopupOpen: false, index: 5},
+            {alcoholName: "Gin", isPopupOpen: false, index: 6},
+            {alcoholName: "Brandy", isPopupOpen: false, index: 7},
+            {alcoholName: "Whiskey", isPopupOpen: false, index: 8},
+            {alcoholName: "Rum", isPopupOpen: false, index: 9},
+            {alcoholName: "Tequila", isPopupOpen: false, index: 10},
+            {alcoholName: "Vodka", isPopupOpen: false, index: 11},
+            {alcoholName: "Absinthe", isPopupOpen: false, index: 12},
+            {alcoholName: "Everclear", isPopupOpen: false, index: 13}   
         ];
         setOpenArray(initialState);
     }, []);
@@ -123,6 +131,70 @@ const CommonAlcoholTypes = ({ navigation }) => {
                     >
                     {callPopUp("Saké")}
                     <Text style={styles.alcoholTypesButtonText}>Saké</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    onPress={() => {changePopup("Gin"); // toggles isOpen 
+                    }}
+                    >
+                    {callPopUp("Gin")}
+                    <Text style={styles.alcoholTypesButtonText}>Gin</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    onPress={() => {changePopup("Brandy"); // toggles isOpen 
+                    }}
+                    >
+                    {callPopUp("Brandy")}
+                    <Text style={styles.alcoholTypesButtonText}>Brandy</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    onPress={() => {changePopup("Whiskey"); // toggles isOpen 
+                    }}
+                    >
+                    {callPopUp("Whiskey")}
+                    <Text style={styles.alcoholTypesButtonText}>Whiskey</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    onPress={() => {changePopup("Rum"); // toggles isOpen 
+                    }}
+                    >
+                    {callPopUp("Rum")}
+                    <Text style={styles.alcoholTypesButtonText}>Rum</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    onPress={() => {changePopup("Tequila"); // toggles isOpen 
+                    }}
+                    >
+                    {callPopUp("Tequila")}
+                    <Text style={styles.alcoholTypesButtonText}>Tequila</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    onPress={() => {changePopup("Vodka"); // toggles isOpen 
+                    }}
+                    >
+                    {callPopUp("Vodka")}
+                    <Text style={styles.alcoholTypesButtonText}>Vodka</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    onPress={() => {changePopup("Absinthe"); // toggles isOpen 
+                    }}
+                    >
+                    {callPopUp("Absinthe")}
+                    <Text style={styles.alcoholTypesButtonText}>Absinthe</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    onPress={() => {changePopup("Everclear"); // toggles isOpen 
+                    }}
+                    >
+                    {callPopUp("Everclear")}
+                    <Text style={styles.alcoholTypesButtonText}>Everclear</Text>
                 </Pressable>
             </View>
         </View>
