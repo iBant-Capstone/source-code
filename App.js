@@ -5,7 +5,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Profile from './screens/Profile.js'
 import BACCalc from './screens/BACCalc.js'
 import InformationHub from './screens/InformationHub.js'
-import AboutUs from './screens/AboutUs.js'
 import InfoTopicPage from './components/InfoTopicPage.js';
 import AddDrinkPage from './screens/AddDrink.js'
 import CommonAlcoholTypes from './screens/CommonAlcoholTypes.js'
@@ -29,11 +28,6 @@ export default function App() {
         <Stack.Screen
           name='Profile'
           component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='AboutUs'
-          component={AboutUs}
           options={{ headerShown: false }}
         />
         <Stack.Screen
