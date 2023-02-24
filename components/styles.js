@@ -133,7 +133,7 @@ export const styles = StyleSheet.create({
     height: 425,
     marginTop: '5%'
   },
-  // For buttons on Alcohol Types page
+  // For Alcohol Types page
   alcoholTypesButton: {
     backgroundColor: '#FFEDD3',
     padding: 12,
@@ -146,6 +146,12 @@ export const styles = StyleSheet.create({
   alcoholTypesButtonText: {
     // fontFamily: 'Roboto',
     color: 'black'
+  },
+  commonAlcTypeTitle: {
+    fontSize: 24,
+    fontWeight: '500',
+    marginRight: '5%',
+    width: '80%',
   },
 
   // ** Profile page/About us pages styling
@@ -189,12 +195,6 @@ export const styles = StyleSheet.create({
     color: '#387780',
     fontSize: 14,
     margin: 5
-  },
-  commonAlcTypeTitle: {
-    fontSize: 24,
-    fontWeight: '500',
-    marginRight: '5%',
-    width: '80%',
   },
 }
 );
