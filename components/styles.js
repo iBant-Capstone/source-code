@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 0.25,
     borderRadius: 20,
+    justifyContent: 'center',
   },
   modalContent: {
     padding: 25,

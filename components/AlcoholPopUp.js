@@ -30,7 +30,7 @@ const Popup = (props) =>
                 {data && <Text style={styles.title}><em>{data.tags}</em></Text>}
                 <br/>
                 <Pressable style={[styles.infoHubButton,styles.centered]} onPress={props.onChangeModal}> 
-                    <Text style={styles.infoHubButtonText}><em>Close</em></Text>
+                    <Text style={styles.infoHubButtonText}><em>CLOSE</em></Text>
                 </Pressable>
             </View>
         </Modal>
