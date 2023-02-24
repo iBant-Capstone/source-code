@@ -12,7 +12,7 @@ const CalcDrinkCards = () => {
     const [drinks, setDrinks] = useState([]);
 
     // retrieves the drinks from async storage eveytime the component is refocused 
-    // (had to use a FocusEffect because the regular useEffect only remounted the component after a biger reload of the entire app)
+    // (had to use a FocusEffect because the regular useEffect only remounted the component after a bigger reload of the entire app)
     useFocusEffect(
         React.useCallback(() => {
             async function getDrinks() {

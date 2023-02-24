@@ -3,6 +3,7 @@ import {Text, View, Button} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as StyleSheet from '../components/styles';
 import CalcDrinkCards from '../components/CalcDrinkCards';
+import CurrentBAC from '../components/CurrentBAC';
 
 
 let styles = StyleSheet.styles;
@@ -19,7 +20,7 @@ const BACCalc = ({route, navigation}) => {
 
     return (
         <View style={styles.centered}>
-            <Text style={styles.centered}>BAC 0.00%</Text>
+            <CurrentBAC />
             <Button
                 onPress={() => changeInsideOut(true)}
                 title="Inside"
