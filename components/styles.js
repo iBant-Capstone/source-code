@@ -25,12 +25,16 @@ export const styles = StyleSheet.create({
   centered: {
     alignItems: 'center',
     padding: "15px",
+    justifyContent: 'center',
   },
   modal: {
     flex: 0.75,
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: '#fff',
+    padding: 0.25,
+    borderRadius: 20,
+  },
+  modalContent: {
+    padding: 25,
   },
 
   // Rosie Related Styling:
