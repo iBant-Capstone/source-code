@@ -54,17 +54,16 @@ const CurrentBAC = () => {
         }) 
     }, [])
 
-    function handleSetDrinksConsumed() {
-
+    useEffect(() => {
         setDrinksConsumed([
             {
-                drinkName: "wine", // currently
-                drinkType: "wine",
-                drinkStrength: 0.13, // 13% ABV
-                drinkSize: 0.570, // 570ml
+                drinkName: "beer", // currently
+                drinkType: "beer",
+                drinkStrength: 0.027, // 2.7% ABV
+                drinkSize: 0.285, // 285ml
                 drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
                 drinkFullLife: getDrinkFullLife(),
-                drinkAlcoholGrams: calculateAlcoholGrams(0.570, 0.13), // drink size and drink strength go into the calculation
+                drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
                 drinkUnits: 1, // only one drink
                 drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
                 drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
@@ -72,19 +71,17 @@ const CurrentBAC = () => {
             {
                 drinkName: "beer", // currently
                 drinkType: "beer",
-                drinkStrength: 0.13, // 13% ABV
-                drinkSize: 0.570, // 570ml
+                drinkStrength: 0.027, // 2.7% ABV
+                drinkSize: 0.285, // 285ml
                 drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
                 drinkFullLife: getDrinkFullLife(),
-                drinkAlcoholGrams: calculateAlcoholGrams(0.570, 0.13), // drink size and drink strength go into the calculation
+                drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
                 drinkUnits: 1, // only one drunk
                 drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
                 drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
             }
         ]) 
-    }
 
-    function handleSetPersonalDetails() {
         setPersonalDetails({
             sex: "Female",
             height: {
@@ -97,7 +94,8 @@ const CurrentBAC = () => {
             }, 
             widmarkFactor: calculateWidmarkFactorFemale()
         }) 
-    }
+    }, [])
+
 
     // initializes calculating the BAC
     function calculateCurrentBAC() {
@@ -247,9 +245,9 @@ const CurrentBAC = () => {
             <Button 
                 onPress={() => {
                     handleSetDrinksConsumed()
-                    console.log("Drinks Consumed: " + drinksConsumed)
+                    console.log("Drinks Consumed: " , drinksConsumed)
                     handleSetPersonalDetails()
-                    console.log("Personal Details: " + personalDetails)
+                    console.log("Personal Details: " , personalDetails)
                     calculateCurrentBAC()
                 }}
                 title = "Update BAC"
