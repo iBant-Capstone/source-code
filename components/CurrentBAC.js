@@ -12,7 +12,61 @@ const CurrentBAC = () => {
     let [drinksConsumed, setDrinksConsumed] = useState([])
     let [personalDetails, setPersonalDetails] = useState({})
 
+    useFocusEffect(
+        React.useCallback(() => {
+            async function getDrinks() {
+                try {
+
+                    // GET THE DRINKS CONSUMED
+
+                    // Get the list of drinks from the async storage
+                    const drinksListAsync = await AsyncStorage.getItem('drinks');
+        
+                    // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
+                    let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
+                    console.log("Drinks list: " + drinksList)
+
+                    // Reformat the info inputted
+                    drinksList
+                    
+                    // GET THE PERSONAL DETAILS 
+
+                    // TODO: get it from async storage
+                    let asyncPersonalDetails = {
+                        sex: "Female",
+                        height: {
+                            units: "Meters",
+                            value: 1.80,
+                        },
+                        weight: {
+                            units: "Kilograms",
+                            value: 63
+                        }
+                    }
+
+                    // Add in additonal information with the functions 
+                    asyncPersonalDetails.widmarkFactor = calculateWidmarkFactorFemale()
+
+                    // Set the personalDrinks to state
+                    setPersonalDetails(asyncPersonalDetails)
+
+                } catch (error) {
+                  console.log(error);
+                }
+            }
+            getDrinks();
+        }, [])
+    );
+
+
     useEffect(() => {
+
+        // Load the drinks with the info we have
+
+
+
+
+        // Set the drinksConsumed
         setDrinksConsumed([
             {
                 drinkName: "beer", // currently
@@ -40,18 +94,8 @@ const CurrentBAC = () => {
             }
         ]) 
 
-        setPersonalDetails({
-            sex: "Female",
-            height: {
-                units: "Meters",
-                value: 1.80,
-            },
-            weight: {
-                units: "Kilograms",
-                value: 63
-            }, 
-            widmarkFactor: calculateWidmarkFactorFemale()
-        }) 
+        // Set the personal details
+
     }, [])
 
 
