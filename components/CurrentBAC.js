@@ -202,13 +202,7 @@ const CurrentBAC = () => {
         <View>
             <Text>Current BAC: 0.00%</Text>
             <Button 
-                onPress={() => {
-                    handleSetDrinksConsumed()
-                    console.log("Drinks Consumed: " , drinksConsumed)
-                    handleSetPersonalDetails()
-                    console.log("Personal Details: " , personalDetails)
-                    calculateCurrentBAC()
-                }}
+                onPress={() => { calculateCurrentBAC() }}
                 title = "Update BAC"
             />   
         </View>
