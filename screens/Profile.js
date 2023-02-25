@@ -19,17 +19,17 @@ const Profile = (props) => {
                     <TableWrapper style={{ flexDirection: 'row' }}>
                         <Cell data={"Height: "} width={100} textStyle={styles.mainRedButtonText} />
                         <Cell data={"Insert data here"} width={100} textStyle={styles.mainRedButtonText} />
-                        <Cell data={<Pressable style={styles.profileEditButton}>Edit</Pressable>} />
+                        <Cell data={<Pressable style={styles.profileEditButton}><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                     </TableWrapper>
                     <TableWrapper style={{ flexDirection: 'row' }}>
                         <Cell data={"Weight: "} width={100} textStyle={styles.mainRedButtonText} />
                         <Cell data={"Insert data here"} width={100} textStyle={styles.mainRedButtonText} />
-                        <Cell data={<Pressable style={styles.profileEditButton} >Edit</Pressable>} />
+                        <Cell data={<Pressable style={styles.profileEditButton} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                     </TableWrapper>
                     <TableWrapper style={{ flexDirection: 'row' }}>
                         <Cell data={"Sex: "} width={100} textStyle={styles.mainRedButtonText} />
                         <Cell data={"Insert data here"} width={100} textStyle={styles.mainRedButtonText} />
-                        <Cell data={<Pressable style={styles.profileEditButton}>Edit</Pressable>} />
+                        <Cell data={<Pressable style={styles.profileEditButton}><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                     </TableWrapper>
                 </Table>
             </View>
