@@ -155,6 +155,16 @@ export const styles = StyleSheet.create({
   },
 
   // ** Profile page/About us pages styling
+  // For Profile editting
+  profileEditButton: {
+    backgroundColor: 'white',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginHorizontal: '15%',
+    width: '70%',
+    textAlign: 'center'
+  },
   // For about us buttons
   aboutButton: {
     backgroundColor: '#CF5260',
