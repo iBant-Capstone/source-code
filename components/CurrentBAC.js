@@ -54,47 +54,6 @@ const CurrentBAC = () => {
         }) 
     }, [])
 
-    useEffect(() => {
-        setDrinksConsumed([
-            {
-                drinkName: "beer", // currently
-                drinkType: "beer",
-                drinkStrength: 0.027, // 2.7% ABV
-                drinkSize: 0.285, // 285ml
-                drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
-                drinkFullLife: getDrinkFullLife(),
-                drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
-                drinkUnits: 1, // only one drink
-                drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
-                drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
-            },
-            {
-                drinkName: "beer", // currently
-                drinkType: "beer",
-                drinkStrength: 0.027, // 2.7% ABV
-                drinkSize: 0.285, // 285ml
-                drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
-                drinkFullLife: getDrinkFullLife(),
-                drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
-                drinkUnits: 1, // only one drunk
-                drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
-                drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
-            }
-        ]) 
-
-        setPersonalDetails({
-            sex: "Female",
-            height: {
-                units: "Meters",
-                value: 1.80,
-            },
-            weight: {
-                units: "Kilograms",
-                value: 63
-            }, 
-            widmarkFactor: calculateWidmarkFactorFemale()
-        }) 
-    }, [])
 
 
     // initializes calculating the BAC
