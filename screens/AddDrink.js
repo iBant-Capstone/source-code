@@ -17,7 +17,7 @@ const AddDrink = ({route, navigation}) => {
     const [timeInputValue, setTimeInputValue] = useState('');
     const [time, setTime] = useState(new Date());
 
-
+    // MIGHT HAVE TO JUST TO TEXT ENTRY FOR TIME, ONE FOR HOUR ONE FOR MINUTE AND THEN CHOOSE AM/PM
 
     // adds the drink to the async storage
     const handleAddEntry = async () => {
