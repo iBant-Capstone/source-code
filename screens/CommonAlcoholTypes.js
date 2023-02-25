@@ -79,6 +79,21 @@ const CommonAlcoholTypes = ({ navigation }) => {
         );
         
     }
+
+    const PressableArrays = () => {
+        data.map((alcohol) => {
+            return (
+                <Pressable
+                    style={styles.alcoholTypesButton}
+                    onPress={() => {changePopup(alcohol.alcoholid); // toggles isOpen 
+                    }}
+                    >
+                    {callPopUp(alcohol.alcoholid)}
+                    <Text style={styles.alcoholTypesButtonText}>Beer</Text>
+                </Pressable>
+            );
+        } )
+    }
     
     return (
         <View style={styles.centered}>

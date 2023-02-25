@@ -23,9 +23,9 @@ const Popup = (props) =>
                 <br/>
                 {data && <Text style={styles.title}>{data.description}</Text>}
                 <br/>
-                {data && <Text style={styles.title}><b>ABV: </b>{data.abv}</Text>}
+                {data && <Text style={styles.title}><strong>ABV: </strong>{data.abv}</Text>}
                 <br/>
-                {data && <Text style={styles.title}><b>Did you know? </b>{data.funFact}</Text>}
+                {data && <Text style={styles.title}><strong>Did you know? </strong>{data.funFact}</Text>}
                 <br/>
                 {data && <Text style={styles.title}><em>{data.tags}</em></Text>}
                 <br/>
