@@ -12,8 +12,50 @@ const CurrentBAC = () => {
     let [drinksConsumed, setDrinksConsumed] = useState([])
     let [personalDetails, setPersonalDetails] = useState({})
 
+    useEffect(() => {
+        setDrinksConsumed([
+            {
+                drinkName: "beer", // currently
+                drinkType: "beer",
+                drinkStrength: 0.027, // 2.7% ABV
+                drinkSize: 0.285, // 285ml
+                drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
+                drinkFullLife: getDrinkFullLife(),
+                drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
+                drinkUnits: 1, // only one drink
+                drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
+                drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
+            },
+            {
+                drinkName: "beer", // currently
+                drinkType: "beer",
+                drinkStrength: 0.027, // 2.7% ABV
+                drinkSize: 0.285, // 285ml
+                drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
+                drinkFullLife: getDrinkFullLife(),
+                drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
+                drinkUnits: 1, // only one drunk
+                drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
+                drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
+            }
+        ]) 
+
+        setPersonalDetails({
+            sex: "Female",
+            height: {
+                units: "Meters",
+                value: 1.80,
+            },
+            weight: {
+                units: "Kilograms",
+                value: 63
+            }, 
+            widmarkFactor: calculateWidmarkFactorFemale()
+        }) 
+    }, [])
+
     function handleSetDrinksConsumed() {
-        
+
         setDrinksConsumed([
             {
                 drinkName: "wine", // currently
@@ -82,11 +124,13 @@ const CurrentBAC = () => {
         // Iterate through minutes from first drink to now
         for (; timeDiffinMin >= 0 ;) {
             console.log("Minute working on: " + timeDiffinMin)
-            console.log("Working BAC: " + BAC)
 
             BAC += increaseBACEveryMinute(currentDate, timeDiffinMin)
+            console.log("\tBAC after increase: " + BAC)
 
             BAC -= reduceBACEveryMinute(BAC)
+            console.log("\tBAC after decrease: " + BAC)
+
             timeDiffinMin--
         }
 
@@ -95,19 +139,19 @@ const CurrentBAC = () => {
     }
 
     function increaseBACEveryMinute(currentDate, workingTimeDiffMin) {
-        console.log("got into increaseBACEveryMinute")
+        //console.log("got into increaseBACEveryMinute")
 
         let BACtoAdd = 0
         let currentMin = setDateObjectSecondsAndMillisecondsToZero(new Date(currentDate.getTime() - 6e4 * workingTimeDiffMin))
 
-        console.log(drinksConsumed)
+        // console.log(drinksConsumed)
 
         drinksConsumed.forEach(drink => {
-            console.log("Got into the drinksConsumed foreach loop")
+            //console.log("Got into the drinksConsumed foreach loop")
             const timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentMin, drink.drinkConsumedTimeAsDateObject)
 
             timeDiffinMin >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= currentMin && (BACtoAdd += calculateBACToAdd(drink, timeDiffinMin)) 
-            console.log("BACtoAdd: " + BACtoAdd)
+            console.log("\t\tBACtoAdd: " + BACtoAdd)
         })
         
         return BACtoAdd
@@ -144,7 +188,7 @@ const CurrentBAC = () => {
 
     function getTimeDifferenceBetweenDateObjectsInMinutes(time1, time2) {
         let timeDiffInMin = Math.round((time1.getTime() - time2.getTime()) / 6e4 )
-        console.log("(getTimeDifferenceBetweenDateObjectsInMinutes) " + timeDiffInMin)
+        // console.log("(getTimeDifferenceBetweenDateObjectsInMinutes) " + timeDiffInMin)
         
         return timeDiffInMin
     }
