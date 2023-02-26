@@ -59,25 +59,21 @@ const EditProfilePage = ({ navigation }) => {
     return (
         <View>
             <Text>Edit your info here</Text>
-
-            <Text>Add in your height here</Text>
-            <View style={{flexDirection: 'row'}}>
-                <View>
+            
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Text>Add your height   </Text>
                     <Text>ft</Text>
                     <RadioButton
                         value="ft"
                         status={ heightUnitValueChecked === 'ft' ? 'checked' : 'unchecked' }
                         onPress={() => setHeightUnitValueChecked('ft')}
                     />
-                </View>
-                <View>
                     <Text>cm</Text>
                     <RadioButton
                         value="cm"
                         status={ heightUnitValueChecked === 'cm' ? 'checked' : 'unchecked' }
                         onPress={() => setHeightUnitValueChecked('cm')}
                     />
-                </View>
             </View>
             {heightUnitValueChecked === "ft" ?
                 <View style={{flexDirection: 'row'}}>
@@ -110,24 +106,21 @@ const EditProfilePage = ({ navigation }) => {
             }
             
 
-            <Text>Add in your weight here</Text>
-            <View style={{flexDirection: 'row'}}>
-                <View>
+            
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Text>Add your weight  </Text>
                     <Text>lbs</Text>
                     <RadioButton
                         value="lbs"
                         status={ weightUnitValueChecked === 'lbs' ? 'checked' : 'unchecked' }
                         onPress={() => setWeightUnitValueChecked('lbs')}
                     />
-                </View>
-                <View>
                     <Text>kg</Text>
                     <RadioButton
                         value="kg"
                         status={ weightUnitValueChecked === 'kg' ? 'checked' : 'unchecked' }
                         onPress={() => setWeightUnitValueChecked('kg')}
                     />
-                </View>
             </View>
             <TextInput 
                 style={styles.textInput}
@@ -136,6 +129,7 @@ const EditProfilePage = ({ navigation }) => {
                 placeholder={"weight (" + weightUnitValueChecked + ")"}
             />
             
+
             <Text>Chose Sex: {sexValueChecked}</Text>
 
             <View style={{flexDirection: 'row'}}>
