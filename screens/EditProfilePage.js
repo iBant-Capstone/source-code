@@ -12,7 +12,9 @@ const EditProfilePage = ({ navigation }) => {
     // TODO : maybe make radio buttons their own component in their own file??
 
     // ______ TEXT INPUTS __________
-    const [heightInputValue, setHeightInputValue] = useState('')
+    const [cmInputValue, setCmInputValue] = useState('')
+    const [ftInputValue, setFtInputValue] = useState('')
+    const [inInputValue, setInInputValue] = useState('')
     const [weightInputValue, setWeightInputValue] = useState('')
 
     
@@ -27,6 +29,31 @@ const EditProfilePage = ({ navigation }) => {
     // Keeps track of what sex value is selected
     const [sexValueChecked, setSexValueChecked] = useState('');
 
+    const handleAddPersonalDetails = async () => {
+
+        // calculate height value (converting to inches if input was ft)
+        let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (ftInputValue * 12) + inInputValue
+
+        // Set up the personal details to send
+        let newPersonalDetails = {
+            height: {
+                unit: heightUnitValueChecked,
+                value: heightValue
+            }, 
+            weight: {
+                unit: weightUnitValueChecked,
+                value: weightInputValue
+            }, 
+            sex: sexValueChecked
+        }
+
+        try {
+            await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
+        } catch (err) {
+            console.log(err)
+        }
+        
+    };
 
 
     return (
@@ -52,11 +79,35 @@ const EditProfilePage = ({ navigation }) => {
                     />
                 </View>
             </View>
-            <TextInput 
-                value={heightInputValue}
-                onChangeText={setHeightInputValue}
-                placeholder={"height (" + heightUnitValueChecked + ")"}
-            />
+            {heightUnitValueChecked === "ft" ?
+                <View style={{flexDirection: 'row'}}>
+                    <View>
+                        <Text>feet</Text>
+                        <TextInput 
+                            style={styles.textInput}
+                            value={ftInputValue}
+                            onChangeText={setFtInputValue}
+                            placeholder={"feet"}
+                        />
+                    </View>
+                    <View>
+                        <Text>inches</Text>
+                        <TextInput 
+                            style={styles.textInput}
+                            value={inInputValue}
+                            onChangeText={setInInputValue}
+                            placeholder={"inches"}
+                        />
+                    </View>
+                </View>
+                :
+                <TextInput 
+                    style={styles.textInput}
+                    value={cmInputValue}
+                    onChangeText={setCmInputValue}
+                    placeholder={"height (cm)"}
+                />
+            }
             
 
             <Text>Add in your weight here</Text>
@@ -79,6 +130,7 @@ const EditProfilePage = ({ navigation }) => {
                 </View>
             </View>
             <TextInput 
+                style={styles.textInput}
                 value={weightInputValue}
                 onChangeText={setWeightInputValue}
                 placeholder={"weight (" + weightUnitValueChecked + ")"}
@@ -106,8 +158,8 @@ const EditProfilePage = ({ navigation }) => {
             </View>
             
             
-            
             <Pressable 
+                onPress={handleAddPersonalDetails}
                 style={styles.mainRedButton}
             ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
 

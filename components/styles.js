@@ -38,6 +38,14 @@ export const styles = StyleSheet.create({
     padding: 25,
   },
 
+  // TEXT INPUT STYLING
+  textInput: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+
   // Rosie Related Styling:
   // To place Rosie on left
   rosieLeftImage: {
@@ -212,6 +220,8 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     margin: 5
   },
+
+
 }
 );
 
