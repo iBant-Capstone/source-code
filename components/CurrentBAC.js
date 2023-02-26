@@ -27,7 +27,6 @@ const CurrentBAC = () => {
                     console.log("Drinks list: " + drinksList)
 
                     // Reformat the info inputted
-                    drinksList
                     
                     // GET THE PERSONAL DETAILS 
 
