@@ -1,4 +1,4 @@
-# BACTracker Source Code
+# BACtracker Source Code
 This GitHub repository contains the code for our Capstone project.
 <img align="right" width="150" height="150" src="./assets/icons/BACtracker_logo.png">
 ## About the Project
