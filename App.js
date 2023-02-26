@@ -11,6 +11,7 @@ import CommonAlcoholTypes from './screens/CommonAlcoholTypes.js'
 import HowToUse from './screens/aboutScreens/HowToUse.js';
 import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
+import EditProfilePage from './screens/EditProfilePage.js';
 
 
 const Stack = createStackNavigator();
@@ -64,6 +65,10 @@ export default function App() {
           name='OurSources'
           component={OurSources}
           options={({ route }) => ({ title: 'Our Sources' })}
+        />
+        <Stack.Screen 
+          name='EditProfilePage'
+          component={EditProfilePage}
         />
       </Stack.Navigator>
 
