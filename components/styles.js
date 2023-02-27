@@ -153,6 +153,27 @@ export const styles = StyleSheet.create({
     textAlign: 'center'
   },
 
+  // FOR ADD DRINKS BUTTONS
+  hungerButtonPressed: {
+    backgroundColor: '#CF5260',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginHorizontal: '5%',
+    width: '50%',
+    textAlign: 'center'
+  },
+
+  hungerButtonRegular: {
+    backgroundColor: '#FFFFFF',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginHorizontal: '5%',
+    width: '50%',
+    textAlign: 'center'
+  },
+
   // Table
   tableText: {
     margin: 6,

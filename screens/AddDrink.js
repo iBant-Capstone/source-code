@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Button, TextInput} from 'react-native';
+import {Text, View, Button, TextInput, Pressable} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as StyleSheet from '../components/styles';
 import Flatpickr from "react-flatpickr";
@@ -14,6 +14,8 @@ const AddDrink = ({route, navigation}) => {
     const [nameInputValue, setNameInputValue] = useState('');
     const [sizeInputValue, setSizeInputValue] = useState('');
     const [strengthInputValue, setStrengthInputValue] = useState('');
+    const [hungerValueSelected, setHungerValueSelected] = useState('')
+
     const [timeInputValue, setTimeInputValue] = useState('');
     const [time, setTime] = useState(new Date());
 
@@ -21,6 +23,9 @@ const AddDrink = ({route, navigation}) => {
 
     // adds the drink to the async storage
     const handleAddEntry = async () => {
+
+        // Create the time of drink
+        let timeOfDrink = ''
 
         // Create the JSON structure for the new drink
         let newDrink = {
@@ -42,11 +47,6 @@ const AddDrink = ({route, navigation}) => {
             drinks.push(JSON.stringify(newDrink));
         
             await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
-            //   setTextInputValue('');
-            //   setNameInputValue('');
-            //   setSizeInputValue('');
-            //   setStrengthInputValue('');
-            //   setTimeInputValue('');
             navigation.goBack()
         } catch (error) {
           console.log(error);
@@ -54,38 +54,68 @@ const AddDrink = ({route, navigation}) => {
     };
 
     return (
-        <View style={styles.centered}>
-            <Text>Input The Name of the Drink Below</Text>
+        <View>
+            <Text>Drink name</Text>
             <TextInput 
+                style={styles.textInput}
                 value={nameInputValue}
                 onChangeText={setNameInputValue}
-                placeholder="Name of Drink"
+                placeholder="Wine, Beer, Martini..."
             />
-            <Text>Input the size of the drink (ml)</Text>
+            <Text>Drink Size (ml)</Text>
             <TextInput 
+                style={styles.textInput}
                 value={sizeInputValue}
                 onChangeText={setSizeInputValue}
-                placeholder="Name of Drink"
+                placeholder="12, 45, 76..."
             />
-            <Text>Input the drink strength (ABV)</Text>
+            <Text>Drink Strength (ABV) (example: 2.3 for 2.3%)</Text>
             <TextInput 
+                style={styles.textInput}
                 value={strengthInputValue}
                 onChangeText={setStrengthInputValue}
-                placeholder="Name of Drink"
+                placeholder="2.3, 13.7, 9.65..."
             />
-            <Text>Input the time of drink</Text>
+            <Text>Hunger Level</Text>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Pressable
+                        value="6"
+                        style={ hungerValueSelected === '6' ? styles.hungerButtonPressed : styles.hungerButtonRegular}
+                        onPress={() => setHungerValueSelected('6')}
+                    ><Text>Very Hungry</Text></Pressable>
+                    <Pressable
+                        value="9"
+                        style={ hungerValueSelected === '9' ? styles.hungerButtonPressed : styles.hungerButtonRegular }
+                        onPress={() => setHungerValueSelected('9')}
+                    ><Text>Hungry</Text></Pressable>
+            </View>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Pressable
+                        value="12"
+                        style={ hungerValueSelected === '12' ? styles.hungerButtonPressed : styles.hungerButtonRegular}
+                        onPress={() => setHungerValueSelected('12')}
+                    ><Text>Not Hungry</Text></Pressable>
+                    <Pressable
+                        value="15"
+                        style={ hungerValueSelected === '15' ? styles.hungerButtonPressed : styles.hungerButtonRegular }
+                        onPress={() => setHungerValueSelected('15')}
+                    ><Text>Full</Text></Pressable>
+            </View>
+            {/* <Text>Time of Drink Relative to Now</Text>
             <TextInput 
+                style={styles.textInput}
                 value={timeInputValue}
                 onChangeText={setTimeInputValue}
                 placeholder="Name of Drink"
-            />
-            <Text>Enter the time</Text>
+            /> */}
+            {/* <Text>Enter the time</Text>
             <Flatpickr
                 data-enable-time
                 data-no-calendar
                 value={time}
+                options={{ enableSeconds: false }}
                 onChange={(selectedTime) => setTime(selectedTime[0])}
-            />
+            /> */}
             <Button
                 onPress={handleAddEntry}
                 title="Add Drink"
