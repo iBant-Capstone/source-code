@@ -37,6 +37,18 @@ const EditProfilePage = ({ navigation }) => {
         React.useCallback(() => {
             async function getPersonalDetails() {
 
+                let emptyPD = {
+                    height: {
+                        unit: '',
+                        value: ''
+                    }, 
+                    weight: {
+                        unit: '',
+                        value: ''
+                    }, 
+                    sex: ''
+                }
+
                 try {
                     // Get the personalDetials from  async storage
                     const personalDetailsAsync = await AsyncStorage.getItem('personalDetails');
