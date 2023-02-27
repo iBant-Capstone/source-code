@@ -37,11 +37,11 @@ const CalcDrinkCards = () => {
     // Returns the JSX to display
     return (
         <View>
-          <Text>Drinks in async storage:</Text>
+          <Text style={styles.whiteText}>Drinks in async storage:</Text>
           {drinks.map((drink, index) => (
             <View key={index}>
                 <Text>Drink {index}:</Text>
-                <Text>Name: {JSON.parse(drink).name}, Size: {JSON.parse(drink).size}, Strength: {JSON.parse(drink).strength}</Text>
+                <Text>Name: {JSON.parse(drink).name}, Size: {JSON.parse(drink).size.value}, Strength: {JSON.parse(drink).strength}</Text>
             </View>
           ))}
         </View>
