@@ -26,10 +26,6 @@ const CurrentBAC = () => {
                     let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
                     console.log("Drinks list: " + drinksList)
 
-                    // Reformat the info inputted
-
-                    // GET THE PERSONAL DETAILS 
-
                     // TODO: get it from async storage
                     let asyncPersonalDetails = {
                         sex: "Female",
@@ -61,8 +57,6 @@ const CurrentBAC = () => {
     useEffect(() => {
 
         // Load the drinks with the info we have
-
-
 
 
         // Set the drinksConsumed
