@@ -83,12 +83,12 @@ const Profile = (props) => {
                         </TableWrapper>
                         <TableWrapper style={{ flexDirection: 'row' }}>
                             <Cell data={"Weight: "} width={100} textStyle={styles.mainRedButtonText} />
-                            <Cell data={"Insert data here"} width={100} textStyle={styles.mainRedButtonText} />
+                            <Cell data={personalDetails["weight"]["value"] + " " + personalDetails["weight"]["unit"]} width={100} textStyle={styles.mainRedButtonText} />
                             <Cell data={<Pressable style={styles.profileEditButton} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                         </TableWrapper>
                         <TableWrapper style={{ flexDirection: 'row' }}>
                             <Cell data={"Sex: "} width={100} textStyle={styles.mainRedButtonText} />
-                            <Cell data={"Insert data here"} width={100} textStyle={styles.mainRedButtonText} />
+                            <Cell data={personalDetails["sex"]} width={100} textStyle={styles.mainRedButtonText} />
                         </TableWrapper>
                     </Table>
                 </View>
