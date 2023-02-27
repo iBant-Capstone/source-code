@@ -1,4 +1,5 @@
-import { Text, View, Pressable } from 'react-native';
+import React from 'react';
+import { Text, View, Pressable, TextInput} from 'react-native';
 import * as StyleSheet from '../components/styles';
 import { Image } from 'react-native';
 import { Table, Row, TableWrapper, Cell } from 'react-native-table-component'
@@ -7,6 +8,9 @@ import Icon from 'react-native-ionicons';
 let styles = StyleSheet.styles;
 
 const Profile = (props) => {
+    const [height, onChangeHeight] = React.useState('Input your Height');
+    const [weight, onChangeWeight] = React.useState('Input your Weight');
+
     return (
         <View>
             <View style={styles.row}>
@@ -18,12 +22,12 @@ const Profile = (props) => {
                 <Table>
                     <TableWrapper style={{ flexDirection: 'row' }}>
                         <Cell data={"Height: "} width={100} textStyle={styles.mainRedButtonText} />
-                        <Cell data={"Insert data here"} width={100} textStyle={styles.mainRedButtonText} />
+                        <TextInput style={styles.input} value={height + "cm"} keyboardType="numeric"/>
                         <Cell data={<Pressable style={styles.profileEditButton}><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                     </TableWrapper>
                     <TableWrapper style={{ flexDirection: 'row' }}>
                         <Cell data={"Weight: "} width={100} textStyle={styles.mainRedButtonText} />
-                        <Cell data={"Insert data here"} width={100} textStyle={styles.mainRedButtonText} />
+                        <TextInput style={styles.input} onChangeText={onChangeWeight} value={weight + " kg"} keyboardType="numeric"/>
                         <Cell data={<Pressable style={styles.profileEditButton} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                     </TableWrapper>
                     <TableWrapper style={{ flexDirection: 'row' }}>
