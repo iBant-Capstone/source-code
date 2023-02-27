@@ -40,14 +40,19 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
 
     let keyCount = 1;
 
+    /*
     // Working on JSON to HTML conversion function
-    const convertJSON = (answer) => {
-        const myJson = JSON.stringify(answer);
+    const convertJSONAnswer = (item) => {
+        const myJson = JSON.stringify(item);
         const parsedObj = JSON.parse(myJson);
-        // const answerToReturn = parsedObj.answer;
-        console.log(parsedObj);
-        return parsedObj;
+        const parsedAnswer = parsedObj.answer;
+        
+        console.log(parsedAnswer);
+        // console.log(parsedObj);
+        // return parsedObj;
+        return answerToReturn;
     }
+    */
 
     return (
         <View>
@@ -68,7 +73,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                 }}>
                 {/*Content under the header of the Expandable List Item*/}
                 <Text style={styles.topicAnswer}>
-                    {convertJSON(item.answer)} {item.sources.map((source) => {
+                    {item.answer} {item.sources.map((source) => { // convertJSONAnswer(item)
                         keyCount++;
                         return (
                             <SuperscriptText sourceId={source} key={keyCount}/>
