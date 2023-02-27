@@ -42,7 +42,8 @@
     "react-native-tab-view": "^3.3.4",
     "react-native-table-component": "https://github.com/slice312/react-native-table-component.git",
     "react-native-web": "~0.18.9",
-    "react-navigation": "^4.4.4"
+    "react-navigation": "^4.4.4",
+    "@react-native-community/viewpager": "5.0.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

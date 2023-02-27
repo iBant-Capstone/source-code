@@ -13,6 +13,9 @@ import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import EditProfilePage from './screens/EditProfilePage.js';
 
+// login screens 
+import Login1 from './screens/onboardingScreens/LoginScreen1'
+
 
 const Stack = createStackNavigator();
 
