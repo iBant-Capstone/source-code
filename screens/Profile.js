@@ -54,13 +54,6 @@ const Profile = (props) => {
         }, [])
     );
 
-    // used to see the loading of the personal details is done
-    // useEffect(() => {
-    //     console.log("3 useEffect: " + JSON.stringify(personalDetails))
-    //     console.log("4 useEffect: " + JSON.stringify(personalDetails.height))
-    //     console.log("5 useEffect: " + JSON.stringify(personalDetails.height.value))
-    // }, [setHasFocused]);
-
     return (
         <View>
             <View style={styles.row}>
