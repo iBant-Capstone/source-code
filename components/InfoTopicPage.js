@@ -40,6 +40,14 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
 
     let keyCount = 1;
 
+    /*
+    // Working on JSON to HTML conversion:
+    var topicAnswer = JSON.stringify(my_obj);
+    var my_json = JSON.stringify(my_obj);
+    var parsed_obj = JSON.parse(my_json);
+    // Put into function and call within return statement (where topicAnswer text is defined)
+    */
+
     return (
         <View>
             {/*Header of the Expandable List Item*/}
