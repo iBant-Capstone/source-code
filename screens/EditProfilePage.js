@@ -32,7 +32,7 @@ const EditProfilePage = ({ navigation }) => {
     const handleAddPersonalDetails = async () => {
 
         // calculate height value (converting to inches if input was ft)
-        let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (ftInputValue * 12) + inInputValue
+        let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
 
         // Set up the personal details to send
         let newPersonalDetails = {
@@ -49,6 +49,7 @@ const EditProfilePage = ({ navigation }) => {
 
         try {
             await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
+            navigation.goBack()
         } catch (err) {
             console.log(err)
         }
