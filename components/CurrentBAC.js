@@ -1,9 +1,9 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import * as StyleSheet from './styles';
 import { useFocusEffect } from '@react-navigation/native'
-import { Button } from 'react-native-web';
+// import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 let styles = StyleSheet.styles;
 
@@ -21,13 +21,13 @@ const CurrentBAC = () => {
 
                     // Get the list of drinks from the async storage
                     const drinksListAsync = await AsyncStorage.getItem('drinks');
-        
+
                     // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
                     let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
                     console.log("Drinks list: " + drinksList)
 
                     // Reformat the info inputted
-                    
+
                     // GET THE PERSONAL DETAILS 
 
                     // TODO: get it from async storage
@@ -50,7 +50,7 @@ const CurrentBAC = () => {
                     setPersonalDetails(asyncPersonalDetails)
 
                 } catch (error) {
-                  console.log(error);
+                    console.log(error);
                 }
             }
             getDrinks();
@@ -91,7 +91,7 @@ const CurrentBAC = () => {
                 drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
                 drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
             }
-        ]) 
+        ])
 
         // Set the personal details
 
@@ -108,9 +108,9 @@ const CurrentBAC = () => {
         calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
     }
 
-    
-    
-    
+
+
+
     // _____MAIN FUNCTIONS TO CALCULATE BAC____
 
     function calculateBAC(currentDate) {
@@ -122,7 +122,7 @@ const CurrentBAC = () => {
         let BAC = 0
 
         // Iterate through minutes from first drink to now
-        for (; timeDiffinMin >= 0 ;) {
+        for (; timeDiffinMin >= 0;) {
             console.log("Minute working on: " + timeDiffinMin)
 
             BAC += increaseBACEveryMinute(currentDate, timeDiffinMin)
@@ -150,10 +150,10 @@ const CurrentBAC = () => {
             //console.log("Got into the drinksConsumed foreach loop")
             const timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentMin, drink.drinkConsumedTimeAsDateObject)
 
-            timeDiffinMin >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= currentMin && (BACtoAdd += calculateBACToAdd(drink, timeDiffinMin)) 
+            timeDiffinMin >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= currentMin && (BACtoAdd += calculateBACToAdd(drink, timeDiffinMin))
             console.log("\t\tBACtoAdd: " + BACtoAdd)
         })
-        
+
         return BACtoAdd
     }
 
@@ -165,7 +165,7 @@ const CurrentBAC = () => {
     function calculateBACToAdd(drink, timeDiffinMin) {
         let drinkAlcoholGrams = Number(drink.drinkAlcoholGrams)
         return (
-            (calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin, drink.drinkHalfLife) - calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin - 1, drink.drinkHalfLife)) * drinkAlcoholGrams / (personalDetails.widmarkFactor * calculateWeightKilograms(personalDetails.weight.units, personalDetails.weight.value) * 1e3) * 100 
+            (calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin, drink.drinkHalfLife) - calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin - 1, drink.drinkHalfLife)) * drinkAlcoholGrams / (personalDetails.widmarkFactor * calculateWeightKilograms(personalDetails.weight.units, personalDetails.weight.value) * 1e3) * 100
         )
     }
 
@@ -187,9 +187,9 @@ const CurrentBAC = () => {
     }
 
     function getTimeDifferenceBetweenDateObjectsInMinutes(time1, time2) {
-        let timeDiffInMin = Math.round((time1.getTime() - time2.getTime()) / 6e4 )
+        let timeDiffInMin = Math.round((time1.getTime() - time2.getTime()) / 6e4)
         // console.log("(getTimeDifferenceBetweenDateObjectsInMinutes) " + timeDiffInMin)
-        
+
         return timeDiffInMin
     }
 
@@ -216,10 +216,10 @@ const CurrentBAC = () => {
 
     // returns a new date objects that has 30 minutes removed from the current time
     function thirtyMinAgoDateObj() {
-        let thirtyMinAgo = new Date(new Date().getTime() - (30 * 60000)) 
+        let thirtyMinAgo = new Date(new Date().getTime() - (30 * 60000))
 
         console.log("(thirtyMinAgoDateObj) " + thirtyMinAgo)
-        
+
         return thirtyMinAgo
     }
 
@@ -242,12 +242,14 @@ const CurrentBAC = () => {
 
 
     return (
-        <View>
-            <Text>Current BAC: 0.00%</Text>
-            <Button 
+        <View style={styles.centered}>
+            <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>0.00%</Text></Text>
+            <Pressable
                 onPress={() => { calculateCurrentBAC() }}
-                title = "Update BAC"
-            />   
+                style={styles.centerRedButton}
+            >
+                <Text style={styles.mainRedButtonText}>Update BAC</Text>
+            </Pressable>
         </View>
     )
 }

@@ -37,6 +37,14 @@ export const styles = StyleSheet.create({
   modalContent: {
     padding: 25,
   },
+  redContainer: {
+    backgroundColor: '#CF5260',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20
+  },
 
   // TEXT INPUT STYLING
   textInput: {
@@ -120,6 +128,29 @@ export const styles = StyleSheet.create({
   mainRedButtonText: {
     // fontFamily: 'Roboto',
     color: 'white'
+  },
+
+  // For buttons - white
+  whiteButton: {
+    backgroundColor: '#FFFFFF',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginHorizontal: '1%',
+    minWidth: '30%',
+    maxWidth: '48%',
+    textAlign: 'center'
+  },
+
+  // Update BAC button
+  centerRedButton: {
+    backgroundColor: '#CF5260',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginHorizontal: '1%',
+    minWidth: '48%',
+    textAlign: 'center'
   },
 
   // Table
@@ -220,7 +251,17 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     margin: 5
   },
-
+  currentBACText: {
+    fontSize: 32,
+    paddingVertical: '8%'
+  },
+  whiteText: {
+    color: '#FFFFFF'
+  },
+  yellowUnderline: {
+    borderBottomColor: '#FFB140',
+    borderBottomWidth: 3
+  }
 
 }
 );

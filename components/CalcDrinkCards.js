@@ -37,7 +37,7 @@ const CalcDrinkCards = () => {
     // Returns the JSX to display
     return (
         <View>
-          <Text>Drinks in async storage:</Text>
+          <Text style={styles.whiteText}>Drinks in async storage:</Text>
           {drinks.map((drink, index) => (
             <View key={index}>
                 <Text>Drink {index}:</Text>
