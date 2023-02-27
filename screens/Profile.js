@@ -63,21 +63,36 @@ const Profile = (props) => {
                     <Table>
                         <TableWrapper style={{ flexDirection: 'row' }}>
                             <Cell data={"Height: "} width={100} textStyle={styles.mainRedButtonText} />
-                            {/* Different displays based off of cm and in */}
-                            {personalDetails["height"]["unit"] === 'cm' ?
-                                <Cell data={personalDetails["height"]["value"] + " cm"} width={100} textStyle={styles.mainRedButtonText} />
-                                :
-                                <Cell data={Math.floor((Number(personalDetails["height"]["value"]) / 12)) + " ft  " + personalDetails["height"]["value"] % 12 + " in"} width={100} textStyle={styles.mainRedButtonText} />
+                            {/* Different displays based on if personal details are empty, the units are cm, or units are ft*/}
+                            { personalDetails["height"]["unit"] === '' ?
+                                <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
+                                : 
+                                (
+                                    personalDetails["height"]["unit"] === 'cm' ?
+                                    <Cell data={personalDetails["height"]["value"] + " cm"} width={100} textStyle={styles.mainRedButtonText} />
+                                    :
+                                    <Cell data={Math.floor((Number(personalDetails["height"]["value"]) / 12)) + " ft  " + personalDetails["height"]["value"] % 12 + " in"} width={100} textStyle={styles.mainRedButtonText} /> 
+                                )
                             }
                         </TableWrapper>
                         <TableWrapper style={{ flexDirection: 'row' }}>
                             <Cell data={"Weight: "} width={100} textStyle={styles.mainRedButtonText} />
-                            <Cell data={personalDetails["weight"]["value"] + " " + personalDetails["weight"]["unit"]} width={100} textStyle={styles.mainRedButtonText} />
-                            <Cell data={<Pressable style={styles.profileEditButton} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
+                            {/* Different displays based on if personal details are empty or not */}
+                            { personalDetails["weight"]["value"] === '' ?
+                                <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
+                                :
+                                <Cell data={personalDetails["weight"]["value"] + " " + personalDetails["weight"]["unit"]} width={100} textStyle={styles.mainRedButtonText} />
+                            }
+                            <Cell data={<Pressable style={styles.profileEditButton} width={100} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                         </TableWrapper>
                         <TableWrapper style={{ flexDirection: 'row' }}>
                             <Cell data={"Sex: "} width={100} textStyle={styles.mainRedButtonText} />
-                            <Cell data={personalDetails["sex"]} width={100} textStyle={styles.mainRedButtonText} />
+                            {/* Different displays based on if personal details are empty or not */}
+                            { personalDetails["sex"] === '' ?
+                                <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
+                                :
+                                <Cell data={personalDetails["sex"]} width={100} textStyle={styles.mainRedButtonText} />
+                            }
                         </TableWrapper>
                     </Table>
                 </View>
