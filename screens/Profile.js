@@ -34,17 +34,13 @@ const Profile = (props) => {
                 try {
                     // Get the personalDetials from  async storage
                     const personalDetailsAsync = await AsyncStorage.getItem('personalDetails');
-                    console.log("1" + personalDetailsAsync)
         
                     // Get the parsed version of the personal details (or empy object if we don't have any personal details saved)
                     let personalDetailsParsed = personalDetailsAsync ? JSON.parse(personalDetailsAsync) : emptyPD;
-                    console.log("2" + JSON.stringify(personalDetailsParsed))
 
                     // Set our state personalDetails
                     setPersonalDetails(personalDetailsParsed)
                     setHasFocused(true)
-
-                    console.log("3" + JSON.stringify(personalDetails))
 
                     } catch (error) {
                     console.log(error);
