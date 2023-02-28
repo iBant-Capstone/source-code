@@ -17,9 +17,6 @@ const CurrentBAC = () => {
     // Keeps track of if the drinksConsumed and personalDetails states are both set
     let [drinksPDState, setDrinksPDState] = useState(false)
 
-    // Keeps track of when we calculated the BAC
-    let [bacCalculated, setBACCalculated] = useState(false)
-
     useFocusEffect(
         React.useCallback(() => {
             async function getDrinks() {
@@ -93,17 +90,11 @@ const CurrentBAC = () => {
         }, [])
     );
 
-
+    // Waits until both the personalDetails and drinksConsumed states are set before calculating the BAC
     useEffect(() => {
-
-        // Calculate the BAC
         setBAC(calculateCurrentBAC())
-
-        setBACCalculated(true)
-
     }, [drinksPDState])
-
-
+    
 
     // initializes calculating the BAC
     function calculateCurrentBAC() {
@@ -114,8 +105,6 @@ const CurrentBAC = () => {
         let currentBAC = calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
         return currentBAC
     }
-
-
 
 
     // _____MAIN FUNCTIONS TO CALCULATE BAC____
@@ -250,7 +239,7 @@ const CurrentBAC = () => {
 
     return (
         <View>
-            {bacCalculated ?
+            {BAC ?
                 <View style={styles.centered}>
                     <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
                     {/* <Pressable
