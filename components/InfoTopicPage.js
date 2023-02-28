@@ -63,6 +63,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                 </FlatList>
 
                 <Text style={styles.topicAnswer}>
+                    <Text style={{ fontSize: 8, lineHeight: 4 }}>Source(s): </Text>
                     {item.sources.map((source) => { // {item.answer} 
                         keyCount++;
                         return (

@@ -22,7 +22,7 @@ const SuperscriptText = ({ sourceId }) => {
         }
     }, [url]);
     return (
-        <Text style={{ fontSize: 8, lineHeight: 4 }} onPress={handlePress}>{sourceId}</Text>
+        <Text style={{ fontSize: 8, lineHeight: 4 }} onPress={handlePress}>{sourceId} </Text>
     );
 };
 
