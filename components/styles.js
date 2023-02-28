@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   },
   leftContainer: {
     flex: 1,
-    // paddingHorizontal: '15px',
+    padding: '15px',
     backgroundColor: '#fff',
     flexDirection: 'row',
     justifyContent: 'flex-start'
@@ -49,9 +49,27 @@ export const styles = StyleSheet.create({
   // TEXT INPUT STYLING
   textInput: {
     height: 40,
-    margin: 12,
+    width: '40%',
+    marginHorizontal: '5%',
+    marginBottom: '5%',
     borderWidth: 1,
     padding: 10,
+    borderRadius: 12
+  },
+  textInputContainer: {
+    marginHorizontal: '5%',
+    marginVertical: '10%'
+  },
+  textInputLabel: {
+    width: '40%',
+    marginHorizontal: '5%',
+    padding: 7
+  },
+
+  // Styling for input type text
+  informationTypeLabel: {
+    padding: 5,
+    justifyContent: 'center'
   },
 
   // Rosie Related Styling:
@@ -124,6 +142,16 @@ export const styles = StyleSheet.create({
     minWidth: '48%',
     maxWidth: '48%',
     textAlign: 'left'
+  },
+  centerRedButton: {
+    backgroundColor: '#CF5260',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginHorizontal: '1%',
+    minWidth: '40%',
+    maxWidth: '48%',
+    textAlign: 'center'
   },
   mainRedButtonText: {
     // fontFamily: 'Roboto',
