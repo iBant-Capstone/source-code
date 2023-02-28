@@ -9,8 +9,16 @@ let styles = StyleSheet.styles;
 
 const CurrentBAC = () => {
 
+    let [BAC, setBAC] = useState()
+
     let [drinksConsumed, setDrinksConsumed] = useState([])
     let [personalDetails, setPersonalDetails] = useState({})
+
+    // Keeps track of if the drinksConsumed and personalDetails states are both set
+    let [drinksPDState, setDrinksPDState] = useState(false)
+
+    // Keeps track of when we calculated the BAC
+    let [bacCalculated, setBACCalculated] = useState(false)
 
     useFocusEffect(
         React.useCallback(() => {
@@ -20,11 +28,39 @@ const CurrentBAC = () => {
                     // GET THE DRINKS CONSUMED
 
                     // Get the list of drinks from the async storage
-                    const drinksListAsync = await AsyncStorage.getItem('drinks');
+                    // const drinksListAsync = await AsyncStorage.getItem('drinks');
 
                     // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
-                    let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-                    console.log("Drinks list: " + drinksList)
+                    // let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
+                    // console.log("Drinks list: " + drinksList)
+
+
+                    setDrinksConsumed([
+                        {
+                            drinkName: "beer", // currently
+                            drinkType: "beer",
+                            drinkStrength: 0.027, // 2.7% ABV
+                            drinkSize: 0.285, // 285ml
+                            drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
+                            drinkFullLife: getDrinkFullLife(),
+                            drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
+                            drinkUnits: 1, // only one drink
+                            drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
+                            drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
+                        },
+                        {
+                            drinkName: "beer", // currently
+                            drinkType: "beer",
+                            drinkStrength: 0.027, // 2.7% ABV
+                            drinkSize: 0.285, // 285ml
+                            drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
+                            drinkFullLife: getDrinkFullLife(),
+                            drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
+                            drinkUnits: 1, // only one drunk
+                            drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
+                            drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
+                        }
+                    ])
 
                     // TODO: get it from async storage
                     let asyncPersonalDetails = {
@@ -45,6 +81,10 @@ const CurrentBAC = () => {
                     // Set the personalDrinks to state
                     setPersonalDetails(asyncPersonalDetails)
 
+                    // Set that we're done with calculating
+                    setDrinksPDState(true)
+
+
                 } catch (error) {
                     console.log(error);
                 }
@@ -56,40 +96,12 @@ const CurrentBAC = () => {
 
     useEffect(() => {
 
-        // Load the drinks with the info we have
+        // Calculate the BAC
+        setBAC(calculateCurrentBAC())
 
+        setBACCalculated(true)
 
-        // Set the drinksConsumed
-        setDrinksConsumed([
-            {
-                drinkName: "beer", // currently
-                drinkType: "beer",
-                drinkStrength: 0.027, // 2.7% ABV
-                drinkSize: 0.285, // 285ml
-                drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
-                drinkFullLife: getDrinkFullLife(),
-                drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
-                drinkUnits: 1, // only one drink
-                drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
-                drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
-            },
-            {
-                drinkName: "beer", // currently
-                drinkType: "beer",
-                drinkStrength: 0.027, // 2.7% ABV
-                drinkSize: 0.285, // 285ml
-                drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
-                drinkFullLife: getDrinkFullLife(),
-                drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
-                drinkUnits: 1, // only one drunk
-                drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
-                drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
-            }
-        ])
-
-        // Set the personal details
-
-    }, [])
+    }, [drinksPDState])
 
 
 
@@ -99,7 +111,8 @@ const CurrentBAC = () => {
         console.log("Drinks consumed " + drinksConsumed)
         console.log("Personal Details " + JSON.stringify(personalDetails))
 
-        calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
+        let currentBAC = calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
+        return currentBAC
     }
 
 
@@ -203,7 +216,7 @@ const CurrentBAC = () => {
     function calculateAlcoholGrams(drinkSize, drinkStrength) {
         let alcoholGrams = drinkStrength * (1e3 * drinkSize) * .789
 
-        console.log("(calculateAlcoholGrams) " + alcoholGrams)
+        // console.log("(calculateAlcoholGrams) " + alcoholGrams)
 
         return alcoholGrams
     }
@@ -212,7 +225,7 @@ const CurrentBAC = () => {
     function thirtyMinAgoDateObj() {
         let thirtyMinAgo = new Date(new Date().getTime() - (30 * 60000))
 
-        console.log("(thirtyMinAgoDateObj) " + thirtyMinAgo)
+        // console.log("(thirtyMinAgoDateObj) " + thirtyMinAgo)
 
         return thirtyMinAgo
     }
@@ -222,7 +235,7 @@ const CurrentBAC = () => {
         // return setDateObjectSecondsAndMillisecondsToZero(new Date(getDrinkConsumedTimeAsDateObject().getTime() + 6e4 * getDrinkFullLife()))
         let drinkFullyAbsorbedTimeAsDateObject = setDateObjectSecondsAndMillisecondsToZero(new Date((new Date().getTime() - (30 * 60000)) + 6e4 * Math.round(6.66 * 6)))
 
-        console.log("(getDrinkFullyAbsorbedTimeAsDateObject) " + drinkFullyAbsorbedTimeAsDateObject)
+        // console.log("(getDrinkFullyAbsorbedTimeAsDateObject) " + drinkFullyAbsorbedTimeAsDateObject)
 
         return drinkFullyAbsorbedTimeAsDateObject
     }
@@ -236,15 +249,23 @@ const CurrentBAC = () => {
 
 
     return (
-        <View style={styles.centered}>
-            <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>0.00%</Text></Text>
-            <Pressable
-                onPress={() => { calculateCurrentBAC() }}
-                style={styles.centerRedButton}
-            >
-                <Text style={styles.mainRedButtonText}>Update BAC</Text>
-            </Pressable>
+        <View>
+            {bacCalculated ?
+                <View style={styles.centered}>
+                    <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
+                    {/* <Pressable
+                        onPress={() => { calculateCurrentBAC() }}
+                        style={styles.centerRedButton}
+                    >
+                        <Text style={styles.mainRedButtonText}>Update BAC</Text>
+                    </Pressable> */}
+                </View>
+            :
+            <Text>Loading...</Text>
+            }
         </View>
+        
+        
     )
 }
 

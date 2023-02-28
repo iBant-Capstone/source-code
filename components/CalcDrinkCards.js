@@ -23,7 +23,7 @@ const CalcDrinkCards = () => {
 
           // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
           let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-          console.log("Drinks list: " + drinksList)
+          // console.log("Drinks list: " + drinksList)
 
           // Set our state drinksList
           setDrinks(drinksList);
