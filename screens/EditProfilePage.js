@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View, Button, TextInput, Pressable} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, View, Button, TextInput, Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
@@ -21,7 +21,7 @@ const EditProfilePage = ({ navigation }) => {
     const [inInputValue, setInInputValue] = useState('')
     const [weightInputValue, setWeightInputValue] = useState('')
 
-    
+
     // ______ RADIO BUTTONS ________
 
     // Keeps track of what height unit we're using
@@ -37,10 +37,22 @@ const EditProfilePage = ({ navigation }) => {
         React.useCallback(() => {
             async function getPersonalDetails() {
 
+                let emptyPD = {
+                    height: {
+                        unit: '',
+                        value: ''
+                    },
+                    weight: {
+                        unit: '',
+                        value: ''
+                    },
+                    sex: ''
+                }
+
                 try {
                     // Get the personalDetials from  async storage
                     const personalDetailsAsync = await AsyncStorage.getItem('personalDetails');
-        
+
                     // Get the parsed version of the personal details (or empy object if we don't have any personal details saved)
                     let personalDetailsParsed = personalDetailsAsync ? JSON.parse(personalDetailsAsync) : emptyPD;
 
@@ -56,7 +68,7 @@ const EditProfilePage = ({ navigation }) => {
 
                     setHasFocused(true)
 
-                    } catch (error) {
+                } catch (error) {
                     console.log(error);
                 }
             }
@@ -75,11 +87,11 @@ const EditProfilePage = ({ navigation }) => {
             height: {
                 unit: heightUnitValueChecked,
                 value: heightValue
-            }, 
+            },
             weight: {
                 unit: weightUnitValueChecked,
                 value: weightInputValue
-            }, 
+            },
             sex: sexValueChecked
         }
 
@@ -89,118 +101,119 @@ const EditProfilePage = ({ navigation }) => {
         } catch (err) {
             console.log(err)
         }
-        
+
     };
 
 
     return (
-        <View>
+        <View style={styles.leftContainer}>
             {/* Only loads once the personal details have loaded */}
-            {hasFocused ? 
-            <View>
-                <Text>Edit your info here</Text>
-                
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text>Add your height   </Text>
+            {hasFocused ?
+                <View>
+                    <Text style={[styles.redBoldText, {fontSize: 32, marginBottom: '5%'}]}>Edit</Text>
+
+                    <View style={[styles.row, styles.informationTypeLabel]}>
+                        <Text>Add your height   </Text>
                         <Text>ft</Text>
                         <RadioButton
                             value="ft"
-                            status={ heightUnitValueChecked === 'ft' ? 'checked' : 'unchecked' }
+                            status={heightUnitValueChecked === 'ft' ? 'checked' : 'unchecked'}
                             onPress={() => setHeightUnitValueChecked('ft')}
                         />
                         <Text>cm</Text>
                         <RadioButton
                             value="cm"
-                            status={ heightUnitValueChecked === 'cm' ? 'checked' : 'unchecked' }
+                            status={heightUnitValueChecked === 'cm' ? 'checked' : 'unchecked'}
                             onPress={() => setHeightUnitValueChecked('cm')}
                         />
-                </View>
-                {heightUnitValueChecked === "ft" ?
-                    <View style={{flexDirection: 'row'}}>
-                        <View>
-                            <Text>feet</Text>
-                            <TextInput 
-                                style={styles.textInput}
-                                value={ftInputValue}
-                                onChangeText={setFtInputValue}
-                                placeholder={"feet"}
-                            />
-                        </View>
-                        <View>
-                            <Text>inches</Text>
-                            <TextInput 
-                                style={styles.textInput}
-                                value={inInputValue}
-                                onChangeText={setInInputValue}
-                                placeholder={"inches"}
-                            />
-                        </View>
                     </View>
-                    :
-                    <TextInput 
-                        style={styles.textInput}
-                        value={cmInputValue}
-                        onChangeText={setCmInputValue}
-                        placeholder={"height (cm)"}
-                    />
-                }
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text>Add your weight  </Text>
+                    {heightUnitValueChecked === "ft" ?
+                        <View>
+                            <View style={styles.row}>
+                                <Text style={styles.textInputLabel}>feet</Text>
+                                <Text style={styles.textInputLabel}>inches</Text>
+                            </View>
+                            <View style={styles.row}>
+                                <TextInput
+                                    style={styles.textInput}
+                                    value={ftInputValue}
+                                    onChangeText={setFtInputValue}
+                                    placeholder={"feet"}
+                                />
+                                <TextInput
+                                    style={styles.textInput}
+                                    value={inInputValue}
+                                    onChangeText={setInInputValue}
+                                    placeholder={"inches"}
+                                />
+                            </View>
+                        </View>
+                        :
+                        <TextInput
+                            style={styles.textInput}
+                            value={cmInputValue}
+                            onChangeText={setCmInputValue}
+                            placeholder={"height (cm)"}
+                        />
+                    }
+                    <View style={[styles.row, styles.informationTypeLabel]}>
+                        <Text>Add your weight  </Text>
                         <Text>lbs</Text>
                         <RadioButton
                             value="lbs"
-                            status={ weightUnitValueChecked === 'lbs' ? 'checked' : 'unchecked' }
+                            status={weightUnitValueChecked === 'lbs' ? 'checked' : 'unchecked'}
                             onPress={() => setWeightUnitValueChecked('lbs')}
                         />
                         <Text>kg</Text>
                         <RadioButton
                             value="kg"
-                            status={ weightUnitValueChecked === 'kg' ? 'checked' : 'unchecked' }
+                            status={weightUnitValueChecked === 'kg' ? 'checked' : 'unchecked'}
                             onPress={() => setWeightUnitValueChecked('kg')}
                         />
-                </View>
-                <TextInput 
-                    style={styles.textInput}
-                    value={weightInputValue}
-                    onChangeText={setWeightInputValue}
-                    placeholder={"weight (" + weightUnitValueChecked + ")"}
-                />
-                
-
-                <Text>Chose Sex: {sexValueChecked}</Text>
-
-                <View style={{flexDirection: 'row'}}>
-                    <View>
-                        <Text>Female</Text>
-                        <RadioButton
-                            value="female"
-                            status={ sexValueChecked === 'female' ? 'checked' : 'unchecked' }
-                            onPress={() => setSexValueChecked('female')}
-                        />
                     </View>
-                    <View>
-                        <Text>Male</Text>
-                        <RadioButton
-                            value="Male"
-                            status={ sexValueChecked === 'male' ? 'checked' : 'unchecked' }
-                            onPress={() => setSexValueChecked('male')}
-                        />
+                    <TextInput
+                        style={styles.textInput}
+                        value={weightInputValue}
+                        onChangeText={setWeightInputValue}
+                        placeholder={"weight (" + weightUnitValueChecked + ")"}
+                    />
+
+                    <View style={[styles.row, styles.informationTypeLabel]}>
+                        <Text>Chosen Sex: {sexValueChecked}</Text>
+                    </View>
+                    <View style={[styles.row, styles.informationTypeLabel]}>
+                        <View>
+                            <Text>Female</Text>
+                            <RadioButton
+                                value="female"
+                                status={sexValueChecked === 'female' ? 'checked' : 'unchecked'}
+                                onPress={() => setSexValueChecked('female')}
+                            />
+                        </View>
+                        <View>
+                            <Text>Male</Text>
+                            <RadioButton
+                                value="Male"
+                                status={sexValueChecked === 'male' ? 'checked' : 'unchecked'}
+                                onPress={() => setSexValueChecked('male')}
+                            />
+                        </View>
+                    </View>
+
+
+                    <View style={styles.centered}>
+                        <Pressable
+                            onPress={handleAddPersonalDetails}
+                            style={styles.centerRedButton}
+                        ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
                     </View>
                 </View>
-                
-                
-                <Pressable 
-                    onPress={handleAddPersonalDetails}
-                    style={styles.mainRedButton}
-                ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
+                :
+                <Text>Loading...</Text>
+            }
+        </View >
 
-            </View>
-        :
-            <Text>Loading...</Text>
-        }
-        </View>
-        
-        
+
     )
 
 }

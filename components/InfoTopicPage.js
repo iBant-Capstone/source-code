@@ -8,7 +8,8 @@ import {
     UIManager,
     TouchableOpacity,
     Platform,
-    Image
+    Image,
+    FlatList
 } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component'
 // Import styles
@@ -20,7 +21,8 @@ import BACeffects from '../json/bac-levels.json'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // Import superscript
 import SuperscriptText from './Superscript';
-import { randomInt } from 'crypto';
+// import { randomInt } from 'crypto';
+import Hyperlink from 'react-native-hyperlink';
 
 const ExpandableComponent = ({ item, onClickFunction }) => {
     // Custom Component for the Expandable List
@@ -40,13 +42,14 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
 
     let keyCount = 1;
 
-    // Working on JSON to HTML conversion function
-    const convertJSON = (answer) => {
-        const myJson = JSON.stringify(answer);
-        const parsedObj = JSON.parse(myJson);
-        // const answerToReturn = parsedObj.answer;
-        console.log(parsedObj);
-        return parsedObj;
+    // Function to detect and create clickable hyperlinks in topic answers
+    // NEED TO ADD SOME FORMATTING
+    const hyperlink = (itemText) => {
+        return ( // linkStyle={{color: '#CF5361', fontSize: 14}}
+            <Hyperlink linkDefault={true}>
+                <Text style={styles.topicAnswer}>{itemText}</Text>
+            </Hyperlink>
+        );
     }
 
     return (
@@ -67,11 +70,16 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                     overflow: 'hidden',
                 }}>
                 {/*Content under the header of the Expandable List Item*/}
+                <FlatList data={item.answerArr} renderItem={({ item }) => hyperlink(item.key)}>
+                </FlatList>
+
+                {/* TO-DO: add conditioning so superscripts only appear if item.sources is not empty */}
                 <Text style={styles.topicAnswer}>
-                    {convertJSON(item.answer)} {item.sources.map((source) => {
+                    <Text style={{ fontSize: 8, lineHeight: 4 }}>Source(s): </Text>
+                    {item.sources.map((source) => {
                         keyCount++;
                         return (
-                            <SuperscriptText sourceId={source} key={keyCount}/>
+                            <SuperscriptText sourceId={source} key={keyCount} />
                         )
                     })}
                 </Text>

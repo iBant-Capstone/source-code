@@ -15,8 +15,6 @@ const Popup = (props) =>
         data = props.data[0];
    }
    return(
-     
-    <View style={styles.modal}>
         <Modal isVisible={props.isOpen} style={styles.modal}>
             <View style={styles.modalContent} >
                 {data && <Text style={styles.commonAlcTypeTitle}>{data.alcoholid}</Text>}
@@ -33,9 +31,7 @@ const Popup = (props) =>
                     <Text style={styles.mainRedButtonText}><em>Close</em></Text>
                 </Pressable>
             </View>
-        </Modal>
-    </View>
-   
+        </Modal>   
     );
 }
 

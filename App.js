@@ -50,7 +50,7 @@ export default function App() {
         <Stack.Screen
           name='AddDrinkPage'
           component={AddDrinkPage}
-          options={({route}) => ({title: 'Add Drink'})}
+          options={({ route }) => ({ title: 'Add Drink' })}
         />
         <Stack.Screen
           name='CommonAlcoholTypes'
@@ -72,9 +72,10 @@ export default function App() {
           component={OurSources}
           options={({ route }) => ({ title: 'Our Sources' })}
         />
-        <Stack.Screen 
+        <Stack.Screen
           name='EditProfilePage'
           component={EditProfilePage}
+          options={({ route }) => ({ title: 'Edit Profile Information' })}
         />
       </Stack.Navigator>
 

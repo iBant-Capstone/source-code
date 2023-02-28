@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   },
   leftContainer: {
     flex: 1,
-    // paddingHorizontal: '15px',
+    padding: '15px',
     backgroundColor: '#fff',
     flexDirection: 'row',
     justifyContent: 'flex-start'
@@ -43,15 +43,33 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderTopLeftRadius: 20,
-    borderTopRightRadius: 20
+    borderTopRightRadius: 20,
   },
 
   // TEXT INPUT STYLING
   textInput: {
     height: 40,
-    margin: 12,
+    width: '40%',
+    marginHorizontal: '5%',
+    marginBottom: '5%',
     borderWidth: 1,
     padding: 10,
+    borderRadius: 12
+  },
+  textInputContainer: {
+    marginHorizontal: '5%',
+    marginVertical: '10%'
+  },
+  textInputLabel: {
+    width: '40%',
+    marginHorizontal: '5%',
+    padding: 7
+  },
+
+  // Styling for input type text
+  informationTypeLabel: {
+    padding: 5,
+    justifyContent: 'center'
   },
 
   // Rosie Related Styling:
@@ -125,6 +143,16 @@ export const styles = StyleSheet.create({
     maxWidth: '48%',
     textAlign: 'left'
   },
+  centerRedButton: {
+    backgroundColor: '#CF5260',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginHorizontal: '1%',
+    minWidth: '40%',
+    maxWidth: '48%',
+    textAlign: 'center'
+  },
   mainRedButtonText: {
     // fontFamily: 'Roboto',
     color: 'white'
@@ -150,6 +178,27 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
     marginHorizontal: '1%',
     minWidth: '48%',
+    textAlign: 'center'
+  },
+
+  // FOR ADD DRINKS BUTTONS
+  hungerButtonPressed: {
+    backgroundColor: '#CF5260',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginHorizontal: '5%',
+    width: '50%',
+    textAlign: 'center'
+  },
+
+  hungerButtonRegular: {
+    backgroundColor: '#FFFFFF',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginHorizontal: '5%',
+    width: '50%',
     textAlign: 'center'
   },
 
@@ -261,6 +310,45 @@ export const styles = StyleSheet.create({
   yellowUnderline: {
     borderBottomColor: '#FFB140',
     borderBottomWidth: 3
+  },
+
+  // For BAC calculator
+  drinkCard: {
+    backgroundColor: '#FFFFFF',
+    padding: 12,
+    borderRadius: 4,
+    marginBottom: 8,
+    marginHorizontal: '5%',
+    minWidth: '90%',
+    textAlign: 'left',
+    flex: 1
+  },
+  drinkCardTimeContainer: {
+    width: '15%',
+    marginLeft: '5%',
+    alignContent: "center",
+    justifyContent: 'center'
+  },
+  drinkCardInfoContainer: {
+    width: '55%',
+    marginHorizontal: '5%',
+    justifyContent: 'center'
+  },
+  drinkCardDeleteContainer: {
+    width: '10%',
+    marginRight: '5%',
+    justifyContent: 'center'
+  },
+  drinkCardNameText: {
+    fontSize: 14,
+    fontWeight: 600
+  },
+  smallText: {
+    fontSize: 10
+  },
+  exIcon: {
+    fontSize: 'xx-large',
+    color: '#CF5260'
   }
 
 }
