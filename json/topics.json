@@ -4,28 +4,57 @@
         "qa": [
             {
                 "question": "When will I start to feel the effects of alcohol?",
-                "answer": "In healthy people, <b>blood</b> circulates through the body in 90 seconds, which means they can begin to feel the effects of alcohol within 15 to 45 minutes after the first drink.",
+                "answerArr": [
+                    {"key": "In healthy people, blood circulates through the body in 90 seconds, which means they can begin to feel the effects of alcohol *within 15 to 45 minutes* after the first drink."}
+                ],
                 "sources": [
                     14
                 ]
             },
             {
                 "question": "How long does alcohol metabolism take?",
-                "answer": "The liver can metabolize **one standard drink an hour**. Factors such as age, weight, gender, personal metabolism, and amount of food eaten also play a role in how fast the body can processes alcohol. A person's blood alcohol concentration (BAC) level is **reduced by 0.015 per hour** or at an average rate of .015 g/100mL/hour. This process cannot be sped up with time, sleep, food, or other methods. *You cannot flush alcohol out of your system once it's in!*",
+                "answerArr": [
+                    {"key": "The liver can metabolize *one standard drink an hour*."},
+                    {"key": "Factors such as age, weight, gender, personal metabolism, and amount of food eaten also play a role in how fast the body can processes alcohol."},
+                    {"key": "A person's blood alcohol concentration (BAC) level is *reduced by 0.015 per hour* or at an average rate of .015 g/100mL/hour."},
+                    {"key": "This process cannot be sped up with time, sleep, food, or other methods."},
+                    {"key": "*You cannot flush alcohol out of your system once it's in!*"}
+                ],
                 "sources": [
                     14
+
                 ]
             },
             {
                 "question": "How long does alcohol stay in my system?",
-                "answer": "This is how long alcohol can be detected in a person's system [depending on how the alcohol is being measured]: **Blood**: Up to 6 hours; **Breath**: 12-24 hours; **Saliva**: 12-24 hours; **Urine**: 12-24 hours; **Hair**: 90 Days.",
+                "answerArr": [
+                    {"key": "This is how long alcohol can be detected in a person's system (depending on how the alcohol is being measured):"},
+                    {"key": "Blood: Up to 6 hours"},
+                    {"key": "Breath: 12-24 hours"},
+                    {"key": "Saliva: 12-24 hours"},
+                    {"key": "Urine: 12-24 hours"},
+                    {"key": "Hair: 90 Days"}
+                ],
                 "sources": [
                     14
                 ]
             },
             {
                 "question": "How do I know when I'm drunk?",
-                "answer": "The effects of alcohol vary from person to person, and it may take some people a quicker or longer time to start seeing signs of intoxication when drinking the same amount of alcohol. Typically, for **males** with little to no tolerance, they may begin to show some signs of intoxication when their BAC reaches **0.05%**. A **woman** who weighs 150 pounds will reach a BAC of 0.10% after drinking about 4 drinks in an hour. With little or no alcohol tolerance, **general impairment levels** are observed at the following BAC levels: - **0.05%** = detectible; - **0.07%** = driving impaired; - *Note: **0.08%** is the **federal limit** to legally drive in the United States, but you can be impaired and arrested even if your BAC is under 0.08%*; - **0.10%** = intoxicated; - **0.20%** = decreased consciousness; - **0.30%** = unconscious; - **0.40%** = fatal. When a person with BAC levels between 0.10% and 0.20% does not show obvious signs of intoxication, it typically means they've developed a tolerance for alcohol. This means they most likely are regularly drinking heavily and are showing characteristics of dependence.",
+                "answerArr": [
+                    {"key": "The effects of alcohol vary from person to person, and it may take some people a quicker or longer time to start seeing signs of intoxication when drinking the same amount of alcohol."},
+                    {"key": "Typically, for *males* with little to no tolerance, they may begin to show some signs of intoxication when their BAC reaches *0.05%*."},
+                    {"key": "A *woman* who weighs 150 pounds will reach a BAC of 0.10% after drinking about 4 drinks in an hour."},
+                    {"key": "With little or no alcohol tolerance, *general impairment levels* are observed at the following BAC levels:"},
+                    {"key": "   - 0.05% = detectible"},
+                    {"key": "   - 0.07% = driving impaired"},
+                    {"key": "      NOTE: 0.08% is the *federal limit* to legally drive in the United States, but you can be impaired and arrested even if your BAC is under 0.08%"},
+                    {"key": "   - 0.10% = intoxicated"},
+                    {"key": "   - 0.20% = decreased consciousness"},
+                    {"key": "   - 0.30% = unconscious"},
+                    {"key": "   - 0.40% = fatal"},
+                    {"key": "When a person with BAC levels between 0.10% and 0.20% does not show obvious signs of intoxication, it typically means they've developed a tolerance for alcohol. This means they most likely are regularly drinking heavily and are showing characteristics of dependence."}
+                ],
                 "sources": [
                     14,
                     15
@@ -39,14 +68,19 @@
         "qa": [
             {
                 "question": "What is Blood Alcohol Concentration (BAC)?",
-                "answer": "Blood Alcohol Concentration (BAC) refers to the percent of alcohol (ethyl alcohol or ethanol) in a person's blood stream. A BAC of .10% means that an individual's blood supply contains one part alcohol for every 1000 parts blood.",
+                "answerArr": [
+                    {"key": "Blood Alcohol Concentration (BAC) refers to the percent of alcohol (ethyl alcohol or ethanol) in a person's blood stream."},
+                    {"key": "A BAC of .10% means that an individual's blood supply contains one part alcohol for every 1000 parts blood."}
+                ],
                 "sources": [
                     20
                 ]
             },
             {
                 "question": "How do we calculate BAC?",
-                "answer": "*TO-DO: add info about the exact algorithm we use to calculate BAC (reference DrunkCalc)*",
+                "answerArr": [
+                    {"key": "*TO-DO: add info about the exact algorithm we use to calculate BAC (reference DrunkCalc)*"}
+                ],
                 "sources": []
             }
         ],
@@ -57,7 +91,12 @@
         "qa": [
             {
                 "question": "What is a standard drink?",
-                "answer": "In the United States, one 'standard' drink (or one alcoholic drink equivalent) contains roughly **14 grams (0.6 fluid ounces) of pure alcohol**, which is found in: 12 ounces of regular beer, which is usually about 5% alcohol; 5 ounces of wine, which is typically about 12% alcohol; or 1.5 ounces of distilled spirits, which is about 40% alcohol.",
+                "answerArr": [
+                    {"key": "In the United States, one 'standard' drink (or one alcoholic drink equivalent) contains roughly *14 grams (0.6 fluid ounces) of pure alcohol*, which is found in:"},
+                    {"key": "   - 12 ounces of regular beer, which is typically about 5% alcohol;"},
+                    {"key": "   - 5 ounces of wine, which is typically about 12% alcohol;"},
+                    {"key": "   - 1.5 ounces of distilled spirits, which is typically about 40% alcohol."}
+                ],
                 "sources": [
                     3
                 ]
@@ -70,7 +109,14 @@
         "qa": [
             {
                 "question": "What is Alcohol by Volume (ABV)?",
-                "answer": "**Alcohol by volume (ABV)** is the number of milliliters of ethanol per 100 milliliters (or 3.4 fl.oz.) in a solution. ABV is the most common metric used in the United States. ABV can indicate how you feel after drinking an alcoholic beverage and can also tell you how strong that beverage might taste in terms of alcohol content. ABV is typically calculated using a hydrometer or alcoholmeter. **ABV formula:** ABV = (Final gravity - Original gravity) X 131.25. The drink's **original gravity** is the hydrometer reading before yeast is pitched and the drink's **final gravity** is the hydrometer's reading after the completion of the fermentation process. (There are also calculators available to know the precise ABV metrics of a drink.)",
+                "answerArr": [
+                    {"key": "*Alcohol by volume (ABV)* is the number of milliliters of ethanol per 100 milliliters (or 3.4 fl.oz.) in a solution. ABV is the most common alcohol content metric used in the United States."},
+                    {"key": "ABV can indicate how you feel after drinking an alcoholic beverage and can also tell you how strong that beverage might taste in terms of alcohol content. ABV is typically calculated using a hydrometer or alcoholmeter."},
+                    {"key": "*ABV formula:* ABV = (Final gravity - Original gravity) X 131.25."},
+                    {"key": "   - Drink's original gravity: the hydrometer reading before yeast is pitched"},
+                    {"key": "   - Drink's final gravity: the hydrometer's reading after the completion of the fermentation process"},
+                    {"key": "   - There are also calculators available to know the precise ABV metrics of a drink"}
+                ],
                 "sources": [
                     2,
                     4,
@@ -79,7 +125,9 @@
             },
             {
                 "question": "What is alcohol proof?",
-                "answer": "Alcohol proof is twice the percentage of alcohol by volume. For example, a drink which has 50% ABV will be 100 proof.",
+                "answerArr": [
+                    {"key": "Alcohol proof is twice the percentage of alcohol by volume. For example, a drink which has 50% ABV will be 100 proof."}
+                ],
                 "sources": [
                     2
                 ]
@@ -92,21 +140,70 @@
         "qa": [
             {
                 "question": "What are some social drinking tips?",
-                "answer": "Key tips for drinking in a social setting: 1. Make a plan about how much alcohol you will (or won't) be drinking, and understand the impact of that alcohol on your body; 2. Go with a trusted friend who will look out for you; 3a. Eat before and during drinking sessions (drinking on an empty stomach means alcohol will enter your bloodstream faster); 3b. Avoid salty snacks while drinking (they can make you thirsty and more likely to drink more); 4. Drink plenty of water; 5. Don't mix alcohol with sugary or energy drinks; 6. Set yourself a drinks limit, count your drinks, and stick to your limit; 7. Slow your intake with alcohol-free drinks; 8. Avoid drinking games and shots (binge drinking is dangerous); 9. NEVER drink and drive, and have alternate routes home (like a designated driver or rideshare); 10. Be comfortable saying no, and leave if you feel uncomfortable or pressured.",
+                "answerArr": [
+                    {"key": "Key tips for drinking in a social setting:"},
+                    {"key": "   1. Make a plan about how much alcohol you will (or won't) be drinking, and understand the impact of that alcohol on your body."},
+                    {"key": "   2. Go with a trusted friend who will look out for you."},
+                    {"key": "   3a. Eat before and during drinking sessions: drinking on an empty stomach means alcohol will enter your bloodstream faster."},
+                    {"key": "   3b. Avoid salty snacks while drinking: they can make you thirsty and more likely to drink more."},
+                    {"key": "   4. Drink plenty of water while drinking."},
+                    {"key": "   5. Don't mix alcohol with sugary or energy drinks."},
+                    {"key": "   6. Set yourself a drinks limit, count your drinks, and stick to your limit."},
+                    {"key": "   7. Slow your intake with alcohol-free drinks."},
+                    {"key": "   8. Avoid drinking games and shots: binge drinking is dangerous."},
+                    {"key": "   9. NEVER drink and drive, and have alternate routes home (like a designated driver or rideshare)."},
+                    {"key": "   10. Be comfortable saying no, and leave if you feel uncomfortable or pressured."}
+                ],
                 "sources": [
                     23
                 ]
             },
             {
+                "question": "How do I know if someone is drunk?",
+                "answerArr": [
+                    {"key": "Common signs of intoxication include:"},
+                    {"key": "   - Speaking loudly"},
+                    {"key": "   - Engaging in aggressive and/or crude behavior"},
+                    {"key": "   - Impaired coordination, slurred speech, and/or falling down"},
+                    {"key": "   - Drinking rapidly and/or drinking alone"},
+                    {"key": "   - Glassy, bloodshot eyes"},
+                    {"key": "   - Vomiting (also a sign of alcohol poisoning)"},
+                    {"key": "   - Memory problems"},
+                    {"key": "   - Trouble focusing"},
+                    {"key": "   - Falling asleep"},
+                    {"key": "   - Mood swings"}
+                ],
+                "sources": [
+                    21
+                ]
+            },
+            {
                 "question": "How can I help others who are drunk?",
-                "answer": "Key tips for helping someone who is intoxicated include: 1. Staying with the person; 2. Giving them food and water; 3. Preventing them from drinking more alcohol; 4. Placing them in the recovery position (laying on their side with a pillow to support their back); 5. Keeping them awake or monitoring their breathing if they fall asleep; 6. Getting them home safe.",
+                "answerArr": [
+                    {"key": "Key tips for helping someone who is intoxicated include:"},
+                    {"key": "   1. Stay with the person: remain by their side to ensure they are safe and not consuming more alcohol, or make sure someone else who is sober can stay with them."},
+                    {"key": "   2. Give them food and water."},
+                    {"key": "   3. Prevent them from drinking more alcohol."},
+                    {"key": "   4. If they want to lie down, place them in the recovery position (laying on their side with a pillow to support their back)."},
+                    {"key": "   5. Keep them awake, or if they fall asleep, monitor their breathing and wake them often to ensure they are still okay: if someone is severely intoxicated, it is crucial to ensure they do not slip into unconsciousness."},
+                    {"key": "   6. Get them home safe: make sure they have a way to get home safely and can sober up in a protected environment."}
+                ],
                 "sources": [
                     21
                 ]
             },
             {
                 "question": "How can I decline a drink?",
-                "answer": "If you are offered a drink in a social setting and don't want to accept it, here are key tips to help decline: 1. Be confident when saying no (a simple 'no thank you' should be sufficient); 2. Bring a supportive friend; 3. Be the designated driver; 4. Tell a white lie (e.g., 'I'm on a budget and want to save money,' 'I have an appointment early tomorrow morning,' or 'I'm on medication that can't be mixed with alcohol'; 5. Keep a (non-alcoholic) beverage in your hand (making people less likely to offer you a drink); 6. Change the subject (e.g., you have to use the restroom, make a call, or go check in with a friend); 7. Know when to leave (if someone continues to pressure you to drink, simply leave the location).",
+                "answerArr": [
+                    {"key": "If you are offered a drink in a social setting and don't want to accept it, here are some suggestions to help you decline:"},
+                    {"key": "   1. Be confident when saying no: a simple 'no thank you' should be sufficient."},
+                    {"key": "   2. Bring a supportive friend who will back your decision."},
+                    {"key": "   3. Be the designated driver."},
+                    {"key": "   4. Tell a white lie (e.g., 'I'm on a budget and want to save money,' 'I have an appointment early tomorrow morning,' or 'I'm on medication that can't be mixed with alcohol')."},
+                    {"key": "   5. Keep a (non-alcoholic) beverage in your hand: this can make people less likely to offer you a drink."},
+                    {"key": "   6. Change the subject (e.g., you have to use the restroom, make a call, or go check in with a friend)."},
+                    {"key": "   7. Know when to leave: if someone continues to pressure you to drink, simply leave the location."}
+                ],
                 "sources": [
                     22
                 ]
@@ -119,7 +216,18 @@
         "qa": [
             {
                 "question": "What are some drinking safety tips?",
-                "answer": "Key tips for staying safe while drinking: 1. Never leave a drink unattended (either take it with you or throw it out, and avoid using the same cup to refill your drink); 2. Don't accept drinks from people you don't know or trust (if possible, go with the person to the bar to order a drink, watch it be poured, and carry it yourself); 3. Know what you're drinking (search up an ingredient if you don't recognize it); 4. Trust your instincts (if you feel unsafe, uncomfortable, or worried for any reason, go with your gut. Get somewhere safe and find someone you trust, or call law enforcement); 5. Check in with yourself (figure out your limits before you go out drinking, and check in with yourself periodically to register how you feel); 6. Be aware of sudden changes in how your body feels (if you feel changes and suspect you or a friend has been drugged, call 911 and inform the healthcare professionals. Tell a friend and have them take you to a safe place); 7. Keep an eye on your friends (if you're going out in a group, plan to arrive together and leave together. Check in with your friends and have them check in on you.); 8. Always have a plan to get home and have a backup plan (keep emergency contacts ready and have multiple options to get home); 9. Never mix alcohol with drugs (check the labels of any medication you're taking before drinking)",
+                "answerArr": [
+                    {"key": "Key tips for staying safe while drinking:"},
+                    {"key": "   1. Never leave a drink unattended: either take it with you or throw it out, and avoid using the same cup to refill your drink."},
+                    {"key": "   2. Don't accept drinks from people you don't know or trust: if possible, go with the person to the bar to order a drink, watch it be poured, and carry it yourself."},
+                    {"key": "   3. Know what you're drinking: search up an ingredient if you don't recognize it."},
+                    {"key": "   4. Trust your instincts: if you feel unsafe, uncomfortable, or worried for any reason, go with your gut. Get somewhere safe and find someone you trust, or call law enforcement."},
+                    {"key": "   5. Check in with yourself: figure out your limits before you go out drinking, and check in with yourself periodically to register how you feel."},
+                    {"key": "   6. Be aware of sudden changes in how your body feels: if you feel unexpected changes and suspect you have been drugged, call 911 and inform the healthcare professionals. Tell a friend and have them take you to a safe place."},
+                    {"key": "   7. Keep an eye on your friends: if you're going out in a group, plan to arrive together and leave together. Check in with your friends and have them check in on you."},
+                    {"key": "   8. Always have a plan to get home and have a backup plan: keep emergency contacts ready and have multiple options to get home."},
+                    {"key": "   9. Never mix alcohol with drugs: check the labels of any medication you're taking before drinking."}
+                ],
                 "sources": [
                     24,
                     25
@@ -127,14 +235,42 @@
             },
             {
                 "question": "How can I avoid drink spiking/tampering?",
-                "answer": "1. Never leave a drink unattended (either take it with you or throw it out, and avoid using the same cup to refill your drink); 2. Don't accept drinks from people you don't know or trust (if possible, go with the person to the bar to order a drink, watch it be poured, and carry it yourself); 3. Know what you're drinking (search up an ingredient if you don't recognize it)",
+                "answerArr": [
+                    {"key": "Key tips to avoid drink spiking or tampering include:"},
+                    {"key": "   1. Never leave a drink unattended: either take it with you or throw it out, and avoid using the same cup to refill your drink."},
+                    {"key": "   2. Don't accept drinks from people you don't know or trust: if possible, go with the person to the bar to order a drink, watch it be poured, and carry it yourself."},
+                    {"key": "   3. Know what you're drinking: search up an ingredient if you don't recognize it."},
+                    {"key": "   4. Consider using a product like a NightCap Drink Cover Scrunchie to protect your drink."},
+                    {"key": "   5. Check in with yourself periodically: if you start to feel strange or more drunk than you should be, then get help straight away."},
+                    {"key": "Symptoms of drink spiking may include:"},
+                    {"key": "   - Lowered inhibitions and/or loss of balance"},
+                    {"key": "   - Feeling sleepy"},
+                    {"key": "   - Visual problems"},
+                    {"key": "   - Confusion"},
+                    {"key": "   - Nausea and/or vomiting"},
+                    {"key": "   - Unconsciousness"},
+                    {"key": "NOTE: The effects of drink spiking vary depending on what you've been spiked with."}
+                ],
                 "sources": [
-                    24
+                    24,
+                    27, 
+                    28
                 ]
             },
             {
                 "question": "How can I recognize alcohol poisoning, and what should I do?",
-                "answer": "Signs of alcohol poisoning include: Vomiting, Seizures, Stupor or mental confusion, Unconsciousness and an inability to wake up, Hypothermia (low body temperature), Slow breathing (fewer than eight breaths per minute), Irregular breathing (more than 10 seconds between breaths). Be aware that alcohol poisoning can get worse even after a person has passed out. If you see any signs of alcohol poisoning, stay with that person and get help immediately! Call 911, be prepared to provide information, never leave the person alone, and ask bystanders to help.",                
+                "answerArr": [
+                    {"key": "Signs of alcohol poisoning include:"},
+                    {"key": "   - Vomiting"},
+                    {"key": "   - Seizures"},
+                    {"key": "   - Stupor or mental confusion"},
+                    {"key": "   - Unconsciousness and an inability to wake up"},
+                    {"key": "   - Hypothermia (low body temperature)"},
+                    {"key": "   - Slow breathing (fewer than 8 breaths per minute)"},
+                    {"key": "   - Irregular breathing (more than 10 seconds between breaths)"},
+                    {"key": "Be aware that alcohol poisoning can get worse even after a person has passed out. If you see any signs of alcohol poisoning, stay with that person and get help immediately!"},
+                    {"key": "Call 911, be prepared to provide information, never leave the person alone, and ask bystanders to help."}
+                ],                
                 "sources": [
                     25,
                     26
@@ -148,17 +284,50 @@
         "qa": [
             {
                 "question": "Resources if you or a loved one is struggling with alcohol abuse",
-                "answer": "",
+                "answerArr": [
+                    {"key": "   1. Alcohol Rehab Guide: "},
+                    {"key": "   https://www.alcoholrehabguide.org/"},                    
+                    {"key": "   2. Treatment for Alcohol Addiction: "},
+                    {"key": "   https://alcohol.org/treatment/"},
+                    {"key": "   3. Alcohol Treatment Navigator (National Institute on Alcohol Abuse and Alcoholism): "},
+                    {"key": "   https://alcoholtreatment.niaaa.nih.gov/"}
+                ],
                 "sources": []
             },
             {
-                "question": "Resources about alcohol types and consumption",
-                "answer": "",
+                "question": "Resources about basic alcohol information and consumption",
+                "answerArr": [
+                    {"key": "   1. Alcohol Facts and Statistics (National Institute on Alcohol Abuse and Alcoholism): "},
+                    {"key": "   https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/alcohol-facts-and-statistics"},
+                    {"key": "   2. Alcohol By Volume Guide: "},
+                    {"key": "   https://alcohol.org/statistics-information/abv/"},
+                    {"key": "   3. Blood Alcohol Concentration Guide: "},
+                    {"key": "   https://vaden.stanford.edu/super/learn/alcohol-drug-info/reduce-your-risk/what-blood-alcohol-concentration-bac"},
+                    {"key": "   4. Types of Alcohol Guide:"},
+                    {"key": "   https://home.binwise.com/guides/types-of-alcohol"},
+                    {"key": "   5. Alcohol Percentage Contents by Beverage Type: "},
+                    {"key": "   https://sunrisehouse.com/stop-drinking-alcohol/percentage-contents/"},
+                    {"key": "   6. Why Biology Matters When it Comes to Drinking Alcohol: "},
+                    {"key": "   https://health.cornell.edu/sites/health/files/pdf-library/Why-Biology-Matters-Drinking.pdf"}
+                ],
                 "sources": []
             },
             {
-                "question": "Resources about drinking safety",
-                "answer": "",
+                "question": "Resources about alcohol safety",
+                "answerArr": [
+                    {"key": "   1. Alcohol Safety Guide (RAINN)"},
+                    {"key": "   https://www.rainn.org/articles/alcohol-safety"},
+                    {"key": "   2. Alcohol Poisoning Guide (Mayo Clinic): "},
+                    {"key": "   https://www.mayoclinic.org/diseases-conditions/alcohol-poisoning/symptoms-causes/syc-20354386"},
+                    {"key": "   3. What To Do if Someone is Intoxicated: "},
+                    {"key": "   https://www.northstartransitions.com/post/what-to-do-if-someone-is-intoxicated"},
+                    {"key": "   4. State DUI Laws: "},
+                    {"key": "   https://www.findlaw.com/dui/laws-resources/comparing-state-dui-laws.html"},
+                    {"key": "   5. Drink Spiking and Date Rape Drugs: "},
+                    {"key": "   https://www.drinkaware.co.uk/advice/staying-safe-while-drinking/drink-spiking-and-date-rape-drugs"},
+                    {"key": "   6. Student's Guide to Drinking Responsibly in College: "},
+                    {"key": "   https://www.edumed.org/resources/student-guide-to-drinking-responsibly/"}
+                ],
                 "sources": []
             }
         ],

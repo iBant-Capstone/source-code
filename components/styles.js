@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderTopLeftRadius: 20,
-    borderTopRightRadius: 20
+    borderTopRightRadius: 20,
   },
 
   // TEXT INPUT STYLING
@@ -282,6 +282,45 @@ export const styles = StyleSheet.create({
   yellowUnderline: {
     borderBottomColor: '#FFB140',
     borderBottomWidth: 3
+  },
+
+  // For BAC calculator
+  drinkCard: {
+    backgroundColor: '#FFFFFF',
+    padding: 12,
+    borderRadius: 4,
+    marginBottom: 8,
+    marginHorizontal: '5%',
+    minWidth: '90%',
+    textAlign: 'left',
+    flex: 1
+  },
+  drinkCardTimeContainer: {
+    width: '15%',
+    marginLeft: '5%',
+    alignContent: "center",
+    justifyContent: 'center'
+  },
+  drinkCardInfoContainer: {
+    width: '55%',
+    marginHorizontal: '5%',
+    justifyContent: 'center'
+  },
+  drinkCardDeleteContainer: {
+    width: '10%',
+    marginRight: '5%',
+    justifyContent: 'center'
+  },
+  drinkCardNameText: {
+    fontSize: 14,
+    fontWeight: 600
+  },
+  smallText: {
+    fontSize: 10
+  },
+  exIcon: {
+    fontSize: 'xx-large',
+    color: '#CF5260'
   }
 
 }
