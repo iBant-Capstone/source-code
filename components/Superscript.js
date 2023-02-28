@@ -8,7 +8,6 @@ import { Text, Linking } from 'react-native';
 import sources from '../json/sources.json'
 
 const SuperscriptText = ({ sourceId }) => {
-    console.log(sourceId)
     let url = sources[sourceId - 1].url
     const handlePress = useCallback(async () => {
         // Checking if the link is supported for links with custom URL scheme.
