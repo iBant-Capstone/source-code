@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Button, TextInput, Pressable} from 'react-native';
+import {Text, View, Button, TextInput, Pressable, DatePickerIOS } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as StyleSheet from '../components/styles';
 import Flatpickr from "react-flatpickr";
@@ -109,14 +109,15 @@ const AddDrink = ({route, navigation}) => {
                 placeholder="Name of Drink"
             /> */}
             <Text>Enter the time</Text>
-            <Flatpickr
+            
+            {/* <Flatpickr
                 data-enable-time
                 data-no-calendar
                 // style={{ backgroundColor: "000000" }}
                 value={time}
                 options={{ enableSeconds: false }}
                 onChange={(selectedTime) => setTime(selectedTime[0])}
-            />
+            /> */}
             <Button
                 onPress={handleAddEntry}
                 title="Add Drink"
