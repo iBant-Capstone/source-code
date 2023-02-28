@@ -13,8 +13,7 @@ import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import EditProfilePage from './screens/EditProfilePage.js';
 
-// login screens 
-import Login1 from './screens/onboardingScreens/LoginScreen1'
+import Onboarding from './screens/onboardingScreens/Onboarding.js';
 
 
 const Stack = createStackNavigator();
@@ -24,6 +23,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name='Onboarding'
+          component={Onboarding}
+        />
         <Stack.Screen
           name='InformationHub'
           component={InformationHub}

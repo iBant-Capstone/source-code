@@ -5,6 +5,8 @@ import RoundedButton from './RoundedButton';
 
 const Footer = ({
   backgroundColor,
+  leftButtonLabel = false,
+  leftButtonPress = false,
   rightButtonLabel = false,
   rightButtonPress = false
 }) => {
@@ -14,9 +16,9 @@ const Footer = ({
 
   return (
     <View
-      style={{
+    style={{
         flexDirection: 'row',
-        justifyContent: 'flex-end',
+        justifyContent: leftButtonLabel ? 'space-between' : 'flex-end',
         height: HEIGHT,
         backgroundColor,
         opacity: 0.6,
@@ -24,7 +26,8 @@ const Footer = ({
         paddingHorizontal: FOOTER_PADDING
       }}
     >
-      <RoundedButton label={rightButtonLabel} onPress={rightButtonPress} />
+    {leftButtonLabel && (<RoundedButton label={leftButtonLabel} onPress={leftButtonPress} />)}
+    {rightButtonLabel && (<RoundedButton label={rightButtonLabel} onPress={rightButtonPress} />)}
     </View>
   );
 };
