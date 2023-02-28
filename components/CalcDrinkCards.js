@@ -42,7 +42,7 @@ const CalcDrinkCards = () => {
         <View key={index} style={[styles.drinkCard, styles.row]}>
           <Text style={[styles.drinkCardTimeContainer, styles.redBoldText, styles.smallText]}>Time here</Text>
           <View style={styles.drinkCardInfoContainer}>
-            <Text style={styles.drinkCardNameText}>{JSON.parse(drink).name} ({JSON.parse(drink).strength.toFixed(3)})</Text>
+            <Text style={styles.drinkCardNameText}>{JSON.parse(drink).name} ({(JSON.parse(drink).strength*100).toFixed(1)}%)</Text>
             <Text style={styles.smallText}>{JSON.parse(drink).size.value} fl oz</Text>
           </View>
           <Pressable style={styles.drinkCardDeleteContainer}>
