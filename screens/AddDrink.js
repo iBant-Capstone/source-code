@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Button, TextInput, Pressable, DatePickerIOS } from 'react-native';
+import {Text, View, Button, TextInput, Pressable, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as StyleSheet from '../components/styles';
-import Flatpickr from "react-flatpickr";
-import "flatpickr/dist/themes/light.css";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 let styles = StyleSheet.styles;
 
@@ -16,10 +15,29 @@ const AddDrink = ({route, navigation}) => {
     const [strengthInputValue, setStrengthInputValue] = useState('');
     const [hungerValueSelected, setHungerValueSelected] = useState('')
 
-    const [timeInputValue, setTimeInputValue] = useState('');
-    const [time, setTime] = useState(new Date());
+    // WEB Time Selection
+    const [hoursInputValue, setHoursInputValue] = useState('')
+    const [minuteInputValue, setMinuteInputValue] = useState('')
+    const [timeOfDay, setTimeOfDay] = useState('')
 
-    // MIGHT HAVE TO JUST TO TEXT ENTRY FOR TIME, ONE FOR HOUR ONE FOR MINUTE AND THEN CHOOSE AM/PM
+    // IOS or ANDROID Time Selection
+    const [selectedTime, setSelectedTime] = useState(new Date());
+    const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
+
+    const showTimePicker = () => {
+        setTimePickerVisibility(true);
+      };
+      
+    const hideTimePicker = () => {
+        setTimePickerVisibility(false);
+    };
+    
+    const handleTimeConfirm = (time) => {
+        setSelectedTime(time);
+        hideTimePicker();
+    };
+
+
 
     // adds the drink to the async storage
     const handleAddEntry = async () => {
@@ -101,23 +119,54 @@ const AddDrink = ({route, navigation}) => {
                         onPress={() => setHungerValueSelected('15')}
                     ><Text>Full</Text></Pressable>
             </View>
-            {/* <Text>Time of Drink Relative to Now</Text>
-            <TextInput 
-                style={styles.textInput}
-                value={timeInputValue}
-                onChangeText={setTimeInputValue}
-                placeholder="Name of Drink"
-            /> */}
-            <Text>Enter the time</Text>
+
+            <Text>Time Drank</Text>
             
-            {/* <Flatpickr
-                data-enable-time
-                data-no-calendar
-                // style={{ backgroundColor: "000000" }}
-                value={time}
-                options={{ enableSeconds: false }}
-                onChange={(selectedTime) => setTime(selectedTime[0])}
-            /> */}
+            {/* Displays custom time input for web and DateTimePickerModal library for IOS/Android */}
+            {Platform.OS === "web" ?
+                <View styles={{flexDirection: 'row'}}>
+                    <View>
+                        <Text>Hour</Text>
+                        <TextInput
+                            style={styles.textInput}
+                            value={hoursInputValue}
+                            onChangeText={setHoursInputValue}
+                            //placeholder="2.3, 13.7, 9.65..."
+                        />
+                    </View>
+                    <View>
+                        <Text>Minute</Text>
+                        <TextInput
+                            style={styles.textInput}
+                            value={minuteInputValue}
+                            onChangeText={setMinuteInputValue}
+                            //placeholder="2.3, 13.7, 9.65..."
+                        />
+                    </View>
+                    <Pressable
+                        value="AM"
+                        style={ timeOfDay === 'AM' ? styles.hungerButtonPressed : styles.hungerButtonRegular}
+                        onPress={() => setTimeOfDay('AM')}
+                    ><Text>AM</Text></Pressable>
+                    <Pressable
+                        value="AM"
+                        style={ timeOfDay === 'PM' ? styles.hungerButtonPressed : styles.hungerButtonRegular }
+                        onPress={() => setTimeOfDay('PM')}
+                    ><Text>PM</Text></Pressable>
+                </View>
+                :
+                <View>
+                    <Button title="Pick Time" onPress={showTimePicker} />
+                    <DateTimePickerModal
+                        isVisible={isTimePickerVisible}
+                        mode="time"
+                        date={selectedTime}
+                        onConfirm={handleTimeConfirm}
+                        onCancel={hideTimePicker}
+                    />
+                </View>
+            }
+
             <Button
                 onPress={handleAddEntry}
                 title="Add Drink"

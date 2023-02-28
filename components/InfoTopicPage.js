@@ -21,7 +21,7 @@ import BACeffects from '../json/bac-levels.json'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // Import superscript
 import SuperscriptText from './Superscript';
-import { randomInt } from 'crypto';
+// import { randomInt } from 'crypto';
 import Hyperlink from 'react-native-hyperlink';
 
 const ExpandableComponent = ({ item, onClickFunction }) => {
