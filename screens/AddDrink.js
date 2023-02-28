@@ -108,14 +108,15 @@ const AddDrink = ({route, navigation}) => {
                 onChangeText={setTimeInputValue}
                 placeholder="Name of Drink"
             /> */}
-            {/* <Text>Enter the time</Text>
+            <Text>Enter the time</Text>
             <Flatpickr
                 data-enable-time
                 data-no-calendar
+                // style={{ backgroundColor: "000000" }}
                 value={time}
                 options={{ enableSeconds: false }}
                 onChange={(selectedTime) => setTime(selectedTime[0])}
-            /> */}
+            />
             <Button
                 onPress={handleAddEntry}
                 title="Add Drink"
