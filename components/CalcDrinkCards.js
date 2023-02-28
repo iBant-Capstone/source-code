@@ -41,7 +41,6 @@ const CalcDrinkCards = () => {
       {drinks.map((drink, index) => (
         <View key={index} style={[styles.drinkCard, styles.row]}>
           <Text style={[styles.drinkCardTimeContainer, styles.redBoldText, styles.smallText]}>Time here</Text>
-          {/* <Text>Drink {index + 1}:</Text> */}
           <View style={styles.drinkCardInfoContainer}>
             <Text style={styles.drinkCardNameText}>{JSON.parse(drink).name} ({JSON.parse(drink).strength.toFixed(3)})</Text>
             <Text style={styles.smallText}>{JSON.parse(drink).size.value} fl oz</Text>
