@@ -8,7 +8,8 @@ import {
     UIManager,
     TouchableOpacity,
     Platform,
-    Image
+    Image,
+    FlatList
 } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component'
 // Import styles
@@ -40,20 +41,6 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
 
     let keyCount = 1;
 
-    /*
-    // Working on JSON to HTML conversion function
-    const convertJSONAnswer = (item) => {
-        const myJson = JSON.stringify(item);
-        const parsedObj = JSON.parse(myJson);
-        const parsedAnswer = parsedObj.answer;
-        
-        console.log(parsedAnswer);
-        // console.log(parsedObj);
-        // return parsedObj;
-        return answerToReturn;
-    }
-    */
-
     return (
         <View>
             {/*Header of the Expandable List Item*/}
@@ -72,8 +59,11 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                     overflow: 'hidden',
                 }}>
                 {/*Content under the header of the Expandable List Item*/}
+                <FlatList data={item.answerArr} renderItem={({ item }) => <Text style={styles.topicAnswer}>{item.key}</Text>}>
+                </FlatList>
+
                 <Text style={styles.topicAnswer}>
-                    {item.answer} {item.sources.map((source) => { // convertJSONAnswer(item)
+                    {item.sources.map((source) => { // {item.answer} 
                         keyCount++;
                         return (
                             <SuperscriptText sourceId={source} key={keyCount}/>
