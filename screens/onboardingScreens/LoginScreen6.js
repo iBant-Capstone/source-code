@@ -1,11 +1,18 @@
 import { Text, View, Image } from 'react-native';
 import * as StyleSheet from '../../components/styles';
 import Footer from '../../components/Footer';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 let styles = StyleSheet.styles;
 
 // sixth Login Screen: Introduction to Rosie
-const LoginScreen5 = ({navigation}) => {
+const LoginScreen6 = ({navigation}) => {
+    async function setOnboarding() { 
+        await AsyncStorage.setItem('onboarding', true);
+        const onboard = await AsyncStorage.getItem('onboarding');
+        console.log(onboard);
+    } 
+    setOnboarding();
     return (
         <View>
             <Text>
@@ -17,4 +24,4 @@ const LoginScreen5 = ({navigation}) => {
     );
 };
 
-export default LoginScreen5
+export default LoginScreen6
