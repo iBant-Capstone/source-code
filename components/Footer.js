@@ -4,7 +4,6 @@ import { View, useWindowDimensions } from 'react-native';
 import RoundedButton from './RoundedButton';
 
 const Footer = ({
-  backgroundColor,
   leftButtonLabel = false,
   leftButtonPress = false,
   rightButtonLabel = false,
@@ -20,8 +19,7 @@ const Footer = ({
         flexDirection: 'row',
         justifyContent: leftButtonLabel ? 'space-between' : 'flex-end',
         height: HEIGHT,
-        backgroundColor,
-        opacity: 0.6,
+        backgroundColor: '#CF5260',
         alignItems: 'center',
         paddingHorizontal: FOOTER_PADDING
       }}

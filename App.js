@@ -13,7 +13,15 @@ import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import EditProfilePage from './screens/EditProfilePage.js';
 
-import Onboarding from './screens/onboardingScreens/Onboarding.js';
+import LoginScreen1 from './screens/onboardingScreens/LoginScreen1';
+import LoginScreen2 from './screens/onboardingScreens/LoginScreen2';
+import LoginScreen3 from './screens/onboardingScreens/LoginScreen3';
+import LoginScreen4 from './screens/onboardingScreens/LoginScreen4';
+import LoginScreen5 from './screens/onboardingScreens/LoginScreen5';
+import LoginScreen6 from './screens/onboardingScreens/LoginScreen6';
+import BiologicalSex from './screens/onboardingScreens/BiologicalSexInput';
+import HeightInput from './screens/onboardingScreens/HeightInput';
+import WeightInput from './screens/onboardingScreens/WeightInput';
 
 
 const Stack = createStackNavigator();
@@ -24,8 +32,40 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name='Onboarding'
-          component={Onboarding}
+          name='Login1'
+          component={LoginScreen1}
+        />
+        <Stack.Screen
+          name='Login2'
+          component={LoginScreen2}
+        />
+        <Stack.Screen
+          name='Login3'
+          component={LoginScreen3}
+        />
+        <Stack.Screen
+          name='Login4'
+          component={LoginScreen4}
+        />
+        <Stack.Screen
+          name='Login5'
+          component={LoginScreen5}
+        />
+        <Stack.Screen
+          name='Login6'
+          component={LoginScreen6}
+        />
+        <Stack.Screen
+          name='HeightInput'
+          component={HeightInput}
+        />
+        <Stack.Screen
+          name='WeightInput'
+          component={WeightInput}
+        />
+        <Stack.Screen
+          name='BiologicalSex'
+          component={BiologicalSex}
         />
         <Stack.Screen
           name='InformationHub'

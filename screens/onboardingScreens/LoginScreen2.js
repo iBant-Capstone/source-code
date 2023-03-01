@@ -1,10 +1,11 @@
 import { Text, View, Image } from 'react-native';
 import * as StyleSheet from '../../components/styles';
+import Footer from '../../components/Footer';
 
 let styles = StyleSheet.styles;
 
 // Second Login Screen: "Welcome to BACtracker" text and slogan
-const LoginScreen2 = () => {
+const LoginScreen2 = ({navigation}) => {
     return (
         <View style={{ backgroundColor: '#fff' }}>
             <View style={styles.row}>
@@ -19,6 +20,7 @@ const LoginScreen2 = () => {
             </View>
             {/* add Next button */}
             {/* add progress bar (circles) at bottom of screen -> not MVP */}
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('Login3');}} leftButtonLabel="Back" leftButtonPress={() => { navigation.navigate('Login1');}}/>
         </View>
     );
 };
