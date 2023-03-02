@@ -8,16 +8,19 @@ import Footer from '../../components/Footer';
 
 let styles = StyleSheet.styles;
 
-const BiologicalSex = ({navigation}) => {
+const BiologicalSex = ({ navigation }) => {
     return (
         <View>
             <Text>
-                Input your biological sex here 
-                * disclaimer this uses male-bodied and female-bodied as shortcuts for liver size - not fully accurate * 
+                <Text style={styles.onboardingHeaderText}>Select Biological Sex</Text>
+                Input your biological sex here
+                
+                <Text style={styles.redBoldText}>Please note:</Text>
+                We are using an algorithm that uses  male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.
             </Text>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('InformationHub');}} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('InformationHub');}}/>
-    </View>
-        
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('InformationHub'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('InformationHub'); }} />
+        </View>
+
     );
 };
 
