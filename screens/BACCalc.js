@@ -14,9 +14,36 @@ const BACCalc = ({ route, navigation }) => {
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
 
-    // TODO: build the cards of the drinks added below the add drink button
-    // TODO: make the BAC number updateable
-    // TODO: add a buffer div to the top of the page
+
+    // COMMENT OUT THIS FUNCTION WHEN YOU WANT ANOTHER DRINK IN STORAGE
+    const handleAddEntry = async () => {
+
+        // Create the time of drink
+        let timeOfDrink = ''
+
+        // Create the JSON structure for the new drink
+        let newDrink = {
+            name: "testName",
+            size: {
+                unit: "ml",
+                value: 15
+            },
+            strength: 2.3 / 100,
+            time: "testTime"
+        }
+
+        try {
+            const existingDrinks = await AsyncStorage.getItem('drinks');
+            const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
+        
+            drinks.push(JSON.stringify(newDrink));
+        
+            await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
+        } catch (error) {
+          console.log(error);
+        }
+    };
+
 
     return (
         <View>
@@ -46,6 +73,15 @@ const BACCalc = ({ route, navigation }) => {
                 >
                     <Text>Add Drink</Text>
                 </Pressable>
+                {/* TEST DRINK, COMMENT OUT IF YOU DON'T WANT THE BUTTON */}
+                {/* <Pressable
+                    onPress={() => handleAddEntry() }
+                    accessibilityLabel="Add a drink"
+                    style={[styles.whiteButton, {marginTop: -20}]}
+                >
+                    <Text>Add TEST Drink</Text>
+                </Pressable> */}
+                {/* END COMMENTING HERE */}
                 <Text style={styles.whiteText}>Drinks in async storage:</Text>
                 <CalcDrinkCards />
                 <Pressable

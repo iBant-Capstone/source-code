@@ -9,7 +9,6 @@ let styles = StyleSheet.styles;
 
 const AddDrink = ({route, navigation}) => {
     // Holds the state of the drink added in here
-    const [textInputValue, setTextInputValue] = useState('');
     const [nameInputValue, setNameInputValue] = useState('');
     const [sizeInputValue, setSizeInputValue] = useState('');
     const [strengthInputValue, setStrengthInputValue] = useState('');
