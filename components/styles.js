@@ -65,6 +65,25 @@ export const styles = StyleSheet.create({
     marginHorizontal: '5%',
     padding: 7
   },
+  largeTextInput: {
+    height: 40,
+    width: '90%',
+    marginHorizontal: '5%',
+    marginBottom: '5%',
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 12
+  },
+  smallTextInput: {
+    height: 40,
+    width: '20%',
+    marginLeft: '5%',
+    marginRight: '2.5%',
+    marginBottom: '5%',
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 12
+  },
 
   // Styling for input type text
   informationTypeLabel: {
@@ -186,20 +205,47 @@ export const styles = StyleSheet.create({
     backgroundColor: '#CF5260',
     padding: 12,
     borderRadius: 8,
-    marginBottom: 8,
+    marginBottom: '5%',
     marginHorizontal: '5%',
-    width: '50%',
-    textAlign: 'center'
-  },
+    width: '40%',
+    textAlign: 'center',
+    alignItems: 'center',
 
+  },
   hungerButtonRegular: {
     backgroundColor: '#FFFFFF',
     padding: 12,
     borderRadius: 8,
-    marginBottom: 8,
+    marginBottom: '5%',
     marginHorizontal: '5%',
-    width: '50%',
-    textAlign: 'center'
+    width: '40%',
+    textAlign: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#CF5260'
+  },
+  // For time inputting
+  AMPMButtomPressed: {
+    backgroundColor: '#CF5260',
+    paddingVertical: 8,
+    borderRadius: 8,
+    marginBottom: '5%',
+    marginHorizontal: '2.5%',
+    width: '15%',
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+  AMPMButtonRegular: {
+    backgroundColor: '#FFFFFF',
+    paddingVertical: 8,
+    borderRadius: 8,
+    marginBottom: '5%',
+    marginHorizontal: '2.5%',
+    width: '15%',
+    textAlign: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#CF5260'
   },
 
   // Table
@@ -287,7 +333,7 @@ export const styles = StyleSheet.create({
   howToIconText: {
     maxWidth: '73%',
     marginHorizontal: '5%',
-    paddingVertical: '15px' 
+    paddingVertical: '15px'
   },
   // Text styling
   redBoldText: {
