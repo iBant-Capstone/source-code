@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, Pressable } from 'react-native';
 import * as StyleSheet from './styles';
 import { useFocusEffect } from '@react-navigation/native'
-import Ionicons from 'react-native-ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 let styles = StyleSheet.styles;
 
@@ -46,7 +46,7 @@ const CalcDrinkCards = () => {
             <Text style={styles.smallText}>{JSON.parse(drink).size.value} fl oz</Text>
           </View>
           <Pressable style={styles.drinkCardDeleteContainer}>
-            <Ionicons ios={'ios-close'} android={'md-close'} style={styles.exIcon}/>
+            <Ionicons name='close' style={styles.exIcon}/>
           </Pressable>
         </View>
       ))}
