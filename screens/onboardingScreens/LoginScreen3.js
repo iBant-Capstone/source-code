@@ -9,14 +9,13 @@ const LoginScreen3 = ({navigation}) => {
     return (
         <View>
             <Text>
-                Hi there!
-                Welcome to our app, BACtracker! This is a tool  for young adults to explore and educate themselves about drinking alcohol.
-                Our mission is to increase knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!
+                <Text style={styles.onboardingHeaderText}>Hi there!</Text>
+                Welcome to our app, <Text style={styles.redBoldText}>BACtracker</Text>! This is a tool for young adults to explore and educate themselves about drinking alcohol.
+                Our <Text style={styles.redBoldText}>mission</Text> is to increase knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!
             </Text>
             <Footer  rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('Login4');}} leftButtonLabel="Back" leftButtonPress={() => { navigation.navigate('Login2');}}/>
         </View>
        
-        // add Next button
         // add progress bar (circles) at bottom of screen -> not MVP
     );
 };

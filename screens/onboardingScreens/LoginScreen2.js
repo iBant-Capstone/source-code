@@ -14,7 +14,7 @@ const LoginScreen2 = ({navigation}) => {
             </View>
             <View style={styles.centerContainer}>
                 <View style={styles.row}>
-                    <Text>Welcome to BACtracker!</Text>
+                    <Text style={styles.onboardingHeaderText}>Welcome to BACtracker!</Text>
                     <Text style={styles.redBoldText}>We've got your BACk.</Text>                   
                 </View>               
             </View>

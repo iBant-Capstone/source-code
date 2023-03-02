@@ -311,6 +311,9 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#FFB140',
     borderBottomWidth: 3
   },
+  onboardingHeaderText: {
+    fontSize: 24
+  },
 
   // For BAC calculator
   drinkCard: {

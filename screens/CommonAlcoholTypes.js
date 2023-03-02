@@ -83,7 +83,7 @@ const CommonAlcoholTypes = ({ navigation }) => {
     
     return(
         <View style={styles.centered}>
-            <Text style={styles.Text}>Alcohol Types</Text>
+            {/* <Text style={styles.Text}>Alcohol Types</Text> */}
             <View style={styles.row}>
                 {PressableArrays}
             </View>
