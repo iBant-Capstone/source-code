@@ -1,8 +1,11 @@
 import { Text, View, Image } from 'react-native';
-import * as StyleSheet from '../../components/styles';
-import Footer from '../../components/Footer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// Import components
+import Footer from '../../components/Footer';
+
+// Import styles
+import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
 // sixth Login Screen: Introduction to Rosie

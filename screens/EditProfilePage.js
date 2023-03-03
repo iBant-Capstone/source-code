@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, Button, TextInput, Pressable } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, TextInput, Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
-import * as StyleSheet from '../components/styles';
 
+// Import styles
+import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
 

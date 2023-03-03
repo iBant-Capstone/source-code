@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, useWindowDimensions } from 'react-native';
 
+// Import component
 import RoundedButton from './RoundedButton';
 
+// Set states
 const Footer = ({
   leftButtonLabel = false,
   leftButtonPress = false,
@@ -15,7 +17,7 @@ const Footer = ({
 
   return (
     <View
-    style={{
+      style={{
         flexDirection: 'row',
         justifyContent: leftButtonLabel ? 'space-between' : 'flex-end',
         height: HEIGHT,
@@ -24,8 +26,8 @@ const Footer = ({
         paddingHorizontal: FOOTER_PADDING
       }}
     >
-    {leftButtonLabel && (<RoundedButton label={leftButtonLabel} onPress={leftButtonPress} />)}
-    {rightButtonLabel && (<RoundedButton label={rightButtonLabel} onPress={rightButtonPress} />)}
+      {leftButtonLabel && (<RoundedButton label={leftButtonLabel} onPress={leftButtonPress} />)}
+      {rightButtonLabel && (<RoundedButton label={rightButtonLabel} onPress={rightButtonPress} />)}
     </View>
   );
 };

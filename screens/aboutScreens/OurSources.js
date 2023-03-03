@@ -1,11 +1,12 @@
 import { useCallback } from 'react';
 import { Text, View, Linking, Alert } from 'react-native';
-import { Table, Row, TableWrapper, Cell } from 'react-native-table-component'
-import * as StyleSheet from '../../components/styles';
+import { Table, TableWrapper, Cell } from 'react-native-table-component'
 
 // import all sources from json
 import sources from '../../json/sources.json'
 
+// Import styles
+import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
 // Creates a clickable link that leads to given url
@@ -22,7 +23,6 @@ const URLLink = ({ id, name, url }) => {
             Alert.alert(`Unable to open URL: ${url}`);
         }
     }, [url]);
-
 
     return (
         <TableWrapper style={{flexDirection: 'row'}}>

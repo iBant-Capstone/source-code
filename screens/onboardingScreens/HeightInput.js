@@ -1,12 +1,16 @@
 // Accept user input for Height -> need to connect with stored Profile information
 // Add Skip button (skips to InfoHub page)
 // Add Next button (goes to WeightInput page)
-import { Text, View, Image } from 'react-native';
-import * as StyleSheet from '../../components/styles';
+import { Text, View } from 'react-native';
+
+// Import components used
 import Footer from '../../components/Footer';
 
+// Import styles
+import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
+// Page to return
 const HeightInput = ({navigation}) => {
     return (
         <View>

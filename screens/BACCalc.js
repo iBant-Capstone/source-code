@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Pressable, ScrollView, FlatList } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as StyleSheet from '../components/styles';
+
+// Import used components
 import CalcDrinkCards from '../components/CalcDrinkCards';
 import CurrentBAC from '../components/CurrentBAC';
 
-
+// Import styles
+import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
 

@@ -1,18 +1,21 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
+import { Text, View, Image, Pressable } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
-import { Text, View, Image, Pressable } from 'react-native';
-import * as StyleSheet from '../../components/styles';
+
+// Import components
 import Footer from '../../components/Footer';
 import { on } from 'events';
- 
+
+// Import styles
+import * as StyleSheet from '../../components/styles'; 
 let styles = StyleSheet.styles;
 
 // First Login Screen: just BACtracker logo
 // redirects to infoHub based on if they have gone through the login process before
 // stores the drinks in the component's state. 
 const LoginScreen1 = ({navigation}) => {
-    
+    // Create state of onboarded or not
     const [hasOnboarded, setOnboarded] = useState(false);
     
 // retrieves the value from async storage to only show the login if 
@@ -30,8 +33,6 @@ useFocusEffect(
             else {
                 setOnboarded(true);
             }
-
-            
         } catch (error) {
             console.log(error);
         }
@@ -40,9 +41,6 @@ useFocusEffect(
     }, [])
     );
 
-    const onboard = AsyncStorage.getItem('onboarding');
-    console.log(onboard);
-    console.log(hasOnboarded)
     return (
         <View style={styles.centerContainer}>
             <View >

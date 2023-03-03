@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable, Platform, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as StyleSheet from '../components/styles';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
+// Import styles
+import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
 
