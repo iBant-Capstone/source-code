@@ -74,13 +74,13 @@ const BACCalc = ({ route, navigation }) => {
                     <Text>Add Drink</Text>
                 </Pressable>
                 {/* TEST DRINK, COMMENT OUT IF YOU DON'T WANT THE BUTTON */}
-                <Pressable
+                {/* <Pressable
                     onPress={() => handleAddEntry() }
                     accessibilityLabel="Add a drink"
                     style={[styles.whiteButton, {marginTop: -20}]}
                 >
                     <Text>Add TEST Drink</Text>
-                </Pressable>
+                </Pressable> */}
                 {/* END COMMENTING HERE */}
                 <Text style={styles.whiteText}>Drinks in async storage:</Text>
                 
