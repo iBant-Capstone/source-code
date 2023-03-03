@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Pressable } from 'react-native';
+import { Text, View, Pressable, FlatList } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as StyleSheet from '../components/styles';
 import CalcDrinkCards from '../components/CalcDrinkCards';
@@ -83,7 +83,10 @@ const BACCalc = ({ route, navigation }) => {
                 </Pressable>
                 {/* END COMMENTING HERE */}
                 <Text style={styles.whiteText}>Drinks in async storage:</Text>
-                <CalcDrinkCards />
+                
+                <CalcDrinkCards />  
+               
+               
                 <Pressable
                     onPress={() => AsyncStorage.clear()}
                     accessibilityLabel="Add a drink"

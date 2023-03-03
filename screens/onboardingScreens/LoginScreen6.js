@@ -9,8 +9,8 @@ let styles = StyleSheet.styles;
 const LoginScreen6 = ({ navigation }) => {
     async function setOnboarding() {
         await AsyncStorage.setItem('onboarding', true);
-        const onboard = await AsyncStorage.getItem('onboarding');
-        console.log(onboard);
+        // const onboard = await AsyncStorage.getItem('onboarding');
+        // console.log(onboard);
     }
     setOnboarding();
     return (
