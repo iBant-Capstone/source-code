@@ -35,6 +35,7 @@ const CalcDrinkCards = () => {
     }, [])
   );
 
+  // comment this out later 
   // Returns the JSX to display
   return (
     <View style={styles.row}>
