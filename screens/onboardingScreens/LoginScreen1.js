@@ -5,7 +5,7 @@ import { Text, View, Image } from 'react-native';
 import * as StyleSheet from '../../components/styles';
 import Footer from '../../components/Footer';
 import { on } from 'events';
- 
+
 let styles = StyleSheet.styles;
 
 // First Login Screen: just BACtracker logo
@@ -13,50 +13,47 @@ let styles = StyleSheet.styles;
 // stores the drinks in the component's state. 
 
 
-const LoginScreen1 = ({navigation}) => {
+const LoginScreen1 = ({ navigation }) => {
     const [hasOnboarded, setOnboarded] = useState(false);
 
-// retrieves the value from async storage 
+    // retrieves the value from async storage 
 
-useFocusEffect(
-    React.useCallback(() => {
-        async function getOnboarded() {
-        try {
-            // Get value from async storage
-            const onboard = await AsyncStorage.getItem('onboarding');
-            console.log(onboard);
-            // Set our state 
-          
-            if(onboard === null) {
-                setOnboarded(false);
-            }
-            else {
-                setOnboarded(true);
-            }
+    useFocusEffect(
+        React.useCallback(() => {
+            async function getOnboarded() {
+                try {
+                    // Get value from async storage
+                    const onboard = await AsyncStorage.getItem('onboarding');
+                    console.log(onboard);
+                    // Set our state 
 
-            
-        } catch (error) {
-            console.log(error);
-        }
-        }
-        getOnboarded();
-    }, [])
+                    if (onboard === null) {
+                        setOnboarded(false);
+                    }
+                    else {
+                        setOnboarded(true);
+                    }
+
+
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+            getOnboarded();
+        }, [])
     );
 
     return (
         <View style={styles.centerContainer}>
-            <View >
-                <Image style={styles.largeLogoWithText} source={require('../../assets/icons/BACtracker_logo.png')} resizeMode='contain' />
-             </View>    
-             <Footer rightButtonLabel="Next" rightButtonPress={() => 
-             {  
-                if(hasOnboarded){
+            <Image style={styles.largeLogoWithText} source={require('../../assets/icons/BACtracker_logo.png')} resizeMode='contain' />
+            <Footer rightButtonLabel="Next" rightButtonPress={() => {
+                if (hasOnboarded) {
                     navigation.navigate('InformationHub');
                 }
-                else{
+                else {
                     navigation.navigate('Login2');
                 }
-                }}/>        
+            }} />
         </View>
     );
 };

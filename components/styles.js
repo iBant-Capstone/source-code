@@ -107,9 +107,8 @@ export const styles = StyleSheet.create({
 
   // Logo related styling:
   largeLogoWithText: {
-    maxWidth: '100%',
-    maxHeight: '100%',
-    marginTop: '10%'
+    width: "80%",
+    height: "80%"
   },
 
   // **Info Hub page(s) styling: 
