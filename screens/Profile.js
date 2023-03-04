@@ -86,7 +86,7 @@ const Profile = (props) => {
                             <Cell data={<Pressable style={styles.profileEditButton} width={100} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                         </TableWrapper>
                         <TableWrapper style={{ flexDirection: 'row' }}>
-                            <Cell data={"Sex: "} width={100} textStyle={styles.mainRedButtonText} />
+                            <Cell data={"Biological Sex: "} width={100} textStyle={styles.mainRedButtonText} />
                             {/* Different displays based on if personal details are empty or not */}
                             { personalDetails["sex"] === '' ?
                                 <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
