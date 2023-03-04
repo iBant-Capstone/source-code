@@ -2,12 +2,16 @@
 // Include disclaimer
 // Add Skip button (skips to InfoHub page)
 // Add Next button (goes to InfoHub page)
-import { Text, View, Image } from 'react-native';
-import * as StyleSheet from '../../components/styles';
+import { Text, View } from 'react-native';
+
+// Import components used
 import Footer from '../../components/Footer';
 
+// Import styles
+import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
+// Page to return
 const BiologicalSex = ({ navigation }) => {
     return (
         <View>

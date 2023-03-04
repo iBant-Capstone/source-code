@@ -1,29 +1,22 @@
-// import React in our code
 import React, { useState, useEffect } from 'react';
-import {
-    Text,
-    View,
-    LayoutAnimation,
-    ScrollView,
-    UIManager,
-    TouchableOpacity,
-    Platform,
-    Image,
-    FlatList
-} from 'react-native';
+import { Text, View, LayoutAnimation, ScrollView, UIManager, TouchableOpacity, Platform, Image, FlatList } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component'
-// Import styles
-import { styles } from './styles';
+import Hyperlink from 'react-native-hyperlink';
+
 // Import json data of topic q and as
 import data from '../json/topics.json'
 import BACeffects from '../json/bac-levels.json'
+
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
-// Import superscript
-import SuperscriptText from './Superscript';
-// import { randomInt } from 'crypto';
-import Hyperlink from 'react-native-hyperlink';
 
+// Import components
+import SuperscriptText from './Superscript';
+
+// Import styles
+import { styles } from './styles';
+
+// Creates an expandable component
 const ExpandableComponent = ({ item, onClickFunction }) => {
     // Custom Component for the Expandable List
     const [layoutHeight, setLayoutHeight] = useState(0);
@@ -159,14 +152,11 @@ const InfoTopicPage = ({ route }) => {
                         item={item}
                     />
                 ))}
-
                 <View style={styles.centerContainer}>
                     {showImage()}
                     {showTable()}
                 </View>
-
             </ScrollView>
-
         </View>
     )
 }

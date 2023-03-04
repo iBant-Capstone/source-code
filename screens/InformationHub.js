@@ -1,6 +1,4 @@
-import { Pressable, Text, View, Image, ImageBackground } from 'react-native';
-import * as StyleSheet from '../components/styles';
-import Popup from '../components/AlcoholPopUp';
+import { Pressable, Text, View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Import other nav bar pages
@@ -11,9 +9,11 @@ import BACCalc from './BACCalc'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // Set style 
+import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
 // Page to be returned
+// Has different buttons for the different topics that are available on information hub
 let InfoPage = (props) => {
   return (
     <View>
@@ -73,11 +73,12 @@ let InfoPage = (props) => {
 
 
 // Information Hub is the "home page of the app"
-// Everything below this is part of the navigation bar.
+// Create navigation bar at the bottom 
 const Tab = createBottomTabNavigator();
 
 const InformationHub = ({ navigation }) => {
   return (
+    // Create Navbar with icons and routes
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
@@ -97,6 +98,7 @@ const InformationHub = ({ navigation }) => {
         tabBarLabel: () => { return null },
       })}
     >
+      {/* Our three main pages */}
       <Tab.Screen
         name="Information Hub"
         component={InfoPage}
@@ -110,10 +112,7 @@ const InformationHub = ({ navigation }) => {
         component={Profile}
       />
     </Tab.Navigator>
-
   );
 };
-
-
 
 export default InformationHub

@@ -1,7 +1,10 @@
 import { Text, View, Image } from 'react-native';
-import * as StyleSheet from '../../components/styles';
+
+// Import components
 import Footer from '../../components/Footer';
 
+// Import styles
+import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
 // Second Login Screen: "Welcome to BACtracker" text and slogan

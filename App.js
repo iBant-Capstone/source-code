@@ -13,6 +13,7 @@ import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import EditProfilePage from './screens/EditProfilePage.js';
 
+// Import onboarding pages
 import LoginScreen1 from './screens/onboardingScreens/LoginScreen1';
 import LoginScreen2 from './screens/onboardingScreens/LoginScreen2';
 import LoginScreen3 from './screens/onboardingScreens/LoginScreen3';
