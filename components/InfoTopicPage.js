@@ -39,7 +39,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
     // NEED TO ADD SOME FORMATTING
     const hyperlink = (itemText) => {
         return ( // linkStyle={{color: '#CF5361', fontSize: 14}}
-            <Hyperlink linkDefault={true}>
+            <Hyperlink linkDefault={true} linkStyle={styles.link}>
                 <Text style={styles.topicAnswer}>{itemText}</Text>
             </Hyperlink>
         );
