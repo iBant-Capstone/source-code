@@ -15,7 +15,7 @@ const CurrentBAC = () => {
     let [personalDetails, setPersonalDetails] = useState({})
 
     // Keeps track of if we've got the info from storage
-    let [drinksPDInitialState, setDrinksPDInitialState] = useState(false)
+    let [drinksPDInitialState, setDrinksPDInitialState] = useState(false) // TODO update naming to make more sense with other drinkspd state update
 
     // Keeps track of if the drinksConsumed and personalDetails states are both fleshed out with additional info
     let [drinksPDState, setDrinksPDState] = useState(false)
@@ -25,40 +25,23 @@ const CurrentBAC = () => {
             async function getDrinks() {
                 try {
 
-                    // __ GET THE DRINKS CONSUMED FROM ASYNC __
-
                     // Get the list of drinks from the async storage
                     const drinksListAsync = await AsyncStorage.getItem('drinks');
-
                     // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
                     let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-                    console.log("Drinks list from async: " + drinksList)
-
-                    // Set the drinks we have to the state
-                    setDrinksConsumed(drinksList)
-
-
-                    // __ GET THE PERSONAL DETAILS FROM ASYNC __
 
                     // TODO: get it from async storage
-                    const asyncPersonalDetails = await AsyncStorage.getItem('drinks'); 
-
+                    const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
                     // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
                     let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
 
-                    // Get info ready and then calculate the widmark factor
-                    let heightInMeters = JSON.parse(personalDetailsParsed.height).unit === "cm" ? JSON.parse(personalDetailsParsed.height).value * 100 : JSON.parse(personalDetailsParsed.height).value * 0.0254
-                    let weightInKilograms = JSON.parse(personalDetailsParsed.weight).unit === "kg" ? JSON.parse(personalDetailsParsed.weight).value : JSON.parse(personalDetailsParsed.weight).value * 0.45359237
-
-                    // TODO add in the male version of the widmark calculation
-                    personalDetailsParsed.widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
-
+                    // Set the drinks we have to the state
+                    await setDrinksConsumed(drinksList)
                     // Set the personalDrinks to state
-                    setPersonalDetails(personalDetailsParsed)
+                    await setPersonalDetails(personalDetailsParsed)
 
-                    // __ SET THAT WE"RE DONE WITH CALUCLATING ___
-                    setDrinksPDState(true)
-
+                    // set that we're done with gathering from async storage 
+                    await setDrinksPDInitialState(true)
 
                 } catch (error) {
                     console.log(error);
@@ -70,29 +53,49 @@ const CurrentBAC = () => {
 
     // Waits until we've collected the drinks from async storage before fleshing them out more
     useEffect(() => {
-        // Add in the calulcated properties to the drinks consumed
-        let fleshedOutDrinksList = drinksConsumed.map((drink) => {
-            console.log("Drink Size: " + drink.size)
-            return ({
-                ...drink,
-                drinkFullLife: getDrinkFullLife(drink.drinkHalfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
-                drinkAlcoholGrams: calculateAlcoholGrams(JSON.parse(drink.size).value, drink.strength),
-                drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(drink.drinkConsumedTimeAsDateObject, getDrinkFullLife(drink.drinkHalfLife)),
-                drinkUnits: 1, // only one drink, TODO try and remove this being needed later
+        async function addToData() {
+            console.log("Initial Drinks Consumed: " + drinksConsumed)
+            console.log("Initial Personal Details: " + JSON.stringify(personalDetails))
+            
+            // ____ DRINKS CONSUMED _____
+            // Add in the calulcated properties to the drinks consumed
+            let fleshedOutDrinksList = drinksConsumed.map((drink) => {
+                console.log("Drink Size: " + drink.size)
+                return ({
+                    ...drink,
+                    drinkFullLife: getDrinkFullLife(drink.drinkHalfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
+                    drinkAlcoholGrams: calculateAlcoholGrams(JSON.parse(drink.size).value, drink.strength),
+                    drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(drink.drinkConsumedTimeAsDateObject, getDrinkFullLife(drink.drinkHalfLife)),
+                    drinkUnits: 1, // only one drink, TODO try and remove this being needed later
+                })
             })
-        })
-        setDrinksConsumed(fleshedOutDrinksList)
+            await setDrinksConsumed(fleshedOutDrinksList)
 
-        // Add in the calulcated properties to the personalDetails consumed
+            // ____ PERSONAL DETAILS _____
+            let fleshedOutPersonalDetails = personalDetails
+            console.log("Fleshed out personal details: " + JSON.stringify(fleshedOutPersonalDetails))
+            // Get info ready and then calculate the widmark factor
+            let heightInMeters = JSON.parse(fleshedOutPersonalDetails.height).unit === "cm" ? JSON.parse(fleshedOutPersonalDetails.height).value * 100 : JSON.parse(fleshedOutPersonalDetails.height).value * 0.0254
+            let weightInKilograms = JSON.parse(fleshedOutPersonalDetails.weight).unit === "kg" ? JSON.parse(fleshedOutPersonalDetails.weight).value : JSON.parse(fleshedOutPersonalDetails.weight).value * 0.45359237
 
+            // TODO add in the option of the male version of the widmark calculation
+            fleshedOutPersonalDetails.widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
 
+            await setPersonalDetails(fleshedOutPersonalDetails)
 
+            // Let people know we're done with adding in and setting the new calculations
+            await setDrinksPDState(true)
+        }
+        addToData();
     }, [drinksPDInitialState])
+
+
+
 
     // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
-        console.log(drinksConsumed)
-        console.log(personalDetails)
+        console.log("Last Use Effect: " + drinksConsumed)
+        console.log("Last Use Effect: " + personalDetails)
         setBAC(calculateCurrentBAC())
     }, [drinksPDState])
     

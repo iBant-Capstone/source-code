@@ -20,9 +20,6 @@ const BACCalc = ({ route, navigation }) => {
     // TEST DRINK ADDER COMMENT OUT THIS FUNCTION WHEN YOU WANT ANOTHER DRINK IN STORAGE
     const handleAddEntry = async () => {
 
-        // Create the time of drink
-        let timeOfDrink = ''
-
         // Create the JSON structure for the new drink
         let newDrink = {
             name: "testName",
