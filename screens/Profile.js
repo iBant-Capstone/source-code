@@ -1,11 +1,11 @@
-import { Text, View, Pressable } from 'react-native';
-import React, { useState, useEffect } from 'react';
-import * as StyleSheet from '../components/styles';
-import { Image } from 'react-native';
-import { Table, Row, TableWrapper, Cell } from 'react-native-table-component'
+import { Text, View, Pressable, Image } from 'react-native';
+import React, { useState } from 'react';
+import { Table, TableWrapper, Cell } from 'react-native-table-component'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
+// Import styles
+import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
 const Profile = (props) => {
@@ -123,7 +123,5 @@ const Profile = (props) => {
         </View>
     );
 };
-
-
 
 export default Profile

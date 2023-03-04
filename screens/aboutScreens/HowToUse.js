@@ -1,9 +1,13 @@
 import { Text, View, Image } from 'react-native';
-import * as StyleSheet from '../../components/styles';
+
+// Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+// Import styles
+import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
+// Create a how to use page with informaiton on how the different nav bar icons leads to different pages
 const HowToUse = () => {
     return (
         <View style={{ backgroundColor: '#fff' }}>

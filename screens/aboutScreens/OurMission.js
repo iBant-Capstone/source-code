@@ -1,8 +1,10 @@
 import { Text, View, Image } from 'react-native';
-import * as StyleSheet from '../../components/styles';
 
+// Import styles
+import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
+// Create and return page that displays mission and about team
 const OurMission = () => {
     return (
         <View style={styles.centerContainer}>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, Pressable } from 'react-native';
-import * as StyleSheet from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
-// import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
+// Import styles
+import * as StyleSheet from './styles';
 let styles = StyleSheet.styles;
 
 const CurrentBAC = () => {
@@ -174,8 +174,6 @@ const CurrentBAC = () => {
         return timeDiffinMin >= 0 ? (100 - 100 / 2 ** (timeDiffinMin / drinkHalfLife)) / 100 : 0
     }
 
-
-
     // _____HELPER FUNCTIONS____
 
     function setDateObjectSecondsAndMillisecondsToZero(e) {
@@ -193,8 +191,6 @@ const CurrentBAC = () => {
         // return drinksConsumed[drinksConsumed.length - 1].drinkConsumedTimeAsDateObject
         return thirtyMinAgoDateObj()
     }
-
-
 
     // _____ FUNCTIONS TO HELP CALCULATE EITHER personalDetails or drinksConsumed _____
 
@@ -235,8 +231,6 @@ const CurrentBAC = () => {
         return .50766 + .11165 * height - weight * (.001612 + .0031 / (height * height)) - 1 / (weight * (.62115 - 3.1665 * height))
     }
 
-
-
     return (
         <View>
             {BAC ?
@@ -252,9 +246,7 @@ const CurrentBAC = () => {
             :
             <Text>Loading...</Text>
             }
-        </View>
-        
-        
+        </View>  
     )
 }
 
