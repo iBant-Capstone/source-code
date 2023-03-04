@@ -88,7 +88,7 @@ const BACCalc = ({ route, navigation }) => {
                     <Text style={styles.whiteText}>Drinks in async storage:</Text>
                     <CalcDrinkCards />
                     <Pressable
-                        onPress={() => AsyncStorage.clear()}
+                        onPress={() => AsyncStorage.setItem('drinks', [])}
                         accessibilityLabel="Add a drink"
                         style={styles.whiteButton}
                     >

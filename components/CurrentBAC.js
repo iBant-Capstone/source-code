@@ -14,7 +14,10 @@ const CurrentBAC = () => {
     let [drinksConsumed, setDrinksConsumed] = useState([])
     let [personalDetails, setPersonalDetails] = useState({})
 
-    // Keeps track of if the drinksConsumed and personalDetails states are both set
+    // Keeps track of if we've got the info from storage
+    let [drinksPDInitialState, setDrinksPDInitialState] = useState(false)
+
+    // Keeps track of if the drinksConsumed and personalDetails states are both fleshed out with additional info
     let [drinksPDState, setDrinksPDState] = useState(false)
 
     useFocusEffect(
@@ -31,18 +34,8 @@ const CurrentBAC = () => {
                     let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
                     console.log("Drinks list from async: " + drinksList)
 
-                    // Add in the calulcated properties
-                    let fleshedOutDrinksList = drinksList.map((drink) => {
-                        return ({
-                            ...drink,
-                            drinkFullLife: getDrinkFullLife(drink.drinkHalfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
-                            drinkAlcoholGrams: calculateAlcoholGrams(drink.size.value, drink.strength),
-                            drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(drink.drinkConsumedTimeAsDateObject, getDrinkFullLife(drink.drinkHalfLife)),
-                            drinkUnits: 1, // only one drink, TODO try and remove this being needed later
-                        })
-                    })
-
-                    setDrinksConsumed(fleshedOutDrinksList)
+                    // Set the drinks we have to the state
+                    setDrinksConsumed(drinksList)
 
 
                     // __ GET THE PERSONAL DETAILS FROM ASYNC __
@@ -75,7 +68,28 @@ const CurrentBAC = () => {
         }, [])
     );
 
-    // Waits until both the personalDetails and drinksConsumed states are set before calculating the BAC
+    // Waits until we've collected the drinks from async storage before fleshing them out more
+    useEffect(() => {
+        // Add in the calulcated properties to the drinks consumed
+        let fleshedOutDrinksList = drinksConsumed.map((drink) => {
+            console.log("Drink Size: " + drink.size)
+            return ({
+                ...drink,
+                drinkFullLife: getDrinkFullLife(drink.drinkHalfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
+                drinkAlcoholGrams: calculateAlcoholGrams(JSON.parse(drink.size).value, drink.strength),
+                drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(drink.drinkConsumedTimeAsDateObject, getDrinkFullLife(drink.drinkHalfLife)),
+                drinkUnits: 1, // only one drink, TODO try and remove this being needed later
+            })
+        })
+        setDrinksConsumed(fleshedOutDrinksList)
+
+        // Add in the calulcated properties to the personalDetails consumed
+
+
+
+    }, [drinksPDInitialState])
+
+    // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
         console.log(drinksConsumed)
         console.log(personalDetails)
