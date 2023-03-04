@@ -343,7 +343,8 @@ export const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     color: '#387780',
     fontSize: 14,
-    margin: 5
+    margin: 5,
+    backgroundColor: 'transparent'
   },
   currentBACText: {
     fontSize: 32,
