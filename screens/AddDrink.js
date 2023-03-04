@@ -17,7 +17,7 @@ const AddDrink = ({ route, navigation }) => {
     // WEB Time Selection
     const [hoursInputValue, setHoursInputValue] = useState('')
     const [minuteInputValue, setMinuteInputValue] = useState('')
-    const [timeOfDay, setTimeOfDay] = useState('')
+    const [timeOfDay, setTimeOfDay] = useState('PM')
 
     // IOS or ANDROID Time Selection
     const [selectedTime, setSelectedTime] = useState(new Date());
@@ -41,8 +41,16 @@ const AddDrink = ({ route, navigation }) => {
     // adds the drink to the async storage
     const handleAddEntry = async () => {
 
+        // Current Day (for year/month)
+        let currentDate = new Date()
+
+
         // Create the time of drink
-        let timeOfDrink = ''
+        let timeOfDrink = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDay(), (timeOfDay === 'AM' ? Number(hoursInputValue) : Number(hoursInputValue) + 12), Number(minuteInputValue))
+
+        // new Date(year, monthIndex, day, hours, minutes)
+
+        console.log(timeOfDrink.toString())
 
         // Create the JSON structure for the new drink
         let newDrink = {
@@ -52,7 +60,7 @@ const AddDrink = ({ route, navigation }) => {
                 value: sizeInputValue
             },
             strength: strengthInputValue / 100,
-            time: timeInputValue
+            time: timeOfDrink
         }
 
         console.log("new drink: " + JSON.stringify(newDrink))

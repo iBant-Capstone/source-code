@@ -99,8 +99,8 @@ const CurrentBAC = () => {
     // initializes calculating the BAC
     function calculateCurrentBAC() {
 
-        console.log("Drinks consumed " + drinksConsumed)
-        console.log("Personal Details " + JSON.stringify(personalDetails))
+        // console.log("Drinks consumed " + drinksConsumed)
+        // console.log("Personal Details " + JSON.stringify(personalDetails))
 
         let currentBAC = calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
         return currentBAC
@@ -110,7 +110,7 @@ const CurrentBAC = () => {
     // _____MAIN FUNCTIONS TO CALCULATE BAC____
 
     function calculateBAC(currentDate) {
-        console.log("(calculateBAC) Current Date: " + currentDate)
+        // console.log("(calculateBAC) Current Date: " + currentDate)
 
         // Initialize the minutes we'll be iterative through
         let timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentDate, getTimeOfFirstDrinkAsDateObject())
@@ -119,18 +119,18 @@ const CurrentBAC = () => {
 
         // Iterate through minutes from first drink to now
         for (; timeDiffinMin >= 0;) {
-            console.log("Minute working on: " + timeDiffinMin)
+            //console.log("Minute working on: " + timeDiffinMin)
 
             BAC += increaseBACEveryMinute(currentDate, timeDiffinMin)
-            console.log("\tBAC after increase: " + BAC)
+            //console.log("\tBAC after increase: " + BAC)
 
             BAC -= reduceBACEveryMinute(BAC)
-            console.log("\tBAC after decrease: " + BAC)
+            //console.log("\tBAC after decrease: " + BAC)
 
             timeDiffinMin--
         }
 
-        console.log(BAC)
+        //console.log(BAC)
         return BAC
     }
 
@@ -147,7 +147,7 @@ const CurrentBAC = () => {
             const timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentMin, drink.drinkConsumedTimeAsDateObject)
 
             timeDiffinMin >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= currentMin && (BACtoAdd += calculateBACToAdd(drink, timeDiffinMin))
-            console.log("\t\tBACtoAdd: " + BACtoAdd)
+            //console.log("\t\tBACtoAdd: " + BACtoAdd)
         })
 
         return BACtoAdd
