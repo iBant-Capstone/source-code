@@ -41,12 +41,12 @@ const AddDrink = ({ route, navigation }) => {
     // adds the drink to the async storage
     const handleAddEntry = async () => {
 
-        // Current Day (for year/month)
+        // Current Day (for year/month/day)
         let currentDate = new Date()
 
 
         // Create the time of drink
-        let timeOfDrink = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDay(), (timeOfDay === 'AM' ? Number(hoursInputValue) : Number(hoursInputValue) + 12), Number(minuteInputValue))
+        let timeOfDrink = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), (timeOfDay === 'AM' ? Number(hoursInputValue) : Number(hoursInputValue) + 12), Number(minuteInputValue))
 
         // new Date(year, monthIndex, day, hours, minutes)
 
@@ -57,10 +57,11 @@ const AddDrink = ({ route, navigation }) => {
             name: nameInputValue,
             size: {
                 unit: "ml",
-                value: sizeInputValue
+                value: sizeInputValue / 100
             },
             strength: strengthInputValue / 100,
-            time: timeOfDrink
+            halfLife: Number(hungerValueSelected),
+            drinkConsumedTimeAsDateObject: timeOfDrink
         }
 
         console.log("new drink: " + JSON.stringify(newDrink))

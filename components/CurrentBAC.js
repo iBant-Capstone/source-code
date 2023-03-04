@@ -22,63 +22,48 @@ const CurrentBAC = () => {
             async function getDrinks() {
                 try {
 
-                    // GET THE DRINKS CONSUMED
+                    // __ GET THE DRINKS CONSUMED FROM ASYNC __
 
                     // Get the list of drinks from the async storage
-                    // const drinksListAsync = await AsyncStorage.getItem('drinks');
+                    const drinksListAsync = await AsyncStorage.getItem('drinks');
 
                     // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
-                    // let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-                    // console.log("Drinks list: " + drinksList)
+                    let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
+                    console.log("Drinks list from async: " + drinksList)
+
+                    // Add in the calulcated properties
+                    let fleshedOutDrinksList = drinksList.map((drink) => {
+                        return ({
+                            ...drink,
+                            drinkFullLife: getDrinkFullLife(drink.drinkHalfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
+                            drinkAlcoholGrams: calculateAlcoholGrams(drink.size.value, drink.strength),
+                            drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(drink.drinkConsumedTimeAsDateObject, getDrinkFullLife(drink.drinkHalfLife)),
+                            drinkUnits: 1, // only one drink, TODO try and remove this being needed later
+                        })
+                    })
+
+                    setDrinksConsumed(fleshedOutDrinksList)
 
 
-                    setDrinksConsumed([
-                        {
-                            drinkName: "beer", // currently
-                            drinkType: "beer",
-                            drinkStrength: 0.027, // 2.7% ABV
-                            drinkSize: 0.285, // 285ml
-                            drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
-                            drinkFullLife: getDrinkFullLife(),
-                            drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
-                            drinkUnits: 1, // only one drink
-                            drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
-                            drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
-                        },
-                        {
-                            drinkName: "beer", // currently
-                            drinkType: "beer",
-                            drinkStrength: 0.027, // 2.7% ABV
-                            drinkSize: 0.285, // 285ml
-                            drinkHalfLife: 6, // corresponds to "Very Hungry" (meaning the 1/2 the alcohol will be absorbed in 6 minutes)
-                            drinkFullLife: getDrinkFullLife(),
-                            drinkAlcoholGrams: calculateAlcoholGrams(0.285, 0.027), // drink size and drink strength go into the calculation
-                            drinkUnits: 1, // only one drunk
-                            drinkConsumedTimeAsDateObject: thirtyMinAgoDateObj(), // when created it always thinks this drink was consumed 30 minutes ago
-                            drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject()
-                        }
-                    ])
+                    // __ GET THE PERSONAL DETAILS FROM ASYNC __
 
                     // TODO: get it from async storage
-                    let asyncPersonalDetails = {
-                        sex: "Female",
-                        height: {
-                            units: "Meters",
-                            value: 1.80,
-                        },
-                        weight: {
-                            units: "Kilograms",
-                            value: 63
-                        }
-                    }
+                    const asyncPersonalDetails = await AsyncStorage.getItem('drinks'); 
 
-                    // Add in additonal information with the functions 
-                    asyncPersonalDetails.widmarkFactor = calculateWidmarkFactorFemale()
+                    // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
+                    let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
+
+                    // Get info ready and then calculate the widmark factor
+                    let heightInMeters = JSON.parse(personalDetailsParsed.height).unit === "cm" ? JSON.parse(personalDetailsParsed.height).value * 100 : JSON.parse(personalDetailsParsed.height).value * 0.0254
+                    let weightInKilograms = JSON.parse(personalDetailsParsed.weight).unit === "kg" ? JSON.parse(personalDetailsParsed.weight).value : JSON.parse(personalDetailsParsed.weight).value * 0.45359237
+
+                    // TODO add in the male version of the widmark calculation
+                    personalDetailsParsed.widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
 
                     // Set the personalDrinks to state
-                    setPersonalDetails(asyncPersonalDetails)
+                    setPersonalDetails(personalDetailsParsed)
 
-                    // Set that we're done with calculating
+                    // __ SET THAT WE"RE DONE WITH CALUCLATING ___
                     setDrinksPDState(true)
 
 
@@ -92,6 +77,8 @@ const CurrentBAC = () => {
 
     // Waits until both the personalDetails and drinksConsumed states are set before calculating the BAC
     useEffect(() => {
+        console.log(drinksConsumed)
+        console.log(personalDetails)
         setBAC(calculateCurrentBAC())
     }, [drinksPDState])
     
@@ -198,8 +185,9 @@ const CurrentBAC = () => {
 
     // _____ FUNCTIONS TO HELP CALCULATE EITHER personalDetails or drinksConsumed _____
 
-    function getDrinkFullLife() {
-        return Math.round(6.66 * 6) // 6 being the drinkHalfLife I'm assuming right now for both drinks
+    // TODO check with DrunkCalc to make sure
+    function getDrinkFullLife(drinkHalfLife) {
+        return Math.round(6.66 * drinkHalfLife)
     }
 
     function calculateAlcoholGrams(drinkSize, drinkStrength) {
@@ -211,6 +199,7 @@ const CurrentBAC = () => {
     }
 
     // returns a new date objects that has 30 minutes removed from the current time
+    // TODO remove when we don't need it anymore
     function thirtyMinAgoDateObj() {
         let thirtyMinAgo = new Date(new Date().getTime() - (30 * 60000))
 
@@ -219,17 +208,17 @@ const CurrentBAC = () => {
         return thirtyMinAgo
     }
 
-    function getDrinkFullyAbsorbedTimeAsDateObject() {
+    // TODO Check with DrunkCalc
+    function getDrinkFullyAbsorbedTimeAsDateObject(timeConsumed, drinkFullLife) {
         // Original code (subbed hard coded expressions for now, will functionalize later)
-        // return setDateObjectSecondsAndMillisecondsToZero(new Date(getDrinkConsumedTimeAsDateObject().getTime() + 6e4 * getDrinkFullLife()))
-        let drinkFullyAbsorbedTimeAsDateObject = setDateObjectSecondsAndMillisecondsToZero(new Date((new Date().getTime() - (30 * 60000)) + 6e4 * Math.round(6.66 * 6)))
+        let drinkFullyAbsorbedTimeAsDateObject = setDateObjectSecondsAndMillisecondsToZero(new Date(new Date(timeConsumed).getTime() + 6e4 * drinkFullLife))
 
         // console.log("(getDrinkFullyAbsorbedTimeAsDateObject) " + drinkFullyAbsorbedTimeAsDateObject)
 
         return drinkFullyAbsorbedTimeAsDateObject
     }
 
-    function calculateWidmarkFactorFemale() { // TODO pass in height and weight
+    function calculateWidmarkFactorFemale(heightInMeters, weightInKilograms) { // TODO pass in height and weight
         let height = 1.80
         let weight = 63
         return .50766 + .11165 * height - weight * (.001612 + .0031 / (height * height)) - 1 / (weight * (.62115 - 3.1665 * height))
