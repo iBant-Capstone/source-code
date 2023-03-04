@@ -46,7 +46,7 @@ useFocusEffect(
             <View >
                 <Image style={styles.largeLogoWithText} source={require('../../assets/icons/BACtracker_logo.png')} resizeMode='contain' />
                 <Pressable
-                    style={styles.mainRedButton}
+                    style={styles.leftRedButton}
                     onPress={async () => { await AsyncStorage.setItem('onboarding', false); 
                     console.log("clearing async storage")
                     console.log(await AsyncStorage.getItem('onboarding'))

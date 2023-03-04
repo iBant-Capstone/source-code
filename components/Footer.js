@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, useWindowDimensions } from 'react-native';
+import { Text, View, useWindowDimensions, Pressable } from 'react-native';
 
-// Import component
-import RoundedButton from './RoundedButton';
+// Import styles
+import * as StyleSheet from '../components/styles';
+let styles = StyleSheet.styles;
 
 // Set states
 const Footer = ({
@@ -16,19 +17,19 @@ const Footer = ({
   const FOOTER_PADDING = windowWidth * 0.1;
 
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: leftButtonLabel ? 'space-between' : 'flex-end',
-        height: HEIGHT,
-        backgroundColor: '#CF5260',
-        alignItems: 'center',
-        paddingHorizontal: FOOTER_PADDING
-      }}
-    >
-      {leftButtonLabel && (<RoundedButton label={leftButtonLabel} onPress={leftButtonPress} />)}
-      {rightButtonLabel && (<RoundedButton label={rightButtonLabel} onPress={rightButtonPress} />)}
-    </View>
+    // <View
+    //   style={{
+    //     flexDirection: 'row',
+    //     justifyContent: leftButtonLabel ? 'space-between' : 'flex-end',
+    //     height: HEIGHT,
+    //     paddingHorizontal: FOOTER_PADDING
+    //   }}
+    // >
+      <View style={[styles.row, styles.centered, {minWidth: windowWidth * .90}]}>
+        {leftButtonLabel && (<Pressable style={styles.centerRedButton} onPress={leftButtonPress}><Text style={styles.mainRedButtonText}>{leftButtonLabel}</Text></Pressable>)}
+        {rightButtonLabel && (<Pressable style={styles.centerRedButton} onPress={rightButtonPress}><Text style={styles.mainRedButtonText}>{rightButtonLabel}</Text></Pressable>)}
+      </View>
+    // </View>
   );
 };
 

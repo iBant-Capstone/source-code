@@ -24,7 +24,7 @@ const Popup = (props) => {
                 <br />
                 {data && <Text style={styles.title}><em>{data.tags}</em></Text>}
                 <br />
-                <Pressable style={[styles.mainRedButton, styles.centered]} onPress={props.onChangeModal}>
+                <Pressable style={[styles.leftRedButton, styles.centered]} onPress={props.onChangeModal}>
                     <Text style={styles.mainRedButtonText}><em>Close</em></Text>
                 </Pressable>
             </View>
