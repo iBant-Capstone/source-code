@@ -17,7 +17,7 @@ const BACCalc = ({ route, navigation }) => {
     const [onInside, changeInsideOut] = useState(true)
 
 
-    // COMMENT OUT THIS FUNCTION WHEN YOU WANT ANOTHER DRINK IN STORAGE
+    // TEST DRINK ADDER COMMENT OUT THIS FUNCTION WHEN YOU WANT ANOTHER DRINK IN STORAGE
     const handleAddEntry = async () => {
 
         // Create the time of drink
@@ -86,10 +86,7 @@ const BACCalc = ({ route, navigation }) => {
                 </Pressable> */}
                     {/* END COMMENTING HERE */}
                     <Text style={styles.whiteText}>Drinks in async storage:</Text>
-
                     <CalcDrinkCards />
-
-
                     <Pressable
                         onPress={() => AsyncStorage.clear()}
                         accessibilityLabel="Add a drink"
