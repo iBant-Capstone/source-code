@@ -115,7 +115,7 @@ const EditProfilePage = ({ navigation }) => {
                         <Text style={[styles.redBoldText, { fontSize: 32, marginBottom: '5%' }]}>Edit</Text>
                     </View>
                     <View >
-                        <View style={[styles.row, styles.informationTypeLabel]}>
+                        <View style={[styles.row, styles.informationTypeLabel, styles.leftContainer]}>
                             <Text>Add your height   </Text>
                             <Text>ft</Text>
                             <RadioButton
@@ -166,7 +166,7 @@ const EditProfilePage = ({ navigation }) => {
                                 </View>
                             </View>
                         }
-                        <View style={[styles.row, styles.informationTypeLabel]}>
+                        <View style={[styles.row, styles.informationTypeLabel, styles.leftContainer]}>
                             <Text>Add your weight  </Text>
                             <Text>lbs</Text>
                             <RadioButton
@@ -192,9 +192,16 @@ const EditProfilePage = ({ navigation }) => {
 
                         </View>
 
+                        {/* <View style={[styles.row, styles.informationTypeLabel, styles.leftContainer]}>
+                            <Text>
+                                <Text style={styles.redBoldText}>Please note: </Text>
+                                We are using an algorithm that distinguished between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals in greatly lacking.
+                            </Text>
+                        </View> */}
 
-                        <View style={[styles.row, styles.informationTypeLabel]}>
-                            <Text>Chosen Sex: {sexValueChecked}</Text>
+
+                        <View style={[styles.row, styles.informationTypeLabel, styles.leftContainer]}>
+                            <Text>Chosen Biological Sex: {sexValueChecked}</Text>
                         </View>
                         <View style={[styles.row, styles.informationTypeLabel]}>
                             <View>
@@ -213,8 +220,12 @@ const EditProfilePage = ({ navigation }) => {
                                     onPress={() => setSexValueChecked('male')}
                                 />
                             </View>
-                        </View>
 
+                            <Text>
+                                <Text style={styles.redBoldText}>Please note: </Text>
+                                We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals in greatly lacking.
+                            </Text>
+                        </View>
 
                         <View style={styles.centered}>
                             <Pressable

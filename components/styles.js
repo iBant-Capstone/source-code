@@ -107,9 +107,8 @@ export const styles = StyleSheet.create({
 
   // Logo related styling:
   largeLogoWithText: {
-    maxWidth: '100%',
-    maxHeight: '100%',
-    marginTop: '10%'
+    width: "80%",
+    height: "80%"
   },
 
   // **Info Hub page(s) styling: 
@@ -344,7 +343,8 @@ export const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     color: '#387780',
     fontSize: 14,
-    margin: 5
+    margin: 5,
+    backgroundColor: 'transparent'
   },
   currentBACText: {
     fontSize: 32,

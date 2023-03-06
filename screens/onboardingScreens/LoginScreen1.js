@@ -33,12 +33,14 @@ useFocusEffect(
             else {
                 setOnboarded(true);
             }
-        } catch (error) {
-            console.log(error);
-        }
-        }
-        getOnboarded();
-    }, [])
+
+
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+            getOnboarded();
+        }, [])
     );
 
     return (
@@ -59,10 +61,10 @@ useFocusEffect(
                 if(hasOnboarded){
                     navigation.navigate('InformationHub');
                 }
-                else{
+                else {
                     navigation.navigate('Login2');
                 }
-                }}/>        
+            }} />
         </View>
     );
 };
