@@ -1,6 +1,4 @@
 // Accept user input for Weight -> need to connect with stored Profile information
-// Add Skip button (skips to InfoHub page)
-// Add Next button (goes to BiologicalSexInput page)
 import { Text, View } from 'react-native';
 
 // Import components
@@ -19,6 +17,35 @@ const WeightInput = ({ navigation }) => {
         </View>
 
     );
+
+    /*
+        // Variable from EditProfilePage that keeps track of what weight unit we're using
+        const [weightUnitValueChecked, setWeightUnitValueChecked] = useState();
+
+        <View>
+            <View style={[styles.row, {paddingLeft: 15, paddingTop: 15}]}>
+            <Text>Add your weight:  </Text>
+            <Pressable
+                style={weightUnitValueChecked === 'lbs' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                onPress={() => setWeightUnitValueChecked('lbs')}
+            >
+                <Text>lbs</Text></Pressable>
+            <Pressable
+                style={weightUnitValueChecked === 'kg' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                onPress={() => setWeightUnitValueChecked('kg')}
+            ><Text>kg</Text></Pressable>
+        </View>
+        <View>
+            <Text style={styles.textInputLabel}>{weightUnitValueChecked}</Text>
+            <TextInput
+                style={styles.textInput}
+                value={weightInputValue}
+                onChangeText={setWeightInputValue}
+                placeholder={"weight (" + weightUnitValueChecked + ")"}
+            />
+
+        </View>
+    */
 };
 
 export default WeightInput

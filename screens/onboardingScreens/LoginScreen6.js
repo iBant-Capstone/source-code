@@ -19,7 +19,7 @@ const LoginScreen6 = ({ navigation }) => {
             <View style={styles.row}>
                 <Image style={styles.rosieLeftImage} source={require('../../assets/avatars/Casual_Rosie_shadow.png')} resizeMode='contain' />
                 <Text style={styles.rosieSpeechRight}>
-                    <Text style={styles.onboardingHeaderText}>Hello! 👋</Text>
+                    <Text style={styles.onboardingHeaderText}>Hello! 👋🏻</Text>
                     I'm Rosie, your guide through this app. My job is to explain different features and help get you set up!
                     Are you ready to get started?
                 </Text>
