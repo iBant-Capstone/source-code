@@ -151,7 +151,7 @@ export const styles = StyleSheet.create({
     marginVertical: 10
   },
   // For buttons - red
-  mainRedButton: {
+  leftRedButton: {
     backgroundColor: '#CF5260',
     padding: 12,
     borderRadius: 8,

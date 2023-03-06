@@ -17,7 +17,7 @@ const WeightInput = ({navigation}) => {
                 <Text style={styles.onboardingHeaderText}>Select Weight</Text>
                 Input your weight here in lbs or kg 
             </Text>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('BiologicalSex');}} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('InformationHub');}}/>
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('BiologicalSex');}} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome');}}/>
     </View>
         
     );
