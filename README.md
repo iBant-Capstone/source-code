@@ -41,10 +41,11 @@ Through this project, our group has created and implemented a mobile application
 - [Profile.js:](./screens/Profile.js) Contains the profile page where users can change personal information and read about project and app
 
 ## How to Build and Deploy Code
-TODO: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Currently, to run our code on your own laptop, please open a new terminal. To install all of the code packages, type and enter the command **npm install**. To run our app, type and enter the command **npm run web**. This will open our app in your browser via localhost. To view our app as it would appear on a mobile device, open up Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_) and set the screen dimensions to **iPhone SE**. 
+Note: by the end of spring quarter, our goal is to fully deploy our project and publish our app to the App Store and Google Play Store to make it accessible and downloadable to the public.
 
 ## How to Contribute to Code
-TODO: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+TO BE ADDED
 
 ## About Us
 Hello! We're iBant, a group of four Informatics students studying at the University of Washington. Through this Capstone Project, we aim to utilize and reflect our education at the iSchool to produce a product that fills an information gap and creates positive social impact.<img align="right" height="200" src="./assets/avatars/Casual_Rosie.png"> 
