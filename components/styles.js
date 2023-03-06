@@ -405,6 +405,34 @@ export const styles = StyleSheet.create({
   exIcon: {
     fontSize: 'xx-large',
     color: '#CF5260'
+  },
+
+  // Radio button
+  radioButtonSelected: {
+    backgroundColor: '#FFB140',
+    paddingVertical: 6,
+    paddingHorizontal: 6,
+    borderRadius: 8,
+    maxHeight: 30,
+    marginHorizontal: '5%',
+    minWidth: '10%',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  radioButtonRegular: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#FFB140',
+    maxHeight: 30,
+    paddingVertical: 6,
+    paddingHorizontal: 6,
+    borderRadius: 8,
+    marginHorizontal: '5%',
+    minWidth: '10%',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 
 }

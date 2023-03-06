@@ -24,6 +24,7 @@
     "expo-status-bar": "~1.4.2",
     "flatpickr": "^4.6.13",
     "navigationbar-react-native": "^0.0.5",
+    "radio-buttons-react-native": "^1.0.4",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-flatpickr": "^3.10.13",
