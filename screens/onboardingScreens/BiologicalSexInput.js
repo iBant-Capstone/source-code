@@ -3,7 +3,6 @@
 // Add Skip button (skips to InfoHub page)
 // Add Next button (goes to InfoHub page)
 import { Text, View } from 'react-native';
-import { StackActions } from '@react-navigation/native';
 
 // Import components used
 import Footer from '../../components/Footer';
@@ -16,14 +15,15 @@ let styles = StyleSheet.styles;
 const BiologicalSex = ({ navigation }) => {
     // navigation.dispatch( StackActions.push('Profile') );
     return (
-        <View>
-            <Text>
-                <Text style={styles.onboardingHeaderText}>Select Biological Sex</Text>
-                Input your biological sex here
-                
+        <View style={styles.centerContainer}>
+            <Text style={styles.onboardingHeaderText}>Select Biological Sex</Text>
+            <Text>Input your biological sex here</Text>
+
+            <View>
                 <Text style={styles.redBoldText}>Please note:</Text>
-                We are using an algorithm that uses  male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.
-            </Text>
+                <Text>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.
+                </Text>
+            </View>
             <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('Welcome'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
 

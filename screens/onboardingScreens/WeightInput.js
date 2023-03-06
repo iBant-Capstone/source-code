@@ -10,16 +10,14 @@ import Footer from '../../components/Footer';
 import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
-const WeightInput = ({navigation}) => {
+const WeightInput = ({ navigation }) => {
     return (
-        <View>
-            <Text>
-                <Text style={styles.onboardingHeaderText}>Select Weight</Text>
-                Input your weight here in lbs or kg 
-            </Text>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('BiologicalSex');}} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome');}}/>
-    </View>
-        
+        <View style={styles.centerContainer}>
+            <Text style={styles.onboardingHeaderText}>Select Weight</Text>
+            <Text>Input your weight here in lbs or kg</Text>
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('BiologicalSex'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
+        </View>
+
     );
 };
 

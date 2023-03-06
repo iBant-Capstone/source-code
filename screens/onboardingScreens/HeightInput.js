@@ -11,16 +11,14 @@ import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
 // Page to return
-const HeightInput = ({navigation}) => {
+const HeightInput = ({ navigation }) => {
     return (
-        <View>
-            <Text>
-                <Text style={styles.onboardingHeaderText}>Select Height</Text>
-                Input your height here in cm or ft/inches 
-            </Text>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('WeightInput');}} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome');}}/>
-    </View>
-        
+        <View style={styles.centerContainer}>
+            <Text style={styles.onboardingHeaderText}>Select Height</Text>
+            <Text>Input your height here in cm or ft/inches </Text>
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('WeightInput'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
+        </View>
+
     );
 };
 
