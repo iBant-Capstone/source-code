@@ -36,38 +36,47 @@ export default function App() {
         <Stack.Screen
           name='Login1'
           component={LoginScreen1}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login2'
           component={LoginScreen2}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login3'
           component={LoginScreen3}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login4'
           component={LoginScreen4}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login5'
           component={LoginScreen5}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login6'
           component={LoginScreen6}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='HeightInput'
           component={HeightInput}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='WeightInput'
           component={WeightInput}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='BiologicalSex'
           component={BiologicalSex}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='InformationHub'
