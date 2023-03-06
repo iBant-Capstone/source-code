@@ -45,19 +45,22 @@ const LoginScreen1 = ({ navigation }) => {
 
     return (
         <View style={styles.centerContainer}>
-            <View style={[styles.centerContainer, {minWidth: '100%'}]}>
+            <View style={[styles.centerContainer, { minWidth: '100%' }]}>
                 <Image style={styles.largeLogoWithText} source={require('../../assets/icons/BACtracker_logo.png')} resizeMode='contain' />
             </View>
+            <View style={styles.centerContainer}>
             <Pressable
-                style={styles.leftRedButton}
-                onPress={async () => {
-                    await AsyncStorage.setItem('onboarding', false);
-                    console.log("clearing async storage")
-                    console.log(await AsyncStorage.getItem('onboarding'))
-                    setOnboarded(false)
-                }} >
-                <Text style={styles.mainRedButtonText}>Clear Async Storage</Text>
-            </Pressable>
+                    style={styles.leftRedButton}
+                    onPress={async () => {
+                        await AsyncStorage.setItem('onboarding', false);
+                        console.log("clearing async storage")
+                        console.log(await AsyncStorage.getItem('onboarding'))
+                        setOnboarded(false)
+                    }} >
+                    <Text style={styles.mainRedButtonText}>Clear Async Storage</Text>
+                </Pressable>
+            </View>
+
             <Footer rightButtonLabel="Next" rightButtonPress={() => {
                 if (hasOnboarded) {
                     navigation.navigate('InformationHub');

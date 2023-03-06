@@ -13,7 +13,8 @@ const Footer = ({
   rightButtonPress = false
 }) => {
   const windowWidth = useWindowDimensions().width;
-  const HEIGHT = windowWidth * 0.21;
+  const windowHeight = useWindowDimensions().height;
+  const HEIGHT = windowHeight * 0.21;
   const FOOTER_PADDING = windowWidth * 0.1;
 
   return (
@@ -25,7 +26,7 @@ const Footer = ({
     //     paddingHorizontal: FOOTER_PADDING
     //   }}
     // >
-      <View style={[styles.row, styles.centered, {minWidth: windowWidth * .90}]}>
+      <View style={[styles.row, styles.centered, {height: HEIGHT, minWidth: windowWidth, position: 'absolute', top: windowHeight - HEIGHT}]}>
         {leftButtonLabel && (<Pressable style={styles.centerRedButton} onPress={leftButtonPress}><Text style={styles.mainRedButtonText}>{leftButtonLabel}</Text></Pressable>)}
         {rightButtonLabel && (<Pressable style={styles.centerRedButton} onPress={rightButtonPress}><Text style={styles.mainRedButtonText}>{rightButtonLabel}</Text></Pressable>)}
       </View>

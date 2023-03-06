@@ -104,6 +104,12 @@ export const styles = StyleSheet.create({
     marginLeft: '2%',
     marginVertical: 50
   },
+  // Rename later to better reflect purpose
+  oneThirdContainer: {
+    width: '25%',
+    marginLeft: '5%',
+    marginVertical: 10
+  },
 
   // Logo related styling:
   largeLogoWithText: {
