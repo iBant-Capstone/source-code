@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { HeaderBackButton, Header } from '@react-navigation/elements';
 
 // Import screens/components
 import Profile from './screens/Profile.js'
@@ -102,6 +103,14 @@ export default function App() {
           name='HowToUse'
           component={HowToUse}
           options={({ route }) => ({ title: 'How to Use' })}
+        />
+        <Stack.Screen
+          name='Welcome'
+          component={HowToUse}
+          options={({ navigation }) => ({
+            title: 'Welcome to BACtracker',
+            headerLeft: () => (<HeaderBackButton onPress={() => navigation.navigate('InformationHub')} />)
+          })}
         />
         <Stack.Screen
           name='OurMission'
