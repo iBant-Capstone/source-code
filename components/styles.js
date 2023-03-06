@@ -364,7 +364,8 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 3
   },
   onboardingHeaderText: {
-    fontSize: 24
+    fontSize: 24,
+    marginBottom: '10%'
   },
 
   // For BAC calculator
