@@ -7,7 +7,6 @@ import { StackActions } from '@react-navigation/native';
 
 // Import components used
 import Footer from '../../components/Footer';
-import firstHowTo from '../../components/firstHowTo';
 
 // Import styles
 import * as StyleSheet from '../../components/styles';
