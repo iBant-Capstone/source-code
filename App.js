@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { HeaderBackButton, Header } from '@react-navigation/elements';
 
 // Import screens/components
 import Profile from './screens/Profile.js'
@@ -35,38 +36,47 @@ export default function App() {
         <Stack.Screen
           name='Login1'
           component={LoginScreen1}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login2'
           component={LoginScreen2}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login3'
           component={LoginScreen3}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login4'
           component={LoginScreen4}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login5'
           component={LoginScreen5}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Login6'
           component={LoginScreen6}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='HeightInput'
           component={HeightInput}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='WeightInput'
           component={WeightInput}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='BiologicalSex'
           component={BiologicalSex}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='InformationHub'
@@ -102,6 +112,14 @@ export default function App() {
           name='HowToUse'
           component={HowToUse}
           options={({ route }) => ({ title: 'How to Use' })}
+        />
+        <Stack.Screen
+          name='Welcome'
+          component={HowToUse}
+          options={({ navigation }) => ({
+            title: 'Welcome to BACtracker',
+            headerLeft: () => (<HeaderBackButton onPress={() => navigation.navigate('InformationHub')} />)
+          })}
         />
         <Stack.Screen
           name='OurMission'

@@ -1,6 +1,4 @@
 // Accept user input for Weight -> need to connect with stored Profile information
-// Add Skip button (skips to InfoHub page)
-// Add Next button (goes to BiologicalSexInput page)
 import { Text, View } from 'react-native';
 
 // Import components
@@ -10,17 +8,44 @@ import Footer from '../../components/Footer';
 import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
-const WeightInput = ({navigation}) => {
+const WeightInput = ({ navigation }) => {
     return (
-        <View>
-            <Text>
-                <Text style={styles.onboardingHeaderText}>Select Weight</Text>
-                Input your weight here in lbs or kg 
-            </Text>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('BiologicalSex');}} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('InformationHub');}}/>
-    </View>
-        
+        <View style={styles.centerContainer}>
+            <Text style={styles.onboardingHeaderText}>Select Weight</Text>
+            <Text>Input your weight here in lbs or kg</Text>
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('BiologicalSex'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
+        </View>
+
     );
+
+    /*
+        // Variable from EditProfilePage that keeps track of what weight unit we're using
+        const [weightUnitValueChecked, setWeightUnitValueChecked] = useState();
+
+        <View>
+            <View style={[styles.row, {paddingLeft: 15, paddingTop: 15}]}>
+            <Text>Add your weight:  </Text>
+            <Pressable
+                style={weightUnitValueChecked === 'lbs' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                onPress={() => setWeightUnitValueChecked('lbs')}
+            >
+                <Text>lbs</Text></Pressable>
+            <Pressable
+                style={weightUnitValueChecked === 'kg' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                onPress={() => setWeightUnitValueChecked('kg')}
+            ><Text>kg</Text></Pressable>
+        </View>
+        <View>
+            <Text style={styles.textInputLabel}>{weightUnitValueChecked}</Text>
+            <TextInput
+                style={styles.textInput}
+                value={weightInputValue}
+                onChangeText={setWeightInputValue}
+                placeholder={"weight (" + weightUnitValueChecked + ")"}
+            />
+
+        </View>
+    */
 };
 
 export default WeightInput
