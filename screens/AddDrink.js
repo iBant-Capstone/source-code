@@ -62,7 +62,7 @@ const AddDrink = ({ route, navigation }) => {
             },
             strength: strengthInputValue / 100,
             halfLife: Number(hungerValueSelected),
-            drinkConsumedTimeAsDateObject: timeOfDrink
+            timeOfDrink: timeOfDrink
         }
 
         console.log("new drink: " + JSON.stringify(newDrink))
