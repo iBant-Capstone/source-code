@@ -1,13 +1,16 @@
 # BACtracker Source Code
-This GitHub repository contains the code for our Capstone project.
+This GitHub repository contains the code for our Capstone project. This README is not fully complete.
 <img align="right" width="150" height="150" src="./assets/icons/BACtracker_logo.png">
 ## About the Project
 Through this project, our group has created and implemented a mobile application that serves as a toolkit on safe alcohol consumption practices for our fellow peers. The app provides a hub of information regarding alcohol consumption, safety practices, and general resources. Using user specific demographics and information, the app can also calculate the BAC (Blood Alcohol Content) of the user as they input the different drinks they have consumed. 
 
 ## How to Build and Deploy Code
-Currently, to run our code on your own laptop, please clone our repository by using the command `git clone`. In your IDE, open a new terminal. To install all of the code packages, type and enter the command `npm install`. To run our app, type and enter the command `npm run web`. This will open our app in your browser via localhost. To view our app as it would appear on a mobile device, open up Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_) and set the screen dimensions to **iPhone SE**. 
+- Currently, to run our code on your own laptop, please clone our repository by using the command `git clone`. 
+- In your IDE, open a new terminal. To install all of the code packages, type and enter the command `npm install`. 
+- To run our app, type and enter the command `npm run web`. This will open our app in your browser via localhost. 
+    - To view our app as it would appear on a mobile device, open up Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_ or right click and select 'Inspect') and set the screen dimensions to **iPhone SE**. 
 <br>
-Note: by the end of spring quarter, our goal is to fully deploy our project and publish our app to the App Store and Google Play Store to make it accessible and downloadable to the public.
+*Note: By the end of spring quarter, our goal is to fully deploy our project and publish our app to the App Store and Google Play Store to make it accessible and downloadable to the public.
 If you have any questions or run into any issues, please feel free to contact any members of our team!
 
 ## About the GitHub
