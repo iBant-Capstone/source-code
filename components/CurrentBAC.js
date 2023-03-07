@@ -7,9 +7,7 @@ import { useFocusEffect } from '@react-navigation/native'
 import * as StyleSheet from './styles';
 let styles = StyleSheet.styles;
 
-const CurrentBAC = () => {
-
-    let [BAC, setBAC] = useState()
+const CurrentBAC = ({ BAC, setBAC }) => {
 
     let [drinksConsumed, setDrinksConsumed] = useState([])
     let [personalDetails, setPersonalDetails] = useState({})
@@ -125,23 +123,23 @@ const CurrentBAC = () => {
         // Initialize the minutes we'll be iterative through
         let timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentDate, getTimeOfFirstDrinkAsDateObject())
         // Intialize BAC
-        let BAC = 0
+        let workingBAC = 0
 
         // Iterate through minutes from first drink to now
         for (; timeDiffinMin >= 0;) {
             console.log("Minute working on: " + timeDiffinMin)
 
-            BAC += increaseBACEveryMinute(currentDate, timeDiffinMin)
-            console.log("\tBAC after increase: " + BAC)
+            workingBAC += increaseBACEveryMinute(currentDate, timeDiffinMin)
+            console.log("\tworkingBAC after increase: " + workingBAC)
 
-            BAC -= reduceBACEveryMinute(BAC)
-            console.log("\tBAC after decrease: " + BAC)
+            workingBAC -= reduceBACEveryMinute(workingBAC)
+            console.log("\tworkingBAC after decrease: " + workingBAC)
 
             timeDiffinMin--
         }
 
-        console.log(BAC)
-        return BAC
+        console.log(workingBAC)
+        return workingBAC
     }
 
     function increaseBACEveryMinute(currentDate, workingTimeDiffMin) {
@@ -272,17 +270,15 @@ const CurrentBAC = () => {
         return drinkFullyAbsorbedTimeAsDateObject
     }
 
-    function calculateWidmarkFactorFemale(heightInMeters, weightInKilograms) { // TODO pass in height and weight
-        let height = 1.80
-        let weight = 63
-        return .50766 + .11165 * height - weight * (.001612 + .0031 / (height * height)) - 1 / (weight * (.62115 - 3.1665 * height))
+    function calculateWidmarkFactorFemale(heightInMeters, weightInKilograms) {
+        return .50766 + .11165 * heightInMeters - weightInKilograms * (.001612 + .0031 / (heightInMeters * heightInMeters)) - 1 / (weightInKilograms * (.62115 - 3.1665 * heightInMeters))
     }
 
     return (
         <View>
             {BAC ?
                 <View style={styles.centered}>
-                    <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
+                    <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(3)}%</Text></Text>
                     {/* <Pressable
                         onPress={() => { calculateCurrentBAC() }}
                         style={styles.centerRedButton}

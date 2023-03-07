@@ -13,8 +13,15 @@ let styles = StyleSheet.styles;
 
 const BACCalc = ({ route, navigation }) => {
 
+    const [BAC, setBAC] = useState(0)
+
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
+
+
+    const changeBAC = (newBAC) => {
+        setBAC(newBAC)
+    }
 
 
     // TEST DRINK ADDER COMMENT OUT THIS FUNCTION WHEN YOU WANT ANOTHER DRINK IN STORAGE
@@ -47,7 +54,7 @@ const BACCalc = ({ route, navigation }) => {
     return (
         <ScrollView>
             <View>
-                <CurrentBAC />
+                <CurrentBAC setBAC={changeBAC} BAC={BAC}/>
                 <View style={[styles.row, styles.centered, { backgroundColor: '#FFFFFF' }]}>
                     <Pressable
                         onPress={() => changeInsideOut(true)}
