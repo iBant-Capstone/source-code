@@ -57,9 +57,9 @@ const AddDrink = ({ route, navigation }) => {
             name: nameInputValue,
             size: {
                 unit: "ml",
-                value: sizeInputValue / 100
+                value: sizeInputValue / 1e3
             },
-            strength: strengthInputValue,
+            strength: strengthInputValue / 100,
             halfLife: Number(hungerValueSelected),
             timeOfDrink: timeOfDrink
         }

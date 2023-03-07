@@ -19,7 +19,6 @@ const CurrentBAC = ({ BAC, setBAC }) => {
     let [drinksPDState, setDrinksPDState] = useState(false)
 
 
-
     async function getAsyncData() {
         try {
             // Get the list of drinks from the async storage
@@ -274,9 +273,11 @@ const CurrentBAC = ({ BAC, setBAC }) => {
         return .50766 + .11165 * heightInMeters - weightInKilograms * (.001612 + .0031 / (heightInMeters * heightInMeters)) - 1 / (weightInKilograms * (.62115 - 3.1665 * heightInMeters))
     }
 
+    // We first check that there are drinks to calculate and then we check to see if the BAC is calculated
     return (
         <View>
-            {BAC ?
+            {drinksConsumed[0] ?
+                BAC ?
                 <View style={styles.centered}>
                     <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(3)}%</Text></Text>
                     {/* <Pressable
@@ -286,8 +287,10 @@ const CurrentBAC = ({ BAC, setBAC }) => {
                         <Text style={styles.mainRedButtonText}>Update BAC</Text>
                     </Pressable> */}
                 </View>
+                :
+                <Text>Loading...</Text>
             :
-            <Text>Loading...</Text>
+            <Text>Add in Drinks to Calculate BAC</Text>
             }
         </View>  
     )
