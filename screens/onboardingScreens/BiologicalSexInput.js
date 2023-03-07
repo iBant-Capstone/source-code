@@ -16,7 +16,7 @@ const BiologicalSex = ({ navigation }) => {
             <Text style={styles.onboardingHeaderText}>Select Biological Sex</Text>
             <Text>Input your biological sex here</Text>
 
-            <View>
+            <View style={{paddingHorizontal: 15}}>
                 <Text style={styles.redBoldText}>Please note:</Text>
                 <Text>We are using a Blood Alcohol Concentration algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.
                 </Text>
