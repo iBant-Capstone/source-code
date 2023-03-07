@@ -18,7 +18,7 @@ const BiologicalSex = ({ navigation }) => {
 
             <View>
                 <Text style={styles.redBoldText}>Please note:</Text>
-                {"\n"}{"\n"}<Text>We are using a Blood Alcohol Concentration algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.
+                <Text>We are using a Blood Alcohol Concentration algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.
                 </Text>
             </View>
             <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('Welcome'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
