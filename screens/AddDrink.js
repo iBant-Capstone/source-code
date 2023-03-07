@@ -45,7 +45,6 @@ const AddDrink = ({ route, navigation }) => {
         // Current Day (for year/month/day)
         let currentDate = new Date()
 
-
         // Create the time of drink
         let timeOfDrink = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), (timeOfDay === 'AM' ? Number(hoursInputValue) : Number(hoursInputValue) + 12), Number(minuteInputValue))
 
@@ -58,7 +57,7 @@ const AddDrink = ({ route, navigation }) => {
             name: nameInputValue,
             size: {
                 unit: "ml",
-                value: sizeInputValue / 100
+                value: sizeInputValue / 1e3
             },
             strength: strengthInputValue / 100,
             halfLife: Number(hungerValueSelected),

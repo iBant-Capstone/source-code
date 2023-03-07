@@ -7,9 +7,7 @@ import { useFocusEffect } from '@react-navigation/native'
 import * as StyleSheet from './styles';
 let styles = StyleSheet.styles;
 
-const CurrentBAC = () => {
-
-    let [BAC, setBAC] = useState()
+const CurrentBAC = ({ BAC, setBAC }) => {
 
     let [drinksConsumed, setDrinksConsumed] = useState([])
     let [personalDetails, setPersonalDetails] = useState({})
@@ -21,14 +19,13 @@ const CurrentBAC = () => {
     let [drinksPDState, setDrinksPDState] = useState(false)
 
 
-
     async function getAsyncData() {
         try {
             // Get the list of drinks from the async storage
             const drinksListAsync = await AsyncStorage.getItem('drinks');
             // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
             let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-
+            
             // TODO: get it from async storage
             const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
             // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
@@ -38,9 +35,6 @@ const CurrentBAC = () => {
             await setDrinksConsumed(drinksList)
             // Set the personalDrinks to state
             await setPersonalDetails(personalDetailsParsed)
-
-            // set that we're done with gathering from async storage 
-            setDrinksPDInitialState(true)
         } catch (error) {
             console.log(error);
         }
@@ -48,9 +42,6 @@ const CurrentBAC = () => {
 
     async function addToAsyncData() {
         try {
-            console.log("Add to Async Data PersonalDetails: " + JSON.stringify(personalDetails))
-            console.log("Add to Async Data drinksConsumed: " + drinksConsumed)
-
             // ___ DRINKS CONSUMED ___
             const fleshedOutDrinksList = drinksConsumed.map((drink) => {
                 let parsedDrink = JSON.parse(drink)
@@ -58,13 +49,11 @@ const CurrentBAC = () => {
                     ...parsedDrink,
                     drinkFullLife: getDrinkFullLife(parsedDrink.halfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
                     drinkAlcoholGrams: calculateAlcoholGrams(parsedDrink.size.value, parsedDrink.strength),
-                    drinkTimeConsumedAsDateObject: setDateObjectSecondsAndMillisecondsToZero(new Date(e.drinkConsumedTimeAsDateObject)),
                     drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(parsedDrink.timeOfDrink, getDrinkFullLife(parsedDrink.halfLife)),
                     drinkUnits: 1, // only one drink, TODO try and remove this being needed later
                 })
             })
             await setDrinksConsumed(fleshedOutDrinksList)
-
             
             // ___ PERSONAL DETAILS ___
 
@@ -72,14 +61,15 @@ const CurrentBAC = () => {
             let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value * 100 : personalDetails.height.value * 0.0254
             let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
 
+            let widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
+            console.log("WIDMARK: " + widmarkFactor)
+
             const fleshedOutPersonalDetails = {
                 ...personalDetails,
-                widmarkFactor: calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
+                widmarkFactor: widmarkFactor
             }
-            await setPersonalDetails(fleshedOutPersonalDetails)
 
-            // Let people know we're done with adding in and setting the new calculations
-            setDrinksPDState(true)
+            await setPersonalDetails(fleshedOutPersonalDetails)
 
         } catch (err) {
             console.log(err)
@@ -88,110 +78,36 @@ const CurrentBAC = () => {
 
     useFocusEffect(
         React.useCallback(() => {
-            getAsyncData();
+            async function getAsyncDataWrapped() {
+                await getAsyncData();
+                setDrinksPDInitialState(true)
+            }
+            getAsyncDataWrapped()
         }, [])
     )
       
     useEffect(() => {
-        if (drinksPDInitialState) {
-            addToAsyncData();
+        async function addToAsyncDataWrapped() {
+            if (drinksPDInitialState) {
+                await addToAsyncData();
+                setDrinksPDState(true)
+            }
         }
+        addToAsyncDataWrapped()
     }, [drinksPDInitialState]);
 
     // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
-        // console.log("3 Last Use Effect: " + drinksConsumed)
-        // console.log("4 Last Use Effect: " + personalDetails)
-        // setBAC(calculateCurrentBAC())
+        if (drinksPDState) {
+            setBAC(calculateCurrentBAC())
+        }
     }, [drinksPDState])
-
-
-    // useFocusEffect(
-    //     React.useCallback(() => {
-    //         async function getDrinks() {
-    //             try {
-
-    //                 // Get the list of drinks from the async storage
-    //                 const drinksListAsync = await AsyncStorage.getItem('drinks');
-    //                 // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
-    //                 let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-
-    //                 // TODO: get it from async storage
-    //                 const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
-    //                 // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
-    //                 let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
-
-    //                 // Set the drinks we have to the state
-    //                 await setDrinksConsumed(drinksList)
-    //                 // Set the personalDrinks to state
-    //                 await setPersonalDetails(personalDetailsParsed)
-
-    //                 // set that we're done with gathering from async storage 
-    //                 await setDrinksPDInitialState(true)
-
-    //             } catch (error) {
-    //                 console.log(error);
-    //             }
-    //         }
-    //         getDrinks();
-    //     }, [])
-    // );
-
-    // // Waits until we've collected the drinks from async storage before fleshing them out more
-    // useEffect(() => {
-    //     async function addToData() {
-    //         console.log("1 Initial Drinks Consumed: " + JSON.stringify(drinksConsumed))
-    //         console.log("2 Initial Personal Details: " + JSON.stringify(personalDetails))
-            
-    //         // ____ DRINKS CONSUMED _____
-    //         // Add in the calulcated properties to the drinks consumed
-    //         let fleshedOutDrinksList = drinksConsumed.map((drink) => {
-    //             console.log("Drink Size: " + drink.size)
-    //             return ({
-    //                 ...drink,
-    //                 drinkFullLife: getDrinkFullLife(drink.drinkHalfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
-    //                 drinkAlcoholGrams: calculateAlcoholGrams(JSON.parse(drink.size).value, drink.strength),
-    //                 drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(drink.drinkConsumedTimeAsDateObject, getDrinkFullLife(drink.drinkHalfLife)),
-    //                 drinkUnits: 1, // only one drink, TODO try and remove this being needed later
-    //             })
-    //         })
-    //         await setDrinksConsumed(fleshedOutDrinksList)
-
-    //         // ____ PERSONAL DETAILS _____
-    //         let fleshedOutPersonalDetails = personalDetails
-    //         // Get info ready and then calculate the widmark factor
-    //         let heightInMeters = JSON.parse(fleshedOutPersonalDetails.height).unit === "cm" ? JSON.parse(fleshedOutPersonalDetails.height).value * 100 : JSON.parse(fleshedOutPersonalDetails.height).value * 0.0254
-    //         let weightInKilograms = JSON.parse(fleshedOutPersonalDetails.weight).unit === "kg" ? JSON.parse(fleshedOutPersonalDetails.weight).value : JSON.parse(fleshedOutPersonalDetails.weight).value * 0.45359237
-
-    //         // TODO add in the option of the male version of the widmark calculation
-    //         fleshedOutPersonalDetails.widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
-
-    //         await setPersonalDetails(fleshedOutPersonalDetails)
-
-    //         // Let people know we're done with adding in and setting the new calculations
-    //         await setDrinksPDState(true)
-    //     }
-    //     addToData();
-    // }, [drinksPDInitialState])
-
-
-
-
-    // // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
-    // useEffect(() => {
-    //     console.log("3 Last Use Effect: " + drinksConsumed)
-    //     console.log("4 Last Use Effect: " + personalDetails)
-    //     setBAC(calculateCurrentBAC())
-    // }, [drinksPDState])
-    
-
-
 
     // initializes calculating the BAC
     function calculateCurrentBAC() {
 
         // console.log("Drinks consumed " + drinksConsumed)
-        // console.log("Personal Details " + JSON.stringify(personalDetails))
+        console.log("Personal Details " + JSON.stringify(personalDetails))
 
         let currentBAC = calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
         return currentBAC
@@ -206,23 +122,23 @@ const CurrentBAC = () => {
         // Initialize the minutes we'll be iterative through
         let timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentDate, getTimeOfFirstDrinkAsDateObject())
         // Intialize BAC
-        let BAC = 0
+        let workingBAC = 0
 
         // Iterate through minutes from first drink to now
         for (; timeDiffinMin >= 0;) {
             console.log("Minute working on: " + timeDiffinMin)
 
-            BAC += increaseBACEveryMinute(currentDate, timeDiffinMin)
-            console.log("\tBAC after increase: " + BAC)
+            workingBAC += increaseBACEveryMinute(currentDate, timeDiffinMin)
+            console.log("\tworkingBAC after increase: " + workingBAC)
 
-            BAC -= reduceBACEveryMinute(BAC)
-            console.log("\tBAC after decrease: " + BAC)
+            workingBAC -= reduceBACEveryMinute(workingBAC)
+            console.log("\tworkingBAC after decrease: " + workingBAC)
 
             timeDiffinMin--
         }
 
-        console.log(BAC)
-        return BAC
+        console.log(workingBAC)
+        return workingBAC
     }
 
     function increaseBACEveryMinute(currentDate, workingTimeDiffMin) {
@@ -234,10 +150,18 @@ const CurrentBAC = () => {
         // console.log(drinksConsumed)
 
         drinksConsumed.forEach(drink => {
-            console.log("Got into the drinksConsumed foreach loop")
-            const timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentMin, drink.drinkConsumedTimeAsDateObject)
+            // console.log("Got into the drinksConsumed foreach loop")
+            const timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentMin, drink.timeOfDrink)
 
-            timeDiffinMin >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= currentMin && (BACtoAdd += calculateBACToAdd(drink, timeDiffinMin))
+            console.log("\t\tfor each timeDiffinMin: " + timeDiffinMin)
+            console.log("\t\tfor each drink.drinkFullyAbsorbedTimeAsDateObject: " + drink.drinkFullyAbsorbedTimeAsDateObject)
+            console.log("\t\tfor each currentMin: " + currentMin)
+            console.log("\t\tfor each drink.timeOfDrink " + drink.timeOfDrink)
+
+            if (timeDiffinMin >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= currentMin) {
+                BACtoAdd += calculateBACToAdd(drink, timeDiffinMin)
+            }  
+
             console.log("\t\tBACtoAdd: " + BACtoAdd)
         })
 
@@ -251,18 +175,34 @@ const CurrentBAC = () => {
 
     function calculateBACToAdd(drink, timeDiffinMin) {
         let drinkAlcoholGrams = Number(drink.drinkAlcoholGrams)
+        let percentAlcoholAbsorbedByMinute = calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin, drink.halfLife)
+        let percentAlcoholAbsorbedByMinute2 = calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin - 1, drink.halfLife)
+
+        console.log("\t\t\tcalculateBACToAdd")
+        console.log("\t\t\tdrinkAlcoholGrams: " + drinkAlcoholGrams)
+        console.log("\t\t\tpercentAlcoholAbsorbedByMinute: " + percentAlcoholAbsorbedByMinute)
+        console.log("\t\t\tpercentAlcoholAbsorbedByMinute2: " + percentAlcoholAbsorbedByMinute2)
+        console.log("\t\t\tpersonalDetails.widmarkFactor: " + personalDetails.widmarkFactor)
+        console.log("\t\t\tpersonalDetails.weight.units: " + personalDetails.weight.unit)
+        console.log("\t\t\tpersonalDetails.weight.value: " + personalDetails.weight.value)
+        console.log("\t\t\tcalculateWeightKilograms: " + calculateWeightKilograms(personalDetails.weight.unit, personalDetails.weight.value))
+
         return (
-            (calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin, drink.drinkHalfLife) - calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin - 1, drink.drinkHalfLife)) * drinkAlcoholGrams / (personalDetails.widmarkFactor * calculateWeightKilograms(personalDetails.weight.units, personalDetails.weight.value) * 1e3) * 100
+            (percentAlcoholAbsorbedByMinute - percentAlcoholAbsorbedByMinute2) * drinkAlcoholGrams / (personalDetails.widmarkFactor * calculateWeightKilograms(personalDetails.weight.units, personalDetails.weight.value) * 1e3) * 100
         )
     }
 
     function calculateWeightKilograms(units, value) {
-        return "Kilograms" === units ? value : value / 2.205
+        return "kg" === units ? value : value / 2.205
 
     }
 
     function calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin, drinkHalfLife) {
-        return timeDiffinMin >= 0 ? (100 - 100 / 2 ** (timeDiffinMin / drinkHalfLife)) / 100 : 0
+        console.log("\t\t\t\ttimeDiffinMin: " + timeDiffinMin)
+        console.log("\t\t\t\tdrinkHalfLife: " + drinkHalfLife)
+        let percentAlcoholAbsorbedByMinute = timeDiffinMin >= 0 ? (100 - 100 / 2 ** (timeDiffinMin / drinkHalfLife)) / 100 : 0
+        console.log("\t\t\t\tpercentAlcoholAbsorbedByMinute: " + percentAlcoholAbsorbedByMinute)
+        return percentAlcoholAbsorbedByMinute
     }
 
     // _____HELPER FUNCTIONS____
@@ -272,22 +212,30 @@ const CurrentBAC = () => {
     }
 
     function getTimeDifferenceBetweenDateObjectsInMinutes(time1, time2) {
-        console.log("Type of time2: " + typeof time2)
+        console.log("time 1: " + time1)
+        console.log("time 2: " + time2)
 
+        let time1DateObj = new Date(time1)
         let time2DateObj = new Date(time2)
 
-        console.log("Type of time2 after converting: " + typeof time2)
+        let timeDiffInMin = Math.round((time1DateObj.getTime() - time2DateObj.getTime()) / 6e4)
 
-        let timeDiffInMin = Math.round((time1.getTime() - time2.getTime()) / 6e4)
-        // console.log("(getTimeDifferenceBetweenDateObjectsInMinutes) " + timeDiffInMin)
+        console.log("Time Diff In Min: " + timeDiffInMin)
 
         return timeDiffInMin
     }
 
-    function getTimeOfFirstDrinkAsDateObject() { // TODO actually figure out the time of first drink
+    function getTimeOfFirstDrinkAsDateObject() { // TODO sort array and 
         // return drinksConsumed[drinksConsumed.length - 1].drinkConsumedTimeAsDateObject
         console.log("drinks right before timeOfFirstDrink: " + JSON.stringify(drinksConsumed))
-        let timeOfFirstDrink = drinksConsumed[drinksConsumed.length - 1].drinkConsumedTimeAsDateObject
+
+        const firstDrink = drinksConsumed[0]
+        console.log(typeof firstDrink)
+
+        console.log(JSON.stringify(firstDrink))
+
+        const timeOfFirstDrink = firstDrink.timeOfDrink
+
         console.log("time of first drink: " + timeOfFirstDrink)
         return timeOfFirstDrink
     }
@@ -308,16 +256,6 @@ const CurrentBAC = () => {
         return alcoholGrams
     }
 
-    // returns a new date objects that has 30 minutes removed from the current time
-    // TODO remove when we don't need it anymore
-    function thirtyMinAgoDateObj() {
-        let thirtyMinAgo = new Date(new Date().getTime() - (30 * 60000))
-
-        // console.log("(thirtyMinAgoDateObj) " + thirtyMinAgo)
-
-        return thirtyMinAgo
-    }
-
     // TODO Check with DrunkCalc
     function getDrinkFullyAbsorbedTimeAsDateObject(timeConsumed, drinkFullLife) {
         console.log("____ timeConsumed: " + timeConsumed)
@@ -331,17 +269,17 @@ const CurrentBAC = () => {
         return drinkFullyAbsorbedTimeAsDateObject
     }
 
-    function calculateWidmarkFactorFemale(heightInMeters, weightInKilograms) { // TODO pass in height and weight
-        let height = 1.80
-        let weight = 63
-        return .50766 + .11165 * height - weight * (.001612 + .0031 / (height * height)) - 1 / (weight * (.62115 - 3.1665 * height))
+    function calculateWidmarkFactorFemale(heightInMeters, weightInKilograms) {
+        return .50766 + .11165 * heightInMeters - weightInKilograms * (.001612 + .0031 / (heightInMeters * heightInMeters)) - 1 / (weightInKilograms * (.62115 - 3.1665 * heightInMeters))
     }
 
+    // We first check that there are drinks to calculate and then we check to see if the BAC is calculated
     return (
         <View>
-            {BAC ?
+            {drinksConsumed[0] ?
+                BAC ?
                 <View style={styles.centered}>
-                    <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
+                    <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(3)}%</Text></Text>
                     {/* <Pressable
                         onPress={() => { calculateCurrentBAC() }}
                         style={styles.centerRedButton}
@@ -349,8 +287,10 @@ const CurrentBAC = () => {
                         <Text style={styles.mainRedButtonText}>Update BAC</Text>
                     </Pressable> */}
                 </View>
+                :
+                <Text>Loading...</Text>
             :
-            <Text>Loading...</Text>
+            <Text>Add in Drinks to Calculate BAC</Text>
             }
         </View>  
     )
