@@ -10,6 +10,9 @@ import CurrentBAC from '../components/CurrentBAC';
 import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
+// Import BAC Levels and Effects JSON data
+import BACLevelsEffects from '../json/bac-levels-and-effects.json'
+
 
 const BACCalc = ({ route, navigation }) => {
 
@@ -21,6 +24,54 @@ const BACCalc = ({ route, navigation }) => {
 
     const changeBAC = (newBAC) => {
         setBAC(newBAC)
+    }
+
+    // Function to determine BAC inside effects based on given BAC -> need to make async to update when BAC changes?
+    const displayInsideBACEffects = (BAC) => { 
+        let i = 0;
+        let toReturn = "";
+
+        while (i < BACLevelsEffects.length) {            
+            let BACLevelsEffectsData = BACLevelsEffects[i];
+            let minBACLevel = BACLevelsEffectsData[0];
+            let maxBACLevel = BACLevelsEffectsData[1];
+            let insideEffects = BACLevelsEffectsData[2];
+
+            if (BAC >= minBACLevel && BAC <= maxBACLevel) {
+                toReturn = "BAC: " + BAC + "\n" + insideEffects;
+                break;
+            } else {
+                i++;
+            }            
+        }
+
+        return (
+            <Text>{toReturn}</Text>
+        )
+    }
+
+    // Function to determine BAC outside effects based on given BAC -> need to make async to update when BAC changes?
+    const displayOutsideBACEffects = (BAC) => { 
+        let i = 0;
+        let toReturn = "";
+
+        while (i < BACLevelsEffects.length) {            
+            let BACLevelsEffectsData = BACLevelsEffects[i];
+            let minBACLevel = BACLevelsEffectsData[0];
+            let maxBACLevel = BACLevelsEffectsData[1];
+            let outsideEffects = BACLevelsEffectsData[3];
+
+            if (BAC >= minBACLevel && BAC <= maxBACLevel) {
+                toReturn = "BAC: " + BAC + "\n" + outsideEffects;
+                break;
+            } else {
+                i++;
+            }            
+        }
+
+        return (
+            <Text>{toReturn}</Text>
+        )
     }
 
 
@@ -70,7 +121,8 @@ const BACCalc = ({ route, navigation }) => {
                     >
                         <Text style={onInside ? "" : styles.yellowUnderline}>Out</Text>
                     </Pressable>
-                    <Text style={{ paddingBottom: 20 }}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text>
+                    {/* <Text style={{ paddingBottom: 20 }}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text> */}
+                    <Text style={{ paddingBottom: 20 }}>{onInside ? displayInsideBACEffects(0.05) : displayOutsideBACEffects(0.05)}</Text>
                 </View>
                 <View style={styles.redContainer}>
                     <Pressable
