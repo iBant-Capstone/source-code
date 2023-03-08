@@ -106,9 +106,10 @@ export const styles = StyleSheet.create({
   },
   // Rename later to better reflect purpose
   oneThirdContainer: {
-    width: '25%',
+    minWidth: '25%',
     marginLeft: '5%',
-    marginVertical: 10
+    marginVertical: 10,
+    height: 100
   },
 
   // Logo related styling:
