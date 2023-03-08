@@ -122,7 +122,7 @@ const BACCalc = ({ route, navigation }) => {
                         <Text style={onInside ? "" : styles.yellowUnderline}>Out</Text>
                     </Pressable>
                     {/* <Text style={{ paddingBottom: 20 }}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text> */}
-                    <Text style={{ paddingBottom: 20 }}>{onInside ? displayInsideBACEffects(0.05) : displayOutsideBACEffects(0.05)}</Text>
+                    <Text style={{ paddingBottom: 20 }}>{onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>
                 </View>
                 <View style={styles.redContainer}>
                     <Pressable
