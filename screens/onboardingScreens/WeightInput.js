@@ -1,7 +1,7 @@
 // Accept user input for Weight -> need to connect with stored Profile information
 // Add Skip button (skips to InfoHub page)
 // Add Next button (goes to BiologicalSexInput page)
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -12,7 +12,7 @@ import Footer from '../../components/Footer';
 import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
-const WeightInput = ({navigation}) => {
+const WeightInput = ({ navigation }) => {
     // const [personalDetails, setPersonalDetails] = useState({})
     const [hasFocused, setHasFocused] = useState(false);
 
@@ -20,12 +20,14 @@ const WeightInput = ({navigation}) => {
     const [cmInputValue, setCmInputValue] = useState('')
     const [ftInputValue, setFtInputValue] = useState('')
     const [inInputValue, setInInputValue] = useState('')
-    const [weightInputValue, setWeightInputValue] = useState('')
+
+    const [kgInputValue, setKgInputValue] = useState('')
+    const [lbsInputValue, setlbsInputValue] = useState('')
 
     // Keeps track of what weight/height unit we're using
-     
+
     const [heightUnitValueChecked, setHeightUnitValueChecked] = useState();
-    const [weightUnitValueChecked, setWeightUnitValueChecked] = useState();
+    const [weightUnitValueChecked, setWeightUnitValueChecked] = useState('kg');
 
     // sets this values as false because user will not have gone through other two screens
     const sexValueChecked = 'unchecked';
@@ -59,11 +61,12 @@ const WeightInput = ({navigation}) => {
                     setCmInputValue(personalDetailsParsed["height"]["unit"] === "cm" ? personalDetailsParsed["height"]["value"] : '')
                     setFtInputValue(personalDetailsParsed["height"]["unit"] === "ft" ? Math.floor(Number(personalDetailsParsed["height"]["value"]) / 12) : '')
                     setInInputValue(personalDetailsParsed["height"]["unit"] === "ft" ? Number(personalDetailsParsed["height"]["value"]) % 12 : '')
-                    setWeightInputValue(personalDetailsParsed["weight"]["value"])
+                    setKgInputValue(personalDetailsParsed["weight"]["unit"] === "kg" ? personalDetailsParsed["weight"]["value"] : '')
+                    setlbsInputValue(personalDetailsParsed["weight"]["unit"] === "lbs" ? personalDetailsParsed["weight"]["value"] : '')
 
                     setHeightUnitValueChecked(personalDetailsParsed["height"]["unit"])
                     setWeightUnitValueChecked(personalDetailsParsed["weight"]["unit"])
-                    
+
                     setHasFocused(true)
 
                 } catch (error) {
@@ -79,6 +82,7 @@ const WeightInput = ({navigation}) => {
 
         // calculate height value (converting to inches if input was ft)
         let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
+        let weightValue = weightUnitValueChecked === 'kg' ? kgInputValue : lbsInputValue
 
         // Set up the personal details to send
         let newPersonalDetails = {
@@ -88,14 +92,13 @@ const WeightInput = ({navigation}) => {
             },
             weight: {
                 unit: weightUnitValueChecked,
-                value: weightInputValue
+                value: weightValue
             },
             sex: sexValueChecked
         }
 
         try {
             await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
-            
         } catch (err) {
             console.log(err)
         }
@@ -103,33 +106,39 @@ const WeightInput = ({navigation}) => {
     };
     return (
         <View style={styles.centerContainer}>
-            <Text>
-                <Text style={styles.onboardingHeaderText}>Select Weight</Text>
-                Input your weight here in lbs or kg 
-            </Text>
-            <View style={[styles.row, styles.informationTypeLabel]}>
-                <Text>Add your weight  </Text>
-                <Text>lbs</Text>
-                <RadioButton
-                    value="lbs"
-                    status={weightUnitValueChecked === 'lbs' ? 'checked' : 'unchecked'}
-                    onPress={() => setWeightUnitValueChecked('lbs')}
-                />
-                <Text>kg</Text>
-                <RadioButton
-                    value="kg"
-                    status={weightUnitValueChecked === 'kg' ? 'checked' : 'unchecked'}
-                    onPress={() => setWeightUnitValueChecked('kg')}
-                />
+            <Text style={styles.onboardingHeaderText}>Select Weight</Text>
+            <View style={{ paddingHorizontal: 15 }}>
+                <Text>Input your weight here in lbs or kg</Text>
             </View>
-            <View>
-                <Text style={styles.textInputLabel}>{weightUnitValueChecked}</Text>
-                <TextInput
-                    style={styles.textInput}
-                    value={weightInputValue}
-                    onChangeText={setWeightInputValue}
-                    placeholder={"weight (" + weightUnitValueChecked + ")"}
-                />
+            {console.log(weightUnitValueChecked)}
+            <View style={[styles.row, styles.centered, { paddingTop: 15, flexWrap: 'nowrap' }]}>
+                <Pressable
+                    style={weightUnitValueChecked === 'lbs' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    onPress={() => setWeightUnitValueChecked('lbs')}
+                >
+                    <Text>lbs</Text></Pressable>
+                <Pressable
+                    style={weightUnitValueChecked === 'kg' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    onPress={() => setWeightUnitValueChecked('kg')}
+                ><Text>kg</Text></Pressable>
+            </View>
+            <View style={[styles.row, styles.centered]}>
+                {weightUnitValueChecked === 'kg' ?
+                    <TextInput
+                        style={styles.textInput}
+                        value={kgInputValue}
+                        onChangeText={setKgInputValue}
+                        placeholder={'kg'}
+                    />
+                    :
+                    <TextInput
+                        style={styles.textInput}
+                        value={lbsInputValue}
+                        onChangeText={setlbsInputValue}
+                        placeholder={'lbs'}
+                    />
+                }
+
             </View>
             <View style={styles.centered}>
                 <Pressable
@@ -137,39 +146,10 @@ const WeightInput = ({navigation}) => {
                     style={styles.centerRedButton}
                 ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
             </View>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('BiologicalSex');}} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome');}}/>
-    </View>
-        
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('BiologicalSex'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
+        </View>
+
     );
-
-    /*
-        // Variable from EditProfilePage that keeps track of what weight unit we're using
-        const [weightUnitValueChecked, setWeightUnitValueChecked] = useState();
-
-        <View>
-            <View style={[styles.row, {paddingLeft: 15, paddingTop: 15}]}>
-            <Text>Add your weight:  </Text>
-            <Pressable
-                style={weightUnitValueChecked === 'lbs' ? styles.radioButtonSelected : styles.radioButtonRegular}
-                onPress={() => setWeightUnitValueChecked('lbs')}
-            >
-                <Text>lbs</Text></Pressable>
-            <Pressable
-                style={weightUnitValueChecked === 'kg' ? styles.radioButtonSelected : styles.radioButtonRegular}
-                onPress={() => setWeightUnitValueChecked('kg')}
-            ><Text>kg</Text></Pressable>
-        </View>
-        <View>
-            <Text style={styles.textInputLabel}>{weightUnitValueChecked}</Text>
-            <TextInput
-                style={styles.textInput}
-                value={weightInputValue}
-                onChangeText={setWeightInputValue}
-                placeholder={"weight (" + weightUnitValueChecked + ")"}
-            />
-
-        </View>
-    */
 };
 
 export default WeightInput
