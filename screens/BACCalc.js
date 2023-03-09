@@ -27,11 +27,11 @@ const BACCalc = ({ route, navigation }) => {
     }
 
     // Function to determine BAC inside effects based on given BAC -> need to make async to update when BAC changes?
-    const displayInsideBACEffects = (BAC) => { 
+    const displayInsideBACEffects = (BAC) => {
         let i = 0;
         let toReturn = "";
 
-        while (i < BACLevelsEffects.length) {            
+        while (i < BACLevelsEffects.length) {
             let BACLevelsEffectsData = BACLevelsEffects[i];
             let minBACLevel = BACLevelsEffectsData[0];
             let maxBACLevel = BACLevelsEffectsData[1];
@@ -42,7 +42,7 @@ const BACCalc = ({ route, navigation }) => {
                 break;
             } else {
                 i++;
-            }            
+            }
         }
 
         return (
@@ -51,11 +51,11 @@ const BACCalc = ({ route, navigation }) => {
     }
 
     // Function to determine BAC outside effects based on given BAC -> need to make async to update when BAC changes?
-    const displayOutsideBACEffects = (BAC) => { 
+    const displayOutsideBACEffects = (BAC) => {
         let i = 0;
         let toReturn = "";
 
-        while (i < BACLevelsEffects.length) {            
+        while (i < BACLevelsEffects.length) {
             let BACLevelsEffectsData = BACLevelsEffects[i];
             let minBACLevel = BACLevelsEffectsData[0];
             let maxBACLevel = BACLevelsEffectsData[1];
@@ -66,7 +66,7 @@ const BACCalc = ({ route, navigation }) => {
                 break;
             } else {
                 i++;
-            }            
+            }
         }
 
         return (
@@ -105,7 +105,7 @@ const BACCalc = ({ route, navigation }) => {
     return (
         <ScrollView>
             <View>
-                <CurrentBAC setBAC={changeBAC} BAC={BAC}/>
+                <CurrentBAC setBAC={changeBAC} BAC={BAC} />
                 <View style={[styles.row, styles.centered, { backgroundColor: '#FFFFFF' }]}>
                     <Pressable
                         onPress={() => changeInsideOut(true)}
@@ -141,7 +141,9 @@ const BACCalc = ({ route, navigation }) => {
                     <Text>Add TEST Drink</Text>
                 </Pressable> */}
                     {/* END COMMENTING HERE */}
-                    <CalcDrinkCards />
+                    <View style={{width: '100%'}}>
+                        <CalcDrinkCards />
+                    </View>
                     <Pressable
                         onPress={() => AsyncStorage.setItem('drinks', [])}
                         accessibilityLabel="Add a drink"
