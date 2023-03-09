@@ -1,9 +1,5 @@
-// Accept user input for Weight -> need to connect with stored Profile information
-// Add Skip button (skips to InfoHub page)
-// Add Next button (goes to BiologicalSexInput page)
 import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
-import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 import Footer from '../../components/Footer';
@@ -13,7 +9,6 @@ import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
 const WeightInput = ({ navigation }) => {
-    // const [personalDetails, setPersonalDetails] = useState({})
     const [hasFocused, setHasFocused] = useState(false);
 
     // ______ TEXT INPUTS __________
@@ -110,7 +105,7 @@ const WeightInput = ({ navigation }) => {
             <View style={{ paddingHorizontal: 15 }}>
                 <Text>Input your weight here in lbs or kg</Text>
             </View>
-            {console.log(weightUnitValueChecked)}
+
             <View style={[styles.row, styles.centered, { paddingTop: 15, flexWrap: 'nowrap' }]}>
                 <Pressable
                     style={weightUnitValueChecked === 'lbs' ? styles.radioButtonSelected : styles.radioButtonRegular}
@@ -122,6 +117,7 @@ const WeightInput = ({ navigation }) => {
                     onPress={() => setWeightUnitValueChecked('kg')}
                 ><Text>kg</Text></Pressable>
             </View>
+
             <View style={[styles.row, styles.centered]}>
                 {weightUnitValueChecked === 'kg' ?
                     <TextInput
@@ -140,6 +136,7 @@ const WeightInput = ({ navigation }) => {
                 }
 
             </View>
+            
             <View style={styles.centered}>
                 <Pressable
                     onPress={handleAddPersonalDetails}

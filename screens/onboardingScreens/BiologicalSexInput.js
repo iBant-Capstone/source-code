@@ -1,33 +1,33 @@
 // Accept user input for Biological Sex -> need to connect with stored Profile information
-import React, { useState} from 'react';
-import { Text, View, TextInput, Pressable } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
-import * as StyleSheet from '../../components/styles';
 import Footer from '../../components/Footer';
 
-
+// Import styles
+import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
 // Page to return
 const BiologicalSex = ({ navigation }) => {
-     // const [personalDetails, setPersonalDetails] = useState({})
-     const [hasFocused, setHasFocused] = useState(false);
+    // const [personalDetails, setPersonalDetails] = useState({})
+    const [hasFocused, setHasFocused] = useState(false);
 
-     // ______ TEXT INPUTS __________
-     const [cmInputValue, setCmInputValue] = useState('')
-     const [ftInputValue, setFtInputValue] = useState('')
-     const [inInputValue, setInInputValue] = useState('')
-     const [weightInputValue, setWeightInputValue] = useState('')
- 
-     // Keeps track of what weight/height/sex unit we're using
-      
-     const [heightUnitValueChecked, setHeightUnitValueChecked] = useState();
-     const [weightUnitValueChecked, setWeightUnitValueChecked] = useState();
-     const [sexValueChecked, setSexValueChecked] = useState('');
+    // ______ TEXT INPUTS __________
+    const [cmInputValue, setCmInputValue] = useState('')
+    const [ftInputValue, setFtInputValue] = useState('')
+    const [inInputValue, setInInputValue] = useState('')
+    const [weightInputValue, setWeightInputValue] = useState('')
 
-     // Gets the personal details already stored to prefill the boxes last time 
+    // Keeps track of what weight/height/sex unit we're using
+
+    const [heightUnitValueChecked, setHeightUnitValueChecked] = useState();
+    const [weightUnitValueChecked, setWeightUnitValueChecked] = useState();
+    const [sexValueChecked, setSexValueChecked] = useState('');
+
+    // Gets the personal details already stored to prefill the boxes last time 
     useFocusEffect(
         React.useCallback(() => {
             async function getPersonalDetails() {
@@ -61,7 +61,7 @@ const BiologicalSex = ({ navigation }) => {
                     setHeightUnitValueChecked(personalDetailsParsed["height"]["unit"])
                     setWeightUnitValueChecked(personalDetailsParsed["weight"]["unit"])
                     setSexValueChecked(personalDetailsParsed["sex"])
-                    
+
                     setHasFocused(true)
 
                 } catch (error) {
@@ -72,8 +72,8 @@ const BiologicalSex = ({ navigation }) => {
         }, [])
     );
 
-     // Adds the personal details to async storage
-     const handleAddPersonalDetails = async () => {
+    // Adds the personal details to async storage
+    const handleAddPersonalDetails = async () => {
 
         // calculate height value (converting to inches if input was ft)
         let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
@@ -93,7 +93,7 @@ const BiologicalSex = ({ navigation }) => {
 
         try {
             await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
-            
+
         } catch (err) {
             console.log(err)
         }
@@ -103,32 +103,28 @@ const BiologicalSex = ({ navigation }) => {
     return (
         <View style={styles.centerContainer}>
             <Text style={styles.onboardingHeaderText}>Select Biological Sex</Text>
-            <Text>Input your biological sex here</Text>
 
-            <View style={{paddingHorizontal: 15}}>
+            <View style={{ paddingHorizontal: 15 }}>
                 <Text style={styles.redBoldText}>Please note:</Text>
-                <Text> We are using an algorithm that uses  male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
+                <Text>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
             </View>
-            <View style={[styles.row, styles.informationTypeLabel]}>
+
+            <View style={{ padding: 15 }}>
+                <Text>Input your biological sex here</Text>
+            </View>
+
+            <View style={[styles.row, styles.centered, { padding: 15 }]}>
                 <Text>Chosen Sex: {sexValueChecked}</Text>
             </View>
-            <View style={[styles.row, styles.informationTypeLabel]}>
-                <View>
-                    <Text>Female</Text>
-                    <RadioButton
-                        value="female"
-                        status={sexValueChecked === 'female' ? 'checked' : 'unchecked'}
-                        onPress={() => setSexValueChecked('female')}
-                    />
-                </View>
-                <View>
-                    <Text>Male</Text>
-                    <RadioButton
-                        value="Male"
-                        status={sexValueChecked === 'male' ? 'checked' : 'unchecked'}
-                        onPress={() => setSexValueChecked('male')}
-                    />
-                </View>
+            <View style={[styles.row, { justifyContent: 'center', paddingVertical: 15, flexWrap: 'nowrap' }]}>
+                <Pressable
+                    style={sexValueChecked === 'female' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    onPress={() => setSexValueChecked('female')}
+                ><Text>Female</Text></Pressable>
+                <Pressable
+                    style={sexValueChecked === 'male' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    onPress={() => setSexValueChecked('male')}
+                ><Text>Male</Text></Pressable>
             </View>
             <View style={styles.centered}>
                 <Pressable
