@@ -44,14 +44,14 @@ const CalcDrinkCards = () => {
     <View style={styles.row}>
       {drinks.map((drink, index) => (
         <View key={index} style={[styles.drinkCard, styles.row]}>
-          <Text style={[styles.drinkCardTimeContainer, styles.redBoldText, styles.smallText]}>Time here</Text>
+          <Text style={[styles.drinkCardTimeContainer, styles.redBoldText, styles.smallText]}>{new Date(JSON.parse(drink).timeOfDrink).getHours()}:{new Date(JSON.parse(drink).timeOfDrink).getMinutes()}</Text>
           <View style={styles.drinkCardInfoContainer}>
             <Text style={styles.drinkCardNameText}>{JSON.parse(drink).name} ({(JSON.parse(drink).strength * 100).toFixed(1)}%)</Text>
             <Text style={styles.smallText}>{JSON.parse(drink).size.value * 1e3} ml</Text>
           </View>
-          <Pressable style={styles.drinkCardDeleteContainer}>
+          {/* <Pressable style={styles.drinkCardDeleteContainer}>
             <Ionicons name='close' style={styles.exIcon} />
-          </Pressable>
+          </Pressable> */}
         </View>
       ))}
     </View>
