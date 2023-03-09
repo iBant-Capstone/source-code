@@ -45,6 +45,8 @@ const BACCalc = ({ route, navigation }) => {
     //     }, [])
     // );
 
+    // check if we have the drinks in the navigation
+
     // Handles the change of drinks in children components/other pages
     const changeDrinks = useCallback((newDrinksList) => {
         setDrinks(newDrinksList)
