@@ -1,9 +1,5 @@
-// Accept user input for Height -> need to connect with stored Profile information
-// Add Skip button (skips to InfoHub page)
-// Add Next button (goes to WeightInput page)
 import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
-import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../../components/Footer';
 
@@ -60,7 +56,6 @@ const HeightInput = ({ navigation }) => {
 
     return (
         <View style={styles.centerContainer}>
-
             <Text style={styles.onboardingHeaderText}>Select Height</Text>
             <View style={{ paddingHorizontal: 15 }}>
                 <Text>Input your height here in cm or ft/inches</Text>
@@ -106,10 +101,8 @@ const HeightInput = ({ navigation }) => {
                         style={styles.centerRedButton}
                     ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
                 </View>
-            {/* </View> */}
             <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('WeightInput'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
-
     );
 };
 
