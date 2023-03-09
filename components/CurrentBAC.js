@@ -21,6 +21,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     async function getAsyncData() {
         try {
+            console.log("GOT INTO GET ASYNC DATA")
             // TODO: get it from async storage
             const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
             // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
@@ -34,6 +35,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     }
 
     async function addToAsyncData() {
+        console.log("GOT INTO ADD TO ASYNC DATA")
         try {
             // ___ DRINKS CONSUMED ___
             const fleshedOutDrinksList = drinks.map((drink) => {
@@ -74,7 +76,9 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             console.log("CURRENT BAC drinks: " + JSON.stringify(drinks))
             async function getAsyncDataWrapped() {
                 if (JSON.stringify(drinks) !== "[]") {
+                    console.log('MADE IT INTO THE FOCUS EFFECT IF STATEMENRT')
                     await getAsyncData();
+                    console.log("DrinksPdInitialState: " + drinksPDInitialState)
                     setDrinksPDInitialState(true)
                 }
             }
@@ -82,17 +86,18 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
         }, [])
     )
 
-    // // When drinks change we update
-    // useEffect(() => {
-    //     async function getAsyncDataWrapped() {
-    //         if (JSON.stringify(drinks) !== "[]") {
-    //             console.log("DRINKS: " + JSON.stringify(drinks))
-    //             await getAsyncData();
-    //             setDrinksPDInitialState(true)
-    //         }
-    //     }
-    //     getAsyncDataWrapped()
-    // }, [drinks])
+    // Updateds when drinks are changed
+    // IMPLEMENTS THE SAME AS FOCUS EFFECT ABOVE
+    useEffect(() => {
+        console.log("DRINKS CHANGED SO I'm STARTING HERE")
+        async function startCalc() {
+            if (JSON.stringify(drinks) !== "[]") {
+                await getAsyncData();
+                setDrinksPDInitialState(true)
+            }
+        }
+        startCalc()
+    }, [drinks])
       
     useEffect(() => {
         async function addToAsyncDataWrapped() {
@@ -123,6 +128,10 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
         console.log("Personal Details " + JSON.stringify(personalDetails))
 
         let currentBAC = calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
+        
+        setDrinksPDInitialState(false)
+        setDrinksPDState(false)
+
         return currentBAC
     }
 
