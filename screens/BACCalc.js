@@ -20,47 +20,6 @@ const BACCalc = ({ route, navigation }) => {
     const [BAC, setBAC] = useState(0)
     const [drinks, setDrinks] = useState([])
 
-    // retrieves the drinks from async storage eveytime the component is refocused 
-    // (had to use a FocusEffect because the regular useEffect only remounted the component after a bigger reload of the entire app)
-    // useFocusEffect(
-    //     React.useCallback(() => {
-    //     async function getDrinks() {
-    //         try {
-    //             // Get the list of drinks from the async storage
-    //             const drinksListAsync = await AsyncStorage.getItem('drinks');
-
-    //             // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
-    //             let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-    //             // console.log("Drinks list: " + drinksList)
-
-    //             // Set our state drinksList
-    //             setDrinks(drinksList);
-
-    //             console.log("______I FOCUSED_____")
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     getDrinks();
-    //     }, [])
-    // );
-
-
-
-    // useFocusEffect(
-    //     React.useCallback(() => {
-    //         // check if we have the drinks in the navigation
-    //         console.log("route" + JSON.stringify(route))
-    //         if (route && route.params && route.params.drinks) {
-    //             setDrinks(route.params.drinks);
-    //             console.log("SET DRINKS FROM ROUTE")
-    //         } else {
-    //             setDrinks([]);
-    //             console.log("SET DRINKS TO NORMAL")
-    //         }
-    //     }, [route])
-    // )
-
     // Handles the change of BAC in children components/other pages
     const changeBAC = useCallback((newBAC) => {
         setBAC(newBAC)

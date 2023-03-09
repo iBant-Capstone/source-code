@@ -51,10 +51,6 @@ const AddDrink = ({ route, navigation }) => {
         // Create the time of drink
         let timeOfDrink = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), (timeOfDay === 'AM' ? Number(hoursInputValue) : Number(hoursInputValue) + 12), Number(minuteInputValue))
 
-        // new Date(year, monthIndex, day, hours, minutes)
-
-        console.log(timeOfDrink.toString())
-
         // Create the JSON structure for the new drink
         let newDrink = {
             name: nameInputValue,
@@ -68,27 +64,9 @@ const AddDrink = ({ route, navigation }) => {
         }
 
         try {
-            // const existingDrinks = await AsyncStorage.getItem('drinks');
-            // const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
-
-            // drinks.push(JSON.stringify(newDrink));
-
-            // await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
-
-            // drinks.push(newDrink)
-            // console.log("drinks.push(newDrink): " + drinks.push(newDrink))
-
-            // route.params.drinks = JSON.stringify(drinks)
-            // console.log("JSON.stringify(drinks) " + JSON.stringify(drinks))
-
-            // console.log("route.params.drinks: " + route.params.drinks)
-
             route.params.addDrink(newDrink)
-
             navigation.goBack()
-            
             console.log("new drink: " + route.params.drinks)
-
         } catch (error) {
             console.log(error);
         }
