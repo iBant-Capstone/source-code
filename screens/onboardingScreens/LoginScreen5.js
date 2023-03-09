@@ -22,7 +22,6 @@ const LoginScreen5 = ({ navigation }) => {
             </View>
             <Footer rightButtonLabel="I accept" rightButtonPress={() => { navigation.navigate('Login6'); }} leftButtonLabel="Back" leftButtonPress={() => { navigation.navigate('Login4'); }} />
         </View>
-        // add "I accept"/"Get started" button
     );
 };
 

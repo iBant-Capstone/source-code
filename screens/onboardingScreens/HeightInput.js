@@ -1,29 +1,28 @@
 // Accept user input for Height -> need to connect with stored Profile information
 // Add Skip button (skips to InfoHub page)
 // Add Next button (goes to WeightInput page)
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useFocusEffect } from '@react-navigation/native'
 import Footer from '../../components/Footer';
 
 // Import styles
 import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
-const HeightInput = ({navigation}) => {
+const HeightInput = ({ navigation }) => {
 
-     // ______ TEXT INPUTS __________
-     const [cmInputValue, setCmInputValue] = useState('')
-     const [ftInputValue, setFtInputValue] = useState('')
-     const [inInputValue, setInInputValue] = useState('')
-     const [weightInputValue, setWeightInputValue] = useState('')
+    // ______ TEXT INPUTS __________
+    const [cmInputValue, setCmInputValue] = useState('')
+    const [ftInputValue, setFtInputValue] = useState('')
+    const [inInputValue, setInInputValue] = useState('')
+    const [weightInputValue, setWeightInputValue] = useState('')
 
     // ______ RADIO BUTTONS ________
 
     // Keeps track of what height unit we're using
-    const [heightUnitValueChecked, setHeightUnitValueChecked] = useState();
+    const [heightUnitValueChecked, setHeightUnitValueChecked] = useState('cm');
 
     // sets these values as false because user will not have gone through other two screens
     const weightUnitValueChecked = false;
@@ -52,7 +51,7 @@ const HeightInput = ({navigation}) => {
 
         try {
             await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
-            
+
         } catch (err) {
             console.log(err)
         }
@@ -61,126 +60,57 @@ const HeightInput = ({navigation}) => {
 
     return (
         <View style={styles.centerContainer}>
-            <Text>
-                <Text style={styles.onboardingHeaderText}>Select Height</Text>
-                Input your height here in cm or ft/inches 
-            </Text>
-            <View >
-                <View style={[styles.row, styles.informationTypeLabel]}>
-                    <Text>ft</Text>
-                    <RadioButton
-                        value="ft"
-                        status={heightUnitValueChecked === 'ft' ? 'checked' : 'unchecked'}
-                        onPress={() => setHeightUnitValueChecked('ft')}
-                    />
-                    <Text>cm</Text>
-                    <RadioButton
-                        value="cm"
-                        status={heightUnitValueChecked === 'cm' ? 'checked' : 'unchecked'}
-                        onPress={() => setHeightUnitValueChecked('cm')}
-                    />
+
+            <Text style={styles.onboardingHeaderText}>Select Height</Text>
+            <View style={{ paddingHorizontal: 15 }}>
+                <Text>Input your height here in cm or ft/inches</Text>
+            </View>
+
+            <View style={[styles.row, styles.centered, { paddingTop: 15, flexWrap: 'nowrap' }]}>
+                <Pressable
+                    style={heightUnitValueChecked === 'ft' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    onPress={() => setHeightUnitValueChecked('ft')}
+                ><Text>ft</Text></Pressable>
+                <Pressable
+                    style={heightUnitValueChecked === 'cm' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    onPress={() => setHeightUnitValueChecked('cm')}
+                ><Text>cm</Text></Pressable>
                 </View>
-                    {heightUnitValueChecked === "ft" ?
-                    <View>
-                        <View style={styles.row}>
-                            <Text style={styles.textInputLabel}>feet</Text>
-                            <Text style={styles.textInputLabel}>inches</Text>
-                        </View>
-                        <View style={styles.row}>
-                            <TextInput
-                                style={styles.textInput}
-                                value={ftInputValue}
-                                onChangeText={setFtInputValue}
-                                placeholder={"feet"}
-                            />
-                            <TextInput
-                                style={styles.textInput}
-                                value={inInputValue}
-                                onChangeText={setInInputValue}
-                                placeholder={"inches"}
-                            />
-                        </View>
+                {heightUnitValueChecked === "ft" ?
+                    <View style={styles.row}>
+                        <TextInput
+                            style={styles.textInput}
+                            value={ftInputValue}
+                            onChangeText={setFtInputValue}
+                            placeholder={"feet"}
+                        />
+                        <TextInput
+                            style={styles.textInput}
+                            value={inInputValue}
+                            onChangeText={setInInputValue}
+                            placeholder={"inches"}
+                        />
                     </View>
                     :
-                    <View>
-                        <View style={styles.row}>
-                            <Text style={styles.textInputLabel}>cm</Text>
-                        </View>
-                        <View style={styles.row}>
-                            <TextInput
-                                style={styles.textInput}
-                                value={cmInputValue}
-                                onChangeText={setCmInputValue}
-                                placeholder={"cm"}
-                            />
-                        </View>
-                    </View>}             
-                    <View style={styles.centered}>
-                        <Pressable
-                            onPress={handleAddPersonalDetails}
-                            style={styles.centerRedButton}
-                        ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
-                    </View>
+                    <View style={[styles.row, styles.centered]}>
+                        <TextInput
+                            style={styles.textInput}
+                            value={cmInputValue}
+                            onChangeText={setCmInputValue}
+                            placeholder={"cm"}
+                        />
+                    </View>}
+                <View style={styles.centered}>
+                    <Pressable
+                        onPress={handleAddPersonalDetails}
+                        style={styles.centerRedButton}
+                    ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
                 </View>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('WeightInput');}} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('InformationHub');}}/>
+            {/* </View> */}
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('WeightInput'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
-        
+
     );
-
-    /*
-        // Variable from EditProfilePage that keeps track of what height unit we're using
-        const [heightUnitValueChecked, setHeightUnitValueChecked] = useState();
-
-        <View style={[styles.row, {paddingLeft: 15, paddingTop: 15}]}>
-            <Text>Add your height:  </Text>
-
-            <Pressable
-                style={heightUnitValueChecked === 'ft' ? styles.radioButtonSelected : styles.radioButtonRegular}
-                onPress={() => setHeightUnitValueChecked('ft')}
-            ><Text>ft</Text></Pressable>
-            <Pressable
-                style={heightUnitValueChecked === 'cm' ? styles.radioButtonSelected : styles.radioButtonRegular}
-                onPress={() => setHeightUnitValueChecked('cm')}
-            ><Text>cm</Text></Pressable>
-        </View>
-
-        {heightUnitValueChecked === "ft" ?
-            <View>
-                <View style={styles.row}>
-                    <Text style={styles.textInputLabel}>feet</Text>
-                    <Text style={styles.textInputLabel}>inches</Text>
-                </View>
-                <View style={styles.row}>
-                    <TextInput
-                        style={styles.textInput}
-                        value={ftInputValue}
-                        onChangeText={setFtInputValue}
-                        placeholder={"feet"}
-                    />
-                    <TextInput
-                        style={styles.textInput}
-                        value={inInputValue}
-                        onChangeText={setInInputValue}
-                        placeholder={"inches"}
-                    />
-                </View>
-            </View>
-            :
-            <View>
-                <View style={styles.row}>
-                    <Text style={styles.textInputLabel}>cm</Text>
-                </View>
-                <View style={styles.row}>
-                    <TextInput
-                        style={styles.textInput}
-                        value={cmInputValue}
-                        onChangeText={setCmInputValue}
-                        placeholder={"cm"}
-                    />
-                </View>
-            </View>
-        }
-    */
 };
 
 export default HeightInput
