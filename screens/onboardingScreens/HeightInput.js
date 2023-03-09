@@ -1,5 +1,4 @@
 // Accept user input for Height -> need to connect with stored Profile information
-<<<<<<< HEAD
 // Add Skip button (skips to InfoHub page)
 // Add Next button (goes to WeightInput page)
 import React, { useState} from 'react';
@@ -8,11 +7,6 @@ import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 import * as StyleSheet from '../../components/styles';
-=======
-import { Text, View } from 'react-native';
-
-// Import components used
->>>>>>> 2fb00dbbcb36f53d15d7b9f18c20a18874aed277
 import Footer from '../../components/Footer';
 
 // Import styles
