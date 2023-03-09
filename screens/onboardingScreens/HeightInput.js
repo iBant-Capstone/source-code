@@ -6,7 +6,6 @@ import { Text, View, TextInput, Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
-import * as StyleSheet from '../../components/styles';
 import Footer from '../../components/Footer';
 
 // Import styles

@@ -99,7 +99,7 @@ const CurrentBAC = ({ BAC, setBAC }) => {
     // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
         if (drinksPDState) {
-            setBAC(calculateCurrentBAC()) // comment out if necessary
+            // setBAC(calculateCurrentBAC()) // comment out if necessary
         }
     }, [drinksPDState])
 
