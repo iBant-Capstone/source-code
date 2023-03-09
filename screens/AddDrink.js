@@ -64,16 +64,17 @@ const AddDrink = ({ route, navigation }) => {
             timeOfDrink: timeOfDrink
         }
 
-        console.log("new drink: " + JSON.stringify(newDrink))
-
         try {
-            const existingDrinks = await AsyncStorage.getItem('drinks');
-            const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
+            // const existingDrinks = await AsyncStorage.getItem('drinks');
+            // const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
 
-            drinks.push(JSON.stringify(newDrink));
+            // drinks.push(JSON.stringify(newDrink));
 
-            await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
+            // await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
             navigation.goBack()
+            route.params.changeDrinks(route.params.drinks.push(JSON.stringify(newDrink)))
+            console.log("new drink: " + JSON.stringify(newDrink))
+
         } catch (error) {
             console.log(error);
         }

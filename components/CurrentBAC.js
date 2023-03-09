@@ -7,7 +7,7 @@ import { useFocusEffect } from '@react-navigation/native'
 import * as StyleSheet from './styles';
 let styles = StyleSheet.styles;
 
-const CurrentBAC = ({ BAC, setBAC }) => {
+const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     let [drinksConsumed, setDrinksConsumed] = useState([])
     let [personalDetails, setPersonalDetails] = useState({})
@@ -21,18 +21,19 @@ const CurrentBAC = ({ BAC, setBAC }) => {
 
     async function getAsyncData() {
         try {
-            // Get the list of drinks from the async storage
-            const drinksListAsync = await AsyncStorage.getItem('drinks');
-            // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
-            let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
+            // // Get the list of drinks from the async storage
+            // const drinksListAsync = await AsyncStorage.getItem('drinks');
+            // // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
+            // let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
             
             // TODO: get it from async storage
             const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
             // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
             let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
 
-            // Set the drinks we have to the state
-            await setDrinksConsumed(drinksList)
+            // // Set the drinks we have to the state
+            // await setDrinksConsumed(drinksList)
+
             // Set the personalDrinks to state
             await setPersonalDetails(personalDetailsParsed)
         } catch (error) {
@@ -43,7 +44,7 @@ const CurrentBAC = ({ BAC, setBAC }) => {
     async function addToAsyncData() {
         try {
             // ___ DRINKS CONSUMED ___
-            const fleshedOutDrinksList = drinksConsumed.map((drink) => {
+            const fleshedOutDrinksList = drinks.map((drink) => {
                 let parsedDrink = JSON.parse(drink)
                 return ({
                     ...parsedDrink,
@@ -99,7 +100,7 @@ const CurrentBAC = ({ BAC, setBAC }) => {
     // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
         if (drinksPDState) {
-            setBAC(calculateCurrentBAC())
+            //setBAC(calculateCurrentBAC())
         }
     }, [drinksPDState])
 
