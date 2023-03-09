@@ -9,6 +9,9 @@ let styles = StyleSheet.styles;
 
 
 const AddDrink = ({ route, navigation }) => {
+
+    // const drinks = JSON.parse(route.params.drinks)
+
     // Holds the state of the drink added in here
     const [nameInputValue, setNameInputValue] = useState('');
     const [sizeInputValue, setSizeInputValue] = useState('');
@@ -71,9 +74,20 @@ const AddDrink = ({ route, navigation }) => {
             // drinks.push(JSON.stringify(newDrink));
 
             // await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
+
+            // drinks.push(newDrink)
+            // console.log("drinks.push(newDrink): " + drinks.push(newDrink))
+
+            // route.params.drinks = JSON.stringify(drinks)
+            // console.log("JSON.stringify(drinks) " + JSON.stringify(drinks))
+
+            // console.log("route.params.drinks: " + route.params.drinks)
+
+            route.params.addDrink(newDrink)
+
             navigation.goBack()
-            route.params.changeDrinks(route.params.drinks.push(JSON.stringify(newDrink)))
-            console.log("new drink: " + JSON.stringify(newDrink))
+            
+            console.log("new drink: " + route.params.drinks)
 
         } catch (error) {
             console.log(error);

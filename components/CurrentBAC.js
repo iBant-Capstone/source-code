@@ -86,6 +86,15 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             getAsyncDataWrapped()
         }, [])
     )
+
+    // When drinks change we update
+    useEffect(() => {
+        async function getAsyncDataWrapped() {
+            await getAsyncData();
+            setDrinksPDInitialState(true)
+        }
+        getAsyncDataWrapped()
+    }, [drinks])
       
     useEffect(() => {
         async function addToAsyncDataWrapped() {

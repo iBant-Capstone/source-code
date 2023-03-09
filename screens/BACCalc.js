@@ -45,17 +45,31 @@ const BACCalc = ({ route, navigation }) => {
     //     }, [])
     // );
 
-    // check if we have the drinks in the navigation
 
-    // Handles the change of drinks in children components/other pages
-    const changeDrinks = useCallback((newDrinksList) => {
-        setDrinks(newDrinksList)
+
+    // useFocusEffect(
+    //     React.useCallback(() => {
+    //         // check if we have the drinks in the navigation
+    //         console.log("route" + JSON.stringify(route))
+    //         if (route && route.params && route.params.drinks) {
+    //             setDrinks(route.params.drinks);
+    //             console.log("SET DRINKS FROM ROUTE")
+    //         } else {
+    //             setDrinks([]);
+    //             console.log("SET DRINKS TO NORMAL")
+    //         }
+    //     }, [route])
+    // )
+
+    // Handles the change of BAC in children components/other pages
+    const changeBAC = useCallback((newBAC) => {
+        setBAC(newBAC)
     }, [])
 
-    // Handles the changing of BAC in children components
-    const changeBAC = (newBAC) => {
-        setBAC(newBAC)
-    }
+    // Handles the change of drinks in children components/other pages
+    const addDrink = useCallback((newDrink) => {
+        setDrinks([...drinks, newDrink])
+    }, [])
 
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
@@ -119,18 +133,20 @@ const BACCalc = ({ route, navigation }) => {
                 unit: "ml",
                 value: 15
             },
-            strength: 2.3 / 100,
-            time: "testTime"
+            strength: 12 / 100,
+            halfLife: 6,
+            timeOfDrink: "2023-03-09T06:30:00.000Z"
         }
-        
 
         try {
-            const existingDrinks = await AsyncStorage.getItem('drinks');
-            const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
+            // const existingDrinks = await AsyncStorage.getItem('drinks');
+            // const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
 
-            drinks.push(JSON.stringify(newDrink));
+            // drinks.push(JSON.stringify(newDrink));
 
-            await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
+            // await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
+            let newDrinks = [...drinks, newDrink]
+            setDrinks(newDrinks)
         } catch (error) {
             console.log(error);
         }
@@ -161,20 +177,20 @@ const BACCalc = ({ route, navigation }) => {
                     </View>
                     <View style={styles.redContainer}>
                         <Pressable
-                            onPress={() => navigation.navigate('AddDrinkPage', { title: 'Add a Drink', changeDrinks, drinks })}
+                            onPress={() => navigation.navigate('AddDrinkPage', { addDrink })}
                             accessibilityLabel="Add a drink"
                             style={[styles.whiteButton, { marginTop: -20 }]}
                         >
                             <Text>Add Drink</Text>
                         </Pressable>
                         {/* TEST DRINK, COMMENT OUT IF YOU DON'T WANT THE BUTTON */}
-                        {/* <Pressable
-                        onPress={() => handleAddEntry() }
-                        accessibilityLabel="Add a drink"
-                        style={[styles.whiteButton, {marginTop: -20}]}
-                    >
-                        <Text>Add TEST Drink</Text>
-                    </Pressable> */}
+                        <Pressable
+                            onPress={() => handleAddEntry() }
+                            accessibilityLabel="Add a drink"
+                            style={[styles.whiteButton, {marginTop: -20}]}
+                        >
+                            <Text>Add TEST Drink</Text>
+                        </Pressable>
                         {/* END COMMENTING HERE */}
                         <CalcDrinkCards drinks={drinks}  />
                         <Pressable
