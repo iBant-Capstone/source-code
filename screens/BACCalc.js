@@ -21,7 +21,7 @@ const BACCalc = ({ route, navigation }) => {
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
 
-
+    // Handles the changing on BAC in children components
     const changeBAC = (newBAC) => {
         setBAC(newBAC)
     }
@@ -88,6 +88,7 @@ const BACCalc = ({ route, navigation }) => {
             strength: 2.3 / 100,
             time: "testTime"
         }
+        
 
         try {
             const existingDrinks = await AsyncStorage.getItem('drinks');
@@ -148,6 +149,13 @@ const BACCalc = ({ route, navigation }) => {
                         style={styles.whiteButton}
                     >
                         <Text>Clear Drinks</Text>
+                    </Pressable>
+                    <Pressable
+                        onPress={() => setBAC(0)}
+                        accessibilityLabel="Add a drink"
+                        style={styles.whiteButton}
+                    >
+                        <Text>Set BAC to Zero</Text>
                     </Pressable>
                 </View>
             </View>
