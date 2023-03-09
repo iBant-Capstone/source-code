@@ -21,18 +21,10 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     async function getAsyncData() {
         try {
-            // // Get the list of drinks from the async storage
-            // const drinksListAsync = await AsyncStorage.getItem('drinks');
-            // // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
-            // let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-            
             // TODO: get it from async storage
             const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
             // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
             let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
-
-            // // Set the drinks we have to the state
-            // await setDrinksConsumed(drinksList)
 
             // Set the personalDrinks to state
             await setPersonalDetails(personalDetailsParsed)
@@ -45,12 +37,11 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
         try {
             // ___ DRINKS CONSUMED ___
             const fleshedOutDrinksList = drinks.map((drink) => {
-                let parsedDrink = JSON.parse(drink)
                 return ({
-                    ...parsedDrink,
-                    drinkFullLife: getDrinkFullLife(parsedDrink.halfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
-                    drinkAlcoholGrams: calculateAlcoholGrams(parsedDrink.size.value, parsedDrink.strength),
-                    drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(parsedDrink.timeOfDrink, getDrinkFullLife(parsedDrink.halfLife)),
+                    ...drink,
+                    drinkFullLife: getDrinkFullLife(drink.halfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
+                    drinkAlcoholGrams: calculateAlcoholGrams(drink.size.value, drink.strength),
+                    drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(drink.timeOfDrink, getDrinkFullLife(drink.halfLife)),
                     drinkUnits: 1, // only one drink, TODO try and remove this being needed later
                 })
             })
@@ -79,25 +70,34 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     useFocusEffect(
         React.useCallback(() => {
+            console.log("I'm in the FIRST FOCUS EFFECT")
+            console.log("CURRENT BAC drinks: " + JSON.stringify(drinks))
             async function getAsyncDataWrapped() {
-                await getAsyncData();
-                setDrinksPDInitialState(true)
+                if (JSON.stringify(drinks) !== "[]") {
+                    await getAsyncData();
+                    setDrinksPDInitialState(true)
+                }
             }
             getAsyncDataWrapped()
         }, [])
     )
 
-    // When drinks change we update
-    useEffect(() => {
-        async function getAsyncDataWrapped() {
-            await getAsyncData();
-            setDrinksPDInitialState(true)
-        }
-        getAsyncDataWrapped()
-    }, [drinks])
+    // // When drinks change we update
+    // useEffect(() => {
+    //     async function getAsyncDataWrapped() {
+    //         if (JSON.stringify(drinks) !== "[]") {
+    //             console.log("DRINKS: " + JSON.stringify(drinks))
+    //             await getAsyncData();
+    //             setDrinksPDInitialState(true)
+    //         }
+    //     }
+    //     getAsyncDataWrapped()
+    // }, [drinks])
       
     useEffect(() => {
         async function addToAsyncDataWrapped() {
+            console.log("I'm IN THE SECOND EFFECT")
+            console.log("CURRENT BAC drinks: " + JSON.stringify(drinks))
             if (drinksPDInitialState) {
                 await addToAsyncData();
                 setDrinksPDState(true)
@@ -108,8 +108,11 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
-        if (drinksPDState) {
-            //setBAC(calculateCurrentBAC())
+        console.log("I'm IN THE THIRD EFFECT")
+        console.log("CURRENT BAC drinks: " + JSON.stringify(drinks))
+        console.log("CURRENT BAC drinksPDState: " + drinksPDState)
+        if (drinksPDState && JSON.stringify(drinks) !== "[]") {
+            setBAC(calculateCurrentBAC())
         }
     }, [drinksPDState])
 

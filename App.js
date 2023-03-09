@@ -91,7 +91,10 @@ export default function App() {
         <Stack.Screen
           name='BACCalc'
           component={BACCalc}
-          options={{ headerShown: false }}
+          options={{ 
+            headerShown: false,
+            tabBarVisible: true 
+          }}
         />
         <Stack.Screen
           name='InfoTopicPage'

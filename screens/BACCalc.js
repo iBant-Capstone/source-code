@@ -18,16 +18,11 @@ import BACLevelsEffects from '../json/bac-levels-and-effects.json'
 const BACCalc = ({ route, navigation }) => {
 
     const [BAC, setBAC] = useState(0)
-    const [drinks, setDrinks] = useState([])
+    const [drinks, setDrinks] = useState((route && route.params && route.params.drinks) ?? [])
 
     // Handles the change of BAC in children components/other pages
     const changeBAC = useCallback((newBAC) => {
         setBAC(newBAC)
-    }, [])
-
-    // Handles the change of drinks in children components/other pages
-    const addDrink = useCallback((newDrink) => {
-        setDrinks([...drinks, newDrink])
     }, [])
 
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
@@ -98,12 +93,6 @@ const BACCalc = ({ route, navigation }) => {
         }
 
         try {
-            // const existingDrinks = await AsyncStorage.getItem('drinks');
-            // const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
-
-            // drinks.push(JSON.stringify(newDrink));
-
-            // await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
             let newDrinks = [...drinks, newDrink]
             setDrinks(newDrinks)
         } catch (error) {
@@ -136,20 +125,20 @@ const BACCalc = ({ route, navigation }) => {
                     </View>
                     <View style={styles.redContainer}>
                         <Pressable
-                            onPress={() => navigation.navigate('AddDrinkPage', { addDrink })}
+                            onPress={() => navigation.navigate('AddDrinkPage', { drinks: drinks })}
                             accessibilityLabel="Add a drink"
                             style={[styles.whiteButton, { marginTop: -20 }]}
                         >
                             <Text>Add Drink</Text>
                         </Pressable>
                         {/* TEST DRINK, COMMENT OUT IF YOU DON'T WANT THE BUTTON */}
-                        <Pressable
+                        {/* <Pressable
                             onPress={() => handleAddEntry() }
                             accessibilityLabel="Add a drink"
                             style={[styles.whiteButton, {marginTop: -20}]}
                         >
                             <Text>Add TEST Drink</Text>
-                        </Pressable>
+                        </Pressable> */}
                         {/* END COMMENTING HERE */}
                         <CalcDrinkCards drinks={drinks}  />
                         <Pressable
@@ -163,13 +152,13 @@ const BACCalc = ({ route, navigation }) => {
                         >
                             <Text>Clear Drinks</Text>
                         </Pressable>
-                        <Pressable
+                        {/* <Pressable
                             onPress={() => setBAC(0)}
                             accessibilityLabel="Add a drink"
                             style={styles.whiteButton}
                         >
                             <Text>Set BAC to Zero</Text>
-                        </Pressable>
+                        </Pressable> */}
                     </View>
                 </View>
             </ScrollView>

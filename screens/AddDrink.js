@@ -10,7 +10,7 @@ let styles = StyleSheet.styles;
 
 const AddDrink = ({ route, navigation }) => {
 
-    // const drinks = JSON.parse(route.params.drinks)
+    let drinks = route.params.drinks
 
     // Holds the state of the drink added in here
     const [nameInputValue, setNameInputValue] = useState('');
@@ -64,9 +64,19 @@ const AddDrink = ({ route, navigation }) => {
         }
 
         try {
-            route.params.addDrink(newDrink)
-            navigation.goBack()
-            console.log("new drink: " + route.params.drinks)
+            // Add new drink to the ones we have and then send them to the BACCalc page
+            drinks.push(newDrink)
+            //this.route.params.drinks({ drinks: drinks})
+            navigation.navigate('BAC Calc', { drinks: drinks })  
+
+            setNameInputValue('')
+            setSizeInputValue('')
+            setStrengthInputValue('')
+            setHungerValueSelected('')
+            setHoursInputValue('')
+            setMinuteInputValue('')
+            setTimeOfDay("PM")
+            
         } catch (error) {
             console.log(error);
         }

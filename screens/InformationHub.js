@@ -104,6 +104,7 @@ const InformationHub = ({ navigation }) => {
       <Tab.Screen
         name="BAC Calc"
         component={BACCalc}
+        options={{ tabBarVisible: true }}
       />
       <Tab.Screen
         name="Profile"
