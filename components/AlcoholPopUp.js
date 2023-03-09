@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Pressable, View, Text } from 'react-native';
+import {Pressable, View, Text, Image } from 'react-native';
 import * as StyleSheet from './styles';
 import Modal from "react-native-modal";
 
@@ -14,10 +14,14 @@ const Popup = (props) =>
    if(props.data != undefined) {
         data = props.data[0];
    }
+   console.log(styles.popupIcon)
    return(
         <Modal isVisible={props.isOpen} style={styles.modal}>
             <View style={styles.modalContent} >
-                {data && <Text style={styles.commonAlcTypeTitle}>{data.alcoholid}</Text>}
+               
+                    <Image style={styles.popupIcon} source={require('../assets/icons/BACtracker_logo.png')} resizeMode='contain' />
+                    {data && <Text style={styles.commonAlcTypeTitle}>{data.alcoholid}</Text>}
+               
                 <br/>
                 {data && <Text style={styles.title}>{data.description}</Text>}
                 <br/>

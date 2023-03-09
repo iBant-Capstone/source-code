@@ -17,7 +17,6 @@ const CommonAlcoholTypes = ({ navigation }) => {
                 {"alcoholName": alcohol.alcoholid, "isPopupOpen": false}
             );
         } );
-        console.log(initialState);
         setOpenArray(initialState);
     }, []);
     

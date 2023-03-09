@@ -27,6 +27,13 @@ export const styles = StyleSheet.create({
     padding: "15px",
     justifyContent: 'center',
   },
+  // popup - related styling 
+  popupIcon: {
+    justifyContent: 'flex-start',
+    width: '100%',
+    height: '100%',
+    
+  }, 
   modal: {
     flex: 0.75,
     backgroundColor: '#fff',
@@ -283,6 +290,7 @@ export const styles = StyleSheet.create({
     color: 'black'
   },
   commonAlcTypeTitle: {
+    display: 'inline-block',
     fontSize: 24,
     fontWeight: '500',
     marginRight: '5%',
