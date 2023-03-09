@@ -1,7 +1,4 @@
 // Accept user input for Biological Sex -> need to connect with stored Profile information
-// Include disclaimer
-// Add Skip button (skips to InfoHub page)
-// Add Next button (goes to InfoHub page)
 import React, { useState} from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
@@ -13,6 +10,7 @@ import Footer from '../../components/Footer';
 
 let styles = StyleSheet.styles;
 
+// Page to return
 const BiologicalSex = ({ navigation }) => {
      // const [personalDetails, setPersonalDetails] = useState({})
      const [hasFocused, setHasFocused] = useState(false);
@@ -103,14 +101,14 @@ const BiologicalSex = ({ navigation }) => {
     };
 
     return (
-        <View>
-            <Text>
-                <Text style={styles.onboardingHeaderText}>Select Biological Sex</Text>
-                Input your biological sex here
-                
+        <View style={styles.centerContainer}>
+            <Text style={styles.onboardingHeaderText}>Select Biological Sex</Text>
+            <Text>Input your biological sex here</Text>
+
+            <View style={{paddingHorizontal: 15}}>
                 <Text style={styles.redBoldText}>Please note:</Text>
-                We are using an algorithm that uses  male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.
-            </Text>
+                <Text> We are using an algorithm that uses  male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
+            </View>
             <View style={[styles.row, styles.informationTypeLabel]}>
                 <Text>Chosen Sex: {sexValueChecked}</Text>
             </View>
@@ -138,10 +136,11 @@ const BiologicalSex = ({ navigation }) => {
                     style={styles.centerRedButton}
                 ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
             </View>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('InformationHub'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('InformationHub'); }} />
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('Welcome'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
 
     );
+
 };
 
 export default BiologicalSex

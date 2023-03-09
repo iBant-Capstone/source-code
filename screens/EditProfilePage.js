@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, Button, TextInput, Pressable } from 'react-native';
-import { RadioButton } from 'react-native-paper';
+import React, { useState } from 'react';
+import { Text, View, TextInput, Pressable } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
-import * as StyleSheet from '../components/styles';
 
+// Import styles
+import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
 
@@ -109,26 +109,24 @@ const EditProfilePage = ({ navigation }) => {
         <View style={styles.centerContainer}>
             {/* Only loads once the personal details have loaded */}
             {hasFocused ?
-                <View style={{minWidth: '100%'}}>
+                <View style={{ minWidth: '100%' }}>
                     <View style={styles.leftContainer}>
                         <Text style={[styles.redBoldText, { fontSize: 32, marginBottom: '5%' }]}>Edit</Text>
                     </View>
                     <View >
-                        <View style={[styles.row, styles.informationTypeLabel]}>
-                            <Text>Add your height   </Text>
-                            <Text>ft</Text>
-                            <RadioButton
-                                value="ft"
-                                status={heightUnitValueChecked === 'ft' ? 'checked' : 'unchecked'}
+                        <View style={[styles.row, {paddingLeft: 15, paddingTop: 15}]}>
+                            <Text>Add your height:  </Text>
+
+                            <Pressable
+                                style={heightUnitValueChecked === 'ft' ? styles.radioButtonSelected : styles.radioButtonRegular}
                                 onPress={() => setHeightUnitValueChecked('ft')}
-                            />
-                            <Text>cm</Text>
-                            <RadioButton
-                                value="cm"
-                                status={heightUnitValueChecked === 'cm' ? 'checked' : 'unchecked'}
+                            ><Text>ft</Text></Pressable>
+                            <Pressable
+                                style={heightUnitValueChecked === 'cm' ? styles.radioButtonSelected : styles.radioButtonRegular}
                                 onPress={() => setHeightUnitValueChecked('cm')}
-                            />
+                            ><Text>cm</Text></Pressable>
                         </View>
+
                         {heightUnitValueChecked === "ft" ?
                             <View>
                                 <View style={styles.row}>
@@ -165,20 +163,18 @@ const EditProfilePage = ({ navigation }) => {
                                 </View>
                             </View>
                         }
-                        <View style={[styles.row, styles.informationTypeLabel]}>
-                            <Text>Add your weight  </Text>
-                            <Text>lbs</Text>
-                            <RadioButton
-                                value="lbs"
-                                status={weightUnitValueChecked === 'lbs' ? 'checked' : 'unchecked'}
+
+                        <View style={[styles.row, {paddingLeft: 15, paddingTop: 15}]}>
+                            <Text>Add your weight:  </Text>
+                            <Pressable
+                                style={weightUnitValueChecked === 'lbs' ? styles.radioButtonSelected : styles.radioButtonRegular}
                                 onPress={() => setWeightUnitValueChecked('lbs')}
-                            />
-                            <Text>kg</Text>
-                            <RadioButton
-                                value="kg"
-                                status={weightUnitValueChecked === 'kg' ? 'checked' : 'unchecked'}
+                            >
+                                <Text>lbs</Text></Pressable>
+                            <Pressable
+                                style={weightUnitValueChecked === 'kg' ? styles.radioButtonSelected : styles.radioButtonRegular}
                                 onPress={() => setWeightUnitValueChecked('kg')}
-                            />
+                            ><Text>kg</Text></Pressable>
                         </View>
                         <View>
                             <Text style={styles.textInputLabel}>{weightUnitValueChecked}</Text>
@@ -191,38 +187,36 @@ const EditProfilePage = ({ navigation }) => {
 
                         </View>
 
+                        <View style={[{paddingLeft: 15, paddingTop: 15}]}>
+                            <View style={styles.row}>
+                                <Text>Chosen Biological Sex: {sexValueChecked}</Text>
+                            </View>
 
-                        <View style={[styles.row, styles.informationTypeLabel]}>
-                            <Text>Chosen Sex: {sexValueChecked}</Text>
-                        </View>
-                        <View style={[styles.row, styles.informationTypeLabel]}>
-                            <View>
-                                <Text>Female</Text>
-                                <RadioButton
-                                    value="female"
-                                    status={sexValueChecked === 'female' ? 'checked' : 'unchecked'}
+                            <View style={[styles.row, {justifyContent: 'center', paddingVertical: 15}]}>
+                                <Pressable
+                                    style={sexValueChecked === 'female' ? styles.radioButtonSelected : styles.radioButtonRegular}
                                     onPress={() => setSexValueChecked('female')}
-                                />
-                            </View>
-                            <View>
-                                <Text>Male</Text>
-                                <RadioButton
-                                    value="Male"
-                                    status={sexValueChecked === 'male' ? 'checked' : 'unchecked'}
+                                ><Text>Female</Text></Pressable>
+                                <Pressable
+                                    style={sexValueChecked === 'male' ? styles.radioButtonSelected : styles.radioButtonRegular}
                                     onPress={() => setSexValueChecked('male')}
-                                />
+                                ><Text>Male</Text></Pressable>
                             </View>
                         </View>
-
-
-                        <View style={styles.centered}>
-                            <Pressable
-                                onPress={handleAddPersonalDetails}
-                                style={styles.centerRedButton}
-                            ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
+                        <View style={[styles.row, {paddingHorizontal: 15, paddingVertical: 15}]}>
+                            <Text style={styles.redBoldText}>Please note: </Text>
+                            <Text>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals in greatly lacking.</Text>
                         </View>
                     </View>
+
+                    <View>
+                        <Pressable
+                            onPress={handleAddPersonalDetails}
+                            style={styles.centerRedButton}
+                        ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
+                    </View>
                 </View>
+
                 :
                 <Text>Loading...</Text>
             }

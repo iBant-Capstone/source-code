@@ -1,13 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { Text, View, Pressable } from 'react-native';
-import * as StyleSheet from '../components/styles';
+
+// Import components
 import Popup from "../components/AlcoholPopUp";
+
+// Import styles
+import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
 // Import json data of alcohols
 import data from '../json/alcoholtypes/alcohols.json';
 
 const CommonAlcoholTypes = ({ navigation }) => {
+    // Create states for different alcohol types
     const [isOpenArray, setOpenArray] = useState([]);
     const [alcData, setAlcData] = useState();
 
@@ -20,29 +25,28 @@ const CommonAlcoholTypes = ({ navigation }) => {
         setOpenArray(initialState);
     }, []);
     
+    // Get the data of given alcohol name
     function getData (alcoholName) {
         // filter the data to match the alcohol name 
         let alcohol = data.filter(a => a.alcoholid === alcoholName);
-        
         return alcohol;
     }
 
+    // Change popup open state of given alcohol type
     function changePopup(alcoholName) {
         setAlcData(getData(alcoholName));
         let currentArray = isOpenArray.slice(); 
        
-        
         for(let item in currentArray) {
             let alcohol = currentArray[item];
             if(alcohol.alcoholName === alcoholName) {
-                currentArray[item].isPopupOpen = !alcohol.isPopupOpen;
-                
-                
+                currentArray[item].isPopupOpen = !alcohol.isPopupOpen;                
             }
         }
         setOpenArray(currentArray);
     }
     
+    // Get whether the alcohol type is open or not
     function getValue (alcoholName) {
         for (let item in isOpenArray) {
             let alcohol = isOpenArray[item];
@@ -52,8 +56,8 @@ const CommonAlcoholTypes = ({ navigation }) => {
         }
     }
 
+    // Calls the popup for alcohol type given
     function callPopUp(alcoholName) {
-        
         return (
             <View>
                 <Popup isOpen={getValue(alcoholName)} 
@@ -61,11 +65,10 @@ const CommonAlcoholTypes = ({ navigation }) => {
                  alcoholName={alcoholName}
                  data={alcData}/>
             </View>
-       
         );
-        
     }
 
+    // Create alcohol type buttons
     let PressableArrays = data.map(function(alcohol){
             return (
                 <Pressable key={alcohol.alcoholid}
@@ -79,10 +82,9 @@ const CommonAlcoholTypes = ({ navigation }) => {
             );
         } );
     
-    
+    // Page to return
     return(
         <View style={styles.centered}>
-            {/* <Text style={styles.Text}>Alcohol Types</Text> */}
             <View style={styles.row}>
                 {PressableArrays}
             </View>

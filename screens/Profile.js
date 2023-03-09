@@ -1,11 +1,11 @@
-import { Text, View, Pressable } from 'react-native';
-import React, { useState, useEffect } from 'react';
-import * as StyleSheet from '../components/styles';
-import { Image } from 'react-native';
-import { Table, Row, TableWrapper, Cell } from 'react-native-table-component'
+import { Text, View, Pressable, Image } from 'react-native';
+import React, { useState } from 'react';
+import { Table, TableWrapper, Cell } from 'react-native-table-component'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
+// Import styles
+import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
 const Profile = (props) => {
@@ -86,7 +86,7 @@ const Profile = (props) => {
                             <Cell data={<Pressable style={styles.profileEditButton} width={100} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                         </TableWrapper>
                         <TableWrapper style={{ flexDirection: 'row' }}>
-                            <Cell data={"Sex: "} width={100} textStyle={styles.mainRedButtonText} />
+                            <Cell data={"Biological Sex: "} width={100} textStyle={styles.mainRedButtonText} />
                             {/* Different displays based on if personal details are empty or not */}
                             { personalDetails["sex"] === '' ?
                                 <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
@@ -123,7 +123,5 @@ const Profile = (props) => {
         </View>
     );
 };
-
-
 
 export default Profile

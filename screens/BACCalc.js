@@ -1,25 +1,82 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Pressable, ScrollView, FlatList } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as StyleSheet from '../components/styles';
+
+// Import used components
 import CalcDrinkCards from '../components/CalcDrinkCards';
 import CurrentBAC from '../components/CurrentBAC';
 
-
+// Import styles
+import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
+
+// Import BAC Levels and Effects JSON data
+import BACLevelsEffects from '../json/bac-levels-and-effects.json'
 
 
 const BACCalc = ({ route, navigation }) => {
+
+    const [BAC, setBAC] = useState(0)
 
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
 
 
-    // COMMENT OUT THIS FUNCTION WHEN YOU WANT ANOTHER DRINK IN STORAGE
-    const handleAddEntry = async () => {
+    const changeBAC = (newBAC) => {
+        setBAC(newBAC)
+    }
 
-        // Create the time of drink
-        let timeOfDrink = ''
+    // Function to determine BAC inside effects based on given BAC -> need to make async to update when BAC changes?
+    const displayInsideBACEffects = (BAC) => { 
+        let i = 0;
+        let toReturn = "";
+
+        while (i < BACLevelsEffects.length) {            
+            let BACLevelsEffectsData = BACLevelsEffects[i];
+            let minBACLevel = BACLevelsEffectsData[0];
+            let maxBACLevel = BACLevelsEffectsData[1];
+            let insideEffects = BACLevelsEffectsData[2];
+
+            if (BAC >= minBACLevel && BAC <= maxBACLevel) {
+                toReturn = "BAC: " + BAC + "\n" + insideEffects;
+                break;
+            } else {
+                i++;
+            }            
+        }
+
+        return (
+            <Text>{toReturn}</Text>
+        )
+    }
+
+    // Function to determine BAC outside effects based on given BAC -> need to make async to update when BAC changes?
+    const displayOutsideBACEffects = (BAC) => { 
+        let i = 0;
+        let toReturn = "";
+
+        while (i < BACLevelsEffects.length) {            
+            let BACLevelsEffectsData = BACLevelsEffects[i];
+            let minBACLevel = BACLevelsEffectsData[0];
+            let maxBACLevel = BACLevelsEffectsData[1];
+            let outsideEffects = BACLevelsEffectsData[3];
+
+            if (BAC >= minBACLevel && BAC <= maxBACLevel) {
+                toReturn = "BAC: " + BAC + "\n" + outsideEffects;
+                break;
+            } else {
+                i++;
+            }            
+        }
+
+        return (
+            <Text>{toReturn}</Text>
+        )
+    }
+
+
+    // TEST DRINK ADDER COMMENT OUT THIS FUNCTION WHEN YOU WANT ANOTHER DRINK IN STORAGE
+    const handleAddEntry = async () => {
 
         // Create the JSON structure for the new drink
         let newDrink = {
@@ -48,7 +105,7 @@ const BACCalc = ({ route, navigation }) => {
     return (
         <ScrollView>
             <View>
-                <CurrentBAC />
+                <CurrentBAC setBAC={changeBAC} BAC={BAC}/>
                 <View style={[styles.row, styles.centered, { backgroundColor: '#FFFFFF' }]}>
                     <Pressable
                         onPress={() => changeInsideOut(true)}
@@ -64,7 +121,8 @@ const BACCalc = ({ route, navigation }) => {
                     >
                         <Text style={onInside ? "" : styles.yellowUnderline}>Out</Text>
                     </Pressable>
-                    <Text style={{ paddingBottom: 20 }}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text>
+                    {/* <Text style={{ paddingBottom: 20 }}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text> */}
+                    <Text style={{ paddingBottom: 20 }}>{onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>
                 </View>
                 <View style={styles.redContainer}>
                     <Pressable
@@ -83,13 +141,9 @@ const BACCalc = ({ route, navigation }) => {
                     <Text>Add TEST Drink</Text>
                 </Pressable> */}
                     {/* END COMMENTING HERE */}
-                    <Text style={styles.whiteText}>Drinks in async storage:</Text>
-
                     <CalcDrinkCards />
-
-
                     <Pressable
-                        onPress={() => AsyncStorage.clear()}
+                        onPress={() => AsyncStorage.setItem('drinks', [])}
                         accessibilityLabel="Add a drink"
                         style={styles.whiteButton}
                     >

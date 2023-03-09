@@ -1,0 +1,62 @@
+[
+    [
+        0.00,
+        0.00,
+        "N/A (No alcohol has been consumed and BAC is 0.00).",
+        "N/A (No alcohol has been consumed and BAC is 0.00)."
+    ],
+    [
+        0.01,
+        0.03,
+        "No apparent effects. Slight mood elevation.",
+        "In Washington, you will test as legally impaired at .02% BAC if you are under 21. It is illegal to drive or bike at this level. You may start to have poor judgment."
+    ],
+    [
+        0.04,
+        0.06,
+        "Feeling of relaxation. Sensation of warmth. Minor impairment of reasoning and memory.",
+        "Your behavior may become exaggerated. You may talk louder or faster or act bolder."
+    ],
+    [
+        0.07,
+        0.09,
+        "Mild impairment of balance, speech, vision and control. You believe you are functioning better than you actually are, making it difficult to determine whether or not to keep drinking.",
+        "In all 50 states, you are considered legally intoxicated and it is illegal to drive or bike at 0.08%."
+    ],
+    [
+        0.10,
+        0.12,
+        "Significant impairment of motor coordination and loss of judgment. Emotions are exaggerated.",
+        "Your speech may be slurred. You may become loud, aggressive, or belligerent towards others. The ability to coordinate your arms and legs is markedly impaired."
+    ],
+    [
+        0.13,
+        0.15,
+        "Gross impairment of motor control. Blurred vision and major loss of balance. Onset of dysphoria (anxiety, restlessness).",
+        "You have difficulty talking, walking, or even standing. You may become more aggressive. Increased risk of accidentally injuring yourself or others."
+    ],
+    [
+        0.16,
+        0.24,
+        "All mental, physical, and sensory functions are severely impaired. Dysphoria (anxiety and restlessness) predominates. Nausea and vomiting may occur. Blackouts are likely, so you may participate in events you will not remember.",
+        "You have difficulty talking, walking, or even standing. You may become more aggressive. Your gag reflex is impaired, which could cause choking or aspirating on vomit unless someone helps you."
+    ],
+    [
+        0.25,
+        0.34,
+        "Severe intoxication. Mental confusion with little comprehension of where you are. Dysphoria (anxiety and restlessness) with nausea and vomiting.",
+        "You need assistance standing or walking. Your gag reflex is impaired, which could cause choking or aspirating on vomit unless someone helps you. You may suddenly pass out and be difficult to awaken."
+    ],
+    [
+        0.35,
+        0.39,
+        "Loss of consciousness. Brink of coma. Lungs and heart rate are slowing to the point of stopping. You may stop breathing.",
+        "This BAC level corresponds to the level of surgical anesthesia. Immediate medical attention is required."
+    ],
+    [
+        0.40,
+        100,
+        "Onset of coma. Lungs and heart rate are slowing to the point of stopping. Likelihood of death due to respiratory failure.",
+        "You are completely unresponsive. Without immediate medical attention, death is likely."
+    ]
+]

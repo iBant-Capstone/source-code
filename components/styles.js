@@ -111,12 +111,18 @@ export const styles = StyleSheet.create({
     marginLeft: '2%',
     marginVertical: 50
   },
+  // Rename later to better reflect purpose
+  oneThirdContainer: {
+    minWidth: '25%',
+    marginLeft: '5%',
+    marginVertical: 10,
+    height: 100
+  },
 
   // Logo related styling:
   largeLogoWithText: {
-    maxWidth: '100%',
-    maxHeight: '100%',
-    marginTop: '10%'
+    width: "80%",
+    height: "80%"
   },
 
   // **Info Hub page(s) styling: 
@@ -159,7 +165,7 @@ export const styles = StyleSheet.create({
     marginVertical: 10
   },
   // For buttons - red
-  mainRedButton: {
+  leftRedButton: {
     backgroundColor: '#CF5260',
     padding: 12,
     borderRadius: 8,
@@ -352,7 +358,8 @@ export const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     color: '#387780',
     fontSize: 14,
-    margin: 5
+    margin: 5,
+    backgroundColor: 'transparent'
   },
   currentBACText: {
     fontSize: 32,
@@ -366,7 +373,8 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 3
   },
   onboardingHeaderText: {
-    fontSize: 24
+    fontSize: 24,
+    marginBottom: '10%'
   },
 
   // For BAC calculator
@@ -406,6 +414,34 @@ export const styles = StyleSheet.create({
   exIcon: {
     fontSize: 'xx-large',
     color: '#CF5260'
+  },
+
+  // Radio button
+  radioButtonSelected: {
+    backgroundColor: '#FFB140',
+    paddingVertical: 6,
+    paddingHorizontal: 6,
+    borderRadius: 8,
+    maxHeight: 30,
+    marginHorizontal: '5%',
+    minWidth: '10%',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  radioButtonRegular: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#FFB140',
+    maxHeight: 30,
+    paddingVertical: 6,
+    paddingHorizontal: 6,
+    borderRadius: 8,
+    marginHorizontal: '5%',
+    minWidth: '10%',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 
 }

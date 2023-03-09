@@ -1,7 +1,5 @@
 //import React in our code
 import React, { useCallback } from 'react';
-
-//import all the components we are going to use
 import { Text, Linking } from 'react-native';
 
 // import sources
