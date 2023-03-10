@@ -6,13 +6,12 @@ import { useFocusEffect } from '@react-navigation/native';
 // Import used components
 import CalcDrinkCards from '../components/CalcDrinkCards';
 import CurrentBAC from '../components/CurrentBAC';
+import InsideOut from '../components/InsideOut';
 
 // Import styles
 import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
-// Import BAC Levels and Effects JSON data
-import BACLevelsEffects from '../json/bac-levels-and-effects.json'
 
 
 const BACCalc = ({ route, navigation }) => {
@@ -20,64 +19,22 @@ const BACCalc = ({ route, navigation }) => {
     const [BAC, setBAC] = useState(0)
     const [drinks, setDrinks] = useState((route && route.params && route.params.drinks) ?? [])
 
-    // Handles the change of BAC in children components/other pages
+    // Handles the change of BAC in children components
     const changeBAC = useCallback((newBAC) => {
         setBAC(newBAC)
     }, [])
 
+
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
 
-    // Function to determine BAC inside effects based on given BAC -> need to make async to update when BAC changes?
-    const displayInsideBACEffects = (BAC) => { 
-        let i = 0;
-        let toReturn = "";
-
-        while (i < BACLevelsEffects.length) {            
-            let BACLevelsEffectsData = BACLevelsEffects[i];
-            let minBACLevel = BACLevelsEffectsData[0];
-            let maxBACLevel = BACLevelsEffectsData[1];
-            let insideEffects = BACLevelsEffectsData[2];
-
-            if (BAC >= minBACLevel && BAC <= maxBACLevel) {
-                toReturn = "BAC: " + BAC + "\n" + insideEffects;
-                break;
-            } else {
-                i++;
-            }            
-        }
-
-        return (
-            <Text>{toReturn}</Text>
-        )
-    }
-
-    // Function to determine BAC outside effects based on given BAC -> need to make async to update when BAC changes?
-    const displayOutsideBACEffects = (BAC) => { 
-        let i = 0;
-        let toReturn = "";
-
-        while (i < BACLevelsEffects.length) {            
-            let BACLevelsEffectsData = BACLevelsEffects[i];
-            let minBACLevel = BACLevelsEffectsData[0];
-            let maxBACLevel = BACLevelsEffectsData[1];
-            let outsideEffects = BACLevelsEffectsData[3];
-
-            if (BAC >= minBACLevel && BAC <= maxBACLevel) {
-                toReturn = "BAC: " + BAC + "\n" + outsideEffects;
-                break;
-            } else {
-                i++;
-            }            
-        }
-
-        return (
-            <Text>{toReturn}</Text>
-        )
-    }
+    // Handles the change of onInside in children components
+    const toggleInsideOut = useCallback((state) => {
+        changeInsideOut(state)
+    })
 
 
-    // TEST DRINK ADDER COMMENT OUT THIS FUNCTION WHEN YOU WANT ANOTHER DRINK IN STORAGE
+    // TEST DRINK WHEN YOU WANT ANOTHER DRINK IN STORAGE
     const handleAddEntry = async () => {
 
         // Create the JSON structure for the new drink
@@ -100,29 +57,14 @@ const BACCalc = ({ route, navigation }) => {
         }
     };
 
+
     if (drinks !== []) {
         return (
             <ScrollView>
                 <View>
                     <CurrentBAC setBAC={changeBAC} BAC={BAC} drinks={drinks} />
-                    <View style={[styles.row, styles.centered, { backgroundColor: '#FFFFFF' }]}>
-                        <Pressable
-                            onPress={() => changeInsideOut(true)}
-                            accessibilityLabel="Change the description to the inside version"
-                            style={styles.whiteButton}
-                        >
-                            <Text style={onInside ? styles.yellowUnderline : ""}>Inside</Text>
-                        </Pressable>
-                        <Pressable
-                            onPress={() => changeInsideOut(false)}
-                            accessibilityLabel="Change the description to the outside version"
-                            style={styles.whiteButton}
-                        >
-                            <Text style={onInside ? "" : styles.yellowUnderline}>Out</Text>
-                        </Pressable>
-                        {/* <Text style={{ paddingBottom: 20 }}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text> */}
-                        <Text style={{ paddingBottom: 20 }}>{onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>
-                    </View>
+                    <InsideOut onInside={onInside} toggleInsideOut={toggleInsideOut} BAC={BAC} />
+                    
                     <View style={styles.redContainer}>
                         <Pressable
                             onPress={() => navigation.navigate('AddDrinkPage', { drinks: drinks })}
