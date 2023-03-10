@@ -94,6 +94,7 @@ const AddDrink = ({ route, navigation }) => {
                         value={nameInputValue}
                         onChangeText={setNameInputValue}
                         placeholder="Wine, Beer, Martini..."
+                        placeholderTextColor={'grey'}
                     />
                     <View style={styles.leftContainer}>
                         <Text>Drink Size (ml)</Text>
@@ -102,7 +103,8 @@ const AddDrink = ({ route, navigation }) => {
                         style={styles.largeTextInput}
                         value={sizeInputValue}
                         onChangeText={setSizeInputValue}
-                        placeholder="12, 45, 76..."
+                        placeholder="145, 250, 70.."
+                        placeholderTextColor={'grey'}
                     />
                     <View style={styles.leftContainer}>
                         <Text>Drink Strength (ABV) (example: 2.3 for 2.3%)</Text>
@@ -112,6 +114,7 @@ const AddDrink = ({ route, navigation }) => {
                         value={strengthInputValue}
                         onChangeText={setStrengthInputValue}
                         placeholder="2.3, 13.7, 9.65..."
+                        placeholderTextColor={'grey'}
                     />
                     <View style={styles.leftContainer}>
                         <Text>Hunger Level</Text>
@@ -161,6 +164,7 @@ const AddDrink = ({ route, navigation }) => {
                                     value={hoursInputValue}
                                     onChangeText={setHoursInputValue}
                                     placeholder="Hour"
+                                    placeholderTextColor={'grey'}
                                 />
                                 <Text> : </Text>
                                 <TextInput
@@ -168,6 +172,7 @@ const AddDrink = ({ route, navigation }) => {
                                     value={minuteInputValue}
                                     onChangeText={setMinuteInputValue}
                                     placeholder="Minute"
+                                    placeholderTextColor={'grey'}
                                 />
                                 <Pressable
                                     value="AM"
