@@ -38,7 +38,7 @@ const BACCalc = ({ route, navigation }) => {
             let insideEffects = BACLevelsEffectsData[2];
 
             if (BAC >= minBACLevel && BAC <= maxBACLevel) {
-                toReturn = "BAC: " + BAC + "\n" + insideEffects;
+                toReturn = insideEffects;
                 break;
             } else {
                 i++;
@@ -62,7 +62,7 @@ const BACCalc = ({ route, navigation }) => {
             let outsideEffects = BACLevelsEffectsData[3];
 
             if (BAC >= minBACLevel && BAC <= maxBACLevel) {
-                toReturn = "BAC: " + BAC + "\n" + outsideEffects;
+                toReturn = outsideEffects;
                 break;
             } else {
                 i++;
