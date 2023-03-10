@@ -9,6 +9,9 @@ let styles = StyleSheet.styles;
 
 
 const AddDrink = ({ route, navigation }) => {
+
+    let drinks = route.params.drinks
+
     // Holds the state of the drink added in here
     const [nameInputValue, setNameInputValue] = useState('');
     const [sizeInputValue, setSizeInputValue] = useState('');
@@ -48,10 +51,6 @@ const AddDrink = ({ route, navigation }) => {
         // Create the time of drink
         let timeOfDrink = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), (timeOfDay === 'AM' ? Number(hoursInputValue) : Number(hoursInputValue) + 12), Number(minuteInputValue))
 
-        // new Date(year, monthIndex, day, hours, minutes)
-
-        console.log(timeOfDrink.toString())
-
         // Create the JSON structure for the new drink
         let newDrink = {
             name: nameInputValue,
@@ -64,16 +63,20 @@ const AddDrink = ({ route, navigation }) => {
             timeOfDrink: timeOfDrink
         }
 
-        console.log("new drink: " + JSON.stringify(newDrink))
-
         try {
-            const existingDrinks = await AsyncStorage.getItem('drinks');
-            const drinks = existingDrinks ? JSON.parse(existingDrinks) : [];
+            // Add new drink to the ones we have and then send them to the BACCalc page
+            drinks.push(newDrink)
+            //this.route.params.drinks({ drinks: drinks})
+            navigation.navigate('BAC Calc', { drinks: drinks })  
 
-            drinks.push(JSON.stringify(newDrink));
-
-            await AsyncStorage.setItem('drinks', JSON.stringify(drinks));
-            navigation.goBack()
+            setNameInputValue('')
+            setSizeInputValue('')
+            setStrengthInputValue('')
+            setHungerValueSelected('')
+            setHoursInputValue('')
+            setMinuteInputValue('')
+            setTimeOfDay("PM")
+            
         } catch (error) {
             console.log(error);
         }
