@@ -7,7 +7,7 @@ import { useFocusEffect } from '@react-navigation/native'
 import * as StyleSheet from './styles';
 let styles = StyleSheet.styles;
 
-const CurrentBAC = ({ BAC, setBAC }) => {
+const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     let [drinksConsumed, setDrinksConsumed] = useState([])
     let [personalDetails, setPersonalDetails] = useState({})
@@ -18,21 +18,12 @@ const CurrentBAC = ({ BAC, setBAC }) => {
     // Keeps track of if the drinksConsumed and personalDetails states are both fleshed out with additional info
     let [drinksPDState, setDrinksPDState] = useState(false)
 
-
+    // Get's the personal details information from async storage
     async function getAsyncData() {
         try {
-            // Get the list of drinks from the async storage
-            const drinksListAsync = await AsyncStorage.getItem('drinks');
-            // Get the parsed version of the drinkslist (or empy array if we don't have any drinks saved)
-            let drinksList = drinksListAsync ? JSON.parse(drinksListAsync) : [];
-            
-            // TODO: get it from async storage
             const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
             // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
             let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
-
-            // Set the drinks we have to the state
-            await setDrinksConsumed(drinksList)
             // Set the personalDrinks to state
             await setPersonalDetails(personalDetailsParsed)
         } catch (error) {
@@ -43,20 +34,18 @@ const CurrentBAC = ({ BAC, setBAC }) => {
     async function addToAsyncData() {
         try {
             // ___ DRINKS CONSUMED ___
-            const fleshedOutDrinksList = drinksConsumed.map((drink) => {
-                let parsedDrink = JSON.parse(drink)
+            const fleshedOutDrinksList = drinks.map((drink) => {
                 return ({
-                    ...parsedDrink,
-                    drinkFullLife: getDrinkFullLife(parsedDrink.halfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
-                    drinkAlcoholGrams: calculateAlcoholGrams(parsedDrink.size.value, parsedDrink.strength),
-                    drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(parsedDrink.timeOfDrink, getDrinkFullLife(parsedDrink.halfLife)),
+                    ...drink,
+                    drinkFullLife: getDrinkFullLife(drink.halfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
+                    drinkAlcoholGrams: calculateAlcoholGrams(drink.size.value, drink.strength),
+                    drinkFullyAbsorbedTimeAsDateObject: getDrinkFullyAbsorbedTimeAsDateObject(drink.timeOfDrink, getDrinkFullLife(drink.halfLife)),
                     drinkUnits: 1, // only one drink, TODO try and remove this being needed later
                 })
             })
             await setDrinksConsumed(fleshedOutDrinksList)
             
             // ___ PERSONAL DETAILS ___
-
             // get the right measures for caluclating the widmark factor
             let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value * 100 : personalDetails.height.value * 0.0254
             let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
@@ -79,15 +68,32 @@ const CurrentBAC = ({ BAC, setBAC }) => {
     useFocusEffect(
         React.useCallback(() => {
             async function getAsyncDataWrapped() {
-                await getAsyncData();
-                setDrinksPDInitialState(true)
+                if (JSON.stringify(drinks) !== "[]") {
+                    await getAsyncData();
+                    setDrinksPDInitialState(true)
+                }
             }
             getAsyncDataWrapped()
         }, [])
     )
+
+    // Updateds when drinks are changed
+    // IMPLEMENTS THE SAME AS FOCUS EFFECT ABOVE
+    useEffect(() => {
+        console.log("DRINKS CHANGED SO I'm STARTING HERE")
+        async function startCalc() {
+            if (JSON.stringify(drinks) !== "[]") {
+                await getAsyncData();
+                setDrinksPDInitialState(true)
+            }
+        }
+        startCalc()
+    }, [drinks])
       
     useEffect(() => {
         async function addToAsyncDataWrapped() {
+            console.log("I'm IN THE SECOND EFFECT")
+            console.log("CURRENT BAC drinks: " + JSON.stringify(drinks))
             if (drinksPDInitialState) {
                 await addToAsyncData();
                 setDrinksPDState(true)
@@ -98,8 +104,11 @@ const CurrentBAC = ({ BAC, setBAC }) => {
 
     // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
-        if (drinksPDState) {
-            // setBAC(calculateCurrentBAC()) // comment out if necessary
+        console.log("I'm IN THE THIRD EFFECT")
+        console.log("CURRENT BAC drinks: " + JSON.stringify(drinks))
+        console.log("CURRENT BAC drinksPDState: " + drinksPDState)
+        if (drinksPDState && JSON.stringify(drinks) !== "[]") {
+            setBAC(calculateCurrentBAC())
         }
     }, [drinksPDState])
 
@@ -110,6 +119,10 @@ const CurrentBAC = ({ BAC, setBAC }) => {
         console.log("Personal Details " + JSON.stringify(personalDetails))
 
         let currentBAC = calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
+        
+        setDrinksPDInitialState(false)
+        setDrinksPDState(false)
+
         return currentBAC
     }
 
