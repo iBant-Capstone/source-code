@@ -26,7 +26,7 @@ const InsideOut = ({ onInside, toggleInsideOut, BAC }) => {
             let insideEffects = BACLevelsEffectsData[2];
 
             if (BAC >= minBACLevel && BAC <= maxBACLevel) {
-                toReturn = "BAC: " + BAC + "\n" + insideEffects;
+                toReturn = insideEffects;
                 break;
             } else {
                 i++;
@@ -50,7 +50,7 @@ const InsideOut = ({ onInside, toggleInsideOut, BAC }) => {
             let outsideEffects = BACLevelsEffectsData[3];
 
             if (BAC >= minBACLevel && BAC <= maxBACLevel) {
-                toReturn = "BAC: " + BAC + "\n" + outsideEffects;
+                toReturn = outsideEffects;
                 break;
             } else {
                 i++;
