@@ -16,7 +16,6 @@ const CalcDrinkCards = ({ drinks }) => {
   if (drinks !== []) {
     console.log(JSON.stringify(drinks))
     console.log(drinks)
-    //drinks = JSON.parse(drinks)
   }
 
   useFocusEffect(

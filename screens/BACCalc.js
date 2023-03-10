@@ -85,8 +85,8 @@ const BACCalc = ({ route, navigation }) => {
                         <CalcDrinkCards drinks={drinks}  />
                         <Pressable
                             onPress={() => {
-                                AsyncStorage.setItem('drinks', [])
                                 setDrinks([])
+                                setBAC(0)
                                 console.log("changed drinkz")
                             }}
                             accessibilityLabel="Add a drink"
@@ -94,13 +94,6 @@ const BACCalc = ({ route, navigation }) => {
                         >
                             <Text>Clear Drinks</Text>
                         </Pressable>
-                        {/* <Pressable
-                            onPress={() => setBAC(0)}
-                            accessibilityLabel="Add a drink"
-                            style={styles.whiteButton}
-                        >
-                            <Text>Set BAC to Zero</Text>
-                        </Pressable> */}
                     </View>
                 </View>
             </ScrollView>
