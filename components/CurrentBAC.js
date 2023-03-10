@@ -18,15 +18,12 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     // Keeps track of if the drinksConsumed and personalDetails states are both fleshed out with additional info
     let [drinksPDState, setDrinksPDState] = useState(false)
 
-
+    // Get's the personal details information from async storage
     async function getAsyncData() {
         try {
-            console.log("GOT INTO GET ASYNC DATA")
-            // TODO: get it from async storage
             const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
             // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
             let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
-
             // Set the personalDrinks to state
             await setPersonalDetails(personalDetailsParsed)
         } catch (error) {
@@ -35,7 +32,6 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     }
 
     async function addToAsyncData() {
-        console.log("GOT INTO ADD TO ASYNC DATA")
         try {
             // ___ DRINKS CONSUMED ___
             const fleshedOutDrinksList = drinks.map((drink) => {
@@ -50,7 +46,6 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             await setDrinksConsumed(fleshedOutDrinksList)
             
             // ___ PERSONAL DETAILS ___
-
             // get the right measures for caluclating the widmark factor
             let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value * 100 : personalDetails.height.value * 0.0254
             let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
@@ -72,13 +67,9 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     useFocusEffect(
         React.useCallback(() => {
-            console.log("I'm in the FIRST FOCUS EFFECT")
-            console.log("CURRENT BAC drinks: " + JSON.stringify(drinks))
             async function getAsyncDataWrapped() {
                 if (JSON.stringify(drinks) !== "[]") {
-                    console.log('MADE IT INTO THE FOCUS EFFECT IF STATEMENRT')
                     await getAsyncData();
-                    console.log("DrinksPdInitialState: " + drinksPDInitialState)
                     setDrinksPDInitialState(true)
                 }
             }
