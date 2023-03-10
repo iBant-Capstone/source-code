@@ -80,7 +80,6 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     // Updateds when drinks are changed
     // IMPLEMENTS THE SAME AS FOCUS EFFECT ABOVE
     useEffect(() => {
-        console.log("DRINKS CHANGED SO I'm STARTING HERE")
         async function startCalc() {
             if (JSON.stringify(drinks) !== "[]") {
                 await getAsyncData();
@@ -92,8 +91,6 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
       
     useEffect(() => {
         async function addToAsyncDataWrapped() {
-            console.log("I'm IN THE SECOND EFFECT")
-            console.log("CURRENT BAC drinks: " + JSON.stringify(drinks))
             if (drinksPDInitialState) {
                 await addToAsyncData();
                 setDrinksPDState(true)
@@ -104,9 +101,6 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
-        console.log("I'm IN THE THIRD EFFECT")
-        console.log("CURRENT BAC drinks: " + JSON.stringify(drinks))
-        console.log("CURRENT BAC drinksPDState: " + drinksPDState)
         if (drinksPDState && JSON.stringify(drinks) !== "[]") {
             setBAC(calculateCurrentBAC())
         }
@@ -114,12 +108,9 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     // initializes calculating the BAC
     function calculateCurrentBAC() {
-
-        // console.log("Drinks consumed " + drinksConsumed)
-        console.log("Personal Details " + JSON.stringify(personalDetails))
-
         let currentBAC = calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
         
+        // Resets our states that help up move through the BAC calculation
         setDrinksPDInitialState(false)
         setDrinksPDState(false)
 
@@ -130,8 +121,6 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     // _____MAIN FUNCTIONS TO CALCULATE BAC____
 
     function calculateBAC(currentDate) {
-        console.log("(calculateBAC) Current Date: " + currentDate)
-
         // Initialize the minutes we'll be iterative through
         let timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentDate, getTimeOfFirstDrinkAsDateObject())
         // Intialize BAC
@@ -139,43 +128,23 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
         // Iterate through minutes from first drink to now
         for (; timeDiffinMin >= 0;) {
-            console.log("Minute working on: " + timeDiffinMin)
-
             workingBAC += increaseBACEveryMinute(currentDate, timeDiffinMin)
-            console.log("\tworkingBAC after increase: " + workingBAC)
-
             workingBAC -= reduceBACEveryMinute(workingBAC)
-            console.log("\tworkingBAC after decrease: " + workingBAC)
-
             timeDiffinMin--
         }
 
-        console.log(workingBAC)
         return workingBAC
     }
 
     function increaseBACEveryMinute(currentDate, workingTimeDiffMin) {
-        //console.log("got into increaseBACEveryMinute")
-
         let BACtoAdd = 0
         let currentMin = setDateObjectSecondsAndMillisecondsToZero(new Date(currentDate.getTime() - 6e4 * workingTimeDiffMin))
 
-        // console.log(drinksConsumed)
-
         drinksConsumed.forEach(drink => {
-            // console.log("Got into the drinksConsumed foreach loop")
             const timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentMin, drink.timeOfDrink)
-
-            console.log("\t\tfor each timeDiffinMin: " + timeDiffinMin)
-            console.log("\t\tfor each drink.drinkFullyAbsorbedTimeAsDateObject: " + drink.drinkFullyAbsorbedTimeAsDateObject)
-            console.log("\t\tfor each currentMin: " + currentMin)
-            console.log("\t\tfor each drink.timeOfDrink " + drink.timeOfDrink)
-
             if (timeDiffinMin >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= currentMin) {
                 BACtoAdd += calculateBACToAdd(drink, timeDiffinMin)
             }  
-
-            console.log("\t\tBACtoAdd: " + BACtoAdd)
         })
 
         return BACtoAdd
@@ -190,16 +159,6 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
         let drinkAlcoholGrams = Number(drink.drinkAlcoholGrams)
         let percentAlcoholAbsorbedByMinute = calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin, drink.halfLife)
         let percentAlcoholAbsorbedByMinute2 = calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin - 1, drink.halfLife)
-
-        console.log("\t\t\tcalculateBACToAdd")
-        console.log("\t\t\tdrinkAlcoholGrams: " + drinkAlcoholGrams)
-        console.log("\t\t\tpercentAlcoholAbsorbedByMinute: " + percentAlcoholAbsorbedByMinute)
-        console.log("\t\t\tpercentAlcoholAbsorbedByMinute2: " + percentAlcoholAbsorbedByMinute2)
-        console.log("\t\t\tpersonalDetails.widmarkFactor: " + personalDetails.widmarkFactor)
-        console.log("\t\t\tpersonalDetails.weight.units: " + personalDetails.weight.unit)
-        console.log("\t\t\tpersonalDetails.weight.value: " + personalDetails.weight.value)
-        console.log("\t\t\tcalculateWeightKilograms: " + calculateWeightKilograms(personalDetails.weight.unit, personalDetails.weight.value))
-
         return (
             (percentAlcoholAbsorbedByMinute - percentAlcoholAbsorbedByMinute2) * drinkAlcoholGrams / (personalDetails.widmarkFactor * calculateWeightKilograms(personalDetails.weight.units, personalDetails.weight.value) * 1e3) * 100
         )
@@ -211,10 +170,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     }
 
     function calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin, drinkHalfLife) {
-        console.log("\t\t\t\ttimeDiffinMin: " + timeDiffinMin)
-        console.log("\t\t\t\tdrinkHalfLife: " + drinkHalfLife)
         let percentAlcoholAbsorbedByMinute = timeDiffinMin >= 0 ? (100 - 100 / 2 ** (timeDiffinMin / drinkHalfLife)) / 100 : 0
-        console.log("\t\t\t\tpercentAlcoholAbsorbedByMinute: " + percentAlcoholAbsorbedByMinute)
         return percentAlcoholAbsorbedByMinute
     }
 
@@ -225,60 +181,32 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     }
 
     function getTimeDifferenceBetweenDateObjectsInMinutes(time1, time2) {
-        console.log("time 1: " + time1)
-        console.log("time 2: " + time2)
-
         let time1DateObj = new Date(time1)
         let time2DateObj = new Date(time2)
 
         let timeDiffInMin = Math.round((time1DateObj.getTime() - time2DateObj.getTime()) / 6e4)
-
-        console.log("Time Diff In Min: " + timeDiffInMin)
-
         return timeDiffInMin
     }
 
-    function getTimeOfFirstDrinkAsDateObject() { // TODO sort array and 
-        // return drinksConsumed[drinksConsumed.length - 1].drinkConsumedTimeAsDateObject
-        console.log("drinks right before timeOfFirstDrink: " + JSON.stringify(drinksConsumed))
-
+    function getTimeOfFirstDrinkAsDateObject() { // TODO sort array and figure out actual first drink
         const firstDrink = drinksConsumed[0]
-        console.log(typeof firstDrink)
-
-        console.log(JSON.stringify(firstDrink))
-
         const timeOfFirstDrink = firstDrink.timeOfDrink
-
-        console.log("time of first drink: " + timeOfFirstDrink)
         return timeOfFirstDrink
     }
 
     // _____ FUNCTIONS TO HELP CALCULATE EITHER personalDetails or drinksConsumed _____
 
-    // TODO check with DrunkCalc to make sure
     function getDrinkFullLife(drinkHalfLife) {
-        console.log("__ drinkHalfLife: " + drinkHalfLife)
         return Math.round(6.66 * drinkHalfLife)
     }
 
     function calculateAlcoholGrams(drinkSize, drinkStrength) {
         let alcoholGrams = drinkStrength * (1e3 * drinkSize) * .789
-
-        console.log("(calculateAlcoholGrams) " + alcoholGrams)
-
         return alcoholGrams
     }
 
-    // TODO Check with DrunkCalc
     function getDrinkFullyAbsorbedTimeAsDateObject(timeConsumed, drinkFullLife) {
-        console.log("____ timeConsumed: " + timeConsumed)
-        console.log("____ drinkFullLife: " + drinkFullLife)
-
-        // Original code (subbed hard coded expressions for now, will functionalize later)
         let drinkFullyAbsorbedTimeAsDateObject = setDateObjectSecondsAndMillisecondsToZero(new Date(new Date(timeConsumed).getTime() + 6e4 * drinkFullLife))
-
-        console.log("(getDrinkFullyAbsorbedTimeAsDateObject) " + drinkFullyAbsorbedTimeAsDateObject)
-
         return drinkFullyAbsorbedTimeAsDateObject
     }
 
@@ -292,18 +220,14 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             {drinksConsumed[0] ?
                 BAC ?
                 <View style={styles.centered}>
-                    <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(3)}%</Text></Text>
-                    {/* <Pressable
-                        onPress={() => { calculateCurrentBAC() }}
-                        style={styles.centerRedButton}
-                    >
-                        <Text style={styles.mainRedButtonText}>Update BAC</Text>
-                    </Pressable> */}
+                    <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
                 </View>
                 :
                 <Text>Loading...</Text>
             :
-            <Text>Add in Drinks to Calculate BAC</Text>
+            <View style={styles.centered}>
+                <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>0.00%</Text></Text>
+            </View>
             }
         </View>  
     )
