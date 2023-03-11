@@ -51,7 +51,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
 
             let widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
-            console.log("WIDMARK: " + widmarkFactor)
+            // console.log("WIDMARK: " + widmarkFactor)
 
             const fleshedOutPersonalDetails = {
                 ...personalDetails,

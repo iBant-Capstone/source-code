@@ -14,13 +14,13 @@ let styles = StyleSheet.styles;
 const CalcDrinkCards = ({ drinks }) => {
 
   if (drinks !== []) {
-    console.log(JSON.stringify(drinks))
-    console.log(drinks)
+    // console.log(JSON.stringify(drinks))
+    // console.log(drinks)
   }
 
   useFocusEffect(
     React.useCallback(() => {
-        console.log("FOCUSING IN THE CALC DRINKS CARDS")
+        // console.log("FOCUSING IN THE CALC DRINKS CARDS")
     }, [])
 )
 

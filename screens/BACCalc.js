@@ -91,7 +91,7 @@ const BACCalc = ({ route, navigation }) => {
                             onPress={() => {
                                 setDrinks([])
                                 setBAC(0)
-                                console.log("changed drinkz")
+                                // console.log("changed drinkz")
                             }}
                             accessibilityLabel="Add a drink"
                             style={styles.whiteButton}
