@@ -50,7 +50,15 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value * 100 : personalDetails.height.value * 0.0254
             let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
 
-            let widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
+            let widmarkFactor = 0
+            
+            // Calculate the widmark factor based off of sex
+            if (personalDetails.sex == 'female') {
+                widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
+            } else {
+                widmarkFactor = calculateWidmarkFactorMale(heightInMeters, weightInKilograms)
+            }
+            
             // console.log("WIDMARK: " + widmarkFactor)
 
             const fleshedOutPersonalDetails = {
@@ -212,6 +220,10 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
     function calculateWidmarkFactorFemale(heightInMeters, weightInKilograms) {
         return .50766 + .11165 * heightInMeters - weightInKilograms * (.001612 + .0031 / (heightInMeters * heightInMeters)) - 1 / (weightInKilograms * (.62115 - 3.1665 * heightInMeters))
+    }
+
+    function calculateWidmarkFactorMale(heightInMeters, weightInKilograms) {
+        return .62544 + .13664 * heightInMeters - weightInKilograms * (.00189 + .002425 / (heightInMeters * heightInMeters)) + 1 / (weightInKilograms * (.57986 + 2.54 * heightInMeters - .02255 * 30))
     }
 
     // We first check that there are drinks to calculate and then we check to see if the BAC is calculated

@@ -82,11 +82,9 @@ const BACCalc = ({ route, navigation }) => {
                             <Text>Add TEST Drink</Text>
                         </Pressable> */}
                         {/* END COMMENTING HERE */}
-
                         <View style={{width: '100%'}}>
                             <CalcDrinkCards drinks={drinks} />
                         </View>
-
                         <Pressable
                             onPress={() => {
                                 setDrinks([])
