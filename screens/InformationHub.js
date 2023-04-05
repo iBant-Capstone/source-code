@@ -1,4 +1,6 @@
 import { Pressable, Text, View, Image } from 'react-native';
+
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Import other nav bar pages
@@ -12,9 +14,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
+
+
 // Page to be returned
 // Has different buttons for the different topics that are available on information hub
-let InfoPage = (props) => {
+export const InfoPage = (props) => {
   return (
     <View>
       <View style={styles.row}>
@@ -70,48 +74,13 @@ let InfoPage = (props) => {
   );
 }
 
-// Information Hub is the "home page of the app"
-// Create navigation bar at the bottom 
-const Tab = createBottomTabNavigator();
 
-const InformationHub = ({ navigation }) => {
+export const InformationHub = ({ navigation }) => {
   return (
     // Create Navbar with icons and routes
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-          // taking icon names straight from Ionicons
-          if (route.name === 'Information Hub') {
-            iconName = focused ? 'ios-book' : 'ios-book-outline';
-          } else if (route.name === 'BAC Calc') {
-            iconName = focused ? 'ios-calculator' : 'ios-calculator-outline';
-          } else if (route.name === 'Profile') {
-            iconName = focused ? 'ios-person' : 'ios-person-outline';
-          }
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: '#CF5260',
-        tabBarInactiveTintColor: 'black',
-        tabBarLabel: () => { return null },
-      })}
-    >
-      {/* Our three main pages */}
-      <Tab.Screen
-        name="Information Hub"
-        component={InfoPage}
-      />
-      <Tab.Screen
-        name="BAC Calc"
-        component={BACCalc}
-        options={{ tabBarVisible: true }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-      />
-    </Tab.Navigator>
+    <View>
+      <InfoPage/> 
+    </View>
+    
   );
 };
-
-export default InformationHub

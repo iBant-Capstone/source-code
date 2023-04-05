@@ -1,11 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HeaderBackButton, Header } from '@react-navigation/elements';
+import { useNavigation } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Import screens/components
 import Profile from './screens/Profile.js'
 import BACCalc from './screens/BACCalc.js'
-import InformationHub from './screens/InformationHub.js'
+import {InformationHub} from './screens/InformationHub.js'
 import InfoTopicPage from './components/InfoTopicPage.js';
 import AddDrinkPage from './screens/AddDrink.js'
 import CommonAlcoholTypes from './screens/CommonAlcoholTypes.js'
@@ -26,76 +28,192 @@ import HeightInput from './screens/onboardingScreens/HeightInput';
 import WeightInput from './screens/onboardingScreens/WeightInput';
 
 
-const Stack = createStackNavigator();
+import React from 'react';
+import {TouchableOpacity} from 'react-native';
+// Import icons
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
+
+const Stack = createStackNavigator();
+const obStack= createStackNavigator();
+const Tab= createBottomTabNavigator();
+
+
+
+// function onboardingStack() {
+
+//   return (
+//     <obStack.Navigator>
+//       <obStack.Screen
+//         name='Login1'
+//         component={LoginScreen1}
+//         options={{ 
+//           headerShown: false
+//          }}
+//       />
+//       <obStack.Screen
+//         name='Login2'
+//         component={LoginScreen2}
+//         options={{ headerShown: false }}
+//       />
+//       <obStack.Screen
+//         name='Login3'
+//         component={LoginScreen3}
+//         options={{ headerShown: false }}
+//       />
+//       <obStack.Screen
+//         name='Login4'
+//         component={LoginScreen4}
+//         options={{ headerShown: false }}
+//       />
+//       <obStack.Screen
+//         name='Login5'
+//         component={LoginScreen5}
+//         options={{ headerShown: false }}
+//       />
+//       <obStack.Screen
+//         name='Login6'
+//         component={LoginScreen6}
+//         options={{ headerShown: false }}
+//       />
+//       <obStack.Screen
+//         name='HeightInput'
+//         component={HeightInput}
+//         options={{ headerShown: false }}
+//       />
+//       <obStack.Screen
+//         name='WeightInput'
+//         component={WeightInput}
+//         options={{ headerShown: false }}
+//       />
+//       <obStack.Screen
+//         name='BiologicalSex'
+//         component={BiologicalSex}
+//         options={{ headerShown: false }}
+//       />
+//       <obStack.Screen
+//          name='InformationHub'
+//          component={NavBar}
+//          options={{ headerShown: false}}
+//       />
+//     </obStack.Navigator>
+//   );
+// }
+
+function NavBar() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+        // taking icon names straight from Ionicons
+        if (route.name === 'Information Hub') {
+            iconName = focused ? 'ios-book' : 'ios-book-outline';
+            
+        } else if (route.name === 'BAC Calc') {
+            iconName = focused ? 'ios-calculator' : 'ios-calculator-outline';
+            
+        } else if (route.name === 'Profile') {
+            iconName = focused ? 'ios-person' : 'ios-person-outline';
+            
+        }
+        return (
+        <Ionicons name={iconName} size={size} color={color} />
+            
+        );
+        },
+        tabBarActiveTintColor: '#CF5260',
+        tabBarInactiveTintColor: 'black',
+        tabBarLabel: () => { return null },
+      })}
+      >
+      {/* Our three main pages */}
+      <Tab.Screen
+          name="Information Hub"
+          component={InformationHub}
+          
+      />
+      <Tab.Screen
+          name="BAC Calc"
+          component={BACCalc}
+          
+      />
+      <Tab.Screen
+          name="Profile"
+          component={Profile}
+      />
+    </Tab.Navigator>
+  );
+}
 // Create all screens within the Stack Navigator - this will allow us to navigate to them even if they are not explicitly within the nav bar. 
 export default function App() {
+  
+  
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <obStack.Navigator>
+        <obStack.Screen
           name='Login1'
           component={LoginScreen1}
-          options={{ headerShown: false }}
+          options={{ 
+            headerShown: false
+          }}
         />
-        <Stack.Screen
+        <obStack.Screen
           name='Login2'
           component={LoginScreen2}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        <obStack.Screen
           name='Login3'
           component={LoginScreen3}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        <obStack.Screen
           name='Login4'
           component={LoginScreen4}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        <obStack.Screen
           name='Login5'
           component={LoginScreen5}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        <obStack.Screen
           name='Login6'
           component={LoginScreen6}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        <obStack.Screen
           name='HeightInput'
           component={HeightInput}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        <obStack.Screen
           name='WeightInput'
           component={WeightInput}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        <obStack.Screen
           name='BiologicalSex'
           component={BiologicalSex}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        <obStack.Screen
           name='InformationHub'
-          component={InformationHub}
-          options={{ headerShown: false }}
+          component={NavBar}
+          options={{ headerShown: false}}
         />
-        <Stack.Screen
-          name='Profile'
-          component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='BACCalc'
-          component={BACCalc}
-          options={{ 
-            headerShown: false,
-            tabBarVisible: true 
-          }}
-        />
+        
+      </obStack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+{/* <Stack.Navigator>
+       
+          
+        
         <Stack.Screen
           name='InfoTopicPage'
           component={InfoTopicPage}
@@ -139,10 +257,5 @@ export default function App() {
           component={EditProfilePage}
           options={({ route }) => ({ title: 'Edit Profile Information' })}
         />
-      </Stack.Navigator>
-
-    </NavigationContainer>
-  );
-}
-
+      </Stack.Navigator> */}
 
