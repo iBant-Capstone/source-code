@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { HeaderBackButton, Header } from '@react-navigation/elements';
-import { useNavigation } from '@react-navigation/native';
+import { HeaderBackButton } from '@react-navigation/elements';
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Import screens/components
@@ -27,21 +27,22 @@ import BiologicalSex from './screens/onboardingScreens/BiologicalSexInput';
 import HeightInput from './screens/onboardingScreens/HeightInput';
 import WeightInput from './screens/onboardingScreens/WeightInput';
 
-
-import React from 'react';
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
-const Stack = createStackNavigator();
-const obStack= createStackNavigator();
+// creating navigators for each of our sections
+// ob = onboarding
+// info = information hub
+// profile = profile
+// bac = BAC pages
+// tab = our main nav bar 
 const Tab= createBottomTabNavigator();
-
+const obStack= createStackNavigator();
 const infoStack = createStackNavigator();
 const profileStack = createStackNavigator();
 const bacStack = createStackNavigator();
 
-
+// the info stack contains all the pages that cannot be accessed from the Information Hub -- do not include pages that are linked through profile or BACCalc
 function info() {
   return (
   <infoStack.Navigator>
@@ -64,6 +65,8 @@ function info() {
   </infoStack.Navigator>
   );
 }
+
+// the info stack contains all the pages that cannot be accessed from the Profile -- do not include pages that are linked through InfoHub or BACCalc
 function profile() {
   return (
   <profileStack.Navigator>
@@ -77,7 +80,7 @@ function profile() {
       component={OurMission}
       options={({ route }) => ({ title: 'Our Mission' })}
     />
-    <Stack.Screen
+    <profileStack.Screen
       name='HowToUse'
       component={HowToUse}
       options={({ route }) => ({ title: 'How to Use' })}
@@ -95,6 +98,8 @@ function profile() {
   </profileStack.Navigator>
   );
 }
+
+// the info stack contains all the pages that cannot be accessed from the BACCalc -- do not include pages that are linked through InfoHub or Profile
 function bac() {
   return(
   <bacStack.Navigator>
@@ -113,7 +118,8 @@ function bac() {
 }
 
 
-
+// the tab navigator - links to all the other stacks 
+// constant across all pages
 function NavBar() {
   return (
     <Tab.Navigator
@@ -168,7 +174,7 @@ function NavBar() {
 // Create all screens within the Stack Navigator - this will allow us to navigate to them even if they are not explicitly within the nav bar. 
 export default function App() {
   
-  
+  // app starts with the onboarding stack and then links to the welcome/infohub page
   return (
     <NavigationContainer>
       <obStack.Navigator>
@@ -238,10 +244,4 @@ export default function App() {
   );
 }
 
-{/* <Stack.Navigator>
-       
-          
-        
-       
-      </Stack.Navigator> */}
 
