@@ -63,6 +63,7 @@ const BACCalc = ({ route, navigation }) => {
             <ScrollView>
                 <View>
                     <CurrentBAC setBAC={changeBAC} BAC={BAC} drinks={drinks} />
+
                     <InsideOut onInside={onInside} toggleInsideOut={toggleInsideOut} BAC={BAC} />
                     
                     <View style={styles.redContainer}>
@@ -82,11 +83,9 @@ const BACCalc = ({ route, navigation }) => {
                             <Text>Add TEST Drink</Text>
                         </Pressable> */}
                         {/* END COMMENTING HERE */}
-
                         <View style={{width: '100%'}}>
                             <CalcDrinkCards drinks={drinks} />
                         </View>
-
                         <Pressable
                             onPress={() => {
                                 setDrinks([])
@@ -99,6 +98,24 @@ const BACCalc = ({ route, navigation }) => {
                             <Text>Clear Drinks</Text>
                         </Pressable>
                     </View>
+
+                    <View>
+                        <Text style={styles.redBoldText}>Get Home Safely</Text>
+                        <Text>For your own safety and for the safety of everyone else on the road, please don't drink and drive regardless of whether your BAC is below the federal limit. We recommend getting an Uber, calling someone you trust, walking, or using public transport instead.</Text>
+                        <Pressable style={styles.whiteButton}>
+                            <Text>Call an Uber</Text>
+                        </Pressable>
+                        <Pressable style={styles.whiteButton}>
+                            <Text>Find public transport</Text>
+                        </Pressable>
+                        <Pressable style={styles.whiteButton}>
+                            <Text>DUI Laws Resource</Text>
+                        </Pressable>
+                        <Pressable style={styles.whiteButton}>
+                            <Text>BAC Resource</Text>
+                        </Pressable>
+                    </View>
+
                 </View>
             </ScrollView>
         );
