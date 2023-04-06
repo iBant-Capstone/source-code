@@ -30,6 +30,9 @@ import WeightInput from './screens/onboardingScreens/WeightInput';
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+// Import fonts
+import { useFonts } from 'expo-font';
+
 // creating navigators for each of our sections
 // ob = onboarding
 // info = information hub
@@ -173,6 +176,11 @@ function NavBar() {
 
 // Create all screens within the Stack Navigator - this will allow us to navigate to them even if they are not explicitly within the nav bar. 
 export default function App() {
+
+  // For fonts
+  const [fontsLoaded] = useFonts({
+    'Roboto': require('./assets/fonts/Roboto-Regular.ttf'),
+  });
   
   // app starts with the onboarding stack and then links to the welcome/infohub page
   return (
