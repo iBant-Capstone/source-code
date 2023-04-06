@@ -12,6 +12,7 @@ let styles = StyleSheet.styles;
 
 // Page to return
 const BiologicalSex = ({ navigation }) => {
+    
     // const [personalDetails, setPersonalDetails] = useState({})
     const [hasFocused, setHasFocused] = useState(false);
 

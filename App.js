@@ -29,7 +29,6 @@ import WeightInput from './screens/onboardingScreens/WeightInput';
 
 
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -38,67 +37,82 @@ const Stack = createStackNavigator();
 const obStack= createStackNavigator();
 const Tab= createBottomTabNavigator();
 
+const infoStack = createStackNavigator();
+const profileStack = createStackNavigator();
+const bacStack = createStackNavigator();
 
 
-// function onboardingStack() {
+function info() {
+  return (
+  <infoStack.Navigator>
+    <infoStack.Screen
+      name='InformationHub'
+      component={InformationHub}
+      options={({ route }) => ({ title: 'Information Hub' })}
+    />
+    <infoStack.Screen
+      name='InfoTopicPage'
+      component={InfoTopicPage}
+      options={({ route }) => ({ title: route.params.title })}
+    />
+    <infoStack.Screen
+      name='CommonAlcoholTypes'
+      component={CommonAlcoholTypes}
+      options={({ route }) => ({ title: 'Common Alcohol Types' })}
+    />
+    
+  </infoStack.Navigator>
+  );
+}
+function profile() {
+  return (
+  <profileStack.Navigator>
+     <profileStack.Screen
+      name='Profile'
+      component={Profile}
+      options={({ route }) => ({ title: 'Profile' })}
+    />
+    <profileStack.Screen
+      name='OurMission'
+      component={OurMission}
+      options={({ route }) => ({ title: 'Our Mission' })}
+    />
+    <Stack.Screen
+      name='HowToUse'
+      component={HowToUse}
+      options={({ route }) => ({ title: 'How to Use' })}
+    />
+    <profileStack.Screen
+      name='OurSources'
+      component={OurSources}
+      options={({ route }) => ({ title: 'Our Sources' })}
+    />
+    <profileStack.Screen
+      name='EditProfilePage'
+      component={EditProfilePage}
+      options={({ route }) => ({ title: 'Edit Profile Information' })}
+    />
+  </profileStack.Navigator>
+  );
+}
+function bac() {
+  return(
+  <bacStack.Navigator>
+    <bacStack.Screen
+      name='BACCalc'
+      component={BACCalc}
+      options={({ route }) => ({ title: 'BAC Calculator' })}
+    />
+    <bacStack.Screen
+      name='AddDrinkPage'
+      component={AddDrinkPage}
+      options={({ route }) => ({ title: 'Add Drink' })}
+    />
+  </bacStack.Navigator>
+  );
+}
 
-//   return (
-//     <obStack.Navigator>
-//       <obStack.Screen
-//         name='Login1'
-//         component={LoginScreen1}
-//         options={{ 
-//           headerShown: false
-//          }}
-//       />
-//       <obStack.Screen
-//         name='Login2'
-//         component={LoginScreen2}
-//         options={{ headerShown: false }}
-//       />
-//       <obStack.Screen
-//         name='Login3'
-//         component={LoginScreen3}
-//         options={{ headerShown: false }}
-//       />
-//       <obStack.Screen
-//         name='Login4'
-//         component={LoginScreen4}
-//         options={{ headerShown: false }}
-//       />
-//       <obStack.Screen
-//         name='Login5'
-//         component={LoginScreen5}
-//         options={{ headerShown: false }}
-//       />
-//       <obStack.Screen
-//         name='Login6'
-//         component={LoginScreen6}
-//         options={{ headerShown: false }}
-//       />
-//       <obStack.Screen
-//         name='HeightInput'
-//         component={HeightInput}
-//         options={{ headerShown: false }}
-//       />
-//       <obStack.Screen
-//         name='WeightInput'
-//         component={WeightInput}
-//         options={{ headerShown: false }}
-//       />
-//       <obStack.Screen
-//         name='BiologicalSex'
-//         component={BiologicalSex}
-//         options={{ headerShown: false }}
-//       />
-//       <obStack.Screen
-//          name='InformationHub'
-//          component={NavBar}
-//          options={{ headerShown: false}}
-//       />
-//     </obStack.Navigator>
-//   );
-// }
+
 
 function NavBar() {
   return (
@@ -130,21 +144,27 @@ function NavBar() {
       {/* Our three main pages */}
       <Tab.Screen
           name="Information Hub"
-          component={InformationHub}
+          component={info}
+          options={{ headerShown: false}}
           
       />
       <Tab.Screen
           name="BAC Calc"
-          component={BACCalc}
+          component={bac}
+          options={{ headerShown: false}}
           
       />
       <Tab.Screen
           name="Profile"
-          component={Profile}
-      />
+          component={profile}
+          options={{ headerShown: false}}
+      /> 
+
     </Tab.Navigator>
   );
 }
+
+
 // Create all screens within the Stack Navigator - this will allow us to navigate to them even if they are not explicitly within the nav bar. 
 export default function App() {
   
@@ -200,6 +220,14 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <obStack.Screen
+          name='Welcome'
+          component={HowToUse}
+          options={({ navigation }) => ({
+            title: 'Welcome to BACtracker',
+            headerLeft: () => (<HeaderBackButton onPress={() => navigation.navigate('InformationHub')} />)
+          })}
+        />
+        <obStack.Screen
           name='InformationHub'
           component={NavBar}
           options={{ headerShown: false}}
@@ -214,48 +242,6 @@ export default function App() {
        
           
         
-        <Stack.Screen
-          name='InfoTopicPage'
-          component={InfoTopicPage}
-          options={({ route }) => ({ title: route.params.title })}
-        />
-        <Stack.Screen
-          name='AddDrinkPage'
-          component={AddDrinkPage}
-          options={({ route }) => ({ title: 'Add Drink' })}
-        />
-        <Stack.Screen
-          name='CommonAlcoholTypes'
-          component={CommonAlcoholTypes}
-          options={({ route }) => ({ title: 'Common Alcohol Types' })}
-        />
-        <Stack.Screen
-          name='HowToUse'
-          component={HowToUse}
-          options={({ route }) => ({ title: 'How to Use' })}
-        />
-        <Stack.Screen
-          name='Welcome'
-          component={HowToUse}
-          options={({ navigation }) => ({
-            title: 'Welcome to BACtracker',
-            headerLeft: () => (<HeaderBackButton onPress={() => navigation.navigate('InformationHub')} />)
-          })}
-        />
-        <Stack.Screen
-          name='OurMission'
-          component={OurMission}
-          options={({ route }) => ({ title: 'Our Mission' })}
-        />
-        <Stack.Screen
-          name='OurSources'
-          component={OurSources}
-          options={({ route }) => ({ title: 'Our Sources' })}
-        />
-        <Stack.Screen
-          name='EditProfilePage'
-          component={EditProfilePage}
-          options={({ route }) => ({ title: 'Edit Profile Information' })}
-        />
+       
       </Stack.Navigator> */}
 

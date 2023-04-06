@@ -19,6 +19,7 @@ let styles = StyleSheet.styles;
 // Page to be returned
 // Has different buttons for the different topics that are available on information hub
 export const InfoPage = (props) => {
+  
   return (
     <View>
       <View style={styles.row}>
@@ -76,10 +77,10 @@ export const InfoPage = (props) => {
 
 
 export const InformationHub = ({ navigation }) => {
+  console.log("Information Hub page")
   return (
-    // Create Navbar with icons and routes
     <View>
-      <InfoPage/> 
+      <InfoPage navigation={navigation}/> 
     </View>
     
   );
