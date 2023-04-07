@@ -71,15 +71,6 @@ export const InfoPage = (props) => {
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Resources' })}>
           <Text style={styles.mainRedButtonText}>Resources</Text>
         </Pressable>
-        <Pressable
-          onPress={() => {
-            AsyncStorage.removeItem('drinks')
-          }}
-          accessibilityLabel="Clear Drinks"
-          style={styles.whiteButton}
-      >
-          <Text>Clear Drinks</Text>
-      </Pressable>
       </View>
     </View >
   );
