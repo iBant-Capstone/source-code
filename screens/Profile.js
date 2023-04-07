@@ -53,53 +53,52 @@ const Profile = (props) => {
 
     return (
         <View>
-            <View style={styles.row}>
-                <Image style={styles.rosieLeftImage} source={require('../assets/avatars/Curious_Rosie_shadow.png')} resizeMode='contain' />
-                <Text style={styles.rosieSpeechRight}>Edit your profile information or learn more about BACtracker!</Text>
-                <View style={styles.titleContainer}>
-                    <TitleText name={"Test"} key={1} />
-                </View>
-
+            <View style={styles.titleContainer}>
+                <TitleText name={"Profile"} key={1} />
+                <Image style={styles.rosieRightImage} source={require('../assets/avatars/Curious_Rosie.png')} resizeMode='contain' />
             </View>
 
             {/* Waits for the personaldetails to have been gathered and set before we show the profile section */}
             {hasFocused ?
-                <View style={styles.aboutButton} >
-                    <Table>
-                        <TableWrapper style={{ flexDirection: 'row' }}>
-                            <Cell data={"Height: "} width={100} textStyle={styles.mainRedButtonText} />
-                            {/* Different displays based on if personal details are empty, the units are cm, or units are ft*/}
-                            {personalDetails["height"]["unit"] === '' ?
-                                <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
-                                :
-                                (
-                                    personalDetails["height"]["unit"] === 'cm' ?
-                                        <Cell data={personalDetails["height"]["value"] + " cm"} width={100} textStyle={styles.mainRedButtonText} />
-                                        :
-                                        <Cell data={Math.floor((Number(personalDetails["height"]["value"]) / 12)) + " ft  " + personalDetails["height"]["value"] % 12 + " in"} width={100} textStyle={styles.mainRedButtonText} />
-                                )
-                            }
-                        </TableWrapper>
-                        <TableWrapper style={{ flexDirection: 'row' }}>
-                            <Cell data={"Weight: "} width={100} textStyle={styles.mainRedButtonText} />
-                            {/* Different displays based on if personal details are empty or not */}
-                            {personalDetails["weight"]["value"] === '' ?
-                                <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
-                                :
-                                <Cell data={personalDetails["weight"]["value"] + " " + personalDetails["weight"]["unit"]} width={100} textStyle={styles.mainRedButtonText} />
-                            }
-                            <Cell data={<Pressable style={styles.profileEditButton} width={100} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
-                        </TableWrapper>
-                        <TableWrapper style={{ flexDirection: 'row' }}>
-                            <Cell data={"Biological Sex: "} width={100} textStyle={styles.mainRedButtonText} />
-                            {/* Different displays based on if personal details are empty or not */}
-                            {personalDetails["sex"] === '' ?
-                                <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
-                                :
-                                <Cell data={personalDetails["sex"]} width={100} textStyle={styles.mainRedButtonText} />
-                            }
-                        </TableWrapper>
-                    </Table>
+                <View style={styles.centered}>
+                    <Text style={{marginBottom: 15}}>Edit your profile information or learn more about BACtracker!</Text>
+                    <View style={styles.aboutButton} >
+                        <Table>
+                            <TableWrapper style={{ flexDirection: 'row' }}>
+                                <Cell data={"Height: "} width={100} textStyle={styles.mainRedButtonText} />
+                                {/* Different displays based on if personal details are empty, the units are cm, or units are ft*/}
+                                {personalDetails["height"]["unit"] === '' ?
+                                    <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
+                                    :
+                                    (
+                                        personalDetails["height"]["unit"] === 'cm' ?
+                                            <Cell data={personalDetails["height"]["value"] + " cm"} width={100} textStyle={styles.mainRedButtonText} />
+                                            :
+                                            <Cell data={Math.floor((Number(personalDetails["height"]["value"]) / 12)) + " ft  " + personalDetails["height"]["value"] % 12 + " in"} width={100} textStyle={styles.mainRedButtonText} />
+                                    )
+                                }
+                            </TableWrapper>
+                            <TableWrapper style={{ flexDirection: 'row' }}>
+                                <Cell data={"Weight: "} width={100} textStyle={styles.mainRedButtonText} />
+                                {/* Different displays based on if personal details are empty or not */}
+                                {personalDetails["weight"]["value"] === '' ?
+                                    <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
+                                    :
+                                    <Cell data={personalDetails["weight"]["value"] + " " + personalDetails["weight"]["unit"]} width={100} textStyle={styles.mainRedButtonText} />
+                                }
+                                <Cell data={<Pressable style={styles.profileEditButton} width={100} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
+                            </TableWrapper>
+                            <TableWrapper style={{ flexDirection: 'row' }}>
+                                <Cell data={"Biological Sex: "} width={100} textStyle={styles.mainRedButtonText} />
+                                {/* Different displays based on if personal details are empty or not */}
+                                {personalDetails["sex"] === '' ?
+                                    <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
+                                    :
+                                    <Cell data={personalDetails["sex"]} width={100} textStyle={styles.mainRedButtonText} />
+                                }
+                            </TableWrapper>
+                        </Table>
+                    </View>
                 </View>
                 :
                 <View><Text>Loading...</Text></View>

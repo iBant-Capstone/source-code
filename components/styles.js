@@ -113,6 +113,11 @@ export const styles = StyleSheet.create({
     marginLeft: '5%',
     marginVertical: 10
   },
+  rosieRightImage: {
+    width: '48%',
+    marginRight: '5%',
+    marginVertical: 10
+  },
   rosieSpeechRight: {
     maxWidth: '40%',
     marginRight: '5%',
@@ -456,13 +461,18 @@ export const styles = StyleSheet.create({
     fontSize: 32,
     color: '#fff',
     fontFamily: 'Roboto-Bold',
-
+    width: '40%',
+    marginLeft: '5%',
+    marginRight: '2%',
+    marginVertical: 50
   },
   titleContainer: {
     paddingHorizontal: 6,
     paddingTop: 25,
     backgroundColor: "#CF5260",
-    width: '100%'
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   }
 
 }

@@ -76,7 +76,7 @@ function ProfileStackComponent() {
      <profileStack.Screen
       name='Profile'
       component={Profile}
-      options={({ route }) => ({ title: 'Profile', headerBackVisible: false })}
+      options={({ route }) => ({ headerShown: false })}
     />
     <profileStack.Screen
       name='OurMission'
