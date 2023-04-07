@@ -1,5 +1,6 @@
 import { Pressable, Text, View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Import other nav bar pages
 import Profile from './Profile'
@@ -65,6 +66,15 @@ let InfoPage = (props) => {
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Resources' })}>
           <Text style={styles.mainRedButtonText}>Resources</Text>
         </Pressable>
+        <Pressable
+          onPress={() => {
+            AsyncStorage.removeItem('drinks')
+          }}
+          accessibilityLabel="Clear Drinks"
+          style={styles.whiteButton}
+      >
+          <Text>Clear Drinks</Text>
+      </Pressable>
       </View>
     </View >
   );

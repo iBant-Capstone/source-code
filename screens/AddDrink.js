@@ -64,9 +64,16 @@ const AddDrink = ({ route, navigation }) => {
         }
 
         try {
-            // Add new drink to the ones we have and then send them to the BACCalc page
+            // Add new drink to the ones we got from the route
             drinks.push(newDrink)
-            //this.route.params.drinks({ drinks: drinks})
+
+            let drinksToSend = JSON.stringify(drinks)
+
+            // Push the new list to async storage
+            await AsyncStorage.setItem('drinks', drinksToSend)
+
+            console.log("should have sent drinks")
+            
             navigation.navigate('BAC Calc', { drinks: drinks })  
 
             setNameInputValue('')

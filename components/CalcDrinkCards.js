@@ -13,16 +13,8 @@ let styles = StyleSheet.styles;
 // React component displaying all the drinks
 const CalcDrinkCards = ({ drinks }) => {
 
-  if (drinks !== []) {
-    // console.log(JSON.stringify(drinks))
-    // console.log(drinks)
-  }
-
-  useFocusEffect(
-    React.useCallback(() => {
-        // console.log("FOCUSING IN THE CALC DRINKS CARDS")
-    }, [])
-)
+  console.log("in calc drink")
+  console.log("drinks: " + JSON.stringify(drinks))
 
   if (drinks !== []) {
     return (

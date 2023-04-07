@@ -17,13 +17,64 @@ let styles = StyleSheet.styles;
 const BACCalc = ({ route, navigation }) => {
 
     const [BAC, setBAC] = useState(0)
-    const [drinks, setDrinks] = useState((route && route.params && route.params.drinks) ?? [])
+    const [drinks, setDrinks] = useState(null)
+
+    const [drinksReady, changeDrinksReady] = useState(false)
+
+    // useFocusEffect(
+    //     useCallback(() => {
+    //         // Callback function to set the drinks state
+    //         const getAsyncDrinks = async () => {
+    //             try {
+    //                 const asyncStorageData = await AsyncStorage.getItem("drinks") 
+    //                 const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
+    //                 setDrinks(asyncStorageParsed)
+    //             } catch (err) {
+    //                 console.log(err)
+    //             }
+    //         }
+    //         getAsyncDrinks()
+    //     })
+    // )
+
+    // Gets drinks from async storage
+    useEffect(() => {
+        const getAsyncDrinks = async () => {
+            try {
+                const asyncStorageData = await AsyncStorage.getItem("drinks") 
+                const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
+                await setDrinks(asyncStorageParsed)
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        getAsyncDrinks()
+    }, [])
+
+
+    // Checks if we've successfully uploaded drinks from async storage
+    useEffect(() => {
+        if (drinks !== null) {
+            console.log("BACCALC.js -- drinks changed", drinks)
+            changeDrinksReady(true)
+        }
+    }, [drinks])
+
+
+
+    // Check when BAC is changed
+    useEffect(() => {
+        if (BAC !== 0) {
+            console.log("BAC changed", BAC)
+        }
+    }, [BAC])
+
+
 
     // Handles the change of BAC in children components
     const changeBAC = useCallback((newBAC) => {
         setBAC(newBAC)
     }, [])
-
 
     // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
     const [onInside, changeInsideOut] = useState(true)
@@ -33,32 +84,31 @@ const BACCalc = ({ route, navigation }) => {
         changeInsideOut(state)
     })
 
-
     // TEST DRINK WHEN YOU WANT ANOTHER DRINK IN STORAGE
-    const handleAddEntry = async () => {
+    // const handleAddEntry = async () => {
 
-        // Create the JSON structure for the new drink
-        let newDrink = {
-            name: "testName",
-            size: {
-                unit: "ml",
-                value: 15
-            },
-            strength: 12 / 100,
-            halfLife: 6,
-            timeOfDrink: "2023-03-09T06:30:00.000Z"
-        }
+    //     // Create the JSON structure for the new drink
+    //     let newDrink = {
+    //         name: "testName",
+    //         size: {
+    //             unit: "ml",
+    //             value: 15
+    //         },
+    //         strength: 12 / 100,
+    //         halfLife: 6,
+    //         timeOfDrink: "2023-03-09T06:30:00.000Z"
+    //     }
 
-        try {
-            let newDrinks = [...drinks, newDrink]
-            setDrinks(newDrinks)
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    //     try {
+    //         let newDrinks = [...drinks, newDrink]
+    //         setDrinks(newDrinks)
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
 
-    if (drinks !== []) {
+    if (drinksReady) {
         return (
             <ScrollView>
                 <View>
@@ -68,7 +118,10 @@ const BACCalc = ({ route, navigation }) => {
                     
                     <View style={styles.redContainer}>
                         <Pressable
-                            onPress={() => navigation.navigate('AddDrinkPage', { drinks: drinks })}
+                            onPress={() => {
+                                console.log("pressed")
+                                navigation.navigate('AddDrinkPage', { drinks: drinks })
+                            }}
                             accessibilityLabel="Add a drink"
                             style={[styles.whiteButton, { marginTop: -20 }]}
                         >
