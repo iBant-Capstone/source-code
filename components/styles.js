@@ -114,7 +114,7 @@ export const styles = StyleSheet.create({
     marginVertical: 10
   },
   rosieRightImage: {
-    width: '48%',
+    width: '38%',
     marginRight: '5%',
     marginVertical: 10
   },
@@ -461,7 +461,7 @@ export const styles = StyleSheet.create({
     fontSize: 32,
     color: '#fff',
     fontFamily: 'Roboto-Bold',
-    width: '40%',
+    width: '50%',
     marginLeft: '5%',
     marginRight: '2%',
     marginVertical: 50
