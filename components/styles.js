@@ -1,6 +1,8 @@
 //using this as our stylesheet 
 import { StyleSheet } from 'react-native'
+import {Dimensions} from 'react-native';
 
+const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
   // Styling components for overall items
@@ -51,6 +53,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    flexGrow: 1
+  },
+  pageFillContainer: {
+    flex: 1, 
+    flexDirection: 'column', 
+    minHeight: windowHeight
   },
 
   // TEXT INPUT STYLING
@@ -442,6 +450,19 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+
+  title: {
+    fontSize: 32,
+    color: '#fff',
+    fontFamily: 'Roboto-Bold',
+
+  },
+  titleContainer: {
+    paddingHorizontal: 6,
+    paddingTop: 25,
+    backgroundColor: "#CF5260",
+    width: '100%'
   }
 
 }

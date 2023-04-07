@@ -180,6 +180,7 @@ export default function App() {
   // For fonts
   const [fontsLoaded] = useFonts({
     'Roboto': require('./assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf')
   });
   
   // app starts with the onboarding stack and then links to the welcome/infohub page
