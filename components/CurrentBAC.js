@@ -99,6 +99,8 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
         addToAsyncDataWrapped()
     }, [drinksPDInitialState]);
 
+
+    
     // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
         if (drinksPDState && JSON.stringify(drinks) !== "[]") {

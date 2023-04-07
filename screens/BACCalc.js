@@ -35,7 +35,6 @@ const BACCalc = ({ navigation }) => {
 
     // Checks async storage and refreshes the 
     useEffect(() => {
-        //console.log("BACCalc.js ---- drinksReady useEffect, drinks ready changed", drinks)
         if (!drinksReady) {
             const getAsyncDrinks = async () => {
                 try {
