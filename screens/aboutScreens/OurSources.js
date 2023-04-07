@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Text, View, Linking, Alert } from 'react-native';
+import { Text, View, Linking, Alert, ScrollView } from 'react-native';
 import { Table, TableWrapper, Cell } from 'react-native-table-component'
 
 // import all sources from json
@@ -25,8 +25,8 @@ const URLLink = ({ id, name, url }) => {
     }, [url]);
 
     return (
-        <TableWrapper style={{flexDirection: 'row'}}>
-            <Cell data={id} width={35} textStyle={styles.tableId}/>
+        <TableWrapper style={{ flexDirection: 'row' }}>
+            <Cell data={id} width={35} textStyle={styles.tableId} />
             <Cell data={name} textStyle={styles.link} onPress={handlePress} />
         </TableWrapper>
     );
@@ -35,15 +35,17 @@ const URLLink = ({ id, name, url }) => {
 // Page to return
 const OurSources = () => {
     return (
-        <View style={styles.centered}>
-            <Text style={{marginBottom: 10}}>Below are a list of our sources used to create this app</Text>
-            <Table>
-                {sources.map((source) => {
-                    return (
-                        <URLLink key={source.id} id={source.id} name={source.name} url={source.url} />)
-                })}
-            </Table>
-        </View>
+        <ScrollView>
+            <View style={styles.centered}>
+                <Text style={{ marginBottom: 10 }}>Below are a list of our sources used to create this app</Text>
+                <Table>
+                    {sources.map((source) => {
+                        return (
+                            <URLLink key={source.id} id={source.id} name={source.name} url={source.url} />)
+                    })}
+                </Table>
+            </View>
+        </ScrollView>
     );
 };
 

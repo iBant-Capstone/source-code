@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Text, View, Pressable, ScrollView, FlatList } from 'react-native';
+import { Text, View, Pressable, ScrollView, FlatList, Linking } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -95,6 +95,35 @@ const BACCalc = ({ route, navigation }) => {
                             style={styles.whiteButton}
                         >
                             <Text>Clear Drinks</Text>
+                        </Pressable>
+                    </View>
+
+                    <View>
+                        <Text style={styles.redBoldText}>Get Home Safely</Text>
+                        <Text>For your own safety and for the safety of everyone else on the road, please don't drink and drive regardless of whether your BAC is below the federal limit. We recommend getting an Uber, riding with a designated driver, calling someone you trust, walking, or using public transit instead.</Text>
+                        <Pressable 
+                            onPress={() => Linking.openURL("https://www.uber.com/")}
+                            accessibilityLabel="Call an Uber"
+                            style={styles.whiteButton}>
+                            <Text>Call an Uber</Text>
+                        </Pressable>
+                        <Pressable 
+                            onPress={() => Linking.openURL("https://www.google.com/maps")}
+                            accessibilityLabel="Find public transit"
+                            style={styles.whiteButton}>
+                            <Text>Find public transit</Text>
+                        </Pressable>
+                        <Pressable 
+                            onPress={() => Linking.openURL("https://www.findlaw.com/dui/laws-resources/comparing-state-dui-laws.html")}
+                            accessibilityLabel="DUI Laws Resource"
+                            style={styles.whiteButton}>
+                            <Text>DUI Laws Resource</Text>
+                        </Pressable>
+                        <Pressable 
+                            onPress={() => Linking.openURL("https://vaden.stanford.edu/super/learn/alcohol-drug-info/reduce-your-risk/what-blood-alcohol-concentration-bac")}
+                            accessibilityLabel="BAC Resource"
+                            style={styles.whiteButton}>
+                            <Text>BAC Resource</Text>
                         </Pressable>
                         <View style={{ backgroundColor: '#FFFFFF', padding: 15, maxWidth: '90%', borderRadius: 15 }}>
                             <Text style={styles.redBoldText}>Get Home Safely</Text>

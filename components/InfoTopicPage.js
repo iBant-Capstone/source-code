@@ -111,14 +111,14 @@ const InfoTopicPage = ({ route }) => {
             const imageUrl = require('../assets/images/Standard_Drink_Sizes.png')
             // Return View component with Text and Image
             return (
-                <View>
+                <ScrollView>
                     <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>Standard Drink Sizes Visualized</Text>
                     <Image
                         source={imageUrl}
                         style={[styles.standardDrinkImg, styles.specialInfoItem]}
                         resizeMode='cover'
                     />
-                </View>
+                </ScrollView>
             )
         }
     }
@@ -141,6 +141,7 @@ const InfoTopicPage = ({ route }) => {
 
     // Return page view
     return (
+        <ScrollView>
         <View style={styles.centered}>
             <ScrollView>
                 {listDataSource.map((item, key) => (
@@ -158,6 +159,7 @@ const InfoTopicPage = ({ route }) => {
                 </View>
             </ScrollView>
         </View>
+        </ScrollView>
     )
 }
 

@@ -46,13 +46,13 @@ const profileStack = createStackNavigator();
 const bacStack = createStackNavigator();
 
 // the info stack contains all the pages that cannot be accessed from the Information Hub -- do not include pages that are linked through profile or BACCalc
-function info() {
+function InfoStackComponent() {
   return (
   <infoStack.Navigator>
     <infoStack.Screen
       name='InformationHub'
       component={InformationHub}
-      options={({ route }) => ({ title: 'Information Hub' })}
+      options={({ route }) => ({ title: 'Information Hub', headerBackVisible: false  })}
     />
     <infoStack.Screen
       name='InfoTopicPage'
@@ -69,14 +69,14 @@ function info() {
   );
 }
 
-// the info stack contains all the pages that cannot be accessed from the Profile -- do not include pages that are linked through InfoHub or BACCalc
-function profile() {
+// the Profile stack contains all the pages that cannot be accessed from the Profile -- do not include pages that are linked through InfoHub or BACCalc
+function ProfileStackComponent() {
   return (
   <profileStack.Navigator>
      <profileStack.Screen
       name='Profile'
       component={Profile}
-      options={({ route }) => ({ title: 'Profile' })}
+      options={({ route }) => ({ title: 'Profile', headerBackVisible: false })}
     />
     <profileStack.Screen
       name='OurMission'
@@ -103,13 +103,13 @@ function profile() {
 }
 
 // the info stack contains all the pages that cannot be accessed from the BACCalc -- do not include pages that are linked through InfoHub or Profile
-function bac() {
+function BACStackComponent() {
   return(
   <bacStack.Navigator>
     <bacStack.Screen
       name='BACCalc'
       component={BACCalc}
-      options={({ route }) => ({ title: 'BAC Calculator' })}
+      options={({ route }) => ({ title: 'BAC Calculator', headerBackVisible: false })}
     />
     <bacStack.Screen
       name='AddDrinkPage'
@@ -153,20 +153,21 @@ function NavBar() {
       {/* Our three main pages */}
       <Tab.Screen
           name="Information Hub"
-          component={info}
-          options={{ headerShown: false}}
+          component={InfoStackComponent}
+          options={({ route }) => ({  headerShown: false, headerBackVisible: false  })}
           
       />
       <Tab.Screen
           name="BAC Calc"
-          component={bac}
-          options={{ headerShown: false}}
+          component={BACStackComponent}
+          options={({ route }) => ({  headerShown: false, headerBackVisible: false  })}
           
       />
       <Tab.Screen
           name="Profile"
-          component={profile}
-          options={{ headerShown: false}}
+          component={ProfileStackComponent}
+          options={({ route }) => ({  headerShown: false, headerBackVisible: false  })}
+          
       /> 
 
     </Tab.Navigator>
@@ -245,7 +246,7 @@ export default function App() {
         <obStack.Screen
           name='InformationHub'
           component={NavBar}
-          options={{ headerShown: false}}
+          options={() => ({ headerShown: false, headerBackVisible: false})}
         />
         
       </obStack.Navigator>
