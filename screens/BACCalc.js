@@ -12,9 +12,8 @@ import InsideOut from '../components/InsideOut';
 import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
-
-
 const BACCalc = ({ route, navigation }) => {
+
 
     const [BAC, setBAC] = useState(0)
     const [drinks, setDrinks] = useState((route && route.params && route.params.drinks) ?? [])
@@ -61,11 +60,11 @@ const BACCalc = ({ route, navigation }) => {
     if (drinks !== []) {
         return (
             <ScrollView>
-                <View>
+                <View style={styles.pageFillContainer}>
                     <CurrentBAC setBAC={changeBAC} BAC={BAC} drinks={drinks} />
 
                     <InsideOut onInside={onInside} toggleInsideOut={toggleInsideOut} BAC={BAC} />
-                    
+
                     <View style={styles.redContainer}>
                         <Pressable
                             onPress={() => navigation.navigate('AddDrinkPage', { drinks: drinks })}
@@ -83,7 +82,7 @@ const BACCalc = ({ route, navigation }) => {
                             <Text>Add TEST Drink</Text>
                         </Pressable> */}
                         {/* END COMMENTING HERE */}
-                        <View style={{width: '100%'}}>
+                        <View style={{ width: '100%' }}>
                             <CalcDrinkCards drinks={drinks} />
                         </View>
                         <Pressable
@@ -97,24 +96,28 @@ const BACCalc = ({ route, navigation }) => {
                         >
                             <Text>Clear Drinks</Text>
                         </Pressable>
+                        <View style={{ backgroundColor: '#FFFFFF', padding: 15, maxWidth: '90%', borderRadius: 15 }}>
+                            <Text style={styles.redBoldText}>Get Home Safely</Text>
+                            <Text>For your own safety and for the safety of everyone else on the road, please don't drink and drive regardless of whether your BAC is below the federal limit. We recommend getting an Uber, calling someone you trust, walking, or using public transport instead.</Text>
+                            <View style={[styles.row, styles.centered]}>
+                                <Pressable style={styles.leftRedButton}>
+                                    <Text style={styles.mainRedButtonText}>Call an Uber</Text>
+                                </Pressable>
+                                <Pressable style={styles.leftRedButton}>
+                                    <Text style={styles.mainRedButtonText}>BAC Resource</Text>
+                                </Pressable>
+                                <Pressable style={styles.leftRedButton}>
+                                    <Text style={styles.mainRedButtonText}>Find public transport</Text>
+                                </Pressable>
+                                <Pressable style={styles.leftRedButton}>
+                                    <Text style={styles.mainRedButtonText}>DUI Laws Resource</Text>
+                                </Pressable>
+                                
+                            </View>
+                        </View>
                     </View>
 
-                    <View>
-                        <Text style={styles.redBoldText}>Get Home Safely</Text>
-                        <Text>For your own safety and for the safety of everyone else on the road, please don't drink and drive regardless of whether your BAC is below the federal limit. We recommend getting an Uber, calling someone you trust, walking, or using public transport instead.</Text>
-                        <Pressable style={styles.whiteButton}>
-                            <Text>Call an Uber</Text>
-                        </Pressable>
-                        <Pressable style={styles.whiteButton}>
-                            <Text>Find public transport</Text>
-                        </Pressable>
-                        <Pressable style={styles.whiteButton}>
-                            <Text>DUI Laws Resource</Text>
-                        </Pressable>
-                        <Pressable style={styles.whiteButton}>
-                            <Text>BAC Resource</Text>
-                        </Pressable>
-                    </View>
+
 
                 </View>
             </ScrollView>
@@ -126,9 +129,9 @@ const BACCalc = ({ route, navigation }) => {
             </View>
         )
     }
-    
+
 }
 
-    
+
 
 export default BACCalc
