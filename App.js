@@ -62,7 +62,7 @@ function InfoStackComponent() {
       <infoStack.Screen
         name='CommonAlcoholTypes'
         component={CommonAlcoholTypes}
-        options={({ route }) => ({ title: 'Common Alcohol Types' })}
+        options={({ route }) => ({ title: "", headerTransparent: true, headerTintColor: 'white' })}
       />
 
     </infoStack.Navigator>

@@ -54,7 +54,7 @@ const Profile = (props) => {
     return (
         <View>
             <View style={styles.titleContainer}>
-                <TitleText name={"Profile"} key={1} />
+                <TitleText name={"Profile"} />
                 <Image style={styles.rosieRightImage} source={require('../assets/avatars/Curious_Rosie.png')} resizeMode='contain' />
             </View>
 

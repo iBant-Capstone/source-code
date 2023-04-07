@@ -3,6 +3,7 @@ import { Text, View, Pressable } from 'react-native';
 
 // Import components
 import Popup from "../components/AlcoholPopUp";
+import TitleText from '../components/Title';
 
 // Import styles
 import * as StyleSheet from '../components/styles';
@@ -84,8 +85,11 @@ const CommonAlcoholTypes = ({ navigation }) => {
     
     // Page to return
     return(
-        <View style={styles.centered}>
-            <View style={styles.row}>
+        <View>
+            <View style={styles.titleContainer}>
+                <TitleText name={"Common Alcohol Types"}/>
+            </View>
+            <View style={[styles.row, styles.centered]}>
                 {PressableArrays}
             </View>
         </View>

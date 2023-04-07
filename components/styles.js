@@ -296,7 +296,9 @@ export const styles = StyleSheet.create({
   },
   // For Alcohol Types page
   alcoholTypesButton: {
-    backgroundColor: '#FFEDD3',
+    borderColor: '#CF5260',
+    borderWidth: 1,
+    backgroundColor: 'white',
     padding: 12,
     borderRadius: 4,
     marginBottom: 8,
