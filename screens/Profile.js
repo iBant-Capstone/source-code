@@ -6,6 +6,7 @@ import { useFocusEffect } from '@react-navigation/native'
 
 // Import styles
 import * as StyleSheet from '../components/styles';
+import TitleText from '../components/Title';
 let styles = StyleSheet.styles;
 
 const Profile = (props) => {
@@ -23,18 +24,18 @@ const Profile = (props) => {
                     height: {
                         unit: '',
                         value: ''
-                    }, 
+                    },
                     weight: {
                         unit: '',
                         value: ''
-                    }, 
+                    },
                     sex: ''
                 }
 
                 try {
                     // Get the personalDetials from  async storage
                     const personalDetailsAsync = await AsyncStorage.getItem('personalDetails');
-        
+
                     // Get the parsed version of the personal details (or empy object if we don't have any personal details saved)
                     let personalDetailsParsed = personalDetailsAsync ? JSON.parse(personalDetailsAsync) : emptyPD;
 
@@ -42,7 +43,7 @@ const Profile = (props) => {
                     setPersonalDetails(personalDetailsParsed)
                     setHasFocused(true)
 
-                    } catch (error) {
+                } catch (error) {
                     console.log(error);
                 }
             }
@@ -55,6 +56,10 @@ const Profile = (props) => {
             <View style={styles.row}>
                 <Image style={styles.rosieLeftImage} source={require('../assets/avatars/Curious_Rosie_shadow.png')} resizeMode='contain' />
                 <Text style={styles.rosieSpeechRight}>Edit your profile information or learn more about BACtracker!</Text>
+                <View style={styles.titleContainer}>
+                    <TitleText name={"Test"} key={1} />
+                </View>
+
             </View>
 
             {/* Waits for the personaldetails to have been gathered and set before we show the profile section */}
@@ -64,21 +69,21 @@ const Profile = (props) => {
                         <TableWrapper style={{ flexDirection: 'row' }}>
                             <Cell data={"Height: "} width={100} textStyle={styles.mainRedButtonText} />
                             {/* Different displays based on if personal details are empty, the units are cm, or units are ft*/}
-                            { personalDetails["height"]["unit"] === '' ?
+                            {personalDetails["height"]["unit"] === '' ?
                                 <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
-                                : 
+                                :
                                 (
                                     personalDetails["height"]["unit"] === 'cm' ?
-                                    <Cell data={personalDetails["height"]["value"] + " cm"} width={100} textStyle={styles.mainRedButtonText} />
-                                    :
-                                    <Cell data={Math.floor((Number(personalDetails["height"]["value"]) / 12)) + " ft  " + personalDetails["height"]["value"] % 12 + " in"} width={100} textStyle={styles.mainRedButtonText} /> 
+                                        <Cell data={personalDetails["height"]["value"] + " cm"} width={100} textStyle={styles.mainRedButtonText} />
+                                        :
+                                        <Cell data={Math.floor((Number(personalDetails["height"]["value"]) / 12)) + " ft  " + personalDetails["height"]["value"] % 12 + " in"} width={100} textStyle={styles.mainRedButtonText} />
                                 )
                             }
                         </TableWrapper>
                         <TableWrapper style={{ flexDirection: 'row' }}>
                             <Cell data={"Weight: "} width={100} textStyle={styles.mainRedButtonText} />
                             {/* Different displays based on if personal details are empty or not */}
-                            { personalDetails["weight"]["value"] === '' ?
+                            {personalDetails["weight"]["value"] === '' ?
                                 <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
                                 :
                                 <Cell data={personalDetails["weight"]["value"] + " " + personalDetails["weight"]["unit"]} width={100} textStyle={styles.mainRedButtonText} />
@@ -88,7 +93,7 @@ const Profile = (props) => {
                         <TableWrapper style={{ flexDirection: 'row' }}>
                             <Cell data={"Biological Sex: "} width={100} textStyle={styles.mainRedButtonText} />
                             {/* Different displays based on if personal details are empty or not */}
-                            { personalDetails["sex"] === '' ?
+                            {personalDetails["sex"] === '' ?
                                 <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
                                 :
                                 <Cell data={personalDetails["sex"]} width={100} textStyle={styles.mainRedButtonText} />
