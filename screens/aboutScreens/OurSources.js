@@ -5,6 +5,9 @@ import { Table, TableWrapper, Cell } from 'react-native-table-component'
 // import all sources from json
 import sources from '../../json/sources.json'
 
+// import components
+import TitleText from '../../components/Title';
+
 // Import styles
 import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
@@ -36,6 +39,9 @@ const URLLink = ({ id, name, url }) => {
 const OurSources = () => {
     return (
         <ScrollView>
+            <View style={styles.titleContainer}>
+                <TitleText name={"Our Sources"} />
+            </View>
             <View style={styles.centered}>
                 <Text style={{ marginBottom: 10 }}>Below are a list of our sources used to create this app</Text>
                 <Table>

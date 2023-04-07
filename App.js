@@ -81,17 +81,17 @@ function ProfileStackComponent() {
       <profileStack.Screen
         name='OurMission'
         component={OurMission}
-        options={({ route }) => ({ title: 'Our Mission' })}
+        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
       />
       <profileStack.Screen
         name='HowToUse'
         component={HowToUse}
-        options={({ route }) => ({ title: 'How to Use' })}
+        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
       />
       <profileStack.Screen
         name='OurSources'
         component={OurSources}
-        options={({ route }) => ({ title: 'Our Sources' })}
+        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
       />
       <profileStack.Screen
         name='EditProfilePage'
