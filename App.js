@@ -57,7 +57,7 @@ function InfoStackComponent() {
       <infoStack.Screen
         name='InfoTopicPage'
         component={InfoTopicPage}
-        options={({ route }) => ({ title: route.params.title })}
+        options={({ route }) => ({ title: "", headerTransparent: true, headerTintColor: 'white' })}
       />
       <infoStack.Screen
         name='CommonAlcoholTypes'
