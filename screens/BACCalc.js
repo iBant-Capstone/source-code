@@ -101,7 +101,7 @@ const BACCalc = ({ route, navigation }) => {
 
                     <View>
                         <Text style={styles.redBoldText}>Get Home Safely</Text>
-                        <Text>For your own safety and for the safety of everyone else on the road, please don't drink and drive regardless of whether your BAC is below the federal limit. We recommend getting an Uber, calling someone you trust, walking, or using public transit instead.</Text>
+                        <Text>For your own safety and for the safety of everyone else on the road, please don't drink and drive regardless of whether your BAC is below the federal limit. We recommend getting an Uber, riding with a designated driver, calling someone you trust, walking, or using public transit instead.</Text>
                         <Pressable 
                             onPress={() => Linking.openURL("https://www.uber.com/")}
                             accessibilityLabel="Call an Uber"
