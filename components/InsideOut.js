@@ -80,7 +80,7 @@ const InsideOut = ({ onInside, toggleInsideOut, BAC }) => {
             </Pressable>
             {/* <Text style={{ paddingBottom: 20 }}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text> */}
             
-            <Text style={{ paddingBottom: 20 }}>{BAC && onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>
+            <Text style={{ paddingBottom: 20 }}>{onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>
         </View>
     )
 }

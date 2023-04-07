@@ -12,52 +12,61 @@ import InsideOut from '../components/InsideOut';
 import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
-const BACCalc = ({ route, navigation }) => {
+
+
+const BACCalc = ({ navigation }) => {
 
 
     const [BAC, setBAC] = useState(0)
-    const [drinks, setDrinks] = useState((route && route.params && route.params.drinks) ?? [])
+    const [drinks, setDrinks] = useState(null)
+    const [onInside, changeInsideOut] = useState(true)
 
+    const [drinksReady, changeDrinksReady] = useState(false)
+
+ 
     // Handles the change of BAC in children components
     const changeBAC = useCallback((newBAC) => {
         setBAC(newBAC)
     }, [])
-
-
-    // Keeps track of whether we're looking at the inside vs out descriptions of the current BAC
-    const [onInside, changeInsideOut] = useState(true)
 
     // Handles the change of onInside in children components
     const toggleInsideOut = useCallback((state) => {
         changeInsideOut(state)
     })
 
-
-    // TEST DRINK WHEN YOU WANT ANOTHER DRINK IN STORAGE
-    const handleAddEntry = async () => {
-
-        // Create the JSON structure for the new drink
-        let newDrink = {
-            name: "testName",
-            size: {
-                unit: "ml",
-                value: 15
-            },
-            strength: 12 / 100,
-            halfLife: 6,
-            timeOfDrink: "2023-03-09T06:30:00.000Z"
+    // Checks async storage and refreshes the 
+    useEffect(() => {
+        if (!drinksReady) {
+            const getAsyncDrinks = async () => {
+                try {
+                    console.log("BACCalc.js ---- drinksReady useEffect, drinks have been processed", drinks)
+                    const asyncStorageData = await AsyncStorage.getItem("drinks") 
+                    const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
+                    await setDrinks(asyncStorageParsed)
+                    //console.log("BACCalc.js ---- drinksReady useEffect, drinks have been processed", drinks)
+                } catch (err) {
+                    console.log(err)
+                }
+            }
+            getAsyncDrinks()
         }
+    }, [drinksReady])
 
-        try {
-            let newDrinks = [...drinks, newDrink]
-            setDrinks(newDrinks)
-        } catch (error) {
-            console.log(error);
+
+    // Checks if we've successfully processed async data drinks, and then show that drinks are ready
+    useEffect(() => {
+        if (drinks !== null) {
+            console.log("BACCALC.js -- drinks processed right!", drinks)
+            changeDrinksReady(true)
+        } else {
+            console.log('BACCalc.js ----- drinks have changed but they\'re null', drinks)
         }
-    };
+    }, [drinks])
 
 
-    if (drinks !== []) {
+
+    // only load the components once we've 
+    if (drinksReady) {
         return (
             <ScrollView>
                 <View style={styles.pageFillContainer}>
@@ -67,7 +76,10 @@ const BACCalc = ({ route, navigation }) => {
 
                     <View style={styles.redContainer}>
                         <Pressable
-                            onPress={() => navigation.navigate('AddDrinkPage', { drinks: drinks })}
+                            onPress={() => {
+                                console.log("pressed")
+                                navigation.navigate('AddDrinkPage', { drinks: drinks })
+                            }}
                             accessibilityLabel="Add a drink"
                             style={[styles.whiteButton, { marginTop: -20 }]}
                         >
@@ -87,9 +99,9 @@ const BACCalc = ({ route, navigation }) => {
                         </View>
                         <Pressable
                             onPress={() => {
-                                setDrinks([])
+                                AsyncStorage.removeItem("drinks") 
                                 setBAC(0)
-                                // console.log("changed drinkz")
+                                changeDrinksReady(false)
                             }}
                             accessibilityLabel="Add a drink"
                             style={styles.whiteButton}
@@ -140,6 +152,29 @@ const BACCalc = ({ route, navigation }) => {
 
 }
 
-
-
 export default BACCalc
+
+
+
+// TEST DRINK WHEN YOU WANT ANOTHER DRINK IN STORAGE
+// const handleAddEntry = async () => {
+
+//     // Create the JSON structure for the new drink
+//     let newDrink = {
+//         name: "testName",
+//         size: {
+//             unit: "ml",
+//             value: 15
+//         },
+//         strength: 12 / 100,
+//         halfLife: 6,
+//         timeOfDrink: "2023-03-09T06:30:00.000Z"
+//     }
+
+//     try {
+//         let newDrinks = [...drinks, newDrink]
+//         setDrinks(newDrinks)
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
