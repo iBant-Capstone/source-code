@@ -72,9 +72,9 @@ const AddDrink = ({ route, navigation }) => {
             // Push the new list to async storage
             await AsyncStorage.setItem('drinks', drinksToSend)
 
-            console.log("should have sent drinks")
+            console.log("AddDrink.js ----- should have sent drinks")
             
-            navigation.navigate('BAC Calc', { drinks: drinks })  
+            navigation.navigate('BAC Calc')
 
             setNameInputValue('')
             setSizeInputValue('')

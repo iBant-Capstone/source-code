@@ -9,9 +9,6 @@ let styles = StyleSheet.styles;
 
 const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
-    console.log("in CurrentBAC.js")
-    console.log("drinks: " + JSON.stringify(drinks))
-
     let [drinksConsumed, setDrinksConsumed] = useState([])
     let [personalDetails, setPersonalDetails] = useState({})
 
@@ -29,7 +26,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
             // Set the personalDrinks to state
             await setPersonalDetails(personalDetailsParsed)
-            console.log("got into getAsyncData")
+            //console.log("got into getAsyncData")
         } catch (error) {
             console.log(error);
         }
@@ -72,7 +69,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
             await setPersonalDetails(fleshedOutPersonalDetails)
 
-            console.log("got into addToAsyncData")
+            //console.log("got into addToAsyncData")
         } catch (err) {
             console.log(err)
         }
@@ -87,21 +84,10 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
                 }
             }
             getAsyncDataWrapped()
-            console.log("got into addToAsyncData")
+            console.log("CurrentBAC.js --- got into the useFocusEffect")
+            console.log("CurrentBAC.js --- drinks I'm using", drinks)
         }, [])
     )
-
-    // Updateds when drinks are changed
-    // IMPLEMENTS THE SAME AS FOCUS EFFECT ABOVE
-    // useEffect(() => {
-    //     async function startCalc() {
-    //         if (JSON.stringify(drinks) !== "[]") {
-    //             await getAsyncData();
-    //             setDrinksPDInitialState(true)
-    //         }
-    //     }
-    //     startCalc()
-    // }, [drinks])
       
     useEffect(() => {
         async function addToAsyncDataWrapped() {
@@ -237,18 +223,9 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     // We first check that there are drinks to calculate and then we check to see if the BAC is calculated
     return (
         <View>
-            {drinksConsumed[0] ?
-                BAC ?
-                <View style={styles.centered}>
-                    <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
-                </View>
-                :
-                <Text>Loading...</Text>
-            :
             <View style={styles.centered}>
-                <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>0.00%</Text></Text>
+                <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
             </View>
-            }
         </View>  
     )
 }
