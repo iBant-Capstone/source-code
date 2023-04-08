@@ -1,0 +1,10 @@
+{
+    "wine/sake": {
+        "title": "Wine/Sake",
+        "subtitle": "",
+        "icon": "",
+        "value": "wine/sake",
+        "amounts": ["wine-glass", "large-bottle", "sake-bowl", "solo-cup"],
+        "strengths": ["red/white-wine", "sake"]
+    }
+}

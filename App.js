@@ -15,6 +15,7 @@ import HowToUse from './screens/aboutScreens/HowToUse.js';
 import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import EditProfilePage from './screens/EditProfilePage.js';
+import AddDrinkType from './screens/AddDrinkType.js';
 
 // Import onboarding pages
 import LoginScreen1 from './screens/onboardingScreens/LoginScreen1';
@@ -114,6 +115,11 @@ function BACStackComponent() {
     <bacStack.Screen
       name='AddDrinkPage'
       component={AddDrinkPage}
+      options={({ route }) => ({ title: 'Add Drink' })}
+    />
+    <bacStack.Screen
+      name='AddDrinkType'
+      component={AddDrinkType}
       options={({ route }) => ({ title: 'Add Drink' })}
     />
   </bacStack.Navigator>
