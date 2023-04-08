@@ -6,5 +6,13 @@
         "value": "wine/sake",
         "amounts": ["wine-glass", "large-bottle", "sake-bowl", "solo-cup"],
         "strengths": ["red/white-wine", "sake"]
+    },
+    {
+        "title": "Beer/Cider",
+        "subtitle": "ex. IPA, Hops, ...",
+        "icon": "",
+        "value": "beer/cider",
+        "amounts": ["bottle", "can", "tall-can", "solo-cup"],
+        "strengths": ["light", "dark"]
     }
 ]
