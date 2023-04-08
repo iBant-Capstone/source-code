@@ -12,6 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // Import components
 import SuperscriptText from './Superscript';
+import TitleText from './Title';
 
 // Import styles
 import { styles } from './styles';
@@ -142,8 +143,10 @@ const InfoTopicPage = ({ route }) => {
     // Return page view
     return (
         <ScrollView>
-        <View style={styles.centered}>
-            <ScrollView>
+            <View style={styles.titleContainer}>
+                <TitleText name={route.params.title} />
+            </View>
+            <View style={styles.centered}>
                 {listDataSource.map((item, key) => (
                     <ExpandableComponent
                         key={item.question}
@@ -157,8 +160,7 @@ const InfoTopicPage = ({ route }) => {
                     {showImage()}
                     {showTable()}
                 </View>
-            </ScrollView>
-        </View>
+            </View>
         </ScrollView>
     )
 }

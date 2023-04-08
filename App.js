@@ -7,7 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // Import screens/components
 import Profile from './screens/Profile.js'
 import BACCalc from './screens/BACCalc.js'
-import {InformationHub} from './screens/InformationHub.js'
+import { InformationHub } from './screens/InformationHub.js'
 import InfoTopicPage from './components/InfoTopicPage.js';
 import AddDrinkPage from './screens/AddDrink.js'
 import CommonAlcoholTypes from './screens/CommonAlcoholTypes.js'
@@ -40,8 +40,8 @@ import { useFonts } from 'expo-font';
 // profile = profile
 // bac = BAC pages
 // tab = our main nav bar 
-const Tab= createBottomTabNavigator();
-const obStack= createStackNavigator();
+const Tab = createBottomTabNavigator();
+const obStack = createStackNavigator();
 const infoStack = createStackNavigator();
 const profileStack = createStackNavigator();
 const bacStack = createStackNavigator();
@@ -49,57 +49,57 @@ const bacStack = createStackNavigator();
 // the info stack contains all the pages that cannot be accessed from the Information Hub -- do not include pages that are linked through profile or BACCalc
 function InfoStackComponent() {
   return (
-  <infoStack.Navigator>
-    <infoStack.Screen
-      name='InformationHub'
-      component={InformationHub}
-      options={({ route }) => ({ title: 'Information Hub', headerBackVisible: false  })}
-    />
-    <infoStack.Screen
-      name='InfoTopicPage'
-      component={InfoTopicPage}
-      options={({ route }) => ({ title: route.params.title })}
-    />
-    <infoStack.Screen
-      name='CommonAlcoholTypes'
-      component={CommonAlcoholTypes}
-      options={({ route }) => ({ title: 'Common Alcohol Types' })}
-    />
-    
-  </infoStack.Navigator>
+    <infoStack.Navigator>
+      <infoStack.Screen
+        name='InformationHub'
+        component={InformationHub}
+        options={({ route }) => ({ headerShown: false })}
+      />
+      <infoStack.Screen
+        name='InfoTopicPage'
+        component={InfoTopicPage}
+        options={({ route }) => ({ title: "", headerTransparent: true, headerTintColor: 'white' })}
+      />
+      <infoStack.Screen
+        name='CommonAlcoholTypes'
+        component={CommonAlcoholTypes}
+        options={({ route }) => ({ title: "", headerTransparent: true, headerTintColor: 'white' })}
+      />
+
+    </infoStack.Navigator>
   );
 }
 
 // the Profile stack contains all the pages that cannot be accessed from the Profile -- do not include pages that are linked through InfoHub or BACCalc
 function ProfileStackComponent() {
   return (
-  <profileStack.Navigator>
-     <profileStack.Screen
-      name='Profile'
-      component={Profile}
-      options={({ route }) => ({ title: 'Profile', headerBackVisible: false })}
-    />
-    <profileStack.Screen
-      name='OurMission'
-      component={OurMission}
-      options={({ route }) => ({ title: 'Our Mission' })}
-    />
-    <profileStack.Screen
-      name='HowToUse'
-      component={HowToUse}
-      options={({ route }) => ({ title: 'How to Use' })}
-    />
-    <profileStack.Screen
-      name='OurSources'
-      component={OurSources}
-      options={({ route }) => ({ title: 'Our Sources' })}
-    />
-    <profileStack.Screen
-      name='EditProfilePage'
-      component={EditProfilePage}
-      options={({ route }) => ({ title: 'Edit Profile Information' })}
-    />
-  </profileStack.Navigator>
+    <profileStack.Navigator>
+      <profileStack.Screen
+        name='Profile'
+        component={Profile}
+        options={({ route }) => ({ headerShown: false })}
+      />
+      <profileStack.Screen
+        name='OurMission'
+        component={OurMission}
+        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
+      />
+      <profileStack.Screen
+        name='HowToUse'
+        component={HowToUse}
+        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
+      />
+      <profileStack.Screen
+        name='OurSources'
+        component={OurSources}
+        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
+      />
+      <profileStack.Screen
+        name='EditProfilePage'
+        component={EditProfilePage}
+        options={({ route }) => ({ title: 'Edit Profile Information' })}
+      />
+    </profileStack.Navigator>
   );
 }
 
@@ -134,47 +134,47 @@ function NavBar() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
-        let iconName;
-        // taking icon names straight from Ionicons
-        if (route.name === 'Information Hub') {
+          let iconName;
+          // taking icon names straight from Ionicons
+          if (route.name === 'Information Hub') {
             iconName = focused ? 'ios-book' : 'ios-book-outline';
-            
-        } else if (route.name === 'BAC Calc') {
+
+          } else if (route.name === 'BAC Calc') {
             iconName = focused ? 'ios-calculator' : 'ios-calculator-outline';
-            
-        } else if (route.name === 'Profile') {
+
+          } else if (route.name === 'Profile') {
             iconName = focused ? 'ios-person' : 'ios-person-outline';
-            
-        }
-        return (
-        <Ionicons name={iconName} size={size} color={color} />
-            
-        );
+
+          }
+          return (
+            <Ionicons name={iconName} size={size} color={color} />
+
+          );
         },
         tabBarActiveTintColor: '#CF5260',
         tabBarInactiveTintColor: 'black',
         tabBarLabel: () => { return null },
       })}
-      >
+    >
       {/* Our three main pages */}
       <Tab.Screen
-          name="Information Hub"
-          component={InfoStackComponent}
-          options={({ route }) => ({  headerShown: false, headerBackVisible: false  })}
-          
+        name="Information Hub"
+        component={InfoStackComponent}
+        options={({ route }) => ({ headerShown: false, headerBackVisible: false })}
+
       />
       <Tab.Screen
-          name="BAC Calc"
-          component={BACStackComponent}
-          options={({ route }) => ({  headerShown: false, headerBackVisible: false  })}
-          
+        name="BAC Calc"
+        component={BACStackComponent}
+        options={({ route }) => ({ headerShown: false, headerBackVisible: false })}
+
       />
       <Tab.Screen
-          name="Profile"
-          component={ProfileStackComponent}
-          options={({ route }) => ({  headerShown: false, headerBackVisible: false  })}
-          
-      /> 
+        name="Profile"
+        component={ProfileStackComponent}
+        options={({ route }) => ({ headerShown: false, headerBackVisible: false })}
+
+      />
 
     </Tab.Navigator>
   );
@@ -189,7 +189,7 @@ export default function App() {
     'Roboto': require('./assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf')
   });
-  
+
   // app starts with the onboarding stack and then links to the welcome/infohub page
   return (
     <NavigationContainer>
@@ -197,7 +197,7 @@ export default function App() {
         <obStack.Screen
           name='Login1'
           component={LoginScreen1}
-          options={{ 
+          options={{
             headerShown: false
           }}
         />
@@ -252,9 +252,9 @@ export default function App() {
         <obStack.Screen
           name='InformationHub'
           component={NavBar}
-          options={() => ({ headerShown: false, headerBackVisible: false})}
+          options={() => ({ headerShown: false, headerBackVisible: false })}
         />
-        
+
       </obStack.Navigator>
     </NavigationContainer>
   );

@@ -113,6 +113,11 @@ export const styles = StyleSheet.create({
     marginLeft: '5%',
     marginVertical: 10
   },
+  rosieRightImage: {
+    width: '38%',
+    marginRight: '5%',
+    marginVertical: 10
+  },
   rosieSpeechRight: {
     maxWidth: '40%',
     marginRight: '5%',
@@ -291,7 +296,9 @@ export const styles = StyleSheet.create({
   },
   // For Alcohol Types page
   alcoholTypesButton: {
-    backgroundColor: '#FFEDD3',
+    borderColor: '#CF5260',
+    borderWidth: 1,
+    backgroundColor: 'white',
     padding: 12,
     borderRadius: 4,
     marginBottom: 8,
@@ -456,13 +463,18 @@ export const styles = StyleSheet.create({
     fontSize: 32,
     color: '#fff',
     fontFamily: 'Roboto-Bold',
-
+    width: '50%',
+    marginLeft: '5%',
+    marginRight: '2%',
+    marginVertical: 50
   },
   titleContainer: {
     paddingHorizontal: 6,
     paddingTop: 25,
     backgroundColor: "#CF5260",
-    width: '100%'
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   }
 
 }

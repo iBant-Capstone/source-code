@@ -1,33 +1,25 @@
 import { Pressable, Text, View, Image } from 'react-native';
 
-
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-// Import other nav bar pages
-import Profile from './Profile'
-import BACCalc from './BACCalc'
-
-// Import icons
-import Ionicons from 'react-native-vector-icons/Ionicons';
+// Import components
+import TitleText from '../components/Title';
 
 // Set style 
 import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
-
-
 // Page to be returned
 // Has different buttons for the different topics that are available on information hub
 export const InfoPage = (props) => {
-  
+
   return (
     <View>
-      <View style={styles.row}>
-        <Image style={styles.rosieLeftImage} source={require('../assets/avatars/Scientist_Rosie_shadow.png')} resizeMode='contain' />
-        <Text style={styles.rosieSpeechRight}>Hi there, welcome to our Information Hub! What alcohol information are you looking for?</Text>
+      <View style={styles.titleContainer}>
+        <TitleText name={"Information Hub"}></TitleText>
+        <Image style={styles.rosieRightImage} source={require('../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
+
       </View>
       <View style={[styles.row, styles.centered]}>
+        <Text style={{ marginBottom: 15 }}>Hi there, welcome to our Information Hub! What alcohol information are you looking for?</Text>
         <Pressable
           style={styles.leftRedButton}
           onPress={() => props.navigation.navigate('CommonAlcoholTypes')}>
@@ -81,8 +73,8 @@ export const InformationHub = ({ navigation }) => {
   console.log("Information Hub page")
   return (
     <View>
-      <InfoPage navigation={navigation}/> 
+      <InfoPage navigation={navigation} />
     </View>
-    
+
   );
 };

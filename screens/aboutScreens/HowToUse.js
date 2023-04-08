@@ -3,6 +3,9 @@ import { Text, View, Image, ScrollView } from 'react-native';
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+// Import components
+import TitleText from '../../components/Title';
+
 // Import styles
 import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
@@ -12,11 +15,12 @@ const HowToUse = () => {
     return (
         <ScrollView>
             <View style={{ backgroundColor: '#fff' }}>
-                <View style={styles.row}>
-                    <Image style={styles.rosieLeftImage} source={require('../../assets/avatars/Curious_Rosie_shadow.png')} resizeMode='contain' />
-                    <Text style={styles.rosieSpeechRight}>Wondering how to use the app? See below!</Text>
+                <View style={styles.titleContainer}>
+                    <TitleText name={"How to Use"} />
+                    <Image style={styles.rosieRightImage} source={require('../../assets/avatars/Curious_Rosie.png')} resizeMode='contain' />
                 </View>
                 <View style={styles.centerContainer}>
+                    <Text style={{ marginVertical: 15 }}>Wondering how to use the app? See below!</Text>
                     <View style={styles.row}>
                         <View style={styles.howToIconContainer}>
                             <Ionicons name={'ios-book-outline'} style={styles.howToIcon} />

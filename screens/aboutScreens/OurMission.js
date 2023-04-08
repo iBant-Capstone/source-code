@@ -1,5 +1,8 @@
 import { Text, View, Image, ScrollView } from 'react-native';
 
+// import components
+import TitleText from '../../components/Title';
+
 // Import styles
 import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
@@ -8,11 +11,12 @@ let styles = StyleSheet.styles;
 const OurMission = () => {
     return (
         <ScrollView>
+            <View style={styles.titleContainer}>
+                <TitleText name={"Our Mission"} />
+                <Image style={styles.rosieRightImage} source={require('../../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
+            </View>
             <View style={styles.centerContainer}>
-                <View style={styles.row}>
-                    <Image style={styles.rosieLeftImage} source={require('../../assets/avatars/Casual_Rosie_shadow.png')} resizeMode='contain' />
-                    <Text style={styles.rosieSpeechRight}>Our goal is to increase the user's knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!</Text>
-                </View>
+                <Text style={styles.centered}>Our goal is to increase the user's knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!</Text>
                 <Text style={styles.centered}>This is an application built by young adults, for young adults! Drinking can be intimidating especially if you don't know how it affects you!</Text>
                 <Text style={styles.aboutSubtitle}>About the Creators:</Text>
                 <Text style={styles.centered}>We are a group of four undergraduate students at the University of Washington Information School. For our Capstone project, we decided to create a toolkit to help our fellow students with safe alcohol consumption practices.</Text>
