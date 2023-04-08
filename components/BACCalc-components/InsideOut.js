@@ -5,10 +5,10 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 // Import BAC Levels and Effects JSON data
-import BACLevelsEffects from '../json/bac-levels-and-effects.json'
+import BACLevelsEffects from '../../json/bac-levels-and-effects.json'
 
 // Import styles
-import * as StyleSheet from '../components/styles';
+import * as StyleSheet from '../styles';
 let styles = StyleSheet.styles;
 
 
