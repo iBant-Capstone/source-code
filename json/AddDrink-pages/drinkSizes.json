@@ -1,8 +1,9 @@
-{
-    "wine-glass": {
+[
+    {
+        "id": "wine-glass",
         "title": "Glass",
         "subtitle": "5oz/148ml",
         "icon": "",
         "value": "148"
     }
-}
+]

@@ -16,7 +16,6 @@ let styles = StyleSheet.styles;
 
 const BACCalc = ({ navigation }) => {
 
-
     const [BAC, setBAC] = useState(0)
     const [drinks, setDrinks] = useState(null)
     const [onInside, changeInsideOut] = useState(true)

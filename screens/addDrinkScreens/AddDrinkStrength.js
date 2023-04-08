@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { ScrollView } from 'react-native';
 
-import strengths from "../../json/AddDrink-pages/drinkStrenghts.json"
+import strengths from "../../json/AddDrink-pages/drinkStrengths.json"
 
-import AddDrinkCard from '../../components/AddDrinkCard';
+import AddDrinkCard from '../../components/addDrink-components/AddDrinkCard';
 
 const AddDrinkStrength = ({ route, navigation }) => {
     let drinks = route.params.drinks
     let newDrink = route.params.newDrink
 
-    const handleStrengthInput = useCallBack((strengthValue) => {
+    const handleStrengthInput = useCallback((strengthValue) => {
         newDrink = {
             ...newDrink,
             amount: strengthValue
@@ -24,7 +24,7 @@ const AddDrinkStrength = ({ route, navigation }) => {
     return (
         <ScrollView>
             {strengths.map((strength, index) => {
-                return <AddDrinkCard index={index} selector={strength} handleInput={handleStrengthInput}/>
+                return <AddDrinkCard key={index} selector={strength} handleInput={handleStrengthInput}/>
             })}
         </ScrollView>
     )

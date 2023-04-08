@@ -3,15 +3,15 @@ import { ScrollView } from 'react-native';
 
 import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
-import types from "../../json/AddDrink-pages/drinkTypes.json"
+import sizes from "../../json/AddDrink-pages/drinkSizes.json"
 
-const AddDrinkType = ({ route, navigation }) => {
+const AddDrinkSize = ({ route, navigation }) => {
     let drinks = route.params.drinks
     let newDrink = {}
 
-    let data = types
-    let newKey = "type"
-    let nextPage = "AddDrinkSize"
+    let data = sizes
+    let newKey = "size"
+    let nextPage = "AddDrinkStrength"
 
     return (
         <ScrollView>
@@ -20,4 +20,4 @@ const AddDrinkType = ({ route, navigation }) => {
     )
 }
 
-export default AddDrinkType
+export default AddDrinkSize
