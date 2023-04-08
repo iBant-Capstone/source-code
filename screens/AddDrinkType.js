@@ -24,19 +24,22 @@ const AddDrinkType = ({ route, navigation }) => {
     }
 
     return (
-        // <ScrollView>
-        //     {types.map((type) => {
-        //         <Pressable
-        //             onPress={handleTypeInput(type.value)}
-        //         >
-        //             <Text>{type.title}</Text>
-        //             <Text>{type.subtitle}</Text>
-        //         </Pressable>
-        //     })}
-        // </ScrollView>
-        <View>
-            {types['wine/sake']['title']}
-        </View>
+        <ScrollView>
+            {types.map((type, index) => {
+                return (
+                    <Pressable 
+                        key={index} 
+                        style={[styles.drinkCard, styles.row]}
+                        onPress={() => {handleTypeInput(type.value)}}
+                    >
+                        <View style={styles.drinkCardInfoContainer}>
+                            <Text style={styles.drinkCardNameText}>{type.title}</Text>
+                            <Text style={styles.smallText}>{type.subtitle}</Text>
+                        </View>
+                    </Pressable>
+                )
+            })}
+        </ScrollView>
     )
 }
 
