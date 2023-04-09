@@ -4,6 +4,29 @@
         "title": "Glass",
         "subtitle": "5oz/148ml",
         "icon": "",
-        "value": "148"
+        "value": {
+            "unit": "ml",
+            "value": 148
+        }
+    },
+    {
+        "id": "large-bottle",
+        "title": "Large Bottle",
+        "subtitle": "25oz/750ml",
+        "icon": "",
+        "value": {
+            "unit": "ml",
+            "value": 375
+        }
+    },
+    {
+        "id": "solo-cup",
+        "title": "Solo Cup",
+        "subtitle": "12oz/350ml",
+        "icon": "",
+        "value": {
+            "unit": "ml",
+            "value": 350
+        }
     }
 ]

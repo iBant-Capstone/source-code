@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
 
 const handleInput = (drinks, newDrink, newKey, newValue, nextPage, navigation ) => {
+    console.log("in handleInput. The newDrink:", newDrink)
     newDrink[newKey] = newValue
     try {
         navigation.navigate(nextPage, { drinks: drinks, newDrink: newDrink})
