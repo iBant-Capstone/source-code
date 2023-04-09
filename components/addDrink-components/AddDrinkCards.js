@@ -3,11 +3,11 @@ import { View } from 'react-native';
 
 import AddDrinkCard from './AddDrinkCard';
 
-const AddDrinkCards = ({ data, drinks, newDrink, newKey, nextPage, navigation }) => {
+const AddDrinkCards = ({ data, handleAddDrinksInput }) => {
     return (
         <View>
             {data.map((option, index) => {
-                return <AddDrinkCard key={index} option={option} drinks={drinks} newDrink={newDrink} newKey={newKey} nextPage={nextPage} navigation={navigation}/>
+                return <AddDrinkCard key={index} option={option} handleAddDrinksInput={handleAddDrinksInput}/>
             })}
         </View>
     )

@@ -3,6 +3,9 @@ import { ScrollView } from 'react-native';
 
 import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
+import displayBasedOnType from '../../components/AddDrink-components/displayBasedOnType';
+import handleInput from '../../components/addDrink-components/handleInput';
+
 import sizes from "../../json/AddDrink-pages/drinkSizes.json"
 import types from "../../json/AddDrink-pages/drinkTypes.json"
 
@@ -16,20 +19,17 @@ const AddDrinkSize = ({ route, navigation }) => {
 
     // Finds the sizes we need to display based on what type we selected in the screen before
     useEffect(() => {
-        let currentTypeSizes = []
-        types.map((type) => {
-            if (type.title == newDrink.type) {
-                currentTypeSizes = type.sizes
-            }
-        })
-        let sizesBasedOnType = sizes.filter(size => currentTypeSizes.includes(size.id))
-        setData(sizesBasedOnType)
+        setData(displayBasedOnType(types, newDrink, 'sizes', sizes))
     }, [])
+
+    const handleAddDrinksInput = (newValue) => {
+        handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
+    }
 
     if (data !== null) {
         return (
             <ScrollView>
-                <AddDrinkCards data={data} drinks={drinks} newDrink={newDrink} newKey={newKey} nextPage={nextPage} navigation={navigation}/>
+                <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
             </ScrollView>
         )
     } else {

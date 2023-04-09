@@ -13,6 +13,6 @@
         "icon": "",
         "value": "Beer/Cider",
         "sizes": ["solo-cup"],
-        "strengths": ["light", "dark"]
+        "strengths": ["light-beer", "dark-beer"]
     }
 ]

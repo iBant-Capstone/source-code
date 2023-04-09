@@ -5,6 +5,8 @@ import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
 import types from "../../json/AddDrink-pages/drinkTypes.json"
 
+import handleInput from '../../components/addDrink-components/handleInput';
+
 const AddDrinkType = ({ route, navigation }) => {
     let drinks = route.params.drinks
     let newDrink = {}
@@ -13,9 +15,13 @@ const AddDrinkType = ({ route, navigation }) => {
     let newKey = "type"
     let nextPage = "AddDrinkSize"
 
+    const handleAddDrinksInput = (newValue) => {
+        handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
+    }
+
     return (
         <ScrollView>
-            <AddDrinkCards data={data} drinks={drinks} newDrink={newDrink} newKey={newKey} nextPage={nextPage} navigation={navigation}/>
+            <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
         </ScrollView>
     )
 }
