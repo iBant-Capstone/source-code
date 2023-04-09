@@ -12,7 +12,7 @@ import * as StyleSheet from '../styles';
 let styles = StyleSheet.styles;
 
 
-const InsideOut = ({ onInside, toggleInsideOut, BAC }) => {
+const InsideOut = ({ onInside, setOnInside, BAC }) => {
 
     // Function to determine BAC inside effects based on given BAC -> need to make async to update when BAC changes?
     const displayInsideBACEffects = (BAC) => { 
@@ -65,14 +65,14 @@ const InsideOut = ({ onInside, toggleInsideOut, BAC }) => {
     return (
         <View style={[styles.row, styles.centered, { backgroundColor: '#FFFFFF' }]}>
             <Pressable
-                onPress={() => toggleInsideOut(true)}
+                onPress={() => setOnInside(true)}
                 accessibilityLabel="Change the description to the inside version"
                 style={styles.whiteButton}
             >
                 <Text style={onInside ? styles.yellowUnderline : ""}>Inside</Text>
             </Pressable>
             <Pressable
-                onPress={() => toggleInsideOut(false)}
+                onPress={() => setOnInside(false)}
                 accessibilityLabel="Change the description to the outside version"
                 style={styles.whiteButton}
             >
