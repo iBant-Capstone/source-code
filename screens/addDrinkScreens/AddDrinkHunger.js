@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView } from 'react-native';
-
-import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
+import { ScrollView, Text } from 'react-native';
 
 import strengths from "../../json/AddDrink-pages/drinkStrengths.json"
 import types from "../../json/AddDrink-pages/drinkTypes.json"

@@ -17,7 +17,6 @@ const BACCalc = ({ navigation }) => {
     const [BAC, setBAC] = useState(0)
     const [drinks, setDrinks] = useState(null)
     const [onInside, setOnInside] = useState(true)
-
     const [drinksReady, changeDrinksReady] = useState(false)
 
     const handleSetBAC = useCallback((newBAC) => {
@@ -38,7 +37,7 @@ const BACCalc = ({ navigation }) => {
                 try {
                     const asyncStorageData = await AsyncStorage.getItem("drinks") 
                     const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
-                    await setDrinks(asyncStorageParsed)
+                    setDrinks(asyncStorageParsed)
                 } catch (err) {
                     console.log(err)
                 }
