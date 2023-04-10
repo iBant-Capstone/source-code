@@ -7,15 +7,14 @@ import * as StyleSheet from './styles';
 let styles = StyleSheet.styles;
 
 const Popup = (props) => {
-    // TODO: accept and define BAC level from props 
-    let BAC = 0; // testing
+    let BAC = props.BAC;
+    // let BAC = 0; // testing
     let warningText = "";
 
-    let data = undefined;
-    if (props.data != undefined) {
-        data = props.data[0];
-    }
-
+    // let data = undefined;
+    // if (props.data != undefined) {
+    //     data = props.data[0];
+    // }
 
     if (BAC >= 0.08 && BAC < 0.25) {
         warningText = "Your BAC level is at or above the federal legal intoxication level. It is illegal for you to drive or ride a bike. Please consider these alternatives to get home safely: ";

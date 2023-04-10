@@ -7,7 +7,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import CalcDrinkCards from '../components/CalcDrinkCards';
 import CurrentBAC from '../components/CurrentBAC';
 import InsideOut from '../components/InsideOut';
-import Popup from "../components/BACPopUp"; // TODO: add popup functionality
+import Popup from "../components/BACPopUp"; 
 
 // Import styles
 import * as StyleSheet from '../components/styles';
@@ -28,6 +28,7 @@ const BACCalc = ({ navigation }) => {
     // Handles the change of BAC in children components
     const changeBAC = useCallback((newBAC) => {
         setBAC(newBAC)
+        // call pop-up here?
     }, [])
 
     // Handles the change of onInside in children components
@@ -63,6 +64,20 @@ const BACCalc = ({ navigation }) => {
             console.log('BACCalc.js ----- drinks have changed but they\'re null', drinks)
         }
     }, [drinks])
+
+
+    // Add BAC pop-up functionality:
+
+    // Call the popup with given BAC
+    function callPopUp(BAC) {
+        return (
+            <View>
+                <Popup //isOpen={getValue(alcoholName)} 
+                 onChangeModal={() => changePopup(BAC)} 
+                 BAC={BAC}/>
+            </View>
+        );
+    }
 
 
 

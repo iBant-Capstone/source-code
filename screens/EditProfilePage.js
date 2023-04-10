@@ -205,7 +205,7 @@ const EditProfilePage = ({ navigation }) => {
                         </View>
                         <View style={[styles.row, {paddingHorizontal: 15, paddingVertical: 15}]}>
                             <Text style={styles.redBoldText}>Please note: </Text>
-                            <Text>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals in greatly lacking.</Text>
+                            <Text>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
                         </View>
                     </View>
 
