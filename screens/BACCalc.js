@@ -93,7 +93,7 @@ const BACCalc = ({ navigation }) => {
                         <Pressable
                             onPress={() => {
                                 console.log("pressed")
-                                navigation.navigate('AddDrinkType', { drinks: drinks })
+                                navigation.navigate('AddDrinkPage', { drinks: drinks })
                             }}
                             accessibilityLabel="Add a drink"
                             style={[styles.whiteButton, { marginTop: -20 }]}
