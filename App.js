@@ -51,6 +51,15 @@ function InfoStackComponent() {
   return (
     <infoStack.Navigator>
       <infoStack.Screen
+          name='Welcome'
+          component={HowToUse}
+          options={({ navigation }) => ({
+            headerShown: false,
+            title: 'Welcome to BACtracker',
+            headerLeft: () => (<HeaderBackButton onPress={() => navigation.navigate('InformationHub')} />)
+          })}
+        />
+      <infoStack.Screen
         name='InformationHub'
         component={InformationHub}
         options={({ route }) => ({ headerShown: false })}
@@ -243,17 +252,17 @@ export default function App() {
         />
         <obStack.Screen
           name='Welcome'
-          component={HowToUse}
+          component={NavBar}
           options={({ navigation }) => ({
             title: 'Welcome to BACtracker',
             headerLeft: () => (<HeaderBackButton onPress={() => navigation.navigate('InformationHub')} />)
           })}
         />
-        <obStack.Screen
+        {/* <obStack.Screen
           name='InformationHub'
           component={NavBar}
           options={() => ({ headerShown: false, headerBackVisible: false })}
-        />
+        /> */}
 
       </obStack.Navigator>
     </NavigationContainer>
