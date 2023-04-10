@@ -7,6 +7,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import CalcDrinkCards from '../components/CalcDrinkCards';
 import CurrentBAC from '../components/CurrentBAC';
 import InsideOut from '../components/InsideOut';
+import Popup from "../components/BACPopUp"; // TODO: add popup functionality
 
 // Import styles
 import * as StyleSheet from '../components/styles';

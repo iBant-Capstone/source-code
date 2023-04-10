@@ -317,6 +317,10 @@ export const styles = StyleSheet.create({
     marginRight: '5%',
     width: '80%',
   },
+  commonAlcTypeSubtext: {
+    fontSize: 16,
+    color: 'black'
+  },
 
   // ** Profile page/About us pages styling
   // For Profile editting

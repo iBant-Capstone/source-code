@@ -16,13 +16,13 @@ const Popup = (props) => {
             <View style={styles.modalContent} >
                 {data && <Text style={styles.commonAlcTypeTitle}>{data.alcoholid}</Text>}
                 <br />
-                {data && <Text style={styles.title}>{data.description}</Text>}
+                {data && <Text style={styles.commonAlcTypeSubtext}>{data.description}</Text>}
                 <br />
-                {data && <Text style={styles.title}><strong>Alcohol By Volume (ABV): </strong>{data.abv}</Text>}
+                {data && <Text style={styles.commonAlcTypeSubtext}><strong>Alcohol By Volume (ABV): </strong>{data.abv}</Text>}
                 <br />
-                {data && <Text style={styles.title}><strong>Did you know? </strong>{data.funFact}</Text>}
+                {data && <Text style={styles.commonAlcTypeSubtext}><strong>Did you know? </strong>{data.funFact}</Text>}
                 <br />
-                {data && <Text style={styles.title}><em>{data.tags}</em></Text>}
+                {data && <Text style={styles.commonAlcTypeSubtext}><em>{data.tags}</em></Text>}
                 <br />
                 <Pressable style={[styles.leftRedButton, styles.centered]} onPress={props.onChangeModal}>
                     <Text style={styles.mainRedButtonText}><em>Close</em></Text>
