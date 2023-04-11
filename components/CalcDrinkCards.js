@@ -33,7 +33,7 @@ const CalcDrinkCards = ({ drinks }) => {
           ))}
         </View>
         :
-        <Text>Add in drinks to see cards</Text>
+        <Text style={{color: 'white'}}>Add in drinks to see cards</Text>
       }
     </View>
   )

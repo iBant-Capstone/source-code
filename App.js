@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { HeaderBackButton } from '@react-navigation/elements';
+import { Pressable, Text } from 'react-native';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -34,6 +34,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // Import fonts
 import { useFonts } from 'expo-font';
 
+// Import styles
+import { styles } from './components/styles.js';
+
 // creating navigators for each of our sections
 // ob = onboarding
 // info = information hub
@@ -50,15 +53,6 @@ const bacStack = createStackNavigator();
 function InfoStackComponent() {
   return (
     <infoStack.Navigator>
-      <infoStack.Screen
-          name='Welcome'
-          component={HowToUse}
-          options={({ navigation }) => ({
-            headerShown: false,
-            title: 'Welcome to BACtracker',
-            headerLeft: () => (<HeaderBackButton onPress={() => navigation.navigate('InformationHub')} />)
-          })}
-        />
       <infoStack.Screen
         name='InformationHub'
         component={InformationHub}
@@ -114,24 +108,24 @@ function ProfileStackComponent() {
 
 // the info stack contains all the pages that cannot be accessed from the BACCalc -- do not include pages that are linked through InfoHub or Profile
 function BACStackComponent() {
-  return(
-  <bacStack.Navigator>
-    <bacStack.Screen
-      name='BACCalc'
-      component={BACCalc}
-      options={({ route }) => ({ title: 'BAC Calculator', headerBackVisible: false })}
-    />
-    <bacStack.Screen
-      name='AddDrinkPage'
-      component={AddDrinkPage}
-      options={({ route }) => ({ title: 'Add Drink' })}
-    />
-    <bacStack.Screen
-      name='AddDrinkType'
-      component={AddDrinkType}
-      options={({ route }) => ({ title: 'Add Drink' })}
-    />
-  </bacStack.Navigator>
+  return (
+    <bacStack.Navigator>
+      <bacStack.Screen
+        name='BACCalc'
+        component={BACCalc}
+        options={({ route }) => ({ title: 'BAC Calculator', headerShown: false })}
+      />
+      <bacStack.Screen
+        name='AddDrinkPage'
+        component={AddDrinkPage}
+        options={({ route }) => ({ title: 'Add Drink' })}
+      />
+      <bacStack.Screen
+        name='AddDrinkType'
+        component={AddDrinkType}
+        options={({ route }) => ({ title: 'Add Drink' })}
+      />
+    </bacStack.Navigator>
   );
 }
 
@@ -252,18 +246,17 @@ export default function App() {
         />
         <obStack.Screen
           name='Welcome'
-          component={NavBar}
+          component={HowToUse}
           options={({ navigation }) => ({
-            title: 'Welcome to BACtracker',
-            headerLeft: () => (<HeaderBackButton onPress={() => navigation.navigate('InformationHub')} />)
+            title: '',
+            headerLeft: () => (<Pressable onPress={() => navigation.navigate('InformationHub')} style={{paddingLeft:10}}><Text style={{fontFamily: "Roboto"}}>Click here to get started with the app!</Text></Pressable>)
           })}
         />
-        {/* <obStack.Screen
+        <obStack.Screen
           name='InformationHub'
           component={NavBar}
           options={() => ({ headerShown: false, headerBackVisible: false })}
-        /> */}
-
+        />
       </obStack.Navigator>
     </NavigationContainer>
   );
