@@ -1,17 +1,21 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import { useState, useEffect} from "react"
 
 const handleInput = async (drinks, newDrink, newKey, newValue, nextPage, navigation ) => {
-    newDrink[newKey] = newValue
-    try {
-        if (nextPage == 'BACCalc') {
-            drinks.push(newDrink)
-            let drinksToSend = JSON.stringify(drinks)
-            await AsyncStorage.setItem('drinks', drinksToSend)
-        }
+  try {
+      newDrink[newKey] = newValue
+      if (nextPage == "BACCalc") {
+        drinks.push(newDrink)
+        let drinksToSend = JSON.stringify(drinks)
+        await AsyncStorage.setItem('drinks', drinksToSend)
         navigation.navigate(nextPage, { drinks: drinks, newDrink: newDrink})
-    } catch (err) {
-        console.log(err)
-    }
+      } else {
+        navigation.navigate(nextPage, { drinks: drinks, newDrink: newDrink})
+      }
+  } catch (err) {
+    console.log(err)
+  }
+  
 }
 
 export default handleInput
