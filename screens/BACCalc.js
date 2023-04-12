@@ -12,10 +12,10 @@ import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafely
 import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
-const BACCalc = ({ navigation }) => {
+const BACCalc = ({ navigation, route }) => {
 
     const [BAC, setBAC] = useState(0)
-    const [drinks, setDrinks] = useState(null)
+    const [drinks, setDrinks] = useState(route && route.drinks ? route.drinks : null)
     const [onInside, setOnInside] = useState(true)
     const [drinksReady, changeDrinksReady] = useState(false)
 
@@ -50,7 +50,13 @@ const BACCalc = ({ navigation }) => {
         if (drinks !== null) {
             changeDrinksReady(true)
         }
+        console.log("drinks was changed to this: ", drinks)
     }, [drinks])
+
+    useEffect(() => {
+        console.log("route's different!", JSON.stringify(route))
+        changeDrinksReady(false)
+    }, [route])
 
     if (drinksReady) {
         return (

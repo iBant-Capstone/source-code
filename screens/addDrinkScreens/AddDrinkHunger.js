@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { ScrollView, Text } from 'react-native';
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import strengths from "../../json/AddDrink-pages/drinkStrengths.json"
-import types from "../../json/AddDrink-pages/drinkTypes.json"
+import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
+
+import handleInput from '../../components/addDrink-components/handleInput';
+
+import hungerValues from "../../json/AddDrink-pages/hungerValues.json"
 
 const AddDrinkHunger = ({ route, navigation }) => {
-    // let drinks = route.params.drinks
-    // let newDrink = route.params.newDrink
+    let drinks = route.params.drinks
+    let newDrink = route.params.newDrink
 
-    // const [data, setData] = useState(null)
-    // let newKey = "strength"
-    // let nextPage = "AddDrinkHunger"
+    let data = hungerValues
+    let newKey = "halfLife"
+    let nextPage = "AddDrinkTime"
 
-    // // Finds the sizes we need to display based on what type we selected in the screen before
-    // useEffect(() => {
-    //     setData(displayBasedOnType(types, newDrink, 'strengths', strengths))
-    // }, [])
-
-    // const handleAddDrinksInput = (newValue) => {
-    //     handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
-    // }
+    const handleAddDrinksInput = (newValue) => {
+        handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
+    }
 
     return (
-        <Text>You made it! Yay!</Text>
+        <ScrollView>
+            <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
+        </ScrollView>
     )
  
 }

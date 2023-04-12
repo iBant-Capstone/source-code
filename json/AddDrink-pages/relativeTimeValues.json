@@ -1,0 +1,26 @@
+[
+    {
+        "title": "10 minutes ago",
+        "subtitle": "Example Text",
+        "icon": "",
+        "value": "10"
+    },
+    {
+        "title": "30 minutes ago",
+        "subtitle": "Example Text",
+        "icon": "",
+        "value": "30"
+    },
+    {
+        "title": "1 hour ago",
+        "subtitle": "Example Text",
+        "icon": "",
+        "value": "60"
+    },
+    {
+        "title": "2 hours ago",
+        "subtitle": "Example Text",
+        "icon": "",
+        "value": "120"
+    }
+]
