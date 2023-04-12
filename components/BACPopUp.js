@@ -8,8 +8,11 @@ let styles = StyleSheet.styles;
 
 const Popup = (props) => {
     let BAC = props.BAC;
+    console.log("BAC: ", BAC); // currently not logging
     // let BAC = 0; // testing
     let warningText = "";
+
+    const [modalVisible, setModalVisible] = useState(true);
 
     // let data = undefined;
     // if (props.data != undefined) {
@@ -32,7 +35,8 @@ const Popup = (props) => {
 
     // TODO: add styling for popup in styles.js
     return (
-        <Modal isVisible={props.isOpen} style={styles.modal}>
+        // <Modal isVisible={props.isOpen} style={styles.modal}>
+        <Modal isVisible={modalVisible} style={styles.modal}>
             <View style={styles.modalContent} >
                 {data && <Text style={styles.commonAlcTypeTitle}><strong>WARNING!</strong></Text>}
                 <br />
@@ -40,7 +44,8 @@ const Popup = (props) => {
                 <br />
                 {data && <Text style={styles.commonAlcTypeSubtext}>{warningText}</Text>}
                 <br />
-                <Pressable style={[styles.leftRedButton, styles.centered]} onPress={props.onChangeModal}>
+                <Pressable style={[styles.leftRedButton, styles.centered]} onPress={() => setModalVisible(false)}> 
+                {/* onPress={props.onChangeModal} */}
                     <Text style={styles.mainRedButtonText}><em>I understand</em></Text>
                 </Pressable>
                 {/* TODO (P2): add "Do not show this again" pressable & functionality */}

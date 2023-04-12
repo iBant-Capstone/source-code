@@ -28,7 +28,7 @@ const BACCalc = ({ navigation }) => {
     // Handles the change of BAC in children components
     const changeBAC = useCallback((newBAC) => {
         setBAC(newBAC)
-        // callPopUp(newBAC) // call pop-up here with newBAC?
+        callPopUp(newBAC) // call pop-up here with newBAC?
     }, [])
 
     // Handles the change of onInside in children components
@@ -66,13 +66,15 @@ const BACCalc = ({ navigation }) => {
     }, [drinks])
 
 
-    // Add BAC pop-up functionality:
+    // BAC pop-up functions:
     // Call the popup with given BAC
     function callPopUp(BAC) {
+        console.log("called BAC pop-up");
+        // console.log("BAC: ", BAC);
         return (
             <View>
-                <Popup isOpen={true} // create boolean variable to track whether pop-up is open
-                 onChangeModal={() => changePopup(BAC)} 
+                <Popup isOpen={true} // create boolean variable to track whether pop-up is open -> needed?
+                //  onChangeModal={() => changePopup(BAC)} 
                  BAC={BAC}/>
             </View>
         );
