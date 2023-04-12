@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 
 import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
-import handleInput from '../../components/addDrink-components/handleInput';
+import handleInput from '../../components/AddDrink-components/handleInput';
 
 import hungerValues from "../../json/AddDrink-pages/hungerValues.json"
 

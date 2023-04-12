@@ -5,7 +5,7 @@ import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 import AddDrinkSizeCustomInput from '../../components/AddDrink-components/AddDrinkSizeCustomInput';
 
 import displayBasedOnType from '../../components/AddDrink-components/displayBasedOnType';
-import handleInput from '../../components/addDrink-components/handleInput';
+import handleInput from '../../components/AddDrink-components/handleInput';
 
 import sizes from "../../json/AddDrink-pages/drinkSizes.json"
 import types from "../../json/AddDrink-pages/drinkTypes.json"

@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native';
 import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
 import displayBasedOnType from '../../components/AddDrink-components/displayBasedOnType';
-import handleInput from '../../components/addDrink-components/handleInput';
+import handleInput from '../../components/AddDrink-components/handleInput';
 
 import strengths from "../../json/AddDrink-pages/drinkStrengths.json"
 import types from "../../json/AddDrink-pages/drinkTypes.json"

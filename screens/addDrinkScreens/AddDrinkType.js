@@ -5,7 +5,7 @@ import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
 import types from "../../json/AddDrink-pages/drinkTypes.json"
 
-import handleInput from '../../components/addDrink-components/handleInput';
+import handleInput from '../../components/AddDrink-components/handleInput';
 
 const AddDrinkType = ({ route, navigation }) => {
     let drinks = route.params.drinks

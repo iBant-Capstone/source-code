@@ -32,12 +32,20 @@ const BACCalc = ({ navigation, route }) => {
     })
 
     useEffect(() => {
+        changeDrinksReady(false)
+        console.log("route useEffect drinksready:", drinksReady)
+
+    }, [route])
+
+    useEffect(() => {
         if (!drinksReady) {
+            console.log("drinksReady useEffect Drinks aren't ready")
             const getAsyncDrinks = async () => {
                 try {
                     const asyncStorageData = await AsyncStorage.getItem("drinks") 
                     const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
                     setDrinks(asyncStorageParsed)
+                    console.log(asyncStorageParsed)
                 } catch (err) {
                     console.log(err)
                 }
@@ -52,11 +60,6 @@ const BACCalc = ({ navigation, route }) => {
         }
         console.log("drinks was changed to this: ", drinks)
     }, [drinks])
-
-    useEffect(() => {
-        console.log("route's different!", JSON.stringify(route))
-        changeDrinksReady(false)
-    }, [route])
 
     if (drinksReady) {
         return (
