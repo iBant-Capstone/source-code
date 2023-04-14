@@ -12,6 +12,8 @@ const Popup = (props) => {
     let warningText = "";
 
     const [modalVisible, setModalVisible] = useState(true);
+    // modalVisible = props.modalVisible;
+    // setModalVisible = props.setModalVisible;
 
     if (BAC >= 0.08 && BAC < 0.25) {
         warningText = "Your BAC level is at or above the federal legal intoxication level. It is illegal for you to drive or ride a bike. Please consider these alternatives to get home safely: ";
@@ -30,7 +32,8 @@ const Popup = (props) => {
     // TODO: add styling for popup in styles.js
     return (
         // <Modal isVisible={props.isOpen} style={styles.modal}>
-        <Modal isVisible={modalVisible} style={styles.modal}>
+        // closeOnOutsideClick={true}
+        <Modal isVisible={modalVisible} style={styles.modal}> 
             <View style={styles.modalContent} >
                 {data && <Text style={styles.commonAlcTypeTitle}><strong>WARNING!</strong></Text>}
                 <br />
