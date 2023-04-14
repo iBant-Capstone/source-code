@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Text } from 'react-native';
+import { Pressable, Text, Linking } from 'react-native';
 
 import * as StyleSheet from '../styles'
 let styles = StyleSheet.styles;

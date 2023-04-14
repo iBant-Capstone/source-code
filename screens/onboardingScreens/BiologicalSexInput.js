@@ -127,13 +127,13 @@ const BiologicalSex = ({ navigation }) => {
                     onPress={() => setSexValueChecked('male')}
                 ><Text>Male</Text></Pressable>
             </View>
-            <View style={styles.centered}>
+            {/* <View style={styles.centered}>
                 <Pressable
-                    onPress={handleAddPersonalDetails}
+                    onPress={}
                     style={styles.centerRedButton}
                 ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
-            </View>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('Welcome'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
+            </View> */}
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { handleAddPersonalDetails(); navigation.navigate('Welcome'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
 
     );

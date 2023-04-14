@@ -137,13 +137,13 @@ const WeightInput = ({ navigation }) => {
 
             </View>
             
-            <View style={styles.centered}>
+            {/* <View style={styles.centered}>
                 <Pressable
                     onPress={handleAddPersonalDetails}
                     style={styles.centerRedButton}
                 ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
-            </View>
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('BiologicalSex'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
+            </View> */}
+            <Footer rightButtonLabel="Save" rightButtonPress={() => { handleAddPersonalDetails(); navigation.navigate('BiologicalSex'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
 
     );

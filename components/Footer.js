@@ -15,22 +15,12 @@ const Footer = ({
   const windowWidth = useWindowDimensions().width;
   const windowHeight = useWindowDimensions().height;
   const HEIGHT = windowHeight * 0.21;
-  const FOOTER_PADDING = windowWidth * 0.1;
 
   return (
-    // <View
-    //   style={{
-    //     flexDirection: 'row',
-    //     justifyContent: leftButtonLabel ? 'space-between' : 'flex-end',
-    //     height: HEIGHT,
-    //     paddingHorizontal: FOOTER_PADDING
-    //   }}
-    // >
-      <View style={[styles.row, styles.centered, {height: HEIGHT, minWidth: windowWidth, position: 'absolute', top: windowHeight - HEIGHT}]}>
-        {leftButtonLabel && (<Pressable style={styles.centerRedButton} onPress={leftButtonPress}><Text style={styles.mainRedButtonText}>{leftButtonLabel}</Text></Pressable>)}
-        {rightButtonLabel && (<Pressable style={styles.centerRedButton} onPress={rightButtonPress}><Text style={styles.mainRedButtonText}>{rightButtonLabel}</Text></Pressable>)}
-      </View>
-    // </View>
+    <View style={[styles.row, styles.centered, { height: HEIGHT, minWidth: windowWidth, position: 'absolute', top: windowHeight - HEIGHT }]}>
+      {leftButtonLabel && (<Pressable style={styles.centerRedButton} onPress={leftButtonPress}><Text style={styles.mainRedButtonText}>{leftButtonLabel}</Text></Pressable>)}
+      {rightButtonLabel && (<Pressable style={styles.centerRedButton} onPress={rightButtonPress}><Text style={styles.mainRedButtonText}>{rightButtonLabel}</Text></Pressable>)}
+    </View>
   );
 };
 

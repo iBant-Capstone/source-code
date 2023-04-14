@@ -199,8 +199,9 @@ export const styles = StyleSheet.create({
     textAlign: 'center'
   },
   mainRedButtonText: {
-    // fontFamily: 'Roboto',
+    fontFamily: 'Roboto-Medium',
     color: 'white'
+
   },
 
   // For buttons - white
