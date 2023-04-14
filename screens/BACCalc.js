@@ -28,7 +28,8 @@ const BACCalc = ({ navigation }) => {
     // Handles the change of BAC in children components
     const changeBAC = useCallback((newBAC) => {
         setBAC(newBAC)
-        callPopUp(newBAC) // call pop-up here with newBAC?
+        callPopUp(newBAC) // call pop-up here with newBAC
+        // TODO: add conditioning so callPopUp is only called with if newBAC >= 0.08?
     }, [])
 
     // Handles the change of onInside in children components
@@ -70,17 +71,13 @@ const BACCalc = ({ navigation }) => {
     // Call the popup with given BAC
     function callPopUp(BAC) {
         console.log("called BAC pop-up");
-        // console.log("BAC: ", BAC);
+        console.log("BAC: ", BAC);
         return (
             <View>
-                <Popup isOpen={true} // create boolean variable to track whether pop-up is open -> needed?
-                //  onChangeModal={() => changePopup(BAC)} 
-                 BAC={BAC}/>
+                <Popup BAC={BAC}/>
             </View>
         );
     }
-
-
 
     // only load the components once we've 
     if (drinksReady) {

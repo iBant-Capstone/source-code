@@ -9,15 +9,9 @@ let styles = StyleSheet.styles;
 const Popup = (props) => {
     let BAC = props.BAC;
     console.log("BAC: ", BAC); // currently not logging
-    // let BAC = 0; // testing
     let warningText = "";
 
     const [modalVisible, setModalVisible] = useState(true);
-
-    // let data = undefined;
-    // if (props.data != undefined) {
-    //     data = props.data[0];
-    // }
 
     if (BAC >= 0.08 && BAC < 0.25) {
         warningText = "Your BAC level is at or above the federal legal intoxication level. It is illegal for you to drive or ride a bike. Please consider these alternatives to get home safely: ";
@@ -44,7 +38,7 @@ const Popup = (props) => {
                 <br />
                 {data && <Text style={styles.commonAlcTypeSubtext}>{warningText}</Text>}
                 <br />
-                <Pressable style={[styles.leftRedButton, styles.centered]} onPress={() => setModalVisible(false)}> 
+                <Pressable style={[styles.leftRedButton, styles.centered]} onPress={() => setModalVisible(!modalVisible)}> 
                 {/* onPress={props.onChangeModal} */}
                     <Text style={styles.mainRedButtonText}><em>I understand</em></Text>
                 </Pressable>
