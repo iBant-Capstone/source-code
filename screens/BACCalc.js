@@ -8,6 +8,7 @@ import InsideOut from '../components/BACCalc-components/InsideOut';
 import AddDrinkButton from '../components/BACCalc-components/AddDrinkButton';
 import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButton';
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
+import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
 
 import Popup from '../components/AlcoholPopUp';
 
@@ -17,7 +18,7 @@ let styles = StyleSheet.styles;
 const BACCalc = ({ navigation, route }) => {
 
     const [drinks, setDrinks] = useState(route && route.drinks ? route.drinks : null)
-    const [personalDetails, setPersonalDetails] = useState({})
+    const [personalDetails, setPersonalDetails] = useState(null)
 
     const [BAC, setBAC] = useState(0)
     const [onInside, setOnInside] = useState(true)
@@ -46,7 +47,7 @@ const BACCalc = ({ navigation, route }) => {
         changePDReady(false)
     }, [route])
 
-    // useEffect adds the new drinks or personal details if needed
+    // useEffects update the drinks or personal details state if needed
     useEffect(() => {
         if (!drinksReady) {
             const getAsyncDrinks = async () => {
@@ -87,7 +88,10 @@ const BACCalc = ({ navigation, route }) => {
 
     useEffect(() => {
         if (personalDetails !== null) {
-            changePDReady(true)
+            // check if the personal details have been inputted in by the user
+            if (personalDetails.height.value != 0 & personalDetails.weight.value != 0 & personalDetails.sex != '') {
+                changePDReady(true)
+            }
         }
     }, [personalDetails])
 
@@ -104,7 +108,6 @@ const BACCalc = ({ navigation, route }) => {
         );
     }
 
-    // only load the components once we've 
     if (drinksReady && pdReady) {
         return (
             <ScrollView>
@@ -120,6 +123,8 @@ const BACCalc = ({ navigation, route }) => {
                 </View>
             </ScrollView >
         );
+    } else if (drinksReady && !pdReady) {
+        return (<PersonalDetailsIncorrect />)
     } else {
         return (
             <View>

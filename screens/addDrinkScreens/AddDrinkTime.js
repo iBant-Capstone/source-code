@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 
 import ExactTimeInput from "../../components/AddDrink-components/ExactTimeInput"
-import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
+import AddDrinkCards from '../../components/AddDrink-components/AddDrinkCards';
 
 import relativeTimeValues from "../../json/AddDrink-pages/relativeTimeValues.json"
 
