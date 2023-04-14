@@ -9,6 +9,8 @@ import AddDrinkButton from '../components/BACCalc-components/AddDrinkButton';
 import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButton';
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 
+import Popup from '../components/AlcoholPopUp';
+
 import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
