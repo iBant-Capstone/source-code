@@ -1,4 +1,5 @@
-import { Text, View, Image, ScrollView } from 'react-native';
+import { Text, View, Image, ScrollView, Pressable } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -11,7 +12,9 @@ import * as StyleSheet from '../../components/styles';
 let styles = StyleSheet.styles;
 
 // Create a how to use page with informaiton on how the different nav bar icons leads to different pages
-const HowToUse = () => {
+const HowToUse = ({ navigation }) => {
+    const route = useRoute();
+
     return (
         <ScrollView>
             <View style={{ backgroundColor: '#fff' }}>
@@ -38,6 +41,9 @@ const HowToUse = () => {
                             <Ionicons name={'ios-person-outline'} style={styles.howToIcon} />
                         </View>
                         <Text style={styles.howToIconText}>This leads to the <Text style={styles.redBoldText}>information about you</Text> that is used to calculate your BAC. You can change this information if need be! Here you can also find information about the team behind this app, how to use it, and our sources.</Text>
+                    </View>
+                    <View style={styles.centerContainer}>
+                        {route.name == "Welcome" ? <Pressable onPress={() => navigation.navigate('InformationHub')} style={styles.aboutButton}><Text style={styles.mainRedButtonText}>Click here to get started with the app!</Text></Pressable> : <View></View>}
                     </View>
                 </View>
             </View>
