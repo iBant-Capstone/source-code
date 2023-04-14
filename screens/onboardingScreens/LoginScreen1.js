@@ -30,9 +30,9 @@ const LoginScreen1 = ({ navigation }) => {
                     if (onboard === null) {
                         setOnboarded(false);
                     }
-                    else {
-                        setOnboarded(true);
-                    }
+                    // else {
+                    //     setOnboarded(true);
+                    // }
 
 
                 } catch (error) {
