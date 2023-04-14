@@ -106,7 +106,7 @@ const EditProfilePage = ({ navigation }) => {
 
 
     return (
-        <View style={styles.centerContainer}>
+        <ScrollView style={styles.centerContainer}>
             {/* Only loads once the personal details have loaded */}
             {hasFocused ?
                 <View style={{ minWidth: '100%' }}>
@@ -220,11 +220,8 @@ const EditProfilePage = ({ navigation }) => {
                 :
                 <Text>Loading...</Text>
             }
-        </View >
-
-
+        </ScrollView >
     )
-
 }
 
 export default EditProfilePage

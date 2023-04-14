@@ -16,10 +16,15 @@ let styles = StyleSheet.styles;
 
 const BACCalc = ({ navigation, route }) => {
 
-    const [BAC, setBAC] = useState(0)
     const [drinks, setDrinks] = useState(route && route.drinks ? route.drinks : null)
+    const [personalDetails, setPersonalDetails] = useState({})
+
+    const [BAC, setBAC] = useState(0)
     const [onInside, setOnInside] = useState(true)
+
     const [drinksReady, changeDrinksReady] = useState(false)
+    const [pdReady, changePDReady] = useState(false)
+
 
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
@@ -35,34 +40,53 @@ const BACCalc = ({ navigation, route }) => {
         changeDrinksReady(state)
     })
 
+    // When the route changes we reset the states that determine whether or not we render components
     useEffect(() => {
         changeDrinksReady(false)
-        console.log("route useEffect drinksready:", drinksReady)
+        changePDReady(false)
     }, [route])
 
+    // useEffect adds the new drinks or personal details if needed
     useEffect(() => {
         if (!drinksReady) {
-            console.log("drinksReady useEffect Drinks aren't ready")
             const getAsyncDrinks = async () => {
                 try {
                     const asyncStorageData = await AsyncStorage.getItem("drinks") 
                     const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
                     setDrinks(asyncStorageParsed)
-                    console.log(asyncStorageParsed)
                 } catch (err) {
                     console.log(err)
                 }
             }
             getAsyncDrinks()
         }
-    }, [drinksReady])
+        if (!pdReady) {
+            const getAsyncPersonalDetails = async () => {
+                try {
+                    const asyncStorageData = await AsyncStorage.getItem("personalDetails") 
+                    const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
+                    setPersonalDetails(asyncStorageParsed)
+                } catch (err) {
+                    console.log(err)
+                }
+            }
+            getAsyncPersonalDetails()
+        }
+    }, [drinksReady, pdReady])
 
+
+    // useEffects check that both drinks and personal details have been laoded from async storage correctly
     useEffect(() => {
         if (drinks !== null) {
             changeDrinksReady(true)
         }
-        console.log("drinks was changed to this: ", drinks)
     }, [drinks])
+
+    useEffect(() => {
+        if (personalDetails !== null) {
+            changePDReady(true)
+        }
+    }, [personalDetails])
 
 
     // BAC pop-up functions:
@@ -78,11 +102,11 @@ const BACCalc = ({ navigation, route }) => {
     }
 
     // only load the components once we've 
-    if (drinksReady) {
+    if (drinksReady && pdReady) {
         return (
             <ScrollView>
                 <View style={styles.pageFillContainer}>
-                    <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} />
+                    <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
                     <View style={styles.redContainer}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
