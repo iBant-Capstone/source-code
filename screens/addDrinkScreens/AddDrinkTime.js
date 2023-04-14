@@ -17,15 +17,13 @@ const AddDrinkTime = ({ route, navigation }) => {
     let nextPage = "BACCalc"
 
     const handleRelativeTimeInput = (minAgo) => {
-
         let date = new Date();
         date.setMinutes(date.getMinutes() - minAgo);
-
         let newValue = date
         handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
-        console.log("we got past the handRelativeTimeInput handleInput")
     }
     const handleExactTimeInput = (min, hour, timeOfDay) => {
+        let currentDate = new Date()
         let newValue = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), (timeOfDay === 'AM' ? Number(hour) : Number(hour) + 12), Number(min))
         handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
     }
