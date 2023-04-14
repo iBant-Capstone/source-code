@@ -30,9 +30,9 @@ const LoginScreen1 = ({ navigation }) => {
                     if (onboard === null) {
                         setOnboarded(false);
                     }
-                    // else {
-                    //     setOnboarded(true);
-                    // }
+                    else {
+                        setOnboarded(true);
+                    }
 
 
                 } catch (error) {
@@ -62,7 +62,9 @@ const LoginScreen1 = ({ navigation }) => {
             </View>
 
             <Footer rightButtonLabel="Next" rightButtonPress={() => {
+                console.log("hasOnboarded" + hasOnboarded)
                 if (hasOnboarded) {
+                    
                     navigation.navigate('InformationHub');
                 }
                 else {
