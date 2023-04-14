@@ -1,0 +1,30 @@
+[
+    {
+        "id": "red/white-wine",
+        "title": "Red/White Wine",
+        "subtitle": "12% ABV",
+        "icon": "",
+        "value": ".12"
+    },
+    {
+        "id": "sake",
+        "title": "Sake",
+        "subtitle": "15% ABV",
+        "icon": "",
+        "value": ".15"
+    },
+    {
+        "id": "light-beer",
+        "title": "Light-Beer",
+        "subtitle": "4% ABV",
+        "icon": "",
+        "value": ".04"
+    },
+    {
+        "id": "dark-beer",
+        "title": "Dark-Beer",
+        "subtitle": "6% ABV",
+        "icon": "",
+        "value": ".06"
+    }
+]

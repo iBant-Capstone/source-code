@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput, Pressable } from 'react-native';
+import { Text, View, ScrollView, TextInput, Pressable } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
@@ -109,7 +109,7 @@ const EditProfilePage = ({ navigation }) => {
         <View style={styles.centerContainer}>
             {/* Only loads once the personal details have loaded */}
             {hasFocused ?
-                <View style={{ minWidth: '100%' }}>
+                <ScrollView style={{ minWidth: '100%' }}>
                     <View style={styles.leftContainer}>
                         <Text style={[styles.redBoldText, { fontSize: 32, marginBottom: '5%' }]}>Edit</Text>
                     </View>
@@ -215,7 +215,7 @@ const EditProfilePage = ({ navigation }) => {
                             style={styles.centerRedButton}
                         ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
                     </View>
-                </View>
+                </ScrollView>
 
                 :
                 <Text>Loading...</Text>

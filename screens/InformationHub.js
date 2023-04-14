@@ -1,4 +1,5 @@
 import { Pressable, Text, View, Image } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Import components
 import TitleText from '../components/Title';

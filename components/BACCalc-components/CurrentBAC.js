@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 // Import styles
-import * as StyleSheet from './styles';
+import * as StyleSheet from '../styles';
 let styles = StyleSheet.styles;
 
 const CurrentBAC = ({ BAC, setBAC, drinks }) => {
