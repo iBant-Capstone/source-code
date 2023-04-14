@@ -58,8 +58,11 @@ const BACCalc = ({ navigation, route }) => {
                     console.log(err)
                 }
             }
-            getAsyncDrinks()
+            getAsyncDrinks()            
         }
+    }, [drinksReady])
+
+    useEffect(() => {
         if (!pdReady) {
             const getAsyncPersonalDetails = async () => {
                 try {
@@ -72,10 +75,10 @@ const BACCalc = ({ navigation, route }) => {
             }
             getAsyncPersonalDetails()
         }
-    }, [drinksReady, pdReady])
+    }, [pdReady])
 
 
-    // useEffects check that both drinks and personal details have been laoded from async storage correctly
+    // useEffects check that both drinks and personal details have been loaded from async storage correctly
     useEffect(() => {
         if (drinks !== null) {
             changeDrinksReady(true)
