@@ -190,7 +190,8 @@ export default function App() {
   // For fonts
   const [fontsLoaded] = useFonts({
     'Roboto': require('./assets/fonts/Roboto-Regular.ttf'),
-    'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf')
+    'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
+    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf')
   });
 
   // app starts with the onboarding stack and then links to the welcome/infohub page
@@ -248,8 +249,10 @@ export default function App() {
           name='Welcome'
           component={HowToUse}
           options={({ navigation }) => ({
-            title: '',
-            headerLeft: () => (<Pressable onPress={() => navigation.navigate('InformationHub')} style={{paddingLeft:10}}><Text style={{fontFamily: "Roboto"}}>Click here to get started with the app!</Text></Pressable>)
+            title: 'Welcome',
+            headerShown: false,
+            navigation: navigation
+            // headerLeft: () => (<Pressable onPress={() => navigation.navigate('InformationHub')} style={{paddingLeft:10}}><Text style={{fontFamily: "Roboto"}}>Click here to get started with the app!</Text></Pressable>)
           })}
         />
         <obStack.Screen
