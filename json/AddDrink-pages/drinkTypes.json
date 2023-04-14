@@ -3,8 +3,24 @@
         "title": "Wine/Sake",
         "subtitle": "",
         "icon": "",
-        "value": "wine/sake",
-        "amounts": ["wine-glass", "large-bottle", "sake-bowl", "solo-cup"],
+        "value": "Wine/Sake",
+        "sizes": ["wine-glass", "large-bottle", "solo-cup"],
         "strengths": ["red/white-wine", "sake"]
+    },
+    {
+        "title": "Beer/Cider",
+        "subtitle": "ex. IPA, Hops, ...",
+        "icon": "",
+        "value": "Beer/Cider",
+        "sizes": ["solo-cup"],
+        "strengths": ["light-beer", "dark-beer"]
+    },
+    {
+        "title": "New test drink",
+        "subtitle": "ex. IPA, Hops, ...",
+        "icon": "",
+        "value": "Beer/Cider",
+        "sizes": ["solo-cup"],
+        "strengths": ["light-beer", "dark-beer"]
     }
 ]

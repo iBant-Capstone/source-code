@@ -1,4 +1,5 @@
 import { Pressable, Text, View, Image } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Import components
 import TitleText from '../components/Title';
@@ -62,6 +63,15 @@ export const InfoPage = (props) => {
           style={styles.leftRedButton}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Resources' })}>
           <Text style={styles.mainRedButtonText}>Resources</Text>
+        </Pressable>
+        <Pressable
+            onPress={() => {
+                AsyncStorage.removeItem("drinks") 
+            }}
+            accessibilityLabel="Add a drink"
+            style={styles.whiteButton}
+        >
+            <Text>Clear Drinks</Text>
         </Pressable>
       </View>
     </View >

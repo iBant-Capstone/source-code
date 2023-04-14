@@ -79,9 +79,11 @@
             {
                 "question": "How do we calculate BAC?",
                 "answerArr": [
-                    {"key": "*TO-DO: add info about the exact algorithm we use to calculate BAC (reference DrunkCalc)*"}
+                    {"key": "We calculate BAC by using the algorithm used by drunkcalc.com. It uses the improved Widmark factor first proposed by Posey and Mozayani in the journal article \"The estimation of blood alcohol concentration: Widmark revisited\", published in 2007 in order to more accurately calculate blood alcohol concentration. It even includes absorption rate based on how much food you already have in your stomach."}
                 ],
-                "sources": []
+                "sources": [
+                    32
+                ]
             }
         ],
         "imgUrl": ""

@@ -1,52 +1,52 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Text, View, Pressable, ScrollView, FlatList, Linking } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useFocusEffect } from '@react-navigation/native';
 
-// Import used components
-import CalcDrinkCards from '../components/CalcDrinkCards';
-import CurrentBAC from '../components/CurrentBAC';
-import InsideOut from '../components/InsideOut';
-import Popup from "../components/BACPopUp"; 
+import CalcDrinkCards from '../components/BACCalc-components/CalcDrinkCards';
+import CurrentBAC from '../components/BACCalc-components/CurrentBAC';
+import InsideOut from '../components/BACCalc-components/InsideOut';
+import AddDrinkButton from '../components/BACCalc-components/AddDrinkButton';
+import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButton';
+import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 
-// Import styles
 import * as StyleSheet from '../components/styles';
 let styles = StyleSheet.styles;
 
-
-
-const BACCalc = ({ navigation }) => {
-
+const BACCalc = ({ navigation, route }) => {
 
     const [BAC, setBAC] = useState(0)
-    const [drinks, setDrinks] = useState(null)
-    const [onInside, changeInsideOut] = useState(true)
-
+    const [drinks, setDrinks] = useState(route && route.drinks ? route.drinks : null)
+    const [onInside, setOnInside] = useState(true)
     const [drinksReady, changeDrinksReady] = useState(false)
 
- 
-    // Handles the change of BAC in children components
-    const changeBAC = useCallback((newBAC) => {
+    const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
         callPopUp(newBAC) // call pop-up here with newBAC
         // TODO: add conditioning so callPopUp is only called with if newBAC >= 0.08?
     }, [])
 
-    // Handles the change of onInside in children components
-    const toggleInsideOut = useCallback((state) => {
-        changeInsideOut(state)
+    const handleSetOnInside = useCallback((state) => {
+        setOnInside(state)
     })
 
-    // Checks async storage and refreshes the 
+    const handleChangeDrinksReady = useCallback((state) => {
+        changeDrinksReady(state)
+    })
+
+    useEffect(() => {
+        changeDrinksReady(false)
+        console.log("route useEffect drinksready:", drinksReady)
+    }, [route])
+
     useEffect(() => {
         if (!drinksReady) {
+            console.log("drinksReady useEffect Drinks aren't ready")
             const getAsyncDrinks = async () => {
                 try {
-                    console.log("BACCalc.js ---- drinksReady useEffect, drinks have been processed", drinks)
                     const asyncStorageData = await AsyncStorage.getItem("drinks") 
                     const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
-                    await setDrinks(asyncStorageParsed)
-                    //console.log("BACCalc.js ---- drinksReady useEffect, drinks have been processed", drinks)
+                    setDrinks(asyncStorageParsed)
+                    console.log(asyncStorageParsed)
                 } catch (err) {
                     console.log(err)
                 }
@@ -55,17 +55,14 @@ const BACCalc = ({ navigation }) => {
         }
     }, [drinksReady])
 
-
-    // Checks if we've successfully processed async data drinks, and then show that drinks are ready
     useEffect(() => {
         if (drinks !== null) {
-            console.log("BACCALC.js -- drinks processed right!", drinks)
             changeDrinksReady(true)
-        } else {
-            console.log('BACCalc.js ----- drinks have changed but they\'re null', drinks)
         }
+        console.log("drinks was changed to this: ", drinks)
     }, [drinks])
 
+<<<<<<< HEAD
 
     // BAC pop-up functions:
     // Call the popup with given BAC
@@ -80,15 +77,16 @@ const BACCalc = ({ navigation }) => {
     }
 
     // only load the components once we've 
+=======
+>>>>>>> newAddDrink
     if (drinksReady) {
         return (
             <ScrollView>
                 <View style={styles.pageFillContainer}>
-                    <CurrentBAC setBAC={changeBAC} BAC={BAC} drinks={drinks} />
-
-                    <InsideOut onInside={onInside} toggleInsideOut={toggleInsideOut} BAC={BAC} />
-
+                    <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} />
+                    <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
                     <View style={styles.redContainer}>
+<<<<<<< HEAD
                         <Pressable
                             onPress={() => {
                                 console.log("pressed")
@@ -152,6 +150,12 @@ const BACCalc = ({ navigation }) => {
                                 </Pressable>
                             </View>
                         </View>
+=======
+                        <AddDrinkButton navigation={navigation} drinks={drinks} />
+                        <CalcDrinkCards drinks={drinks} />
+                        <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
+                        <GetHomeSafelySection />
+>>>>>>> newAddDrink
                     </View>
                 </View>
             </ScrollView >
@@ -163,32 +167,6 @@ const BACCalc = ({ navigation }) => {
             </View>
         )
     }
-
 }
 
 export default BACCalc
-
-
-
-// TEST DRINK WHEN YOU WANT ANOTHER DRINK IN STORAGE
-// const handleAddEntry = async () => {
-
-//     // Create the JSON structure for the new drink
-//     let newDrink = {
-//         name: "testName",
-//         size: {
-//             unit: "ml",
-//             value: 15
-//         },
-//         strength: 12 / 100,
-//         halfLife: 6,
-//         timeOfDrink: "2023-03-09T06:30:00.000Z"
-//     }
-
-//     try {
-//         let newDrinks = [...drinks, newDrink]
-//         setDrinks(newDrinks)
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };

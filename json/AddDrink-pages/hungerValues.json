@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Full",
+        "subtitle": "Example Text",
+        "icon": "",
+        "value": "15"
+    },
+    {
+        "title": "Not Hungry",
+        "subtitle": "Example Text",
+        "icon": "",
+        "value": "12"
+    },
+    {
+        "title": "Hungry",
+        "subtitle": "Example Text",
+        "icon": "",
+        "value": "19"
+    },
+    {
+        "title": "Very Hungry",
+        "subtitle": "Example Text",
+        "icon": "",
+        "value": "6"
+    }
+]
