@@ -22,7 +22,8 @@ const AddDrinkSize = ({ route, navigation }) => {
         setData(displayBasedOnType(types, newDrink, 'strengths', strengths))
     }, [])
 
-    const handleAddDrinksInput = (newValue) => {
+    const handleAddDrinksInput = (strengthValue) => {
+        let newValue = Number(strengthValue)
         handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
     }
 

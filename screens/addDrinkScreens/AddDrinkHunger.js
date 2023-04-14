@@ -15,7 +15,8 @@ const AddDrinkHunger = ({ route, navigation }) => {
     let newKey = "halfLife"
     let nextPage = "AddDrinkTime"
 
-    const handleAddDrinksInput = (newValue) => {
+    const handleAddDrinksInput = (hungerValue) => {
+        let newValue = Number(hungerValue)
         handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
     }
 

@@ -34,7 +34,6 @@ const BACCalc = ({ navigation, route }) => {
     useEffect(() => {
         changeDrinksReady(false)
         console.log("route useEffect drinksready:", drinksReady)
-
     }, [route])
 
     useEffect(() => {

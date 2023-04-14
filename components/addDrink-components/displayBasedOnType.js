@@ -2,7 +2,7 @@
 const displayBasedOnType = (types, newDrink, strengthsOrSizes, attributeData ) => {
     let currentTypeOptionIDs = []
     types.map((type) => {
-        if (type.title == newDrink.type) {
+        if (type.title == newDrink.name) {
             currentTypeOptionIDs = type[strengthsOrSizes]
         }
     })
