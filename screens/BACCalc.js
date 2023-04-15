@@ -86,7 +86,7 @@ const BACCalc = ({ navigation, route }) => {
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
                     <View style={styles.redContainer}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
-                        <CalcDrinkCards drinks={drinks} />
+                        <CalcDrinkCards drinks={drinks} navigation={navigation}/>
                         <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
                         <GetHomeSafelySection />
                     </View>
