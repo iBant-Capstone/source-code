@@ -5,6 +5,14 @@ import { Dimensions } from 'react-native';
 const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
+  // For Gisele
+  bigRosie: {
+    width: "80%",
+    minHeight: "50%",
+    marginBottom: "10%"
+  },
+
+
   // popup - related styling 
   popupIcon: {
     justifyContent: 'flex-start',

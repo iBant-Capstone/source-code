@@ -132,7 +132,7 @@ const BACCalc = ({ navigation, route }) => {
             </ScrollView >
         );
     } else if (drinksReady && !pdReady) {
-        return (<PersonalDetailsIncorrect />)
+        return (<PersonalDetailsIncorrect navigation={navigation}/>)
     } else {
         return (
             <View>

@@ -27,4 +27,7 @@ export const containerStyles = StyleSheet.create({
         padding: "15px",
         justifyContent: 'center',
     },
+    alignTextCenter: {
+        textAlign: 'center'
+    }
 })
