@@ -221,10 +221,7 @@ const EditProfilePage = ({ navigation }) => {
                 <Text>Loading...</Text>
             }
         </View >
-
-
     )
-
 }
 
 export default EditProfilePage

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native';
 
-import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
+import AddDrinkCards from '../../components/AddDrink-components/AddDrinkCards';
 import AddDrinkSizeCustomInput from '../../components/AddDrink-components/AddDrinkSizeCustomInput';
 
 import displayBasedOnType from '../../components/AddDrink-components/displayBasedOnType';
