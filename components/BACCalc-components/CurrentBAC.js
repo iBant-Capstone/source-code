@@ -4,8 +4,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 // Import styles
-import * as StyleSheet from '../styles';
-let styles = StyleSheet.styles;
+import { styles } from '../styles';
+import { containerStyles } from '../styles/containerStyles';
 
 const CurrentBAC = ({ BAC, setBAC, drinks }) => {
 
@@ -21,7 +21,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     // Get's the personal details information from async storage
     async function getAsyncData() {
         try {
-            const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
+            const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails');
             // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
             let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
             // Set the personalDrinks to state
@@ -45,21 +45,21 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
                 })
             })
             await setDrinksConsumed(fleshedOutDrinksList)
-            
+
             // ___ PERSONAL DETAILS ___
             // get the right measures for caluclating the widmark factor
             let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value * 100 : personalDetails.height.value * 0.0254
             let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
 
             let widmarkFactor = 0
-            
+
             // Calculate the widmark factor based off of sex
             if (personalDetails.sex == 'female') {
                 widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
             } else {
                 widmarkFactor = calculateWidmarkFactorMale(heightInMeters, weightInKilograms)
             }
-            
+
             // console.log("WIDMARK: " + widmarkFactor)
 
             const fleshedOutPersonalDetails = {
@@ -88,7 +88,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             console.log("CurrentBAC.js --- drinks I'm using", drinks)
         }, [])
     )
-      
+
     useEffect(() => {
         async function addToAsyncDataWrapped() {
             if (drinksPDInitialState) {
@@ -100,7 +100,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     }, [drinksPDInitialState]);
 
 
-    
+
     // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
     useEffect(() => {
         if (drinksPDState && JSON.stringify(drinks) !== "[]") {
@@ -113,7 +113,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     // initializes calculating the BAC
     function calculateCurrentBAC() {
         let currentBAC = calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
-        
+
         // Resets our states that help up move through the BAC calculation
         setDrinksPDInitialState(false)
         setDrinksPDState(false)
@@ -148,7 +148,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             const timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentMin, drink.timeOfDrink)
             if (timeDiffinMin >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= currentMin) {
                 BACtoAdd += calculateBACToAdd(drink, timeDiffinMin)
-            }  
+            }
         })
 
         return BACtoAdd
@@ -225,10 +225,10 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     // We first check that there are drinks to calculate and then we check to see if the BAC is calculated
     return (
         <View>
-            <View style={styles.centered}>
+            <View style={containerStyles.centerContainer}>
                 <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
             </View>
-        </View>  
+        </View>
     )
 }
 

@@ -9,8 +9,8 @@ import sources from '../../json/sources.json'
 import TitleText from '../../components/Title';
 
 // Import styles
-import * as StyleSheet from '../../components/styles';
-let styles = StyleSheet.styles;
+import { styles } from '../../components/styles';
+import { containerStyles } from '../../components/styles/containerStyles'
 
 // Creates a clickable link that leads to given url
 const URLLink = ({ id, name, url }) => {
@@ -42,7 +42,7 @@ const OurSources = () => {
             <View style={styles.titleContainer}>
                 <TitleText name={"Our Sources"} />
             </View>
-            <View style={styles.centered}>
+            <View style={containerStyles.centerContainer}>
                 <Text style={{ marginBottom: 10 }}>Below are a list of our sources used to create this app</Text>
                 <Table>
                     {sources.map((source) => {

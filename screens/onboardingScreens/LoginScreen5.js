@@ -7,13 +7,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Footer from '../../components/Footer';
 
 // Import styles
-import * as StyleSheet from '../../components/styles';
-let styles = StyleSheet.styles;
+import { styles } from '../../components/styles';
+import { containerStyles } from '../../components/styles/containerStyles';
 
 // Fifth Login Screen: Medical disclaimer
 const LoginScreen5 = ({ navigation }) => {
     return (
-        <View style={styles.centerContainer}>
+        <View style={containerStyles.centerWhiteContainer}>
             <Text style={styles.onboardingHeaderText}><Ionicons name='alert-outline' style={{ color: '#CF5260', fontSize: 30 }} />Disclaimer<Ionicons name='alert-outline' style={{ color: '#CF5260', fontSize: 30 }} /></Text>
             <View style={{ paddingHorizontal: 15 }}>
                 <Text>The alcohol-focused algorithms used in this application are based on currently available information. This means that they may <Text style={styles.redBoldText}>not</Text> be completely accurate and can change over time.

@@ -16,6 +16,7 @@ import TitleText from './Title';
 
 // Import styles
 import { styles } from './styles';
+import { containerStyles } from './styles/containerStyles';
 
 // Creates an expandable component
 const ExpandableComponent = ({ item, onClickFunction }) => {
@@ -53,7 +54,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                 activeOpacity={0.8}
                 onPress={onClickFunction}
                 style={item.isExpanded ? styles.expandedQuestion : styles.topicQuestion}>
-                <View style={styles.row}>
+                <View style={containerStyles.row}>
                     <Text style={styles.topicQuestionText}>{item.question}</Text>
                     <Ionicons name={iconName} color='#606070' size={16} style={styles.questionIcon} />
                 </View>
@@ -146,7 +147,7 @@ const InfoTopicPage = ({ route }) => {
             <View style={styles.titleContainer}>
                 <TitleText name={route.params.title} />
             </View>
-            <View style={styles.centered}>
+            <View style={containerStyles.centerContainer}>
                 {listDataSource.map((item, key) => (
                     <ExpandableComponent
                         key={item.question}
@@ -156,7 +157,7 @@ const InfoTopicPage = ({ route }) => {
                         item={item}
                     />
                 ))}
-                <View style={styles.centerContainer}>
+                <View style={containerStyles.centerWhiteContainer}>
                     {showImage()}
                     {showTable()}
                 </View>

@@ -1,41 +1,17 @@
 //using this as our stylesheet 
 import { StyleSheet } from 'react-native'
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 
 const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
-  // Styling components for overall items
-  centerContainer: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  leftContainer: {
-    flex: 1,
-    padding: '15px',
-    backgroundColor: '#fff',
-    flexDirection: 'row',
-    justifyContent: 'flex-start'
-  },
-  row: {
-    flexDirection: 'row',
-    flexWrap: 'wrap'
-  },
-
-  centered: {
-    alignItems: 'center',
-    padding: "15px",
-    justifyContent: 'center',
-  },
   // popup - related styling 
   popupIcon: {
     justifyContent: 'flex-start',
     width: '100%',
     height: '100%',
-    
-  }, 
+
+  },
   modal: {
     flex: 0.75,
     backgroundColor: '#fff',
@@ -56,8 +32,8 @@ export const styles = StyleSheet.create({
     flexGrow: 1
   },
   pageFillContainer: {
-    flex: 1, 
-    flexDirection: 'column', 
+    flex: 1,
+    flexDirection: 'column',
     minHeight: windowHeight
   },
 
@@ -178,101 +154,9 @@ export const styles = StyleSheet.create({
     marginVertical: 10
   },
   // For buttons - red
-  leftRedButton: {
-    backgroundColor: '#CF5260',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-    marginHorizontal: '1%',
-    minWidth: '48%',
-    maxWidth: '48%',
-    textAlign: 'left'
-  },
-  centerRedButton: {
-    backgroundColor: '#CF5260',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-    marginHorizontal: '1%',
-    minWidth: '40%',
-    maxWidth: '48%',
-    textAlign: 'center'
-  },
   mainRedButtonText: {
     fontFamily: 'Roboto-Medium',
     color: 'white'
-
-  },
-
-  // For buttons - white
-  whiteButton: {
-    backgroundColor: '#FFFFFF',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-    marginHorizontal: '1%',
-    minWidth: '30%',
-    maxWidth: '48%',
-    textAlign: 'center'
-  },
-
-  // Update BAC button
-  centerRedButton: {
-    backgroundColor: '#CF5260',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-    marginHorizontal: '1%',
-    minWidth: '48%',
-    textAlign: 'center'
-  },
-
-  // FOR ADD DRINKS BUTTONS
-  hungerButtonPressed: {
-    backgroundColor: '#CF5260',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: '5%',
-    marginHorizontal: '5%',
-    width: '40%',
-    textAlign: 'center',
-    alignItems: 'center',
-
-  },
-  hungerButtonRegular: {
-    backgroundColor: '#FFFFFF',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: '5%',
-    marginHorizontal: '5%',
-    width: '40%',
-    textAlign: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#CF5260'
-  },
-  // For time inputting
-  AMPMButtomPressed: {
-    backgroundColor: '#CF5260',
-    paddingVertical: 8,
-    borderRadius: 8,
-    marginBottom: '5%',
-    marginHorizontal: '2.5%',
-    width: '15%',
-    textAlign: 'center',
-    alignItems: 'center',
-  },
-  AMPMButtonRegular: {
-    backgroundColor: '#FFFFFF',
-    paddingVertical: 8,
-    borderRadius: 8,
-    marginBottom: '5%',
-    marginHorizontal: '2.5%',
-    width: '15%',
-    textAlign: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#CF5260'
   },
 
   // Table
@@ -296,17 +180,6 @@ export const styles = StyleSheet.create({
     marginTop: '5%'
   },
   // For Alcohol Types page
-  alcoholTypesButton: {
-    borderColor: '#CF5260',
-    borderWidth: 1,
-    backgroundColor: 'white',
-    padding: 12,
-    borderRadius: 4,
-    marginBottom: 8,
-    marginHorizontal: '1%',
-    minWidth: '48%',
-    textAlign: 'center'
-  },
   alcoholTypesButtonText: {
     // fontFamily: 'Roboto',
     color: 'black'
@@ -325,30 +198,11 @@ export const styles = StyleSheet.create({
 
   // ** Profile page/About us pages styling
   // For Profile editting
-  profileEditButton: {
-    backgroundColor: 'white',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-    marginLeft: '25%',
-    marginRight: '5%',
-    width: '70%',
-    textAlign: 'center',
-  },
   profileEditButtonText: {
     color: '#CF5260',
     fontWeight: '500'
   },
   // For about us buttons
-  aboutButton: {
-    backgroundColor: '#CF5260',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-    marginHorizontal: '5%',
-    width: '90%',
-    textAlign: 'center'
-  },
   aboutSubtitle: {
     fontSize: 16,
     color: '#CF5260',
@@ -434,34 +288,6 @@ export const styles = StyleSheet.create({
   exIcon: {
     fontSize: 'xx-large',
     color: '#CF5260'
-  },
-
-  // Radio button
-  radioButtonSelected: {
-    backgroundColor: '#FFB140',
-    paddingVertical: 6,
-    paddingHorizontal: 6,
-    borderRadius: 8,
-    maxHeight: 30,
-    marginHorizontal: '5%',
-    minWidth: '10%',
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  radioButtonRegular: {
-    backgroundColor: '#FFFFFF',
-    borderWidth: 1,
-    borderColor: '#FFB140',
-    maxHeight: 30,
-    paddingVertical: 6,
-    paddingHorizontal: 6,
-    borderRadius: 8,
-    marginHorizontal: '5%',
-    minWidth: '10%',
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center'
   },
 
   title: {

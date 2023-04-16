@@ -5,8 +5,9 @@ import { useFocusEffect } from '@react-navigation/native'
 import Footer from '../../components/Footer';
 
 // Import styles
-import * as StyleSheet from '../../components/styles';
-let styles = StyleSheet.styles;
+import { styles } from '../../components/styles';
+import { containerStyles } from '../../components/styles/containerStyles';
+import { buttonStyles } from '../../components/styles/buttonStyles';
 
 const WeightInput = ({ navigation }) => {
     const [hasFocused, setHasFocused] = useState(false);
@@ -100,25 +101,25 @@ const WeightInput = ({ navigation }) => {
 
     };
     return (
-        <View style={styles.centerContainer}>
+        <View style={containerStyles.centerWhiteContainer}>
             <Text style={styles.onboardingHeaderText}>Select Weight</Text>
             <View style={{ paddingHorizontal: 15 }}>
                 <Text>Input your weight here in lbs or kg</Text>
             </View>
 
-            <View style={[styles.row, styles.centered, { paddingTop: 15, flexWrap: 'nowrap' }]}>
+            <View style={[containerStyles.row, containerStyles.centerContainer, { paddingTop: 15, flexWrap: 'nowrap' }]}>
                 <Pressable
-                    style={weightUnitValueChecked === 'lbs' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setWeightUnitValueChecked('lbs')}
                 >
                     <Text>lbs</Text></Pressable>
                 <Pressable
-                    style={weightUnitValueChecked === 'kg' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    style={weightUnitValueChecked === 'kg' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setWeightUnitValueChecked('kg')}
                 ><Text>kg</Text></Pressable>
             </View>
 
-            <View style={[styles.row, styles.centered]}>
+            <View style={[containerStyles.row, containerStyles.centerContainer]}>
                 {weightUnitValueChecked === 'kg' ?
                     <TextInput
                         style={styles.textInput}
@@ -136,13 +137,6 @@ const WeightInput = ({ navigation }) => {
                 }
 
             </View>
-            
-            {/* <View style={styles.centered}>
-                <Pressable
-                    onPress={handleAddPersonalDetails}
-                    style={styles.centerRedButton}
-                ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
-            </View> */}
             <Footer rightButtonLabel="Save" rightButtonPress={() => { handleAddPersonalDetails(); navigation.navigate('BiologicalSex'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
 
