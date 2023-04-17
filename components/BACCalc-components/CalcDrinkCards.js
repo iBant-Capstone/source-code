@@ -16,15 +16,11 @@ const CalcDrinkCards = ({ drinks, navigation } ) => {
   const handleDelete = async (drink) => {
     console.log("inside handleDelete", drink);
     try {
-    //   // remove the drink
-      let drinkName = drink.name + " " + "(" + (drink.strength * 100).toFixed(1) + ")%";
-      console.log(drinkName);
-      console.log(drinks);
       let drinksDelete = drinks.filter(obj => !Object.entries(drink).every(([key, value]) => obj[key] === value));
-      console.log(drinksDelete);
       let drinksToSend = JSON.stringify(drinksDelete)
     //   // Push the new list to async storageT
       await AsyncStorage.setItem('drinks', drinksToSend)
+      console.log("Drink deleted")
       navigation.navigate('BAC Calc')
     }
     catch (error) {
