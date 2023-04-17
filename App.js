@@ -276,7 +276,6 @@ export default function App() {
             title: 'Welcome',
             headerShown: false,
             navigation: navigation
-            // headerLeft: () => (<Pressable onPress={() => navigation.navigate('InformationHub')} style={{paddingLeft:10}}><Text style={{fontFamily: "Roboto"}}>Click here to get started with the app!</Text></Pressable>)
           })}
         />
         <obStack.Screen

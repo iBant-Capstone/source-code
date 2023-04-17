@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { View, Text, Pressable, TextInput } from 'react-native';
 
-import * as StyleSheet from '../styles';
-let styles = StyleSheet.styles;
+import { styles } from '../styles';
+import { containerStyles } from "../styles/containerStyles";
+import { buttonStyles } from "../styles/buttonStyles";
 
 const ExactTimeInput = ({ handleExactTimeInput }) => {
 
@@ -17,10 +18,10 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
     return (
         <View>
             {/* TODO Add header to own component */}
-            <View style={styles.leftContainer}>
+            <View style={containerStyles.leftContainer}>
                 <Text>Time Drank</Text>
             </View>
-            <View style={styles.centerContainer}>
+            <View style={containerStyles.centerWhiteContainer}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <TextInput
                         style={styles.smallTextInput}
@@ -39,14 +40,14 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
                     />
                     <Pressable
                         value="AM"
-                        style={timeOfDay === 'AM' ? styles.AMPMButtomPressed : styles.AMPMButtonRegular}
+                        style={timeOfDay === 'AM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
                         onPress={() => setTimeOfDay('AM')}
                     >
                         <Text>AM</Text>
                     </Pressable>
                     <Pressable
                         value="PM"
-                        style={timeOfDay === 'PM' ? styles.AMPMButtomPressed : styles.AMPMButtonRegular}
+                        style={timeOfDay === 'PM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
                         onPress={() => setTimeOfDay('PM')}
                     >
                         <Text>PM</Text>
@@ -54,11 +55,11 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
                 </View>
             </View>
             {/* TODO Add next button to own component */}
-            <View style={styles.centered}>
+            <View style={containerStyles.centerContainer}>
                 <Pressable
                     onPress={handlePress}
                     accessibilityLabel="Next"
-                    style={styles.centerRedButton}
+                    style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
                 >
                     <Text style={styles.mainRedButtonText}>Next</Text>
                 </Pressable>

@@ -5,11 +5,11 @@ import { useFocusEffect } from '@react-navigation/native'
 
 // Import components
 import Footer from '../../components/Footer';
-import { on } from 'events';
 
 // Import styles
-import * as StyleSheet from '../../components/styles';
-let styles = StyleSheet.styles;
+import { styles } from '../../components/styles';
+import { containerStyles } from '../../components/styles/containerStyles';
+import { buttonStyles } from '../../components/styles/buttonStyles';
 
 // First Login Screen: just BACtracker logo
 // redirects to infoHub based on if they have gone through the login process before
@@ -44,13 +44,13 @@ const LoginScreen1 = ({ navigation }) => {
     );
 
     return (
-        <View style={styles.centerContainer}>
-            <View style={[styles.centerContainer, { minWidth: '100%' }]}>
+        <View style={containerStyles.centerWhiteContainer}>
+            <View style={[containerStyles.centerWhiteContainer, { minWidth: '100%' }]}>
                 <Image style={styles.largeLogoWithText} source={require('../../assets/icons/BACtracker_logo.png')} resizeMode='contain' />
             </View>
-            <View style={styles.centerContainer}>
-            <Pressable
-                    style={styles.leftRedButton}
+            <View style={containerStyles.centerWhiteContainer}>
+                <Pressable
+                    style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
                     onPress={async () => {
                         await AsyncStorage.setItem('onboarding', false);
                         console.log("clearing async storage")
@@ -64,7 +64,7 @@ const LoginScreen1 = ({ navigation }) => {
             <Footer rightButtonLabel="Next" rightButtonPress={() => {
                 console.log("hasOnboarded" + hasOnboarded)
                 if (hasOnboarded) {
-                    
+
                     navigation.navigate('InformationHub');
                 }
                 else {

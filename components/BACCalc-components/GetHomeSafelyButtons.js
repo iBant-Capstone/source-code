@@ -3,8 +3,9 @@ import { View } from 'react-native';
 
 import GetHomeSafelyButton from './GetHomeSafelyButton';
 
-import * as StyleSheet from '../styles'
-let styles = StyleSheet.styles;
+// Import styles
+import { styles } from '../styles'
+import { containerStyles } from '../styles/containerStyles';
 
 const GetHomeSafelyButtons = () => {
 
@@ -28,12 +29,12 @@ const GetHomeSafelyButtons = () => {
     ]
 
     return (
-        <View style={[styles.row, styles.centered]}>
+        <View style={[containerStyles.row, containerStyles.centerContainer]}>
             {data.map((button, index) => {
                 return <GetHomeSafelyButton url={button.url} title={button.title} key={index} />
             })}
-         </View>
+        </View>
     )
-  }
-  
-  export default GetHomeSafelyButtons;
+}
+
+export default GetHomeSafelyButtons;

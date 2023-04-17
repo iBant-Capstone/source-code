@@ -4,9 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 // Import styles
-import * as StyleSheet from '../components/styles';
-let styles = StyleSheet.styles;
-
+import { styles } from '../components/styles';
+import { containerStyles } from '../components/styles/containerStyles';
+import { buttonStyles } from '../components/styles/buttonStyles';
 
 const EditProfilePage = ({ navigation }) => {
 
@@ -106,34 +106,34 @@ const EditProfilePage = ({ navigation }) => {
 
 
     return (
-        <View style={styles.centerContainer}>
+        <View style={containerStyles.centerWhiteContainer}>
             {/* Only loads once the personal details have loaded */}
             {hasFocused ?
                 <ScrollView style={{ minWidth: '100%' }}>
-                    <View style={styles.leftContainer}>
+                    <View style={containerStyles.leftContainer}>
                         <Text style={[styles.redBoldText, { fontSize: 32, marginBottom: '5%' }]}>Edit</Text>
                     </View>
                     <View >
-                        <View style={[styles.row, {paddingLeft: 15, paddingTop: 15}]}>
+                        <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
                             <Text>Add your height:  </Text>
 
                             <Pressable
-                                style={heightUnitValueChecked === 'ft' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                                style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setHeightUnitValueChecked('ft')}
                             ><Text>ft</Text></Pressable>
                             <Pressable
-                                style={heightUnitValueChecked === 'cm' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                                style={heightUnitValueChecked === 'cm' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setHeightUnitValueChecked('cm')}
                             ><Text>cm</Text></Pressable>
                         </View>
 
                         {heightUnitValueChecked === "ft" ?
                             <View>
-                                <View style={styles.row}>
+                                <View style={containerStyles.row}>
                                     <Text style={styles.textInputLabel}>feet</Text>
                                     <Text style={styles.textInputLabel}>inches</Text>
                                 </View>
-                                <View style={styles.row}>
+                                <View style={containerStyles.row}>
                                     <TextInput
                                         style={styles.textInput}
                                         value={ftInputValue}
@@ -150,10 +150,10 @@ const EditProfilePage = ({ navigation }) => {
                             </View>
                             :
                             <View>
-                                <View style={styles.row}>
+                                <View style={containerStyles.row}>
                                     <Text style={styles.textInputLabel}>cm</Text>
                                 </View>
-                                <View style={styles.row}>
+                                <View style={containerStyles.row}>
                                     <TextInput
                                         style={styles.textInput}
                                         value={cmInputValue}
@@ -164,15 +164,15 @@ const EditProfilePage = ({ navigation }) => {
                             </View>
                         }
 
-                        <View style={[styles.row, {paddingLeft: 15, paddingTop: 15}]}>
+                        <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
                             <Text>Add your weight:  </Text>
                             <Pressable
-                                style={weightUnitValueChecked === 'lbs' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                                style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setWeightUnitValueChecked('lbs')}
                             >
                                 <Text>lbs</Text></Pressable>
                             <Pressable
-                                style={weightUnitValueChecked === 'kg' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                                style={weightUnitValueChecked === 'kg' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setWeightUnitValueChecked('kg')}
                             ><Text>kg</Text></Pressable>
                         </View>
@@ -187,23 +187,23 @@ const EditProfilePage = ({ navigation }) => {
 
                         </View>
 
-                        <View style={[{paddingLeft: 15, paddingTop: 15}]}>
-                            <View style={styles.row}>
+                        <View style={[{ paddingLeft: 15, paddingTop: 15 }]}>
+                            <View style={containerStyles.row}>
                                 <Text>Chosen Biological Sex: {sexValueChecked}</Text>
                             </View>
 
-                            <View style={[styles.row, {justifyContent: 'center', paddingVertical: 15}]}>
+                            <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15 }]}>
                                 <Pressable
-                                    style={sexValueChecked === 'female' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                                    style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setSexValueChecked('female')}
                                 ><Text>Female</Text></Pressable>
                                 <Pressable
-                                    style={sexValueChecked === 'male' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                                    style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setSexValueChecked('male')}
                                 ><Text>Male</Text></Pressable>
                             </View>
                         </View>
-                        <View style={[styles.row, {paddingHorizontal: 15, paddingVertical: 15}]}>
+                        <View style={[containerStyles.row, { paddingHorizontal: 15, paddingVertical: 15 }]}>
                             <Text style={styles.redBoldText}>Please note: </Text>
                             <Text>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
                         </View>
@@ -212,7 +212,7 @@ const EditProfilePage = ({ navigation }) => {
                     <View>
                         <Pressable
                             onPress={handleAddPersonalDetails}
-                            style={styles.centerRedButton}
+                            style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
                         ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
                     </View>
                 </ScrollView>
@@ -221,10 +221,7 @@ const EditProfilePage = ({ navigation }) => {
                 <Text>Loading...</Text>
             }
         </View >
-
-
     )
-
 }
 
 export default EditProfilePage

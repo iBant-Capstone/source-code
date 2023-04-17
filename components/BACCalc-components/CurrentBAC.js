@@ -4,33 +4,31 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 // Import styles
-import * as StyleSheet from '../styles';
-let styles = StyleSheet.styles;
+import { styles } from '../styles';
+import { containerStyles } from '../styles/containerStyles';
 
-const CurrentBAC = ({ BAC, setBAC, drinks }) => {
+const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
 
     let [drinksConsumed, setDrinksConsumed] = useState([])
-    let [personalDetails, setPersonalDetails] = useState({})
-
-    // Keeps track of if we've got the info from storage
-    let [drinksPDInitialState, setDrinksPDInitialState] = useState(false) // TODO update naming to make more sense with other drinkspd state update
+    let [fullPersonalDetails, setFullPersonalDetails] = useState({})
 
     // Keeps track of if the drinksConsumed and personalDetails states are both fleshed out with additional info
     let [drinksPDState, setDrinksPDState] = useState(false)
 
-    // Get's the personal details information from async storage
-    async function getAsyncData() {
-        try {
-            const asyncPersonalDetails = await AsyncStorage.getItem('personalDetails'); 
-            // Get the parsed version of the personalDetails (or empty object if we don't have any personalDetails saved)
-            let personalDetailsParsed = asyncPersonalDetails ? JSON.parse(asyncPersonalDetails) : {};
-            // Set the personalDrinks to state
-            await setPersonalDetails(personalDetailsParsed)
-            //console.log("got into getAsyncData")
-        } catch (error) {
-            console.log(error);
+    useEffect(() => {
+        async function addToAsyncDataWrapped() {
+            await addToAsyncData();
+            setDrinksPDState(true)
         }
-    }
+        addToAsyncDataWrapped()
+    }, [])
+
+    // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
+    useEffect(() => {
+        if (drinksPDState && JSON.stringify(drinks) !== "[]") {
+            setBAC(calculateCurrentBAC())
+        }
+    }, [drinksPDState])
 
     async function addToAsyncData() {
         try {
@@ -45,79 +43,33 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
                 })
             })
             await setDrinksConsumed(fleshedOutDrinksList)
-            
+
             // ___ PERSONAL DETAILS ___
             // get the right measures for caluclating the widmark factor
             let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value * 100 : personalDetails.height.value * 0.0254
             let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
-
             let widmarkFactor = 0
-            
+
             // Calculate the widmark factor based off of sex
             if (personalDetails.sex == 'female') {
                 widmarkFactor = calculateWidmarkFactorFemale(heightInMeters, weightInKilograms)
             } else {
                 widmarkFactor = calculateWidmarkFactorMale(heightInMeters, weightInKilograms)
             }
-            
-            // console.log("WIDMARK: " + widmarkFactor)
-
             const fleshedOutPersonalDetails = {
                 ...personalDetails,
                 widmarkFactor: widmarkFactor
             }
-
-            await setPersonalDetails(fleshedOutPersonalDetails)
-
-            //console.log("got into addToAsyncData")
+            await setFullPersonalDetails(fleshedOutPersonalDetails)
         } catch (err) {
             console.log(err)
         }
     }
 
-    useFocusEffect(
-        React.useCallback(() => {
-            async function getAsyncDataWrapped() {
-                if (JSON.stringify(drinks) !== "[]") {
-                    await getAsyncData();
-                    setDrinksPDInitialState(true)
-                }
-            }
-            getAsyncDataWrapped()
-            console.log("CurrentBAC.js --- got into the useFocusEffect")
-            console.log("CurrentBAC.js --- drinks I'm using", drinks)
-        }, [])
-    )
-      
-    useEffect(() => {
-        async function addToAsyncDataWrapped() {
-            if (drinksPDInitialState) {
-                await addToAsyncData();
-                setDrinksPDState(true)
-            }
-        }
-        addToAsyncDataWrapped()
-    }, [drinksPDInitialState]);
-
-
-    
-    // Waits until both the personalDetails and drinksConsumed states are fully set before calculating the BAC
-    useEffect(() => {
-        if (drinksPDState && JSON.stringify(drinks) !== "[]") {
-            setBAC(calculateCurrentBAC())
-        }
-    }, [drinksPDState])
-
-
-
     // initializes calculating the BAC
     function calculateCurrentBAC() {
         let currentBAC = calculateBAC(setDateObjectSecondsAndMillisecondsToZero(new Date))
-        
-        // Resets our states that help up move through the BAC calculation
-        setDrinksPDInitialState(false)
         setDrinksPDState(false)
-
         return currentBAC
     }
 
@@ -148,7 +100,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
             const timeDiffinMin = getTimeDifferenceBetweenDateObjectsInMinutes(currentMin, drink.timeOfDrink)
             if (timeDiffinMin >= 0 && drink.drinkFullyAbsorbedTimeAsDateObject >= currentMin) {
                 BACtoAdd += calculateBACToAdd(drink, timeDiffinMin)
-            }  
+            }
         })
 
         return BACtoAdd
@@ -164,7 +116,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
         let percentAlcoholAbsorbedByMinute = calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin, drink.halfLife)
         let percentAlcoholAbsorbedByMinute2 = calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin - 1, drink.halfLife)
         return (
-            (percentAlcoholAbsorbedByMinute - percentAlcoholAbsorbedByMinute2) * drinkAlcoholGrams / (personalDetails.widmarkFactor * calculateWeightKilograms(personalDetails.weight.units, personalDetails.weight.value) * 1e3) * 100
+            (percentAlcoholAbsorbedByMinute - percentAlcoholAbsorbedByMinute2) * drinkAlcoholGrams / (fullPersonalDetails.widmarkFactor * calculateWeightKilograms(fullPersonalDetails.weight.units, fullPersonalDetails.weight.value) * 1e3) * 100
         )
     }
 
@@ -198,7 +150,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
         return timeOfFirstDrink
     }
 
-    // _____ FUNCTIONS TO HELP CALCULATE EITHER personalDetails or drinksConsumed _____
+    // _____ FUNCTIONS TO HELP CALCULATE EITHER fullPersonalDetails or drinksConsumed 
 
     function getDrinkFullLife(drinkHalfLife) {
         return Math.round(6.66 * drinkHalfLife)
@@ -225,10 +177,10 @@ const CurrentBAC = ({ BAC, setBAC, drinks }) => {
     // We first check that there are drinks to calculate and then we check to see if the BAC is calculated
     return (
         <View>
-            <View style={styles.centered}>
+            <View style={containerStyles.centerContainer}>
                 <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
             </View>
-        </View>  
+        </View>
     )
 }
 

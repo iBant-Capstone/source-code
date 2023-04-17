@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 
-import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
+import AddDrinkCards from '../../components/AddDrink-components/AddDrinkCards';
 
 import handleInput from '../../components/AddDrink-components/handleInput';
 

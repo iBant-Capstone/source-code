@@ -3,8 +3,9 @@ import { View, Text, Pressable } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import * as StyleSheet from '../styles';
-let styles = StyleSheet.styles;
+// Import styles
+import { styles } from '../styles';
+import { containerStyles } from '../styles/containerStyles';
 
 
 
@@ -31,9 +32,9 @@ const CalcDrinkCards = ({ drinks, navigation } ) => {
   return (
     <View style={{ width: '100%' }}>
       {drinks.length !== 0 ?
-        <View style={styles.row}>
+        <View style={containerStyles.row}>
           {drinks.map((drink, index) => (
-            <View key={index} style={[styles.drinkCard, styles.row]}>
+            <View key={index} style={[styles.drinkCard, containerStyles.row]}>
               <Text style={[styles.drinkCardTimeContainer, styles.redBoldText, styles.smallText]}>{new Date(drink.timeOfDrink).getHours()}:{new Date(drink.timeOfDrink).getMinutes()}</Text>
               <View style={styles.drinkCardInfoContainer}>
                 <Text style={styles.drinkCardNameText}>{drink.name} ({(drink.strength * 100).toFixed(1)}%)</Text>
@@ -47,11 +48,10 @@ const CalcDrinkCards = ({ drinks, navigation } ) => {
           ))}
         </View>
         :
-        <Text style={{color: 'white'}}>Add in drinks to see cards</Text>
+        <Text style={{ color: 'white' }}>Add in drinks to see cards</Text>
       }
     </View>
   )
-
 }
 
 export default CalcDrinkCards;

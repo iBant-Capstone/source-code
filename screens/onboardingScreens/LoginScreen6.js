@@ -5,8 +5,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../../components/Footer';
 
 // Import styles
-import * as StyleSheet from '../../components/styles';
-let styles = StyleSheet.styles;
+import { styles } from '../../components/styles';
+import { containerStyles } from '../../components/styles/containerStyles';
 
 // sixth Login Screen: Introduction to Rosie
 const LoginScreen6 = ({ navigation }) => {
@@ -15,8 +15,8 @@ const LoginScreen6 = ({ navigation }) => {
     }
     setOnboarding();
     return (
-        <View style={styles.centerContainer}>
-            <View style={styles.row}>
+        <View style={containerStyles.centerWhiteContainer}>
+            <View style={containerStyles.row}>
                 <Image style={styles.rosieLeftImage} source={require('../../assets/avatars/Casual_Rosie_shadow.png')} resizeMode='contain' />
                 <Text style={styles.rosieSpeechRight}>
                     <Text style={styles.onboardingHeaderText}>Hello! 👋🏻</Text>

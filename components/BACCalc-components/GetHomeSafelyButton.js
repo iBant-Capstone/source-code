@@ -1,18 +1,18 @@
 import React from 'react';
-import { Pressable, Text } from 'react-native';
+import { Pressable, Text, Linking } from 'react-native';
 
-import * as StyleSheet from '../styles'
-let styles = StyleSheet.styles;
+import { styles } from '../styles'
+import { buttonStyles } from '../styles/buttonStyles';
 
 const GetHomeSafelyButton = ({ url, title }) => {
     return (
         <Pressable
             onPress={() => Linking.openURL(url)}
             accessibilityLabel={title}
-            style={styles.leftRedButton}>
+            style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}>
             <Text style={styles.mainRedButtonText}>{title}</Text>
         </Pressable>
     )
-  }
-  
-  export default GetHomeSafelyButton;
+}
+
+export default GetHomeSafelyButton;

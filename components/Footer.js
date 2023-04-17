@@ -2,8 +2,9 @@ import React from 'react';
 import { Text, View, useWindowDimensions, Pressable } from 'react-native';
 
 // Import styles
-import * as StyleSheet from '../components/styles';
-let styles = StyleSheet.styles;
+import { styles } from '../components/styles';
+import { containerStyles } from './styles/containerStyles';
+import { buttonStyles } from './styles/buttonStyles';
 
 // Set states
 const Footer = ({
@@ -17,9 +18,9 @@ const Footer = ({
   const HEIGHT = windowHeight * 0.21;
 
   return (
-    <View style={[styles.row, styles.centered, { height: HEIGHT, minWidth: windowWidth, position: 'absolute', top: windowHeight - HEIGHT }]}>
-      {leftButtonLabel && (<Pressable style={styles.centerRedButton} onPress={leftButtonPress}><Text style={styles.mainRedButtonText}>{leftButtonLabel}</Text></Pressable>)}
-      {rightButtonLabel && (<Pressable style={styles.centerRedButton} onPress={rightButtonPress}><Text style={styles.mainRedButtonText}>{rightButtonLabel}</Text></Pressable>)}
+    <View style={[containerStyles.row, containerStyles.centerContainer, { height: HEIGHT, minWidth: windowWidth, position: 'absolute', top: windowHeight - HEIGHT }]}>
+      {leftButtonLabel && (<Pressable style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]} onPress={leftButtonPress}><Text style={styles.mainRedButtonText}>{leftButtonLabel}</Text></Pressable>)}
+      {rightButtonLabel && (<Pressable style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]} onPress={rightButtonPress}><Text style={styles.mainRedButtonText}>{rightButtonLabel}</Text></Pressable>)}
     </View>
   );
 };
