@@ -9,20 +9,19 @@ import { containerStyles } from '../styles/containerStyles';
 
 
 
-const CalcDrinkCards = ({ drinks, navigation } ) => {
+const CalcDrinkCards = ({ drinks, navigation, changeDrinksReady } ) => {
   // console.log(drinks);
   // console.log(typeof(drinks));
   // console.log(drinks.filter(item => !item.hasOwnProperty('name') || item.name !== 'Wine/Sake (15.0%)'))
 
   const handleDelete = async (drink) => {
-    console.log("inside handleDelete", drink);
+    //console.log("inside handleDelete", drink);
     try {
       let drinksDelete = drinks.filter(obj => !Object.entries(drink).every(([key, value]) => obj[key] === value));
       let drinksToSend = JSON.stringify(drinksDelete)
-    //   // Push the new list to async storageT
       await AsyncStorage.setItem('drinks', drinksToSend)
-      console.log("Drink deleted")
-      navigation.navigate('BAC Calc')
+      changeDrinksReady(false)
+      //navigation.navigate('BAC Calc')
     }
     catch (error) {
       console.log(error);
