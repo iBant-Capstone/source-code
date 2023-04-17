@@ -125,7 +125,7 @@ const BACCalc = ({ navigation, route }) => {
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
                         <CalcDrinkCards drinks={drinks} />
                         <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
-                        <GetHomeSafelySection />
+                        <GetHomeSafelySection BAC={BAC} />
                     </View>
                 {/* <Popup BAC={BAC}/> */}
                 </View>
