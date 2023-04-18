@@ -6,6 +6,7 @@ import TitleText from '../../components/Title';
 // Import styles
 import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
+import { imageStyles } from '../../components/styles/imageStyles';
 
 // Create and return page that displays mission and about team
 const OurMission = () => {
@@ -13,7 +14,7 @@ const OurMission = () => {
         <ScrollView>
             <View style={styles.titleContainer}>
                 <TitleText name={"Our Mission"} />
-                <Image style={styles.rosieRightImage} source={require('../../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
+                <Image style={imageStyles.rightImage} source={require('../../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
             </View>
             <View style={containerStyles.centerWhiteContainer}>
                 <Text style={containerStyles.centerContainer}>Our goal is to increase the user's knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!</Text>

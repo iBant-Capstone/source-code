@@ -9,6 +9,7 @@ import { styles } from '../components/styles';
 import TitleText from '../components/Title';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
+import { imageStyles } from '../components/styles/imageStyles';
 
 
 const Profile = (props) => {
@@ -57,7 +58,7 @@ const Profile = (props) => {
         <View>
             <View style={styles.titleContainer}>
                 <TitleText name={"Profile"} />
-                <Image style={styles.rosieRightImage} source={require('../assets/avatars/Curious_Rosie.png')} resizeMode='contain' />
+                <Image style={imageStyles.rightImage} source={require('../assets/avatars/Curious_Rosie.png')} resizeMode='contain' />
             </View>
 
             {/* Waits for the personaldetails to have been gathered and set before we show the profile section */}

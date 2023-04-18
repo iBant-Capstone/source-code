@@ -17,6 +17,7 @@ import TitleText from './Title';
 // Import styles
 import { styles } from './styles';
 import { containerStyles } from './styles/containerStyles';
+import { imageStyles } from './styles/imageStyles';
 
 // Creates an expandable component
 const ExpandableComponent = ({ item, onClickFunction }) => {
@@ -56,7 +57,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
                 style={item.isExpanded ? styles.expandedQuestion : styles.topicQuestion}>
                 <View style={containerStyles.row}>
                     <Text style={styles.topicQuestionText}>{item.question}</Text>
-                    <Ionicons name={iconName} color='#606070' size={16} style={styles.questionIcon} />
+                    <Ionicons name={iconName} style={imageStyles.dropdownIcon} />
                 </View>
             </TouchableOpacity>
             <View
@@ -117,7 +118,7 @@ const InfoTopicPage = ({ route }) => {
                     <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>Standard Drink Sizes Visualized</Text>
                     <Image
                         source={imageUrl}
-                        style={[styles.standardDrinkImg, styles.specialInfoItem]}
+                        style={[imageStyles.standardDrinksImage, styles.specialInfoItem]}
                         resizeMode='cover'
                     />
                 </ScrollView>

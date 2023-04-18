@@ -1,24 +1,12 @@
 //using this as our stylesheet 
 import { StyleSheet } from 'react-native'
-import { Dimensions } from 'react-native';
-
-const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
-  // For Gisele
-  bigRosie: {
-    width: "80%",
-    minHeight: "50%",
-    marginBottom: "10%"
-  },
-
-
   // popup - related styling 
-  popupIcon: {
+  popupIcon: { // Not found
     justifyContent: 'flex-start',
     width: '100%',
     height: '100%',
-
   },
   modal: {
     flex: 0.75,
@@ -30,21 +18,6 @@ export const styles = StyleSheet.create({
   modalContent: {
     padding: 25,
   },
-  redContainer: {
-    backgroundColor: '#CF5260',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    flexGrow: 1
-  },
-  pageFillContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    minHeight: windowHeight
-  },
-
   // TEXT INPUT STYLING
   textInput: {
     height: 40,
@@ -55,7 +28,7 @@ export const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 12
   },
-  textInputContainer: {
+  textInputContainer: { // Not found
     marginHorizontal: '5%',
     marginVertical: '10%'
   },
@@ -85,41 +58,9 @@ export const styles = StyleSheet.create({
   },
 
   // Styling for input type text
-  informationTypeLabel: {
+  informationTypeLabel: { // Not found
     padding: 5,
     justifyContent: 'center'
-  },
-
-  // Rosie Related Styling:
-  // To place Rosie on left
-  rosieLeftImage: {
-    width: '48%',
-    marginLeft: '5%',
-    marginVertical: 10
-  },
-  rosieRightImage: {
-    width: '38%',
-    marginRight: '5%',
-    marginVertical: 10
-  },
-  rosieSpeechRight: {
-    maxWidth: '40%',
-    marginRight: '5%',
-    marginLeft: '2%',
-    marginVertical: 50
-  },
-  // Rename later to better reflect purpose
-  oneThirdContainer: {
-    minWidth: '25%',
-    marginLeft: '5%',
-    marginVertical: 10,
-    height: 100
-  },
-
-  // Logo related styling:
-  largeLogoWithText: {
-    width: "80%",
-    height: "80%"
   },
 
   // **Info Hub page(s) styling: 
@@ -150,12 +91,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10
   },
-  // For down/up arrow for question toggle
-  questionIcon: {
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    width: '10%',
-  },
   // For info hub pages with special components
   specialInfoItem: {
     marginHorizontal: 15,
@@ -180,12 +115,6 @@ export const styles = StyleSheet.create({
   tableId: {
     margin: 6,
     fontWeight: '600'
-  },
-  // Image
-  standardDrinkImg: {
-    width: 340,
-    height: 425,
-    marginTop: '5%'
   },
   // For Alcohol Types page
   alcoholTypesButtonText: {
@@ -217,15 +146,6 @@ export const styles = StyleSheet.create({
     fontWeight: "500"
   },
   // How to Use page icons
-  howToIcon: {
-    fontSize: 'xxx-large'
-  },
-  howToIconContainer: {
-    width: '12%',
-    marginLeft: '5%',
-    alignContent: "center",
-    paddingVertical: '6%'
-  },
   howToIconText: {
     maxWidth: '73%',
     marginHorizontal: '5%',
@@ -292,10 +212,6 @@ export const styles = StyleSheet.create({
   },
   smallText: {
     fontSize: 10
-  },
-  exIcon: {
-    fontSize: 'xx-large',
-    color: '#CF5260'
   },
 
   title: {

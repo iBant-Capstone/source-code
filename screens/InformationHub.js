@@ -8,6 +8,7 @@ import TitleText from '../components/Title';
 import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
+import { imageStyles } from '../components/styles/imageStyles';
 
 // Page to be returned
 // Has different buttons for the different topics that are available on information hub
@@ -17,7 +18,7 @@ export const InfoPage = (props) => {
     <View>
       <View style={styles.titleContainer}>
         <TitleText name={"Information Hub"}></TitleText>
-        <Image style={styles.rosieRightImage} source={require('../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
+        <Image style={imageStyles.rightImage} source={require('../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
 
       </View>
       <View style={[containerStyles.row, containerStyles.centerContainer]}>

@@ -13,6 +13,7 @@ import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalD
 import Popup from '../components/AlcoholPopUp';
 
 import * as StyleSheet from '../components/styles';
+import { containerStyles } from '../components/styles/containerStyles';
 let styles = StyleSheet.styles;
 
 const BACCalc = ({ navigation, route }) => {
@@ -118,10 +119,10 @@ const BACCalc = ({ navigation, route }) => {
     if (drinksReady && pdReady) {
         return (
             <ScrollView>
-                <View style={styles.pageFillContainer}>
+                <View style={containerStyles.fillToBottomContainer}>
                     <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
-                    <View style={styles.redContainer}>
+                    <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer]}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
                         <CalcDrinkCards drinks={drinks} />
                         <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
