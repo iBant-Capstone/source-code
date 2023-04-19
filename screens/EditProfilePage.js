@@ -123,15 +123,12 @@ const EditProfilePage = ({ navigation }) => {
     };
 
     const passesChecks = (personalDetails) => {
-
         let passes = true
-
         if (validateHeightInput(personalDetails) && validateWeightInput(personalDetails) && validateSexInput(personalDetails)) {
             passes = true
         } else {
             passes = false
         }
-        
         return passes
     }
 
