@@ -5,6 +5,7 @@ import { useFocusEffect } from '@react-navigation/native'
 
 import validateHeightInput from '../components/inputValidationPersonalDetails/validateHeightInput';
 import validateWeightInput from '../components/inputValidationPersonalDetails/validateWeightInput';
+import validateSexInput from '../components/inputValidationPersonalDetails/validateSexInput';
 
 // Import styles
 import { styles } from '../components/styles';
@@ -123,17 +124,14 @@ const EditProfilePage = ({ navigation }) => {
 
     const passesChecks = (personalDetails) => {
 
-        let sex = personalDetails.sex
-
         let passes = true
 
-        passes = validateHeightInput(personalDetails)
-        passes = validateWeightInput(personalDetails)
-
-        if (sex == '') {
+        if (validateHeightInput(personalDetails) && validateWeightInput(personalDetails) && validateSexInput(personalDetails)) {
+            passes = true
+        } else {
             passes = false
         }
-
+        
         return passes
     }
 
