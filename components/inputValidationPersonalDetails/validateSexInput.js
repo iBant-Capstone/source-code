@@ -1,8 +1,6 @@
 
-const validateSexInput = (personalDetails) => {
+const validateSexInput = (sex) => {
     let passes = true
-
-    let sex = personalDetails.sex
 
     if (sex == '') {
         passes = false

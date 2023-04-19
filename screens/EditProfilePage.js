@@ -124,7 +124,7 @@ const EditProfilePage = ({ navigation }) => {
 
     const passesChecks = (personalDetails) => {
         let passes = true
-        if (validateHeightInput(personalDetails) && validateWeightInput(personalDetails) && validateSexInput(personalDetails)) {
+        if (validateHeightInput(personalDetails.height) && validateWeightInput(personalDetails.weight) && validateSexInput(personalDetails.sex)) {
             passes = true
         } else {
             passes = false

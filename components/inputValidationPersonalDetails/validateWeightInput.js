@@ -1,7 +1,7 @@
-const validateWeightInput = (personalDetails) => {
+const validateWeightInput = (weightData) => {
     let passes = true
 
-    let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
+    let weightInKilograms = weightData.unit === "kg" ? weightData.value : weightData.value * 0.45359237
 
     // max weight -> 700 lbs
     // min weight -> 40 lbs
