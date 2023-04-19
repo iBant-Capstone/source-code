@@ -4,9 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 // Import styles
-import * as StyleSheet from '../components/styles';
-let styles = StyleSheet.styles;
-
+import { styles } from '../components/styles';
+import { containerStyles } from '../components/styles/containerStyles';
+import { buttonStyles } from '../components/styles/buttonStyles';
 
 const AddDrink = ({ route, navigation }) => {
 
@@ -73,7 +73,7 @@ const AddDrink = ({ route, navigation }) => {
             await AsyncStorage.setItem('drinks', drinksToSend)
 
             console.log("AddDrink.js ----- should have sent drinks")
-            
+
             navigation.navigate('BAC Calc')
 
             setNameInputValue('')
@@ -83,7 +83,7 @@ const AddDrink = ({ route, navigation }) => {
             setHoursInputValue('')
             setMinuteInputValue('')
             setTimeOfDay("PM")
-            
+
         } catch (error) {
             console.log(error);
         }
@@ -91,9 +91,9 @@ const AddDrink = ({ route, navigation }) => {
 
     return (
         <ScrollView>
-            <View style={styles.centerContainer}>
+            <View style={containerStyles.centerWhiteContainer}>
                 <View style={{ minWidth: '100%' }}>
-                    <View style={styles.leftContainer}>
+                    <View style={containerStyles.leftContainer}>
                         <Text>Drink name</Text>
                     </View>
                     <TextInput
@@ -103,7 +103,7 @@ const AddDrink = ({ route, navigation }) => {
                         placeholder="Wine, Beer, Martini..."
                         placeholderTextColor={'grey'}
                     />
-                    <View style={styles.leftContainer}>
+                    <View style={containerStyles.leftContainer}>
                         <Text>Drink Size (ml)</Text>
                     </View>
                     <TextInput
@@ -113,7 +113,7 @@ const AddDrink = ({ route, navigation }) => {
                         placeholder="145, 250, 70.."
                         placeholderTextColor={'grey'}
                     />
-                    <View style={styles.leftContainer}>
+                    <View style={containerStyles.leftContainer}>
                         <Text>Drink Strength (ABV) (example: 2.3 for 2.3%)</Text>
                     </View>
                     <TextInput
@@ -123,20 +123,20 @@ const AddDrink = ({ route, navigation }) => {
                         placeholder="2.3, 13.7, 9.65..."
                         placeholderTextColor={'grey'}
                     />
-                    <View style={styles.leftContainer}>
+                    <View style={containerStyles.leftContainer}>
                         <Text>Hunger Level</Text>
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Pressable
                             value="6"
-                            style={hungerValueSelected === '6' ? styles.hungerButtonPressed : styles.hungerButtonRegular}
+                            style={hungerValueSelected === '6' ? [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.alignCenter] : [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.hungerButtonNotSelected, buttonStyles.alignCenter]}
                             onPress={() => setHungerValueSelected('6')}
                         >
                             <Text>Very Hungry</Text>
                         </Pressable>
                         <Pressable
                             value="9"
-                            style={hungerValueSelected === '9' ? styles.hungerButtonPressed : styles.hungerButtonRegular}
+                            style={hungerValueSelected === '9' ? [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.alignCenter] : [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.hungerButtonNotSelected, buttonStyles.alignCenter]}
                             onPress={() => setHungerValueSelected('9')}
                         >
                             <Text>Hungry</Text>
@@ -145,24 +145,24 @@ const AddDrink = ({ route, navigation }) => {
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Pressable
                             value="12"
-                            style={hungerValueSelected === '12' ? styles.hungerButtonPressed : styles.hungerButtonRegular}
+                            style={hungerValueSelected === '12' ? [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.alignCenter] : [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.hungerButtonNotSelected, buttonStyles.alignCenter]}
                             onPress={() => setHungerValueSelected('12')}
                         >
                             <Text>Not Hungry</Text>
                         </Pressable>
                         <Pressable
                             value="15"
-                            style={hungerValueSelected === '15' ? styles.hungerButtonPressed : styles.hungerButtonRegular}
+                            style={hungerValueSelected === '15' ? [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.alignCenter] : [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.hungerButtonNotSelected, buttonStyles.alignCenter]}
                             onPress={() => setHungerValueSelected('15')}
                         >
                             <Text>Full</Text>
                         </Pressable>
                     </View>
 
-                    <View style={styles.leftContainer}>
+                    <View style={containerStyles.leftContainer}>
                         <Text>Time Drank</Text>
                     </View>
-                    <View style={styles.centerContainer}>
+                    <View style={containerStyles.centerWhiteContainer}>
                         {/* Displays custom time input for web and DateTimePickerModal library for IOS/Android */}
                         {Platform.OS === "web" ?
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -183,14 +183,14 @@ const AddDrink = ({ route, navigation }) => {
                                 />
                                 <Pressable
                                     value="AM"
-                                    style={timeOfDay === 'AM' ? styles.AMPMButtomPressed : styles.AMPMButtonRegular}
+                                    style={timeOfDay === 'AM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setTimeOfDay('AM')}
                                 >
                                     <Text>AM</Text>
                                 </Pressable>
                                 <Pressable
                                     value="PM"
-                                    style={timeOfDay === 'PM' ? styles.AMPMButtomPressed : styles.AMPMButtonRegular}
+                                    style={timeOfDay === 'PM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setTimeOfDay('PM')}
                                 >
                                     <Text>PM</Text>
@@ -212,11 +212,11 @@ const AddDrink = ({ route, navigation }) => {
                         }
                     </View>
 
-                    <View style={styles.centered}>
+                    <View style={containerStyles.centerContainer}>
                         <Pressable
                             onPress={handleAddEntry}
                             accessibilityLabel="Button to add drink"
-                            style={styles.centerRedButton}
+                            style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
                         >
                             <Text style={styles.mainRedButtonText}>Add Drink</Text>
                         </Pressable>

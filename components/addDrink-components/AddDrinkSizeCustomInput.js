@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
 
-import * as StyleSheet from '../styles';
-let styles = StyleSheet.styles;
-
+// Import styles
+import { styles } from '../styles';
+import { containerStyles } from '../styles/containerStyles';
+import { buttonStyles } from '../styles/buttonStyles';
 
 const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
 
@@ -20,7 +21,7 @@ const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
 
     return (
         <View>
-            <View style={styles.leftContainer}>
+            <View style={containerStyles.leftContainer}>
                 <Text>Drink Size (ml)</Text>
             </View>
             <TextInput
@@ -30,17 +31,17 @@ const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
                 placeholder="145, 250, 70.."
                 placeholderTextColor={'grey'}
             />
-            <View style={styles.centered}>
+            <View style={containerStyles.centerContainer}>
                 <Pressable
                     onPress={handlePress}
                     accessibilityLabel="Button to add drink"
-                    style={styles.centerRedButton}
+                    style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
                 >
                     <Text style={styles.mainRedButtonText}>Add Custom Size</Text>
                 </Pressable>
             </View>
         </View>
     )
-  }
-  
-  export default AddDrinkSizeCustomInput;
+}
+
+export default AddDrinkSizeCustomInput;

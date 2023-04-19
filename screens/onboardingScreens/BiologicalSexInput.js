@@ -1,18 +1,18 @@
 // Accept user input for Biological Sex -> need to connect with stored Profile information
 import React, { useState } from 'react';
 import { Text, View, Pressable } from 'react-native';
-import { RadioButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 import Footer from '../../components/Footer';
 
 // Import styles
-import * as StyleSheet from '../../components/styles';
-let styles = StyleSheet.styles;
+import { styles } from '../../components/styles';
+import { containerStyles } from '../../components/styles/containerStyles';
+import { buttonStyles } from '../../components/styles/buttonStyles';
 
 // Page to return
 const BiologicalSex = ({ navigation }) => {
-    
+
     // const [personalDetails, setPersonalDetails] = useState({})
     const [hasFocused, setHasFocused] = useState(false);
 
@@ -102,7 +102,7 @@ const BiologicalSex = ({ navigation }) => {
     };
 
     return (
-        <View style={styles.centerContainer}>
+        <View style={containerStyles.centerWhiteContainer}>
             <Text style={styles.onboardingHeaderText}>Select Biological Sex</Text>
 
             <View style={{ paddingHorizontal: 15 }}>
@@ -114,25 +114,19 @@ const BiologicalSex = ({ navigation }) => {
                 <Text>Input your biological sex here</Text>
             </View>
 
-            <View style={[styles.row, styles.centered, { padding: 15 }]}>
+            <View style={[containerStyles.row, containerStyles.centerContainer, { padding: 15 }]}>
                 <Text>Chosen Sex: {sexValueChecked}</Text>
             </View>
-            <View style={[styles.row, { justifyContent: 'center', paddingVertical: 15, flexWrap: 'nowrap' }]}>
+            <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15, flexWrap: 'nowrap' }]}>
                 <Pressable
-                    style={sexValueChecked === 'female' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setSexValueChecked('female')}
                 ><Text>Female</Text></Pressable>
                 <Pressable
-                    style={sexValueChecked === 'male' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setSexValueChecked('male')}
                 ><Text>Male</Text></Pressable>
             </View>
-            {/* <View style={styles.centered}>
-                <Pressable
-                    onPress={}
-                    style={styles.centerRedButton}
-                ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
-            </View> */}
             <Footer rightButtonLabel="Next" rightButtonPress={() => { handleAddPersonalDetails(); navigation.navigate('Welcome'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
 

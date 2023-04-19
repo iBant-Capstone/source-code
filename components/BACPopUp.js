@@ -3,8 +3,9 @@ import { Pressable, View, Text } from 'react-native';
 import Modal from "react-native-modal";
 
 // Import styles
-import * as StyleSheet from './styles';
-let styles = StyleSheet.styles;
+import { styles } from './styles';
+import { containerStyles } from './styles/containerStyles';
+import { buttonStyles } from './styles/buttonStyles';
 
 const Popup = (props) => {
     let BAC = props.BAC;
@@ -12,14 +13,16 @@ const Popup = (props) => {
     let warningText = "";
 
     const [modalVisible, setModalVisible] = useState(true);
+    // modalVisible = props.modalVisible;
+    // setModalVisible = props.setModalVisible;
 
     if (BAC >= 0.08 && BAC < 0.25) {
         warningText = "Your BAC level is at or above the federal legal intoxication level. It is illegal for you to drive or ride a bike. Please consider these alternatives to get home safely: ";
-            // Get an Uber (button)
-			// Use public transit (button)
-			// Ride with a designated driver
-			// Call someone you trust
-            // Walk
+        // Get an Uber (button)
+        // Use public transit (button)
+        // Ride with a designated driver
+        // Call someone you trust
+        // Walk
         // TODO: add pressables to modal?
     } else if (BAC < 0.35) {
         warningText = "At this BAC level, you are *severely intoxicated* and are in danger of significant health risks including loss of consciousness and choking/aspirating on vomit. Consuming additional alcohol may lead to danger of death.";
@@ -30,7 +33,8 @@ const Popup = (props) => {
     // TODO: add styling for popup in styles.js
     return (
         // <Modal isVisible={props.isOpen} style={styles.modal}>
-        <Modal isVisible={modalVisible} style={styles.modal}>
+        // closeOnOutsideClick={true}
+        <Modal isVisible={modalVisible} style={styles.modal}> 
             <View style={styles.modalContent} >
                 {data && <Text style={styles.commonAlcTypeTitle}><strong>WARNING!</strong></Text>}
                 <br />
@@ -38,8 +42,8 @@ const Popup = (props) => {
                 <br />
                 {data && <Text style={styles.commonAlcTypeSubtext}>{warningText}</Text>}
                 <br />
-                <Pressable style={[styles.leftRedButton, styles.centered]} onPress={() => setModalVisible(!modalVisible)}> 
-                {/* onPress={props.onChangeModal} */}
+                <Pressable style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]} onPress={() => setModalVisible(!modalVisible)}>
+                    {/* onPress={props.onChangeModal} */}
                     <Text style={styles.mainRedButtonText}><em>I understand</em></Text>
                 </Pressable>
                 {/* TODO (P2): add "Do not show this again" pressable & functionality */}

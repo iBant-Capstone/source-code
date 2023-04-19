@@ -4,8 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../../components/Footer';
 
 // Import styles
-import * as StyleSheet from '../../components/styles';
-let styles = StyleSheet.styles;
+import { styles } from '../../components/styles';
+import { containerStyles } from '../../components/styles/containerStyles';
+import { buttonStyles } from '../../components/styles/buttonStyles';
 
 const HeightInput = ({ navigation }) => {
 
@@ -55,52 +56,46 @@ const HeightInput = ({ navigation }) => {
     };
 
     return (
-        <View style={styles.centerContainer}>
+        <View style={containerStyles.centerWhiteContainer}>
             <Text style={styles.onboardingHeaderText}>Select Height</Text>
             <View style={{ paddingHorizontal: 15 }}>
                 <Text>Input your height here in cm or ft/inches</Text>
             </View>
 
-            <View style={[styles.row, styles.centered, { paddingTop: 15, flexWrap: 'nowrap' }]}>
+            <View style={[containerStyles.row, containerStyles.centerContainer, { paddingTop: 15, flexWrap: 'nowrap' }]}>
                 <Pressable
-                    style={heightUnitValueChecked === 'ft' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setHeightUnitValueChecked('ft')}
                 ><Text>ft</Text></Pressable>
                 <Pressable
-                    style={heightUnitValueChecked === 'cm' ? styles.radioButtonSelected : styles.radioButtonRegular}
+                    style={heightUnitValueChecked === 'cm' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setHeightUnitValueChecked('cm')}
                 ><Text>cm</Text></Pressable>
+            </View>
+            {heightUnitValueChecked === "ft" ?
+                <View style={containerStyles.row}>
+                    <TextInput
+                        style={styles.textInput}
+                        value={ftInputValue}
+                        onChangeText={setFtInputValue}
+                        placeholder={"feet"}
+                    />
+                    <TextInput
+                        style={styles.textInput}
+                        value={inInputValue}
+                        onChangeText={setInInputValue}
+                        placeholder={"inches"}
+                    />
                 </View>
-                {heightUnitValueChecked === "ft" ?
-                    <View style={styles.row}>
-                        <TextInput
-                            style={styles.textInput}
-                            value={ftInputValue}
-                            onChangeText={setFtInputValue}
-                            placeholder={"feet"}
-                        />
-                        <TextInput
-                            style={styles.textInput}
-                            value={inInputValue}
-                            onChangeText={setInInputValue}
-                            placeholder={"inches"}
-                        />
-                    </View>
-                    :
-                    <View style={[styles.row, styles.centered]}>
-                        <TextInput
-                            style={styles.textInput}
-                            value={cmInputValue}
-                            onChangeText={setCmInputValue}
-                            placeholder={"cm"}
-                        />
-                    </View>}
-                {/* <View style={styles.centered}>
-                    <Pressable
-                        onPress={handleAddPersonalDetails}
-                        style={styles.centerRedButton}
-                    ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
-                </View> */}
+                :
+                <View style={[containerStyles.row, containerStyles.centerContainer]}>
+                    <TextInput
+                        style={styles.textInput}
+                        value={cmInputValue}
+                        onChangeText={setCmInputValue}
+                        placeholder={"cm"}
+                    />
+                </View>}
             <Footer rightButtonLabel="Save" rightButtonPress={() => { handleAddPersonalDetails(); navigation.navigate('WeightInput'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('WeightInput'); }} />
         </View>
     );

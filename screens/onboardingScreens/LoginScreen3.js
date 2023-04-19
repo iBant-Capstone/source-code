@@ -4,15 +4,15 @@ import { Text, View } from 'react-native';
 import Footer from '../../components/Footer';
 
 // Import styles
-import * as StyleSheet from '../../components/styles';
-let styles = StyleSheet.styles;
+import { styles } from '../../components/styles';
+import { containerStyles } from '../../components/styles/containerStyles';
 
 // Third Login Screen: Welcome message with general information about our app and mission
 const LoginScreen3 = ({ navigation }) => {
     return (
-        <View style={styles.centerContainer}>
+        <View style={containerStyles.centerWhiteContainer}>
             <Text style={styles.onboardingHeaderText}>Hi there!</Text>
-            <View style={{paddingHorizontal: 15}}>
+            <View style={{ paddingHorizontal: 15 }}>
                 <Text>Welcome to our app, <Text style={styles.redBoldText}>BACtracker</Text>! This is a tool for young adults to explore and educate themselves about drinking alcohol.
                     {"\n"}{"\n"}Our <Text style={styles.redBoldText}>mission</Text> is to increase knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!</Text>
             </View>

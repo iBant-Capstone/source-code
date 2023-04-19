@@ -8,18 +8,18 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import BACLevelsEffects from '../../json/bac-levels-and-effects.json'
 
 // Import styles
-import * as StyleSheet from '../styles';
-let styles = StyleSheet.styles;
-
+import { styles } from '../styles';
+import { containerStyles } from '../styles/containerStyles';
+import { buttonStyles } from '../styles/buttonStyles';
 
 const InsideOut = ({ onInside, setOnInside, BAC }) => {
 
     // Function to determine BAC inside effects based on given BAC -> need to make async to update when BAC changes?
-    const displayInsideBACEffects = (BAC) => { 
+    const displayInsideBACEffects = (BAC) => {
         let i = 0;
         let toReturn = "";
 
-        while (i < BACLevelsEffects.length) {            
+        while (i < BACLevelsEffects.length) {
             let BACLevelsEffectsData = BACLevelsEffects[i];
             let minBACLevel = BACLevelsEffectsData[0];
             let maxBACLevel = BACLevelsEffectsData[1];
@@ -30,7 +30,7 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
                 break;
             } else {
                 i++;
-            }            
+            }
         }
 
         return (
@@ -39,11 +39,11 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
     }
 
     // Function to determine BAC outside effects based on given BAC -> need to make async to update when BAC changes?
-    const displayOutsideBACEffects = (BAC) => { 
+    const displayOutsideBACEffects = (BAC) => {
         let i = 0;
         let toReturn = "";
 
-        while (i < BACLevelsEffects.length) {            
+        while (i < BACLevelsEffects.length) {
             let BACLevelsEffectsData = BACLevelsEffects[i];
             let minBACLevel = BACLevelsEffectsData[0];
             let maxBACLevel = BACLevelsEffectsData[1];
@@ -54,7 +54,7 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
                 break;
             } else {
                 i++;
-            }            
+            }
         }
 
         return (
@@ -63,23 +63,23 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
     }
 
     return (
-        <View style={[styles.row, styles.centered, { backgroundColor: '#FFFFFF' }]}>
+        <View style={[containerStyles.row, containerStyles.centerContainer, { backgroundColor: '#FFFFFF' }]}>
             <Pressable
                 onPress={() => setOnInside(true)}
                 accessibilityLabel="Change the description to the inside version"
-                style={styles.whiteButton}
+                style={[buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.defaultButton]}
             >
                 <Text style={onInside ? styles.yellowUnderline : ""}>Internal Effects</Text>
             </Pressable>
             <Pressable
                 onPress={() => setOnInside(false)}
                 accessibilityLabel="Change the description to the outside version"
-                style={styles.whiteButton}
+                style={[buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.defaultButton]}
             >
                 <Text style={onInside ? "" : styles.yellowUnderline}>External Effects</Text>
             </Pressable>
             {/* <Text style={{ paddingBottom: 20 }}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text> */}
-            
+
             <Text style={{ paddingBottom: 20 }}>{onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>
         </View>
     )

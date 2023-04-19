@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import CalcDrinkCards from '../components/BACCalc-components/CalcDrinkCards';
@@ -27,12 +27,16 @@ const BACCalc = ({ navigation, route }) => {
     const [drinksReady, changeDrinksReady] = useState(false)
     const [pdReady, changePDReady] = useState(false)
 
-
+    // const [modalVisible, setModalVisible] = useState(true); // ADDED
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
         callPopUp(newBAC) // call pop-up here with newBAC
         // TODO: add conditioning so callPopUp is only called with if newBAC >= 0.08?
     }, [])
+
+    // useEffect(() => { // attempted to implement alert
+    //     Alert.alert('Your alert msg here!')
+    // },[])
 
     const handleSetOnInside = useCallback((state) => {
         setOnInside(state)
@@ -46,6 +50,7 @@ const BACCalc = ({ navigation, route }) => {
     useEffect(() => {
         changeDrinksReady(false)
         changePDReady(false)
+        // callPopUp(BAC)
     }, [route])
 
     // useEffects update the drinks or personal details state if needed
@@ -107,7 +112,9 @@ const BACCalc = ({ navigation, route }) => {
         // console.log("BAC: ", BAC);
         return (
             <View>
-                <Popup BAC={BAC}/>
+                <Popup BAC={BAC} />
+                {/* modalVisible={modalVisible}
+                setModalVisible={setModalVisible} */}
             </View>
         );
     }
@@ -120,15 +127,16 @@ const BACCalc = ({ navigation, route }) => {
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
                     <View style={styles.redContainer}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
-                        <CalcDrinkCards drinks={drinks} />
+                        <CalcDrinkCards drinks={drinks} navigation={navigation} changeDrinksReady={handleChangeDrinksReady} />
                         <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
-                        <GetHomeSafelySection />
+                        <GetHomeSafelySection BAC={BAC} />
                     </View>
+                {/* <Popup BAC={BAC}/> */}
                 </View>
             </ScrollView >
         );
     } else if (drinksReady && !pdReady) {
-        return (<PersonalDetailsIncorrect />)
+        return (<PersonalDetailsIncorrect navigation={navigation}/>)
     } else {
         return (
             <View>

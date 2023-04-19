@@ -5,9 +5,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 // Import styles
-import * as StyleSheet from '../components/styles';
+import { styles } from '../components/styles';
 import TitleText from '../components/Title';
-let styles = StyleSheet.styles;
+import { containerStyles } from '../components/styles/containerStyles';
+import { buttonStyles } from '../components/styles/buttonStyles';
+
 
 const Profile = (props) => {
 
@@ -60,9 +62,9 @@ const Profile = (props) => {
 
             {/* Waits for the personaldetails to have been gathered and set before we show the profile section */}
             {hasFocused ?
-                <View style={styles.centered}>
-                    <Text style={{marginBottom: 15}}>Edit your profile information or learn more about BACtracker!</Text>
-                    <View style={styles.aboutButton} >
+                <View style={containerStyles.centerContainer}>
+                    <Text style={{ marginBottom: 15 }}>Edit your profile information or learn more about BACtracker!</Text>
+                    <View style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]} >
                         <Table>
                             <TableWrapper style={{ flexDirection: 'row' }}>
                                 <Cell data={"Height: "} width={100} textStyle={styles.mainRedButtonText} />
@@ -86,7 +88,7 @@ const Profile = (props) => {
                                     :
                                     <Cell data={personalDetails["weight"]["value"] + " " + personalDetails["weight"]["unit"]} width={100} textStyle={styles.mainRedButtonText} />
                                 }
-                                <Cell data={<Pressable style={styles.profileEditButton} width={100} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
+                                <Cell data={<Pressable style={[buttonStyles.defaultButton, buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.mediumRightButton]} width={100} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
                             </TableWrapper>
                             <TableWrapper style={{ flexDirection: 'row' }}>
                                 <Cell data={"Biological Sex: "} width={100} textStyle={styles.mainRedButtonText} />
@@ -104,21 +106,21 @@ const Profile = (props) => {
                 <View><Text>Loading...</Text></View>
             }
 
-            <View style={styles.centered}>
+            <View style={containerStyles.centerContainer}>
                 <Pressable
-                    style={styles.aboutButton}
+                    style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]}
                     onPress={() => props.navigation.navigate('HowToUse')}
                 >
                     <Text style={styles.mainRedButtonText}>How to Use</Text>
                 </Pressable>
                 <Pressable
-                    style={styles.aboutButton}
+                    style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]}
                     onPress={() => props.navigation.navigate('OurMission')}
                 >
                     <Text style={styles.mainRedButtonText}>Our Mission</Text>
                 </Pressable>
                 <Pressable
-                    style={styles.aboutButton}
+                    style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]}
                     onPress={() => props.navigation.navigate('OurSources')}
                 >
                     <Text style={styles.mainRedButtonText}>Our Sources</Text>
