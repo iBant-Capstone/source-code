@@ -26,5 +26,47 @@
         "subtitle": "6% ABV",
         "icon": "",
         "value": ".06"
+    },
+    {
+        "id": "whiskey",
+        "title": "Whiskey",
+        "subtitle": "45% ABV",
+        "icon": "",
+        "value": ".45"
+    },
+    {
+        "id": "brandy",
+        "title": "Brandy",
+        "subtitle": "47.5% ABV",
+        "icon": "",
+        "value": ".475"
+    },
+    {
+        "id": "vodka",
+        "title": "Vodka",
+        "subtitle": "45% ABV",
+        "icon": "",
+        "value": ".45"
+    },
+    {
+        "id": "rum",
+        "title": "Rum",
+        "subtitle": "57.5% ABV",
+        "icon": "",
+        "value": ".575"
+    },
+    {
+        "id": "gin",
+        "title": "Gin",
+        "subtitle": "47.5% ABV",
+        "icon": "",
+        "value": ".475"
+    },
+    {
+        "id": "tequila",
+        "title": "Tequila",
+        "subtitle": "47.5% ABV",
+        "icon": "",
+        "value": ".475"
     }
 ]
