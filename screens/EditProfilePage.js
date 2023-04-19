@@ -236,7 +236,7 @@ const EditProfilePage = ({ navigation }) => {
                             <Pressable
                                 onPress={handleAddPersonalDetails}
                                 style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
-                            ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
+                            ><Text style={textStyles.whiteSemiBoldText}>Save</Text></Pressable>
                         </View>
                         <View style={[containerStyles.row, { paddingHorizontal: 15, paddingVertical: 15 }]}>
                             <Text style={textStyles.redSemiBoldText}>Please note: </Text>
