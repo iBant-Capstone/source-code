@@ -4,102 +4,119 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 import Footer from '../../components/Footer';
 
+import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';
+
 // Import styles
 import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
 
-const WeightInput = ({ navigation }) => {
+const WeightInput = ({ navigation, route}) => {
     const [hasFocused, setHasFocused] = useState(false);
 
     // ______ TEXT INPUTS __________
-    const [cmInputValue, setCmInputValue] = useState('')
-    const [ftInputValue, setFtInputValue] = useState('')
-    const [inInputValue, setInInputValue] = useState('')
+    // const [cmInputValue, setCmInputValue] = useState('')
+    // const [ftInputValue, setFtInputValue] = useState('')
+    // const [inInputValue, setInInputValue] = useState('')
 
-    const [kgInputValue, setKgInputValue] = useState('')
-    const [lbsInputValue, setlbsInputValue] = useState('')
+    const [weightInputValue, setWeightInputValue] = useState('')
+    // const [lbsInputValue, setlbsInputValue] = useState('')
 
     // Keeps track of what weight/height unit we're using
 
-    const [heightUnitValueChecked, setHeightUnitValueChecked] = useState();
+    // const [heightUnitValueChecked, setHeightUnitValueChecked] = useState();
     const [weightUnitValueChecked, setWeightUnitValueChecked] = useState('kg');
 
-    // sets this values as false because user will not have gone through other two screens
-    const sexValueChecked = 'unchecked';
+    let personalDetailsSoFar = route.params.personalDetailsSoFar
+    let newKey = "weight"
+    let nextPage = "BiologicalSex"
 
-    // Gets the personal details already stored to prefill the boxes last time 
-    useFocusEffect(
-        React.useCallback(() => {
-            async function getPersonalDetails() {
+    const handleWeightInput = () => {
 
-                let emptyPD = {
-                    height: {
-                        unit: '',
-                        value: ''
-                    },
-                    weight: {
-                        unit: '',
-                        value: ''
-                    },
-                    sex: ''
-                }
-
-                try {
-                    // Get the personalDetials from  async storage
-                    const personalDetailsAsync = await AsyncStorage.getItem('personalDetails');
-
-                    // Get the parsed version of the personal details (or empy object if we don't have any personal details saved)
-                    // we should have the height value already stored
-                    let personalDetailsParsed = personalDetailsAsync ? JSON.parse(personalDetailsAsync) : emptyPD;
-
-                    // Set our state personalDetails
-                    setCmInputValue(personalDetailsParsed["height"]["unit"] === "cm" ? personalDetailsParsed["height"]["value"] : '')
-                    setFtInputValue(personalDetailsParsed["height"]["unit"] === "ft" ? Math.floor(Number(personalDetailsParsed["height"]["value"]) / 12) : '')
-                    setInInputValue(personalDetailsParsed["height"]["unit"] === "ft" ? Number(personalDetailsParsed["height"]["value"]) % 12 : '')
-                    setKgInputValue(personalDetailsParsed["weight"]["unit"] === "kg" ? personalDetailsParsed["weight"]["value"] : '')
-                    setlbsInputValue(personalDetailsParsed["weight"]["unit"] === "lbs" ? personalDetailsParsed["weight"]["value"] : '')
-
-                    setHeightUnitValueChecked(personalDetailsParsed["height"]["unit"])
-                    setWeightUnitValueChecked(personalDetailsParsed["weight"]["unit"])
-
-                    setHasFocused(true)
-
-                } catch (error) {
-                    console.log(error);
-                }
-            }
-            getPersonalDetails();
-        }, [])
-    );
-
-    // Adds the personal details to async storage
-    const handleAddPersonalDetails = async () => {
-
-        // calculate height value (converting to inches if input was ft)
-        let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
-        let weightValue = weightUnitValueChecked === 'kg' ? kgInputValue : lbsInputValue
-
-        // Set up the personal details to send
-        let newPersonalDetails = {
-            height: {
-                unit: heightUnitValueChecked,
-                value: heightValue
-            },
-            weight: {
-                unit: weightUnitValueChecked,
-                value: weightValue
-            },
-            sex: sexValueChecked
+        let weightData = {
+            unit: weightUnitValueChecked,
+            value: Number(weightInputValue)
         }
+        console.log(weightData)
+        let newValue = weightData
+        handlePersonaDetailInput( personalDetailsSoFar, newKey, newValue, nextPage, navigation)
+    }
 
-        try {
-            await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
-        } catch (err) {
-            console.log(err)
-        }
+    // // sets this values as false because user will not have gone through other two screens
+    // const sexValueChecked = 'unchecked';
 
-    };
+    // // Gets the personal details already stored to prefill the boxes last time 
+    // useFocusEffect(
+    //     React.useCallback(() => {
+    //         async function getPersonalDetails() {
+
+    //             let emptyPD = {
+    //                 height: {
+    //                     unit: '',
+    //                     value: ''
+    //                 },
+    //                 weight: {
+    //                     unit: '',
+    //                     value: ''
+    //                 },
+    //                 sex: ''
+    //             }
+
+    //             try {
+    //                 // Get the personalDetials from  async storage
+    //                 const personalDetailsAsync = await AsyncStorage.getItem('personalDetails');
+
+    //                 // Get the parsed version of the personal details (or empy object if we don't have any personal details saved)
+    //                 // we should have the height value already stored
+    //                 let personalDetailsParsed = personalDetailsAsync ? JSON.parse(personalDetailsAsync) : emptyPD;
+
+    //                 // Set our state personalDetails
+    //                 setCmInputValue(personalDetailsParsed["height"]["unit"] === "cm" ? personalDetailsParsed["height"]["value"] : '')
+    //                 setFtInputValue(personalDetailsParsed["height"]["unit"] === "ft" ? Math.floor(Number(personalDetailsParsed["height"]["value"]) / 12) : '')
+    //                 setInInputValue(personalDetailsParsed["height"]["unit"] === "ft" ? Number(personalDetailsParsed["height"]["value"]) % 12 : '')
+    //                 setKgInputValue(personalDetailsParsed["weight"]["unit"] === "kg" ? personalDetailsParsed["weight"]["value"] : '')
+    //                 setlbsInputValue(personalDetailsParsed["weight"]["unit"] === "lbs" ? personalDetailsParsed["weight"]["value"] : '')
+
+    //                 setHeightUnitValueChecked(personalDetailsParsed["height"]["unit"])
+    //                 setWeightUnitValueChecked(personalDetailsParsed["weight"]["unit"])
+
+    //                 setHasFocused(true)
+
+    //             } catch (error) {
+    //                 console.log(error);
+    //             }
+    //         }
+    //         getPersonalDetails();
+    //     }, [])
+    // );
+
+    // // Adds the personal details to async storage
+    // const handleAddPersonalDetails = async () => {
+
+    //     // calculate height value (converting to inches if input was ft)
+    //     let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
+    //     let weightValue = weightUnitValueChecked === 'kg' ? kgInputValue : lbsInputValue
+
+    //     // Set up the personal details to send
+    //     let newPersonalDetails = {
+    //         height: {
+    //             unit: heightUnitValueChecked,
+    //             value: heightValue
+    //         },
+    //         weight: {
+    //             unit: weightUnitValueChecked,
+    //             value: weightValue
+    //         },
+    //         sex: sexValueChecked
+    //     }
+
+    //     try {
+    //         await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+
+    // };
     return (
         <View style={containerStyles.centerWhiteContainer}>
             <Text style={styles.onboardingHeaderText}>Select Weight</Text>
@@ -120,24 +137,14 @@ const WeightInput = ({ navigation }) => {
             </View>
 
             <View style={[containerStyles.row, containerStyles.centerContainer]}>
-                {weightUnitValueChecked === 'kg' ?
-                    <TextInput
-                        style={styles.textInput}
-                        value={kgInputValue}
-                        onChangeText={setKgInputValue}
-                        placeholder={'kg'}
-                    />
-                    :
-                    <TextInput
-                        style={styles.textInput}
-                        value={lbsInputValue}
-                        onChangeText={setlbsInputValue}
-                        placeholder={'lbs'}
-                    />
-                }
-
+                <TextInput
+                    style={styles.textInput}
+                    value={weightInputValue}
+                    onChangeText={setWeightInputValue}
+                    placeholder={''}
+                />
             </View>
-            <Footer rightButtonLabel="Save" rightButtonPress={() => { handleAddPersonalDetails(); navigation.navigate('BiologicalSex'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
+            <Footer rightButtonLabel="Save" rightButtonPress={handleWeightInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
 
     );

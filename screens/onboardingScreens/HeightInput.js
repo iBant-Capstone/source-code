@@ -3,6 +3,8 @@ import { Text, View, TextInput, Pressable } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../../components/Footer';
 
+import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';
+
 // Import styles
 import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
@@ -14,46 +16,23 @@ const HeightInput = ({ navigation }) => {
     const [cmInputValue, setCmInputValue] = useState('')
     const [ftInputValue, setFtInputValue] = useState('')
     const [inInputValue, setInInputValue] = useState('')
-    const [weightInputValue, setWeightInputValue] = useState('')
-
-    // ______ RADIO BUTTONS ________
 
     // Keeps track of what height unit we're using
     const [heightUnitValueChecked, setHeightUnitValueChecked] = useState('cm');
 
-    // sets these values as false because user will not have gone through other two screens
-    const weightUnitValueChecked = false;
-    const sexValueChecked = 'unchecked';
+    let personalDetailsSoFar = {}
+    let newKey = "height"
+    let nextPage = "WeightInput"
 
-
-    // Adds the personal details to async storage
-    const handleAddPersonalDetails = async () => {
-
-        // calculate height value (converting to inches if input was ft)
+    const handleHeightInput = () => {
         let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
-
-        // Set up the personal details to send
-        // uses blank values for weight and sex
-        let newPersonalDetails = {
-            height: {
-                unit: heightUnitValueChecked,
-                value: heightValue
-            },
-            weight: {
-                unit: weightUnitValueChecked,
-                value: weightInputValue
-            },
-            sex: sexValueChecked
+        let heightData = {
+            unit: heightUnitValueChecked,
+            value: heightValue
         }
-
-        try {
-            await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
-
-        } catch (err) {
-            console.log(err)
-        }
-
-    };
+        let newValue = heightData
+        handlePersonaDetailInput( personalDetailsSoFar, newKey, newValue, nextPage, navigation)
+    }
 
     return (
         <View style={containerStyles.centerWhiteContainer}>
@@ -96,7 +75,7 @@ const HeightInput = ({ navigation }) => {
                         placeholder={"cm"}
                     />
                 </View>}
-            <Footer rightButtonLabel="Save" rightButtonPress={() => { handleAddPersonalDetails(); navigation.navigate('WeightInput'); }} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('WeightInput'); }} />
+            <Footer rightButtonLabel="Save" rightButtonPress={handleHeightInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('WeightInput'); }} />
         </View>
     );
 };
