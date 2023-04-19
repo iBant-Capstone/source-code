@@ -10,8 +10,6 @@ import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButto
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
 
-import Popup from '../components/AlcoholPopUp';
-
 import * as StyleSheet from '../components/styles';
 import { useFocusEffect } from '@react-navigation/native';
 let styles = StyleSheet.styles;
@@ -30,13 +28,7 @@ const BACCalc = ({ navigation, route }) => {
     // const [modalVisible, setModalVisible] = useState(true); // ADDED
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
-        callPopUp(newBAC) // call pop-up here with newBAC
-        // TODO: add conditioning so callPopUp is only called with if newBAC >= 0.08?
     }, [])
-
-    // useEffect(() => { // attempted to implement alert
-    //     Alert.alert('Your alert msg here!')
-    // },[])
 
     const handleSetOnInside = useCallback((state) => {
         setOnInside(state)
@@ -107,17 +99,17 @@ const BACCalc = ({ navigation, route }) => {
 
     // BAC pop-up functions:
     // Call the popup with given BAC
-    function callPopUp(BAC) {
-        // console.log("called BAC pop-up");
-        // console.log("BAC: ", BAC);
+    /*function callPopUp(BAC) {
+        console.log("called BAC pop-up");
+        console.log("BAC: ", BAC);
         return (
             <View>
                 <Popup BAC={BAC} />
-                {/* modalVisible={modalVisible}
-                setModalVisible={setModalVisible} */}
+                //modalVisible={modalVisible}
+                //setModalVisible={setModalVisible}
             </View>
         );
-    }
+    }*/
 
     if (drinksReady && pdReady) {
         return (
@@ -131,7 +123,6 @@ const BACCalc = ({ navigation, route }) => {
                         <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
                         <GetHomeSafelySection BAC={BAC} />
                     </View>
-                {/* <Popup BAC={BAC}/> */}
                 </View>
             </ScrollView >
         );

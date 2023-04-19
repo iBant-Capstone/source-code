@@ -9,18 +9,18 @@
     },
     {
         "title": "Beer/Cider",
-        "subtitle": "ex. IPA, Hops, ...",
+        "subtitle": "ex. IPA, Hops...",
         "icon": "",
         "value": "Beer/Cider",
         "sizes": ["solo-cup"],
         "strengths": ["light-beer", "dark-beer"]
     },
     {
-        "title": "New test drink",
-        "subtitle": "ex. IPA, Hops, ...",
+        "title": "Liquor",
+        "subtitle": "ex. whiskey, brandy, vodka, rum, gin, tequila...",
         "icon": "",
-        "value": "Beer/Cider",
+        "value": "Liquor",
         "sizes": ["solo-cup"],
-        "strengths": ["light-beer", "dark-beer"]
+        "strengths": ["whiskey", "brandy", "vodka", "rum", "gin", "tequila"]
     }
 ]
