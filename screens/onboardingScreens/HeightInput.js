@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../../components/Footer';
 
 import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';
@@ -13,18 +12,18 @@ import { textInputStyles } from '../../components/styles/textInput';
 
 const HeightInput = ({ navigation }) => {
 
-    // ______ TEXT INPUTS __________
     const [cmInputValue, setCmInputValue] = useState('')
     const [ftInputValue, setFtInputValue] = useState('')
     const [inInputValue, setInInputValue] = useState('')
 
-    // Keeps track of what height unit we're using
     const [heightUnitValueChecked, setHeightUnitValueChecked] = useState('cm');
 
+     // Sets the infomration neede for the handlePersonalDetailsInput function below
     let personalDetailsSoFar = {}
     let newKey = "height"
     let nextPage = "WeightInput"
 
+    // Formats the height data before sending off to add to the personalDetailsSoFar object and navigating to the next page
     const handleHeightInput = () => {
         let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
         let heightData = {
@@ -32,7 +31,7 @@ const HeightInput = ({ navigation }) => {
             value: heightValue
         }
         let newValue = heightData
-        handlePersonaDetailInput( personalDetailsSoFar, newKey, newValue, nextPage, navigation)
+        handlePersonaDetailInput(personalDetailsSoFar, newKey, newValue, nextPage, navigation)
     }
 
     return (
