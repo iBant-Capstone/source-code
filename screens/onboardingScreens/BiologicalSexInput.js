@@ -1,8 +1,6 @@
 // Accept user input for Biological Sex -> need to connect with stored Profile information
 import React, { useState } from 'react';
 import { Text, View, Pressable } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useFocusEffect } from '@react-navigation/native'
 import Footer from '../../components/Footer';
 
 import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';
@@ -16,19 +14,6 @@ import { textStyles } from '../../components/styles/textStyles';
 // Page to return
 const BiologicalSex = ({ navigation, route }) => {
 
-    // const [personalDetails, setPersonalDetails] = useState({})
-    const [hasFocused, setHasFocused] = useState(false);
-
-    // // ______ TEXT INPUTS __________
-    // const [cmInputValue, setCmInputValue] = useState('')
-    // const [ftInputValue, setFtInputValue] = useState('')
-    // const [inInputValue, setInInputValue] = useState('')
-    // const [weightInputValue, setWeightInputValue] = useState('')
-
-    // // Keeps track of what weight/height/sex unit we're using
-
-    // const [heightUnitValueChecked, setHeightUnitValueChecked] = useState();
-    // const [weightUnitValueChecked, setWeightUnitValueChecked] = useState();
     const [sexValueChecked, setSexValueChecked] = useState('');
 
     let personalDetailsSoFar = route.params.personalDetailsSoFar
@@ -40,79 +25,6 @@ const BiologicalSex = ({ navigation, route }) => {
         let newValue = sex
         handlePersonaDetailInput( personalDetailsSoFar, newKey, newValue, nextPage, navigation)
     }
-
-    // // Gets the personal details already stored to prefill the boxes last time 
-    // useFocusEffect(
-    //     React.useCallback(() => {
-    //         async function getPersonalDetails() {
-
-    //             let emptyPD = {
-    //                 height: {
-    //                     unit: '',
-    //                     value: ''
-    //                 },
-    //                 weight: {
-    //                     unit: '',
-    //                     value: ''
-    //                 },
-    //                 sex: ''
-    //             }
-
-    //             try {
-    //                 // Get the personalDetials from  async storage
-    //                 const personalDetailsAsync = await AsyncStorage.getItem('personalDetails');
-
-    //                 // Get the parsed version of the personal details (or empy object if we don't have any personal details saved)
-    //                 // we should have the height value already stored
-    //                 let personalDetailsParsed = personalDetailsAsync ? JSON.parse(personalDetailsAsync) : emptyPD;
-
-    //                 // Set our state personalDetails
-    //                 setCmInputValue(personalDetailsParsed["height"]["unit"] === "cm" ? personalDetailsParsed["height"]["value"] : '')
-    //                 setFtInputValue(personalDetailsParsed["height"]["unit"] === "ft" ? Math.floor(Number(personalDetailsParsed["height"]["value"]) / 12) : '')
-    //                 setInInputValue(personalDetailsParsed["height"]["unit"] === "ft" ? Number(personalDetailsParsed["height"]["value"]) % 12 : '')
-    //                 setWeightInputValue(personalDetailsParsed["weight"]["value"])
-
-    //                 setHeightUnitValueChecked(personalDetailsParsed["height"]["unit"])
-    //                 setWeightUnitValueChecked(personalDetailsParsed["weight"]["unit"])
-    //                 setSexValueChecked(personalDetailsParsed["sex"])
-
-    //                 setHasFocused(true)
-
-    //             } catch (error) {
-    //                 console.log(error);
-    //             }
-    //         }
-    //         getPersonalDetails();
-    //     }, [])
-    // );
-
-    // // Adds the personal details to async storage
-    // const handleAddPersonalDetails = async () => {
-
-    //     // calculate height value (converting to inches if input was ft)
-    //     let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
-
-    //     // Set up the personal details to send
-    //     let newPersonalDetails = {
-    //         height: {
-    //             unit: heightUnitValueChecked,
-    //             value: heightValue
-    //         },
-    //         weight: {
-    //             unit: weightUnitValueChecked,
-    //             value: weightInputValue
-    //         },
-    //         sex: sexValueChecked
-    //     }
-
-    //     try {
-    //         await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
-
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-
-    // };
 
     return (
         <View style={containerStyles.centerWhiteContainer}>
