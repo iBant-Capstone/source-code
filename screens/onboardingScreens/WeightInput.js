@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useFocusEffect } from '@react-navigation/native'
 import Footer from '../../components/Footer';
 
 import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';

@@ -1,4 +1,3 @@
-// Accept user input for Biological Sex -> need to connect with stored Profile information
 import React, { useState } from 'react';
 import { Text, View, Pressable } from 'react-native';
 import Footer from '../../components/Footer';
