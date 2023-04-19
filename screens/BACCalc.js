@@ -85,12 +85,12 @@ const BACCalc = ({ navigation, route }) => {
     }, [drinks])
 
     useEffect(() => {
-        console.log("1. personalDetails", personalDetails)
+        // console.log("1. personalDetails", personalDetails)
         if (personalDetails !== null) {
-            console.log("2. personalDetails", personalDetails)
+            // console.log("2. personalDetails", personalDetails)
             // check if the personal details have been inputted in by the user
             if (personalDetails.height.value != 0 & personalDetails.weight.value != 0 & personalDetails.sex != '') {
-                console.log("3. personalDetails", personalDetails)
+                // console.log("3. personalDetails", personalDetails)
                 changePDReady(true)
             }
         }
