@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 import validateHeightInput from '../components/inputValidationPersonalDetails/validateHeightInput';
+import validateWeightInput from '../components/inputValidationPersonalDetails/validateWeightInput';
 
 // Import styles
 import { styles } from '../components/styles';
@@ -121,19 +122,13 @@ const EditProfilePage = ({ navigation }) => {
     };
 
     const passesChecks = (personalDetails) => {
-        let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value * 100 : personalDetails.height.value * 0.0254
-        let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
+
         let sex = personalDetails.sex
 
         let passes = true
 
         passes = validateHeightInput(personalDetails)
-
-        // max weight -> 700 lbs
-        // min weight -> 40 lbs
-        if ((weightInKilograms == 0) || (weightInKilograms > 317.5) || (weightInKilograms < 18.14)) {
-            passes = false
-        }
+        passes = validateWeightInput(personalDetails)
 
         if (sex == '') {
             passes = false
