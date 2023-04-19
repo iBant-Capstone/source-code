@@ -55,16 +55,16 @@ const LoginScreen1 = ({ navigation }) => {
                         await AsyncStorage.setItem('onboarding', false);
                         console.log("clearing async storage")
                         console.log(await AsyncStorage.getItem('onboarding'))
-                        console.log("57 ", hasOnboarded)
+                        
                         setOnboarded(false)
-                        console.log("60 ", hasOnboarded)
+                        
                     }} >
                     <Text style={styles.mainRedButtonText}>Clear Async Storage</Text>
                 </Pressable>
             </View>
 
             <Footer rightButtonLabel="Next" rightButtonPress={() => {
-                console.log("hasOnboarded " + hasOnboarded)
+            
                 if (hasOnboarded) {
 
                     navigation.navigate('InformationHub');
