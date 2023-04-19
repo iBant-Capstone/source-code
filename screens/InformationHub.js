@@ -71,7 +71,6 @@ export const InfoPage = (props) => {
 
 
 export const InformationHub = ({ navigation }) => {
-  console.log("Information Hub page")
   return (
     <View>
       <InfoPage navigation={navigation} />
