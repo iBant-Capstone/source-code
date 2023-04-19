@@ -11,7 +11,7 @@ import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
 import { textStyles } from '../../components/styles/textStyles';
 
-// Page to return
+
 const BiologicalSex = ({ navigation, route }) => {
 
     const [sexValueChecked, setSexValueChecked] = useState('');
