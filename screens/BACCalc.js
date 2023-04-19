@@ -11,12 +11,13 @@ import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafely
 import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
 
 import * as StyleSheet from '../components/styles';
+import { useFocusEffect } from '@react-navigation/native';
 let styles = StyleSheet.styles;
 
 const BACCalc = ({ navigation, route }) => {
 
     const [drinks, setDrinks] = useState(route && route.drinks ? route.drinks : null)
-    const [personalDetails, setPersonalDetails] = useState(null)
+    const [personalDetails, setPersonalDetails] = useState(route && route.personalDetails ? route.personalDetails : null)
 
     const [BAC, setBAC] = useState(0)
     const [onInside, setOnInside] = useState(true)
@@ -84,9 +85,12 @@ const BACCalc = ({ navigation, route }) => {
     }, [drinks])
 
     useEffect(() => {
+        console.log("1. personalDetails", personalDetails)
         if (personalDetails !== null) {
+            console.log("2. personalDetails", personalDetails)
             // check if the personal details have been inputted in by the user
             if (personalDetails.height.value != 0 & personalDetails.weight.value != 0 & personalDetails.sex != '') {
+                console.log("3. personalDetails", personalDetails)
                 changePDReady(true)
             }
         }
@@ -115,7 +119,7 @@ const BACCalc = ({ navigation, route }) => {
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
                     <View style={styles.redContainer}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
-                        <CalcDrinkCards drinks={drinks} />
+                        <CalcDrinkCards drinks={drinks} navigation={navigation} changeDrinksReady={handleChangeDrinksReady} />
                         <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
                         <GetHomeSafelySection BAC={BAC} />
                     </View>
