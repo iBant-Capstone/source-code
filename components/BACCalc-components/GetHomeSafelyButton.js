@@ -1,8 +1,8 @@
 import React from 'react';
 import { Pressable, Text, Linking } from 'react-native';
 
-import { styles } from '../styles'
 import { buttonStyles } from '../styles/buttonStyles';
+import { textStyles } from '../styles/textStyles';
 
 const GetHomeSafelyButton = ({ url, title }) => {
     return (
@@ -10,7 +10,7 @@ const GetHomeSafelyButton = ({ url, title }) => {
             onPress={() => Linking.openURL(url)}
             accessibilityLabel={title}
             style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}>
-            <Text style={styles.mainRedButtonText}>{title}</Text>
+            <Text style={textStyles.whiteSemiBoldText}>{title}</Text>
         </Pressable>
     )
 }

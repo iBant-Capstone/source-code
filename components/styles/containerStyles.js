@@ -18,7 +18,7 @@ export const containerStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start'
     },
-    redContainer: { // combine with centerwhite
+    redContainer: { 
         backgroundColor: '#CF5260',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
@@ -49,12 +49,20 @@ export const containerStyles = StyleSheet.create({
         marginVertical: 10,
         height: 100
     },
+    // For titles on pages
+    titleContainer: {
+        paddingHorizontal: 6,
+        paddingTop: 25,
+        backgroundColor: "#CF5260",
+        width: '100%'
+    },
+    // For icons in how to page
     howToIconContainer: {
         width: '12%',
         marginLeft: '5%',
         alignContent: "center",
         paddingVertical: '6%'
-      },
+    },
     alignTextCenter: {
         textAlign: 'center'
     }

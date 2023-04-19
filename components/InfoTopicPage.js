@@ -14,6 +14,8 @@ import Expandable from './Expandable';
 import { styles } from './styles';
 import { containerStyles } from './styles/containerStyles';
 import { imageStyles } from './styles/imageStyles';
+import { textStyles } from './styles/textStyles';
+import { tableStyles } from './styles/tableStyles';
 
 // Page to export 
 const InfoTopicPage = ({ route }) => {
@@ -46,10 +48,10 @@ const InfoTopicPage = ({ route }) => {
             // Return View component with Text and Image
             return (
                 <ScrollView>
-                    <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>Standard Drink Sizes Visualized</Text>
+                    <Text style={[textStyles.text, textStyles.questionText, textStyles.specialInfoItem]}>Standard Drink Sizes Visualized</Text>
                     <Image
                         source={imageUrl}
-                        style={[imageStyles.standardDrinksImage, styles.specialInfoItem]}
+                        style={[imageStyles.standardDrinksImage, textStyles.specialInfoItem]}
                         resizeMode='cover'
                     />
                 </ScrollView>
@@ -63,10 +65,10 @@ const InfoTopicPage = ({ route }) => {
             const headTable = ['BAC Level', 'Effects'];
             return (
                 <View>
-                    <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>BAC Levels: Table</Text>
-                    <Table borderStyle={{ borderColor: '#606070', borderStyle: 'solid', borderWidth: 1 }} style={styles.specialInfoItem}>
-                        <Row data={headTable} style={styles.headStyle} textStyle={{ fontWeight: "600", color: "white" }} widthArr={[100, undefined]} />
-                        <Rows data={BACeffects} textStyle={styles.tableText} widthArr={[100, undefined]} />
+                        <Text style={[textStyles.text, textStyles.questionText, textStyles.specialInfoItem]}>BAC Levels: Table</Text>
+                    <Table borderStyle={tableStyles.border} style={textStyles.specialInfoItem}>
+                        <Row data={headTable} style={tableStyles.head} textStyle={tableStyles.headText} widthArr={[100, undefined]} />
+                        <Rows data={BACeffects} textStyle={tableStyles.text} widthArr={[100, undefined]} />
                     </Table>
                 </View>
             )
@@ -76,7 +78,7 @@ const InfoTopicPage = ({ route }) => {
     // Return page view
     return (
         <ScrollView>
-            <View style={styles.titleContainer}>
+            <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={route.params.title} />
             </View>
             <View style={containerStyles.centerContainer}>

@@ -4,9 +4,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../../components/Footer';
 
 // Import styles
-import { styles } from '../../components/styles';
+import { textStyles } from '../../components/styles/textStyles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
+import { textInputStyles } from '../../components/styles/textInput';
 
 const HeightInput = ({ navigation }) => {
 
@@ -57,7 +58,7 @@ const HeightInput = ({ navigation }) => {
 
     return (
         <View style={containerStyles.centerWhiteContainer}>
-            <Text style={styles.onboardingHeaderText}>Select Height</Text>
+            <Text style={[textStyles.text, textStyles.headerText]}>Select Height</Text>
             <View style={{ paddingHorizontal: 15 }}>
                 <Text>Input your height here in cm or ft/inches</Text>
             </View>
@@ -75,13 +76,13 @@ const HeightInput = ({ navigation }) => {
             {heightUnitValueChecked === "ft" ?
                 <View style={containerStyles.row}>
                     <TextInput
-                        style={styles.textInput}
+                        style={textInputStyles.textInput}
                         value={ftInputValue}
                         onChangeText={setFtInputValue}
                         placeholder={"feet"}
                     />
                     <TextInput
-                        style={styles.textInput}
+                        style={textInputStyles.textInput}
                         value={inInputValue}
                         onChangeText={setInInputValue}
                         placeholder={"inches"}
@@ -90,7 +91,7 @@ const HeightInput = ({ navigation }) => {
                 :
                 <View style={[containerStyles.row, containerStyles.centerContainer]}>
                     <TextInput
-                        style={styles.textInput}
+                        style={textInputStyles.textInput}
                         value={cmInputValue}
                         onChangeText={setCmInputValue}
                         placeholder={"cm"}

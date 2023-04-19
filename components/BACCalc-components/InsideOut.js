@@ -9,6 +9,7 @@ import BACLevelsEffects from '../../json/bac-levels-and-effects.json'
 
 // Import styles
 import { styles } from '../styles';
+import { textStyles } from '../styles/textStyles';
 import { containerStyles } from '../styles/containerStyles';
 import { buttonStyles } from '../styles/buttonStyles';
 
@@ -69,16 +70,15 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
                 accessibilityLabel="Change the description to the inside version"
                 style={[buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.defaultButton]}
             >
-                <Text style={onInside ? styles.yellowUnderline : ""}>Internal Effects</Text>
+                <Text style={onInside ? [textStyles.text, textStyles.selectedOption] : textStyles.text}>Internal Effects</Text>
             </Pressable>
             <Pressable
                 onPress={() => setOnInside(false)}
                 accessibilityLabel="Change the description to the outside version"
                 style={[buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.defaultButton]}
             >
-                <Text style={onInside ? "" : styles.yellowUnderline}>External Effects</Text>
+                <Text style={onInside ? textStyles.text : [textStyles.text, textStyles.selectedOption]}>External Effects</Text>
             </Pressable>
-            {/* <Text style={{ paddingBottom: 20 }}>State: {onInside ? "I'm showing the inside description" : "I'm showing the outside description"}</Text> */}
 
             <Text style={{ paddingBottom: 20 }}>{onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>
         </View>

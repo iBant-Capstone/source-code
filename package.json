@@ -36,6 +36,7 @@
     "react-native-gesture-handler": "~2.8.0",
     "react-native-hyperlink": "^0.0.22",
     "react-native-ionicons": "^4.6.5",
+    "react-native-markdown-package": "^1.8.2",
     "react-native-modal": "^13.0.1",
     "react-native-modal-datetime-picker": "^14.0.1",
     "react-native-navigation-bar": "^0.2.1",

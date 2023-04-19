@@ -5,6 +5,8 @@ import { Text, View, TextInput, Pressable } from 'react-native';
 import { styles } from '../styles';
 import { containerStyles } from '../styles/containerStyles';
 import { buttonStyles } from '../styles/buttonStyles';
+import { textStyles } from '../styles/textStyles';
+import { textInputStyles } from '../styles/textInput';
 
 const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
 
@@ -25,7 +27,7 @@ const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
                 <Text>Drink Size (ml)</Text>
             </View>
             <TextInput
-                style={styles.largeTextInput}
+                style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
                 value={sizeInputValue}
                 onChangeText={setSizeInputValue}
                 placeholder="145, 250, 70.."
@@ -37,7 +39,7 @@ const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
                     accessibilityLabel="Button to add drink"
                     style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
                 >
-                    <Text style={styles.mainRedButtonText}>Add Custom Size</Text>
+                    <Text style={textStyles.whiteSemiBoldText}>Add Custom Size</Text>
                 </Pressable>
             </View>
         </View>

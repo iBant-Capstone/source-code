@@ -6,8 +6,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // Import styles
 import { styles } from '../styles';
 import { containerStyles } from '../styles/containerStyles';
-
-
+import { imageStyles } from '../styles/imageStyles';
+import { textStyles } from '../styles/textStyles';
+import { drinkCardStyles } from '../styles/drinkCardStyles';
 
 const CalcDrinkCards = ({ drinks, navigation, changeDrinksReady } ) => {
   // console.log(drinks);
@@ -33,15 +34,15 @@ const CalcDrinkCards = ({ drinks, navigation, changeDrinksReady } ) => {
       {drinks.length !== 0 ?
         <View style={containerStyles.row}>
           {drinks.map((drink, index) => (
-            <View key={index} style={[styles.drinkCard, containerStyles.row]}>
-              <Text style={[styles.drinkCardTimeContainer, styles.redBoldText, styles.smallText]}>{new Date(drink.timeOfDrink).getHours()}:{new Date(drink.timeOfDrink).getMinutes()}</Text>
-              <View style={styles.drinkCardInfoContainer}>
-                <Text style={styles.drinkCardNameText}>{drink.name} ({(drink.strength * 100).toFixed(1)}%)</Text>
-                <Text style={styles.smallText}>{drink.size.value * 1e3} ml</Text>
+            <View key={index} style={[drinkCardStyles.drinkCard, containerStyles.row]}>
+              <Text style={[drinkCardStyles.timeContainer, textStyles.redSemiBoldText, textStyles.smallText]}>{new Date(drink.timeOfDrink).getHours()}:{new Date(drink.timeOfDrink).getMinutes()}</Text>
+              <View style={drinkCardStyles.infoContainer}>
+                <Text style={textStyles.boldText}>{drink.name} ({(drink.strength * 100).toFixed(1)}%)</Text>
+                <Text style={[textStyles.text, textStyles.smallText]}>{drink.size.value * 1e3} ml</Text>
               </View>
               {/* Commented out individual drink deletion for now: */}
-              <Pressable style={styles.drinkCardDeleteContainer} onPress={() => handleDelete(drink)}>
-                <Ionicons name='close' style={styles.exIcon}  />
+              <Pressable style={drinkCardStyles.timeContainer} onPress={() => handleDelete(drink)}>
+                <Ionicons name='close' style={imageStyles.deleteIcon}  />
               </Pressable>
             </View>
           ))}

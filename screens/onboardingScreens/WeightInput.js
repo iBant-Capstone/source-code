@@ -5,9 +5,10 @@ import { useFocusEffect } from '@react-navigation/native'
 import Footer from '../../components/Footer';
 
 // Import styles
-import { styles } from '../../components/styles';
+import { textStyles } from '../../components/styles/textStyles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
+import { textInputStyles } from '../../components/styles/textInput';
 
 const WeightInput = ({ navigation }) => {
     const [hasFocused, setHasFocused] = useState(false);
@@ -102,7 +103,7 @@ const WeightInput = ({ navigation }) => {
     };
     return (
         <View style={containerStyles.centerWhiteContainer}>
-            <Text style={styles.onboardingHeaderText}>Select Weight</Text>
+            <Text style={[textStyles.text, textStyles.headerText]}>Select Weight</Text>
             <View style={{ paddingHorizontal: 15 }}>
                 <Text>Input your weight here in lbs or kg</Text>
             </View>
@@ -122,14 +123,14 @@ const WeightInput = ({ navigation }) => {
             <View style={[containerStyles.row, containerStyles.centerContainer]}>
                 {weightUnitValueChecked === 'kg' ?
                     <TextInput
-                        style={styles.textInput}
+                        style={textInputStyles.textInput}
                         value={kgInputValue}
                         onChangeText={setKgInputValue}
                         placeholder={'kg'}
                     />
                     :
                     <TextInput
-                        style={styles.textInput}
+                        style={textInputStyles.textInput}
                         value={lbsInputValue}
                         onChangeText={setlbsInputValue}
                         placeholder={'lbs'}

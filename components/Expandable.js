@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity,  FlatList } from 'react-native';
+import { Text, View, TouchableOpacity, FlatList } from 'react-native';
 import Hyperlink from 'react-native-hyperlink';
+import Markdown from 'react-native-markdown-package';
 
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -9,9 +10,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import SuperscriptText from './Superscript';
 
 // Import styles
-import { styles } from './styles';
 import { containerStyles } from './styles/containerStyles';
 import { imageStyles } from './styles/imageStyles';
+import { textStyles } from './styles/textStyles';
+import { expandableStyles } from './styles/expandableStyles';
 
 // Creates an expandable component
 const Expandable = ({ item, onClickFunction }) => {
@@ -36,8 +38,9 @@ const Expandable = ({ item, onClickFunction }) => {
     // NEED TO ADD SOME FORMATTING
     const hyperlink = (itemText) => {
         return ( // linkStyle={{color: '#CF5361', fontSize: 14}}
-            <Hyperlink linkDefault={true} linkStyle={styles.link}>
-                <Text style={styles.topicAnswer}>{itemText}</Text>
+            <Hyperlink linkDefault={true} linkStyle={[textStyles.text, textStyles.link]}>
+                <Text style={[textStyles.text, textStyles.answerText]}>{itemText}</Text>
+                {/* <Markdown>{itemText}</Markdown> */}
             </Hyperlink>
         );
     }
@@ -48,9 +51,9 @@ const Expandable = ({ item, onClickFunction }) => {
             <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={onClickFunction}
-                style={item.isExpanded ? styles.expandedQuestion : styles.topicQuestion}>
+                style={item.isExpanded ? expandableStyles.expanded : expandableStyles.closed}>
                 <View style={containerStyles.row}>
-                    <Text style={styles.topicQuestionText}>{item.question}</Text>
+                    <Text style={[textStyles.text, textStyles.questionText]}>{item.question}</Text>
                     <Ionicons name={iconName} style={imageStyles.dropdownIcon} />
                 </View>
             </TouchableOpacity>
@@ -64,7 +67,7 @@ const Expandable = ({ item, onClickFunction }) => {
                 </FlatList>
 
                 {/* TO-DO: add conditioning so superscripts only appear if item.sources is not empty */}
-                <Text style={styles.topicAnswer}>
+                <Text style={[textStyles.text, textStyles.answerText]}>
                     <Text style={{ fontSize: 8, lineHeight: 4 }}>Source(s): </Text>
                     {item.sources.map((source) => {
                         keyCount++;

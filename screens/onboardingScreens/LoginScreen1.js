@@ -11,6 +11,7 @@ import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
 import { imageStyles } from '../../components/styles/imageStyles';
+import { textStyles } from '../../components/styles/textStyles';
 
 // First Login Screen: just BACtracker logo
 // redirects to infoHub based on if they have gone through the login process before
@@ -58,7 +59,7 @@ const LoginScreen1 = ({ navigation }) => {
                         console.log(await AsyncStorage.getItem('onboarding'))
                         setOnboarded(false)
                     }} >
-                    <Text style={styles.mainRedButtonText}>Clear Async Storage</Text>
+                    <Text style={textStyles.whiteSemiBoldText}>Clear Async Storage</Text>
                 </Pressable>
             </View>
 

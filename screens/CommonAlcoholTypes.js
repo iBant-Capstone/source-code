@@ -12,6 +12,7 @@ import { buttonStyles } from '../components/styles/buttonStyles';
 
 // Import json data of alcohols
 import data from '../json/alcoholtypes/alcohols.json';
+import { textStyles } from '../components/styles/textStyles';
 
 const CommonAlcoholTypes = ({ navigation }) => {
     // Create states for different alcohol types
@@ -80,7 +81,7 @@ const CommonAlcoholTypes = ({ navigation }) => {
                 }}
             >
                 {callPopUp(alcohol.alcoholid)}
-                <Text style={styles.alcoholTypesButtonText}>{alcohol.alcoholid}</Text>
+                <Text style={textStyles.text}>{alcohol.alcoholid}</Text>
             </Pressable>
         );
     });
@@ -88,7 +89,7 @@ const CommonAlcoholTypes = ({ navigation }) => {
     // Page to return
     return (
         <View>
-            <View style={styles.titleContainer}>
+            <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Common Alcohol Types"} />
             </View>
             <View style={[containerStyles.row, containerStyles.centerContainer]}>

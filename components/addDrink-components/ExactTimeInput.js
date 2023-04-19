@@ -4,6 +4,8 @@ import { View, Text, Pressable, TextInput } from 'react-native';
 import { styles } from '../styles';
 import { containerStyles } from "../styles/containerStyles";
 import { buttonStyles } from "../styles/buttonStyles";
+import { textStyles } from '../styles/textStyles';
+import { textInputStyles } from "../styles/textInput";
 
 const ExactTimeInput = ({ handleExactTimeInput }) => {
 
@@ -24,7 +26,7 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
             <View style={containerStyles.centerWhiteContainer}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <TextInput
-                        style={styles.smallTextInput}
+                        style={[textInputStyles.textInput, textInputStyles.smallTextInput]}
                         value={hoursInputValue}
                         onChangeText={setHoursInputValue}
                         placeholder="Hour"
@@ -32,7 +34,7 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
                     />
                     <Text> : </Text>
                     <TextInput
-                        style={styles.smallTextInput}
+                        style={[textInputStyles.textInput, textInputStyles.smallTextInput]}
                         value={minuteInputValue}
                         onChangeText={setMinuteInputValue}
                         placeholder="Minute"
@@ -61,7 +63,7 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
                     accessibilityLabel="Next"
                     style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
                 >
-                    <Text style={styles.mainRedButtonText}>Next</Text>
+                    <Text style={textStyles.whiteSemiBoldText}>Next</Text>
                 </Pressable>
             </View>
         </View>

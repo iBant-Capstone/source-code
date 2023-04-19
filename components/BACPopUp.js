@@ -6,6 +6,8 @@ import Modal from "react-native-modal";
 import { styles } from './styles';
 import { containerStyles } from './styles/containerStyles';
 import { buttonStyles } from './styles/buttonStyles';
+import { textStyles } from './styles/textStyles';
+import { popupStyles } from './styles/popupStyles';
 
 const Popup = (props) => {
     let BAC = props.BAC;
@@ -32,19 +34,19 @@ const Popup = (props) => {
 
     // TODO: add styling for popup in styles.js
     return (
-        // <Modal isVisible={props.isOpen} style={styles.modal}>
+        // <Modal isVisible={props.isOpen} style={popupStyles.modal}>
         // closeOnOutsideClick={true}
-        <Modal isVisible={modalVisible} style={styles.modal}> 
-            <View style={styles.modalContent} >
-                {data && <Text style={styles.commonAlcTypeTitle}><strong>WARNING!</strong></Text>}
+        <Modal isVisible={modalVisible} style={popupStyles.modal}> 
+            <View style={popupStyles.content} >
+                {data && <Text style={popupStyles.title}><strong>WARNING!</strong></Text>}
                 <br />
-                {data && <Text style={styles.commonAlcTypeSubtext}>Your BAC level is: {BAC}</Text>}
+                {data && <Text style={popupStyles.text}>Your BAC level is: {BAC}</Text>}
                 <br />
-                {data && <Text style={styles.commonAlcTypeSubtext}>{warningText}</Text>}
+                {data && <Text style={popupStyles.text}>{warningText}</Text>}
                 <br />
                 <Pressable style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]} onPress={() => setModalVisible(!modalVisible)}>
                     {/* onPress={props.onChangeModal} */}
-                    <Text style={styles.mainRedButtonText}><em>I understand</em></Text>
+                    <Text style={textStyles.whiteSemiBoldText}><em>I understand</em></Text>
                 </Pressable>
                 {/* TODO (P2): add "Do not show this again" pressable & functionality */}
             </View>

@@ -48,7 +48,7 @@ export const imageStyles = StyleSheet.create({
     howToIcon: {
         fontSize: 'xxx-large'
     },
-    deleteIcon: { // Put this in after pulling
+    deleteIcon: { 
         fontSize: 'xx-large',
         color: '#CF5260'
     },
