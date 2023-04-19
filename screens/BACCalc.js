@@ -12,7 +12,6 @@ import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalD
 
 import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
-import { useFocusEffect } from '@react-navigation/native';
 
 
 const BACCalc = ({ navigation, route }) => {
