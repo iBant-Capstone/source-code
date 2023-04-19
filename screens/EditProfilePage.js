@@ -3,6 +3,10 @@ import { Text, View, ScrollView, TextInput, Pressable } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
+import validateHeightInput from '../components/inputValidationPersonalDetails/validateHeightInput';
+import validateWeightInput from '../components/inputValidationPersonalDetails/validateWeightInput';
+import validateSexInput from '../components/inputValidationPersonalDetails/validateSexInput';
+
 // Import styles
 import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
@@ -32,6 +36,11 @@ const EditProfilePage = ({ navigation }) => {
     const [weightUnitValueChecked, setWeightUnitValueChecked] = useState();
     // Keeps track of what sex value is selected
     const [sexValueChecked, setSexValueChecked] = useState('');
+
+
+    // ______ Invalid input text ________
+    const [showInvalidInputText, setShowInvalidInputText] = useState(false);
+
 
 
     // Gets the personal details already stored to prefill the boxes last time 
@@ -92,20 +101,37 @@ const EditProfilePage = ({ navigation }) => {
             },
             weight: {
                 unit: weightUnitValueChecked,
-                value: weightInputValue
+                value: Number(weightInputValue)
             },
             sex: sexValueChecked
         }
 
-        try {
-            await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
-            navigation.goBack()
-        } catch (err) {
-            console.log(err)
+        // Go through the checks
+        if (passesChecks(newPersonalDetails)) {
+            try {
+                await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
+                setShowInvalidInputText(false)
+                navigation.goBack()
+            } catch (err) {
+                console.log(err)
+            }    
+        } else {
+            console.log("invalid input")
+            setShowInvalidInputText(true)
         }
+
 
     };
 
+    const passesChecks = (personalDetails) => {
+        let passes = true
+        if (validateHeightInput(personalDetails.height) && validateWeightInput(personalDetails.weight) && validateSexInput(personalDetails.sex)) {
+            passes = true
+        } else {
+            passes = false
+        }
+        return passes
+    }
 
     return (
         <View style={containerStyles.centerWhiteContainer}>
@@ -191,7 +217,7 @@ const EditProfilePage = ({ navigation }) => {
 
                         <View style={[{ paddingLeft: 15, paddingTop: 15 }]}>
                             <View style={containerStyles.row}>
-                                <Text>Chosen Biological Sex: {sexValueChecked}</Text>
+                                <Text>Biological Sex*</Text>
                             </View>
 
                             <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15 }]}>
@@ -205,18 +231,20 @@ const EditProfilePage = ({ navigation }) => {
                                 ><Text>Male</Text></Pressable>
                             </View>
                         </View>
+                        {showInvalidInputText && <Text>Invalid Input, Try Again</Text>} 
+                        <View>
+                            <Pressable
+                                onPress={handleAddPersonalDetails}
+                                style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
+                            ><Text style={styles.mainRedButtonText}>Save</Text></Pressable>
+                        </View>
                         <View style={[containerStyles.row, { paddingHorizontal: 15, paddingVertical: 15 }]}>
                             <Text style={textStyles.redSemiBoldText}>Please note: </Text>
                             <Text>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
                         </View>
                     </View>
 
-                    <View>
-                        <Pressable
-                            onPress={handleAddPersonalDetails}
-                            style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
-                        ><Text style={textStyles.whiteSemiBoldText}>Save</Text></Pressable>
-                    </View>
+                   
                 </ScrollView>
 
                 :

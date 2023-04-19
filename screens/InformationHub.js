@@ -23,7 +23,7 @@ export const InfoPage = (props) => {
         <Image style={imageStyles.rightImage} source={require('../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
 
       </View>
-      <ClearDrinksButton/>
+      {/* <ClearDrinksButton/> */}
       <View style={[containerStyles.row, containerStyles.centerContainer]}>
         <Text style={{ marginBottom: 15 }}>Hi there, welcome to our Information Hub! What alcohol information are you looking for?</Text>
         <Pressable
@@ -76,7 +76,6 @@ export const InfoPage = (props) => {
 
 
 export const InformationHub = ({ navigation }) => {
-  console.log("Information Hub page")
   return (
     <View>
       <InfoPage navigation={navigation} />

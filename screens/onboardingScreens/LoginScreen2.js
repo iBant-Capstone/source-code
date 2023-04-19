@@ -19,7 +19,7 @@ const LoginScreen2 = ({ navigation }) => {
                 <Image style={containerStyles.threeColumnContainer} source={require('../../assets/avatars/Casual_Rosie_shadow.png')} resizeMode='contain' />
             </View>
             {/* add progress bar (circles) at bottom of screen -> not MVP */}
-            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('Login3'); }} leftButtonLabel="Back" leftButtonPress={() => { navigation.navigate('Login1'); }} />
+            <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('Login3'); }} />
         </View>
     );
 };

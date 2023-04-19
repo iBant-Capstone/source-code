@@ -10,16 +10,15 @@ import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButto
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
 
-import Popup from '../components/AlcoholPopUp';
-
-import * as StyleSheet from '../components/styles';
+import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
-let styles = StyleSheet.styles;
+import { useFocusEffect } from '@react-navigation/native';
+
 
 const BACCalc = ({ navigation, route }) => {
 
     const [drinks, setDrinks] = useState(route && route.drinks ? route.drinks : null)
-    const [personalDetails, setPersonalDetails] = useState(null)
+    const [personalDetails, setPersonalDetails] = useState(route && route.personalDetails ? route.personalDetails : null)
 
     const [BAC, setBAC] = useState(0)
     const [onInside, setOnInside] = useState(true)
@@ -30,13 +29,7 @@ const BACCalc = ({ navigation, route }) => {
     // const [modalVisible, setModalVisible] = useState(true); // ADDED
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
-        callPopUp(newBAC) // call pop-up here with newBAC
-        // TODO: add conditioning so callPopUp is only called with if newBAC >= 0.08?
     }, [])
-
-    // useEffect(() => { // attempted to implement alert
-    //     Alert.alert('Your alert msg here!')
-    // },[])
 
     const handleSetOnInside = useCallback((state) => {
         setOnInside(state)
@@ -58,14 +51,14 @@ const BACCalc = ({ navigation, route }) => {
         if (!drinksReady) {
             const getAsyncDrinks = async () => {
                 try {
-                    const asyncStorageData = await AsyncStorage.getItem("drinks") 
+                    const asyncStorageData = await AsyncStorage.getItem("drinks")
                     const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
                     setDrinks(asyncStorageParsed)
                 } catch (err) {
                     console.log(err)
                 }
             }
-            getAsyncDrinks()            
+            getAsyncDrinks()
         }
     }, [drinksReady])
 
@@ -73,7 +66,7 @@ const BACCalc = ({ navigation, route }) => {
         if (!pdReady) {
             const getAsyncPersonalDetails = async () => {
                 try {
-                    const asyncStorageData = await AsyncStorage.getItem("personalDetails") 
+                    const asyncStorageData = await AsyncStorage.getItem("personalDetails")
                     const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
                     setPersonalDetails(asyncStorageParsed)
                 } catch (err) {
@@ -93,9 +86,12 @@ const BACCalc = ({ navigation, route }) => {
     }, [drinks])
 
     useEffect(() => {
+        console.log("1. personalDetails", personalDetails)
         if (personalDetails !== null) {
+            console.log("2. personalDetails", personalDetails)
             // check if the personal details have been inputted in by the user
             if (personalDetails.height.value != 0 & personalDetails.weight.value != 0 & personalDetails.sex != '') {
+                console.log("3. personalDetails", personalDetails)
                 changePDReady(true)
             }
         }
@@ -104,17 +100,17 @@ const BACCalc = ({ navigation, route }) => {
 
     // BAC pop-up functions:
     // Call the popup with given BAC
-    function callPopUp(BAC) {
+    /*function callPopUp(BAC) {
         console.log("called BAC pop-up");
         console.log("BAC: ", BAC);
         return (
             <View>
                 <Popup BAC={BAC} />
-                {/* modalVisible={modalVisible}
-                setModalVisible={setModalVisible} */}
+                //modalVisible={modalVisible}
+                //setModalVisible={setModalVisible}
             </View>
         );
-    }
+    }*/
 
     if (drinksReady && pdReady) {
         return (
@@ -128,12 +124,11 @@ const BACCalc = ({ navigation, route }) => {
                         <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
                         <GetHomeSafelySection BAC={BAC} />
                     </View>
-                {/* <Popup BAC={BAC}/> */}
                 </View>
             </ScrollView >
         );
     } else if (drinksReady && !pdReady) {
-        return (<PersonalDetailsIncorrect navigation={navigation}/>)
+        return (<PersonalDetailsIncorrect navigation={navigation} />)
     } else {
         return (
             <View>
