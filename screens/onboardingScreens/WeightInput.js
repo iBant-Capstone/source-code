@@ -7,9 +7,10 @@ import Footer from '../../components/Footer';
 import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';
 
 // Import styles
-import { styles } from '../../components/styles';
+import { textStyles } from '../../components/styles/textStyles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
+import { textInputStyles } from '../../components/styles/textInput';
 
 const WeightInput = ({ navigation, route}) => {
     const [hasFocused, setHasFocused] = useState(false);
@@ -119,7 +120,7 @@ const WeightInput = ({ navigation, route}) => {
     // };
     return (
         <View style={containerStyles.centerWhiteContainer}>
-            <Text style={styles.onboardingHeaderText}>Select Weight</Text>
+            <Text style={[textStyles.text, textStyles.headerText]}>Select Weight</Text>
             <View style={{ paddingHorizontal: 15 }}>
                 <Text>Input your weight here in lbs or kg</Text>
             </View>

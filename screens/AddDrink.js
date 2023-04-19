@@ -7,6 +7,8 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
+import { textStyles } from '../components/styles/textStyles';
+import { textInputStyles } from '../components/styles/textInput';
 
 const AddDrink = ({ route, navigation }) => {
 
@@ -97,7 +99,7 @@ const AddDrink = ({ route, navigation }) => {
                         <Text>Drink name</Text>
                     </View>
                     <TextInput
-                        style={styles.largeTextInput}
+                        style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
                         value={nameInputValue}
                         onChangeText={setNameInputValue}
                         placeholder="Wine, Beer, Martini..."
@@ -107,7 +109,7 @@ const AddDrink = ({ route, navigation }) => {
                         <Text>Drink Size (ml)</Text>
                     </View>
                     <TextInput
-                        style={styles.largeTextInput}
+                        style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
                         value={sizeInputValue}
                         onChangeText={setSizeInputValue}
                         placeholder="145, 250, 70.."
@@ -117,7 +119,7 @@ const AddDrink = ({ route, navigation }) => {
                         <Text>Drink Strength (ABV) (example: 2.3 for 2.3%)</Text>
                     </View>
                     <TextInput
-                        style={styles.largeTextInput}
+                        style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
                         value={strengthInputValue}
                         onChangeText={setStrengthInputValue}
                         placeholder="2.3, 13.7, 9.65..."
@@ -167,7 +169,7 @@ const AddDrink = ({ route, navigation }) => {
                         {Platform.OS === "web" ?
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                 <TextInput
-                                    style={styles.smallTextInput}
+                                    style={[textInputStyles.textInput, textInputStyles.smallTextInput]}
                                     value={hoursInputValue}
                                     onChangeText={setHoursInputValue}
                                     placeholder="Hour"
@@ -175,7 +177,7 @@ const AddDrink = ({ route, navigation }) => {
                                 />
                                 <Text> : </Text>
                                 <TextInput
-                                    style={styles.smallTextInput}
+                                    style={[textInputStyles.textInput, textInputStyles.smallTextInput]}
                                     value={minuteInputValue}
                                     onChangeText={setMinuteInputValue}
                                     placeholder="Minute"
@@ -218,7 +220,7 @@ const AddDrink = ({ route, navigation }) => {
                             accessibilityLabel="Button to add drink"
                             style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
                         >
-                            <Text style={styles.mainRedButtonText}>Add Drink</Text>
+                            <Text style={textStyles.whiteSemiBoldText}>Add Drink</Text>
                         </Pressable>
                     </View>
                 </View>

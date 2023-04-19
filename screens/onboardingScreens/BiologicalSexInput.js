@@ -11,6 +11,7 @@ import handlePersonaDetailInput from '../../components/onboarding-components/han
 import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
+import { textStyles } from '../../components/styles/textStyles';
 
 // Page to return
 const BiologicalSex = ({ navigation, route }) => {
@@ -115,10 +116,10 @@ const BiologicalSex = ({ navigation, route }) => {
 
     return (
         <View style={containerStyles.centerWhiteContainer}>
-            <Text style={styles.onboardingHeaderText}>Select Biological Sex</Text>
+            <Text style={[textStyles.text, textStyles.headerText]}>Select Biological Sex</Text>
 
             <View style={{ paddingHorizontal: 15 }}>
-                <Text style={styles.redBoldText}>Please note:</Text>
+                <Text style={textStyles.redSemiBoldText}>Please note:</Text>
                 <Text>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
             </View>
 

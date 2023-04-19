@@ -3,6 +3,8 @@ import { View, Text, Pressable } from 'react-native';
 
 import { styles } from '../styles';
 import { containerStyles } from '../styles/containerStyles';
+import { textStyles } from '../styles/textStyles';
+import { drinkCardStyles } from '../styles/drinkCardStyles';
 
 const AddDrinkCard = ({ option, handleAddDrinksInput }) => {
 
@@ -12,12 +14,12 @@ const AddDrinkCard = ({ option, handleAddDrinksInput }) => {
 
     return (
         <Pressable
-            style={[styles.drinkCard, containerStyles.row]}
+            style={[drinkCardStyles.drinkCard, containerStyles.row]}
             onPress={handlePress}
         >
-            <View style={styles.drinkCardInfoContainer}>
-                <Text style={styles.drinkCardNameText}>{option.title}</Text>
-                <Text style={styles.smallText}>{option.subtitle}</Text>
+            <View style={drinkCardStyles.infoContainer}>
+                <Text style={textStyles.boldText}>{option.title}</Text>
+                <Text style={textStyles.smallText}>{option.subtitle}</Text>
             </View>
         </Pressable>
     )

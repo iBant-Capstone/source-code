@@ -1,87 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, LayoutAnimation, ScrollView, UIManager, TouchableOpacity, Platform, Image, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, LayoutAnimation, ScrollView, UIManager, Platform, Image } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component'
-import Hyperlink from 'react-native-hyperlink';
 
 // Import json data of topic q and as
 import data from '../json/topics.json'
 import BACeffects from '../json/bac-levels.json'
 
-// Import icons
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
 // Import components
-import SuperscriptText from './Superscript';
 import TitleText from './Title';
+import Expandable from './Expandable';
 
 // Import styles
 import { styles } from './styles';
 import { containerStyles } from './styles/containerStyles';
-
-// Creates an expandable component
-const ExpandableComponent = ({ item, onClickFunction }) => {
-    // Custom Component for the Expandable List
-    const [layoutHeight, setLayoutHeight] = useState(0);
-
-    useEffect(() => {
-        if (item.isExpanded) {
-            setLayoutHeight(null);
-
-        } else {
-            setLayoutHeight(0);
-        }
-    }, [item.isExpanded]);
-
-    // Change arrow direction based on if it is expanded or not
-    const iconName = item.isExpanded ? "chevron-up-outline" : "chevron-down-outline"
-
-    let keyCount = 1;
-
-    // Function to detect and create clickable hyperlinks in topic answers
-    // NEED TO ADD SOME FORMATTING
-    const hyperlink = (itemText) => {
-        return ( // linkStyle={{color: '#CF5361', fontSize: 14}}
-            <Hyperlink linkDefault={true} linkStyle={styles.link}>
-                <Text style={styles.topicAnswer}>{itemText}</Text>
-            </Hyperlink>
-        );
-    }
-
-    return (
-        <View>
-            {/*Header of the Expandable List Item*/}
-            <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={onClickFunction}
-                style={item.isExpanded ? styles.expandedQuestion : styles.topicQuestion}>
-                <View style={containerStyles.row}>
-                    <Text style={styles.topicQuestionText}>{item.question}</Text>
-                    <Ionicons name={iconName} color='#606070' size={16} style={styles.questionIcon} />
-                </View>
-            </TouchableOpacity>
-            <View
-                style={{
-                    height: layoutHeight,
-                    overflow: 'hidden',
-                }}>
-                {/*Content under the header of the Expandable List Item*/}
-                <FlatList data={item.answerArr} renderItem={({ item }) => hyperlink(item.key)}>
-                </FlatList>
-
-                {/* TO-DO: add conditioning so superscripts only appear if item.sources is not empty */}
-                <Text style={styles.topicAnswer}>
-                    <Text style={{ fontSize: 8, lineHeight: 4 }}>Source(s): </Text>
-                    {item.sources.map((source) => {
-                        keyCount++;
-                        return (
-                            <SuperscriptText sourceId={source} key={keyCount} />
-                        )
-                    })}
-                </Text>
-            </View>
-        </View>
-    );
-};
+import { imageStyles } from './styles/imageStyles';
+import { textStyles } from './styles/textStyles';
+import { tableStyles } from './styles/tableStyles';
 
 // Page to export 
 const InfoTopicPage = ({ route }) => {
@@ -114,10 +48,10 @@ const InfoTopicPage = ({ route }) => {
             // Return View component with Text and Image
             return (
                 <ScrollView>
-                    <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>Standard Drink Sizes Visualized</Text>
+                    <Text style={[textStyles.text, textStyles.questionText, textStyles.specialInfoItem]}>Standard Drink Sizes Visualized</Text>
                     <Image
                         source={imageUrl}
-                        style={[styles.standardDrinkImg, styles.specialInfoItem]}
+                        style={[imageStyles.standardDrinksImage, textStyles.specialInfoItem]}
                         resizeMode='cover'
                     />
                 </ScrollView>
@@ -131,10 +65,10 @@ const InfoTopicPage = ({ route }) => {
             const headTable = ['BAC Level', 'Effects'];
             return (
                 <View>
-                    <Text style={[styles.topicQuestionText, styles.specialInfoItem]}>BAC Levels: Table</Text>
-                    <Table borderStyle={{ borderColor: '#606070', borderStyle: 'solid', borderWidth: 1 }} style={styles.specialInfoItem}>
-                        <Row data={headTable} style={styles.headStyle} textStyle={{ fontWeight: "600", color: "white" }} widthArr={[100, undefined]} />
-                        <Rows data={BACeffects} textStyle={styles.tableText} widthArr={[100, undefined]} />
+                        <Text style={[textStyles.text, textStyles.questionText, textStyles.specialInfoItem]}>BAC Levels: Table</Text>
+                    <Table borderStyle={tableStyles.border} style={textStyles.specialInfoItem}>
+                        <Row data={headTable} style={tableStyles.head} textStyle={tableStyles.headText} widthArr={[100, undefined]} />
+                        <Rows data={BACeffects} textStyle={tableStyles.text} widthArr={[100, undefined]} />
                     </Table>
                 </View>
             )
@@ -144,12 +78,12 @@ const InfoTopicPage = ({ route }) => {
     // Return page view
     return (
         <ScrollView>
-            <View style={styles.titleContainer}>
+            <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={route.params.title} />
             </View>
             <View style={containerStyles.centerContainer}>
                 {listDataSource.map((item, key) => (
-                    <ExpandableComponent
+                    <Expandable
                         key={item.question}
                         onClickFunction={() => {
                             updateLayout(key);

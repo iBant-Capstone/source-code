@@ -10,6 +10,8 @@ import Footer from '../../components/Footer';
 import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
+import { imageStyles } from '../../components/styles/imageStyles';
+import { textStyles } from '../../components/styles/textStyles';
 
 // First Login Screen: just BACtracker logo
 // redirects to infoHub based on if they have gone through the login process before
@@ -46,7 +48,7 @@ const LoginScreen1 = ({ navigation }) => {
     return (
         <View style={containerStyles.centerWhiteContainer}>
             <View style={[containerStyles.centerWhiteContainer, { minWidth: '100%' }]}>
-                <Image style={styles.largeLogoWithText} source={require('../../assets/icons/BACtracker_logo.png')} resizeMode='contain' />
+                <Image style={[imageStyles.largeCenterImage, imageStyles.largeLogo]} source={require('../../assets/icons/BACtracker_logo.png')} resizeMode='contain' />
             </View>
             <View style={containerStyles.centerWhiteContainer}>
                 <Pressable
@@ -55,14 +57,16 @@ const LoginScreen1 = ({ navigation }) => {
                         await AsyncStorage.setItem('onboarding', false);
                         console.log("clearing async storage")
                         console.log(await AsyncStorage.getItem('onboarding'))
+                        
                         setOnboarded(false)
+                        
                     }} >
-                    <Text style={styles.mainRedButtonText}>Clear Async Storage</Text>
+                    <Text style={textStyles.whiteSemiBoldText}>Clear Async Storage</Text>
                 </Pressable>
             </View>
 
             <Footer rightButtonLabel="Next" rightButtonPress={() => {
-                console.log("hasOnboarded" + hasOnboarded)
+            
                 if (hasOnboarded) {
 
                     navigation.navigate('InformationHub');

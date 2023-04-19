@@ -4,6 +4,7 @@ import { View, Text } from 'react-native';
 import GetHomeSafelyButtons from './GetHomeSafelyButtons';
 
 import * as StyleSheet from '../styles'
+import { textStyles } from '../styles/textStyles';
 let styles = StyleSheet.styles;
 
 const GetHomeSafelySection = (props) => {
@@ -20,8 +21,8 @@ const GetHomeSafelySection = (props) => {
 
     return (
         <View style={{ backgroundColor: '#FFFFFF', padding: 15, maxWidth: '90%', borderRadius: 15 }}>
-            <Text style={styles.redBoldText}>Get Home Safely</Text>
-            {/* <Text style={styles.redBoldText}>Your BAC is: {BAC}</Text> */}
+            <Text style={textStyles.redSemiBoldText}>Get Home Safely</Text>
+            {/* <Text style={textStyles.redSemiBoldText}>Your BAC is: {BAC}</Text> */}
             <Text>{warningText}</Text>
             {/* <br></br> */}
             <Text>For your own safety and for the safety of everyone else on the road, please don't drink and drive regardless of whether your BAC is below the federal limit. We recommend getting an Uber, riding with a designated driver, calling someone you trust, walking, or using public transit instead.</Text>

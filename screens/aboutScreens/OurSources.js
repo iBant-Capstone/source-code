@@ -10,7 +10,9 @@ import TitleText from '../../components/Title';
 
 // Import styles
 import { styles } from '../../components/styles';
-import { containerStyles } from '../../components/styles/containerStyles'
+import { containerStyles } from '../../components/styles/containerStyles';
+import { tableStyles } from '../../components/styles/tableStyles';
+import { textStyles } from '../../components/styles/textStyles';
 
 // Creates a clickable link that leads to given url
 const URLLink = ({ id, name, url }) => {
@@ -29,8 +31,8 @@ const URLLink = ({ id, name, url }) => {
 
     return (
         <TableWrapper style={{ flexDirection: 'row' }}>
-            <Cell data={id} width={35} textStyle={styles.tableId} />
-            <Cell data={name} textStyle={styles.link} onPress={handlePress} />
+            <Cell data={id} width={35} textStyle={tableStyles.id} />
+            <Cell data={name} textStyle={[textStyles.text, textStyles.link]} onPress={handlePress} />
         </TableWrapper>
     );
 };
@@ -39,7 +41,7 @@ const URLLink = ({ id, name, url }) => {
 const OurSources = () => {
     return (
         <ScrollView>
-            <View style={styles.titleContainer}>
+            <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Our Sources"} />
             </View>
             <View style={containerStyles.centerContainer}>

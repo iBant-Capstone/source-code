@@ -10,9 +10,10 @@ import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButto
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
 
-import * as StyleSheet from '../components/styles';
+import { styles } from '../components/styles';
+import { containerStyles } from '../components/styles/containerStyles';
 import { useFocusEffect } from '@react-navigation/native';
-let styles = StyleSheet.styles;
+
 
 const BACCalc = ({ navigation, route }) => {
 
@@ -50,14 +51,14 @@ const BACCalc = ({ navigation, route }) => {
         if (!drinksReady) {
             const getAsyncDrinks = async () => {
                 try {
-                    const asyncStorageData = await AsyncStorage.getItem("drinks") 
+                    const asyncStorageData = await AsyncStorage.getItem("drinks")
                     const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
                     setDrinks(asyncStorageParsed)
                 } catch (err) {
                     console.log(err)
                 }
             }
-            getAsyncDrinks()            
+            getAsyncDrinks()
         }
     }, [drinksReady])
 
@@ -65,7 +66,7 @@ const BACCalc = ({ navigation, route }) => {
         if (!pdReady) {
             const getAsyncPersonalDetails = async () => {
                 try {
-                    const asyncStorageData = await AsyncStorage.getItem("personalDetails") 
+                    const asyncStorageData = await AsyncStorage.getItem("personalDetails")
                     const asyncStorageParsed = asyncStorageData !== null ? JSON.parse(asyncStorageData) : []
                     setPersonalDetails(asyncStorageParsed)
                 } catch (err) {
@@ -114,10 +115,10 @@ const BACCalc = ({ navigation, route }) => {
     if (drinksReady && pdReady) {
         return (
             <ScrollView>
-                <View style={styles.pageFillContainer}>
+                <View style={containerStyles.fillToBottomContainer}>
                     <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
-                    <View style={styles.redContainer}>
+                    <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer]}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
                         <CalcDrinkCards drinks={drinks} navigation={navigation} changeDrinksReady={handleChangeDrinksReady} />
                         <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
@@ -127,7 +128,7 @@ const BACCalc = ({ navigation, route }) => {
             </ScrollView >
         );
     } else if (drinksReady && !pdReady) {
-        return (<PersonalDetailsIncorrect navigation={navigation}/>)
+        return (<PersonalDetailsIncorrect navigation={navigation} />)
     } else {
         return (
             <View>

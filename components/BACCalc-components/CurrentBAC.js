@@ -6,6 +6,7 @@ import { useFocusEffect } from '@react-navigation/native'
 // Import styles
 import { styles } from '../styles';
 import { containerStyles } from '../styles/containerStyles';
+import { textStyles } from '../styles/textStyles';
 
 const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
 
@@ -178,7 +179,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
     return (
         <View>
             <View style={containerStyles.centerContainer}>
-                <Text style={styles.currentBACText}>Current BAC: <Text style={styles.redBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
+                <Text style={textStyles.currentBACText}>Current BAC: <Text style={textStyles.redSemiBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
             </View>
         </View>
     )

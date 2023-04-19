@@ -7,7 +7,7 @@ export const buttonStyles = StyleSheet.create({
         borderRadius: 8,
         marginBottom: 8,
         marginHorizontal: '1%'
-    }, // Finished through AMPM
+    }, 
     // Coloring buttons
     redButton: {
         backgroundColor: '#CF5260',
@@ -19,9 +19,9 @@ export const buttonStyles = StyleSheet.create({
     },
     // Red border - used for alcohol types
     redBorderButton: {
-        borderColor: '#CF5260', // New
-        borderWidth: 1, // New
-        width: '48%' // Keep?
+        borderColor: '#CF5260', 
+        borderWidth: 1, 
+        width: '48%' 
     },
     // Sizing buttons
     // Large button

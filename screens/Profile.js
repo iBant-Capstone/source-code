@@ -9,7 +9,8 @@ import { styles } from '../components/styles';
 import TitleText from '../components/Title';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
-
+import { imageStyles } from '../components/styles/imageStyles';
+import { textStyles } from '../components/styles/textStyles';
 
 const Profile = (props) => {
 
@@ -55,9 +56,9 @@ const Profile = (props) => {
 
     return (
         <View>
-            <View style={styles.titleContainer}>
+            <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Profile"} />
-                <Image style={styles.rosieRightImage} source={require('../assets/avatars/Curious_Rosie.png')} resizeMode='contain' />
+                <Image style={imageStyles.rightImage} source={require('../assets/avatars/Curious_Rosie.png')} resizeMode='contain' />
             </View>
 
             {/* Waits for the personaldetails to have been gathered and set before we show the profile section */}
@@ -67,36 +68,36 @@ const Profile = (props) => {
                     <View style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]} >
                         <Table>
                             <TableWrapper style={{ flexDirection: 'row' }}>
-                                <Cell data={"Height: "} width={100} textStyle={styles.mainRedButtonText} />
+                                <Cell data={"Height: "} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                 {/* Different displays based on if personal details are empty, the units are cm, or units are ft*/}
                                 {personalDetails["height"]["unit"] === '' ?
-                                    <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
+                                    <Cell data={"empty"} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                     :
                                     (
                                         personalDetails["height"]["unit"] === 'cm' ?
-                                            <Cell data={personalDetails["height"]["value"] + " cm"} width={100} textStyle={styles.mainRedButtonText} />
+                                            <Cell data={personalDetails["height"]["value"] + " cm"} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                             :
-                                            <Cell data={Math.floor((Number(personalDetails["height"]["value"]) / 12)) + " ft  " + personalDetails["height"]["value"] % 12 + " in"} width={100} textStyle={styles.mainRedButtonText} />
+                                            <Cell data={Math.floor((Number(personalDetails["height"]["value"]) / 12)) + " ft  " + personalDetails["height"]["value"] % 12 + " in"} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                     )
                                 }
                             </TableWrapper>
                             <TableWrapper style={{ flexDirection: 'row' }}>
-                                <Cell data={"Weight: "} width={100} textStyle={styles.mainRedButtonText} />
+                                <Cell data={"Weight: "} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                 {/* Different displays based on if personal details are empty or not */}
                                 {personalDetails["weight"]["value"] === '' ?
-                                    <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
+                                    <Cell data={"empty"} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                     :
-                                    <Cell data={personalDetails["weight"]["value"] + " " + personalDetails["weight"]["unit"]} width={100} textStyle={styles.mainRedButtonText} />
+                                    <Cell data={personalDetails["weight"]["value"] + " " + personalDetails["weight"]["unit"]} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                 }
-                                <Cell data={<Pressable style={[buttonStyles.defaultButton, buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.mediumRightButton]} width={100} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={styles.profileEditButtonText}>Edit</Text></Pressable>} />
+                                <Cell data={<Pressable style={[buttonStyles.defaultButton, buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.mediumRightButton]} width={100} onPress={() => props.navigation.navigate('EditProfilePage')} ><Text style={textStyles.redSemiBoldText}>Edit</Text></Pressable>} />
                             </TableWrapper>
                             <TableWrapper style={{ flexDirection: 'row' }}>
-                                <Cell data={"Biological Sex: "} width={100} textStyle={styles.mainRedButtonText} />
+                                <Cell data={"Biological Sex: "} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                 {/* Different displays based on if personal details are empty or not */}
                                 {personalDetails["sex"] === '' ?
-                                    <Cell data={"empty"} width={100} textStyle={styles.mainRedButtonText} />
+                                    <Cell data={"empty"} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                     :
-                                    <Cell data={personalDetails["sex"]} width={100} textStyle={styles.mainRedButtonText} />
+                                    <Cell data={personalDetails["sex"]} width={100} textStyle={textStyles.whiteSemiBoldText} />
                                 }
                             </TableWrapper>
                         </Table>
@@ -111,19 +112,19 @@ const Profile = (props) => {
                     style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]}
                     onPress={() => props.navigation.navigate('HowToUse')}
                 >
-                    <Text style={styles.mainRedButtonText}>How to Use</Text>
+                    <Text style={textStyles.whiteSemiBoldText}>How to Use</Text>
                 </Pressable>
                 <Pressable
                     style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]}
                     onPress={() => props.navigation.navigate('OurMission')}
                 >
-                    <Text style={styles.mainRedButtonText}>Our Mission</Text>
+                    <Text style={textStyles.whiteSemiBoldText}>Our Mission</Text>
                 </Pressable>
                 <Pressable
                     style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]}
                     onPress={() => props.navigation.navigate('OurSources')}
                 >
-                    <Text style={styles.mainRedButtonText}>Our Sources</Text>
+                    <Text style={textStyles.whiteSemiBoldText}>Our Sources</Text>
                 </Pressable>
             </View>
         </View>
