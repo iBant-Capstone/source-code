@@ -47,7 +47,7 @@ const BiologicalSex = ({ navigation, route }) => {
                     onPress={() => setSexValueChecked('male')}
                 ><Text style={textStyles.text}>Male</Text></Pressable>
             </View>
-            <View style={{ paddingHorizontal: 15 }}>
+            <View style={containerStyles.horizontalPadding}>
                 <Text style={textStyles.redSemiBoldText}>Please note:</Text>
                 <Text style={textStyles.text}>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
             </View>

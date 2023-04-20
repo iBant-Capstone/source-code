@@ -43,7 +43,7 @@ const WeightInput = ({ navigation, route}) => {
     return (
         <View style={containerStyles.centerWhiteContainer}>
             <Text style={[textStyles.text, textStyles.headerText]}>Select Weight</Text>
-            {/* <View style={{ paddingHorizontal: 15 }}>
+            {/* <View style={containerStyles.horizontalPadding}>
                 <Text style={textStyles.text}>Input your weight here in lbs or kg</Text>
             </View> */}
             <View style={[containerStyles.row, containerStyles.centerContainer, { paddingTop: 15, flexWrap: 'nowrap' }]}>

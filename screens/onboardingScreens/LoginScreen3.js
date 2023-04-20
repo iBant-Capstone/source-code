@@ -12,7 +12,7 @@ const LoginScreen3 = ({ navigation }) => {
     return (
         <View style={containerStyles.centerWhiteContainer}>
             <Text style={[textStyles.text, textStyles.headerText]}>Hi there!</Text>
-            <View style={{ paddingHorizontal: 15 }}>
+            <View style={containerStyles.horizontalPadding}>
                 <Text style={textStyles.text}>Welcome to our app, <Text style={textStyles.redSemiBoldText}>BACtracker</Text>! This is a tool for young adults to explore and educate themselves about drinking alcohol.
                     {"\n"}{"\n"}Our <Text style={textStyles.redSemiBoldText}>mission</Text> is to increase knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!</Text>
             </View>

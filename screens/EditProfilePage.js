@@ -142,7 +142,7 @@ const EditProfilePage = ({ navigation }) => {
                         <Text style={[textStyles.redSemiBoldText, { fontSize: 32, marginBottom: '5%' }]}>Edit</Text>
                     </View>
                     <View >
-                        <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
+                        <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
                             <Text style={textStyles.text}>Add your height:  </Text>
 
                             <Pressable
@@ -192,7 +192,7 @@ const EditProfilePage = ({ navigation }) => {
                             </View>
                         }
 
-                        <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
+                        <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
                             <Text style={textStyles.text}>Add your weight:  </Text>
                             <Pressable
                                 style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
@@ -215,7 +215,7 @@ const EditProfilePage = ({ navigation }) => {
 
                         </View>
 
-                        <View style={[{ paddingLeft: 15, paddingTop: 15 }]}>
+                        <View style={containerStyles.leftTopPadding}>
                             <View style={containerStyles.row}>
                                 <Text style={textStyles.text}>Biological Sex*</Text>
                             </View>

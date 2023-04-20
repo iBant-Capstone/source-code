@@ -18,7 +18,7 @@ export const containerStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start'
     },
-    redContainer: { 
+    redContainer: {
         backgroundColor: '#CF5260',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
@@ -63,6 +63,16 @@ export const containerStyles = StyleSheet.create({
         alignContent: "center",
         paddingVertical: '6%'
     },
+
+    // Extra padding
+    leftTopPadding: {
+        paddingLeft: 15,
+        paddingTop: 15
+    },
+    horizontalPadding: {
+        paddingHorizontal: 15
+    },
+
     alignTextCenter: {
         textAlign: 'center'
     }
