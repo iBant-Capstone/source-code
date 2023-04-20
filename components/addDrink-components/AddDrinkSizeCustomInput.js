@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
 
 // Import styles
-import { styles } from '../styles';
 import { containerStyles } from '../styles/containerStyles';
 import { buttonStyles } from '../styles/buttonStyles';
 import { textStyles } from '../styles/textStyles';

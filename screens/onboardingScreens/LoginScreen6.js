@@ -5,7 +5,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../../components/Footer';
 
 // Import styles
-import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { imageStyles } from '../../components/styles/imageStyles';
 import { textStyles } from '../../components/styles/textStyles';

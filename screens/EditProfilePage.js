@@ -8,7 +8,6 @@ import validateWeightInput from '../components/inputValidationPersonalDetails/va
 import validateSexInput from '../components/inputValidationPersonalDetails/validateSexInput';
 
 // Import styles
-import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
 import { textStyles } from '../components/styles/textStyles';

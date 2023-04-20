@@ -6,7 +6,6 @@ import ClearDrinksButton from '../components/ClearDrinkButton';
 import TitleText from '../components/Title';
 
 // Set style 
-import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
 import { imageStyles } from '../components/styles/imageStyles';

@@ -7,7 +7,6 @@ import validateWeightInput from '../../components/inputValidationPersonalDetails
 import InvalidInputWarning from '../../components/InvalidInputWarning';
 
 // Import styles
-import { styles } from '../../components/styles';
 import { textStyles } from '../../components/styles/textStyles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';

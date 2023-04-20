@@ -4,7 +4,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 // Import styles
-import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
 import { textStyles } from '../components/styles/textStyles';

@@ -2,7 +2,6 @@ import React from "react"
 import { View, Text, Image, Pressable } from "react-native"
 
 // Import styles
-import { styles } from '../styles';
 import { containerStyles } from "../styles/containerStyles";
 import { buttonStyles } from "../styles/buttonStyles";
 import { imageStyles } from "../styles/imageStyles";

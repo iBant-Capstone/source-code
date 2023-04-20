@@ -5,7 +5,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 // Import styles
-import { styles } from '../components/styles';
 import TitleText from '../components/Title';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';

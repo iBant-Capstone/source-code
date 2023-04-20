@@ -7,7 +7,6 @@ import { useFocusEffect } from '@react-navigation/native'
 import Footer from '../../components/Footer';
 
 // Import styles
-import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
 import { imageStyles } from '../../components/styles/imageStyles';

@@ -11,7 +11,6 @@ import TitleText from './Title';
 import Expandable from './Expandable';
 
 // Import styles
-import { styles } from './styles';
 import { containerStyles } from './styles/containerStyles';
 import { imageStyles } from './styles/imageStyles';
 import { textStyles } from './styles/textStyles';

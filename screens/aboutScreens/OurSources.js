@@ -9,7 +9,6 @@ import sources from '../../json/sources.json'
 import TitleText from '../../components/Title';
 
 // Import styles
-import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { tableStyles } from '../../components/styles/tableStyles';
 import { textStyles } from '../../components/styles/textStyles';

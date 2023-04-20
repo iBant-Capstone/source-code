@@ -7,7 +7,6 @@ import validateSexInput from '../../components/inputValidationPersonalDetails/va
 import InvalidInputWarning from '../../components/InvalidInputWarning';
 
 // Import styles
-import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
 import { textStyles } from '../../components/styles/textStyles';
