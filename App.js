@@ -101,7 +101,7 @@ function ProfileStackComponent() {
       <profileStack.Screen
         name='EditProfilePage'
         component={EditProfilePage}
-        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: '#CF5260' })}
+        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
       />
     </profileStack.Navigator>
   );

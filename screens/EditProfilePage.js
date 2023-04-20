@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, TextInput, Pressable } from 'react-native';
+import { Text, View, ScrollView, TextInput, Pressable, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 import validateHeightInput from '../components/inputValidationPersonalDetails/validateHeightInput';
 import validateWeightInput from '../components/inputValidationPersonalDetails/validateWeightInput';
 import validateSexInput from '../components/inputValidationPersonalDetails/validateSexInput';
+import TitleText from '../components/Title';
 
 // Import styles
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
 import { textStyles } from '../components/styles/textStyles';
 import { textInputStyles } from '../components/styles/textInputStyles';
+import { imageStyles } from '../components/styles/imageStyles';
 
 const EditProfilePage = ({ navigation }) => {
 
@@ -137,7 +139,10 @@ const EditProfilePage = ({ navigation }) => {
             {/* Only loads once the personal details have loaded */}
             {hasFocused ?
                 <ScrollView style={{ minWidth: '100%' }}>
-                    <Text style={[textStyles.title, textStyles.redSemiBoldText, { paddingTop: 15 }]}>Edit</Text>
+                    <View style={[containerStyles.row, containerStyles.titleContainer]}>
+                        <TitleText name={"Edit"} />
+                        <Image style={imageStyles.rightImage} source={require('../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
+                    </View>
                     <View >
                         <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
                             <Text style={textStyles.text}>Add your height:  </Text>

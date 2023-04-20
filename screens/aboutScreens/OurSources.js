@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Text, View, Linking, Alert, ScrollView } from 'react-native';
+import { Text, View, Linking, Alert, ScrollView, Image } from 'react-native';
 import { Table, TableWrapper, Cell } from 'react-native-table-component'
 
 // import all sources from json
@@ -12,6 +12,7 @@ import TitleText from '../../components/Title';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { tableStyles } from '../../components/styles/tableStyles';
 import { textStyles } from '../../components/styles/textStyles';
+import { imageStyles } from '../../components/styles/imageStyles';
 
 // Creates a clickable link that leads to given url
 const URLLink = ({ id, name, url }) => {
@@ -42,6 +43,7 @@ const OurSources = () => {
         <ScrollView>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Our Sources"} />
+                <Image style={imageStyles.rightImage} source={require('../../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
             </View>
             <View style={containerStyles.centerContainer}>
                 <Text style={{ marginBottom: 10 }}>Below are a list of our sources used to create this app</Text>
