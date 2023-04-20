@@ -6,7 +6,7 @@ import { styles } from '../styles';
 import { containerStyles } from '../styles/containerStyles';
 import { buttonStyles } from '../styles/buttonStyles';
 import { textStyles } from '../styles/textStyles';
-import { textInputStyles } from '../styles/textInput';
+import { textInputStyles } from '../styles/textInputStyles';
 
 const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
 

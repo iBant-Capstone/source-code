@@ -10,7 +10,7 @@ import InvalidInputWarning from '../../components/InvalidInputWarning';
 import { textStyles } from '../../components/styles/textStyles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
-import { textInputStyles } from '../../components/styles/textInput';
+import { textInputStyles } from '../../components/styles/textInputStyles';
 
 const HeightInput = ({ navigation }) => {
 
