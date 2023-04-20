@@ -44,18 +44,18 @@ const WeightInput = ({ navigation, route}) => {
         <View style={containerStyles.centerWhiteContainer}>
             <Text style={[textStyles.text, textStyles.headerText]}>Select Weight</Text>
             {/* <View style={{ paddingHorizontal: 15 }}>
-                <Text>Input your weight here in lbs or kg</Text>
+                <Text style={textStyles.text}>Input your weight here in lbs or kg</Text>
             </View> */}
             <View style={[containerStyles.row, containerStyles.centerContainer, { paddingTop: 15, flexWrap: 'nowrap' }]}>
                 <Pressable
                     style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setWeightUnitValueChecked('lbs')}
                 >
-                    <Text>lbs</Text></Pressable>
+                    <Text style={textStyles.text}>lbs</Text></Pressable>
                 <Pressable
                     style={weightUnitValueChecked === 'kg' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setWeightUnitValueChecked('kg')}
-                ><Text>kg</Text></Pressable>
+                ><Text style={textStyles.text}>kg</Text></Pressable>
             </View>
 
             <View style={[containerStyles.row, containerStyles.centerContainer]}>

@@ -24,7 +24,7 @@ const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
     return (
         <View>
             <View style={containerStyles.leftContainer}>
-                <Text>Drink Size (ml)</Text>
+                <Text style={textStyles.text}>Drink Size (ml)</Text>
             </View>
             <TextInput
                 style={[textInputStyles.textInput, textInputStyles.largeTextInput]}

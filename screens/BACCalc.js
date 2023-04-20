@@ -10,8 +10,8 @@ import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButto
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
 
-import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
+import { textStyles } from '../components/styles/textStyles';
 
 
 const BACCalc = ({ navigation, route }) => {
@@ -131,7 +131,7 @@ const BACCalc = ({ navigation, route }) => {
     } else {
         return (
             <View>
-                <Text>Loading</Text>
+                <Text style={textStyles.text}>Loading</Text>
             </View>
         )
     }

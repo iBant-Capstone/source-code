@@ -50,11 +50,11 @@ const HeightInput = ({ navigation }) => {
                 <Pressable
                     style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setHeightUnitValueChecked('ft')}
-                ><Text>ft</Text></Pressable>
+                ><Text style={textStyles.text}>ft</Text></Pressable>
                 <Pressable
                     style={heightUnitValueChecked === 'cm' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setHeightUnitValueChecked('cm')}
-                ><Text>cm</Text></Pressable>
+                ><Text style={textStyles.text}>cm</Text></Pressable>
             </View>
             {heightUnitValueChecked === "ft" ?
                 <View style={containerStyles.row}>

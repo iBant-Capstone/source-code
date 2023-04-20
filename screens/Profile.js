@@ -104,7 +104,7 @@ const Profile = (props) => {
                     </View>
                 </View>
                 :
-                <View><Text>Loading...</Text></View>
+                <View><Text style={textStyles.text}>Loading...</Text></View>
             }
 
             <View style={containerStyles.centerContainer}>

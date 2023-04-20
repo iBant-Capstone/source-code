@@ -21,7 +21,7 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
         <View>
             {/* TODO Add header to own component */}
             <View style={containerStyles.leftContainer}>
-                <Text>Time Drank</Text>
+                <Text style={textStyles.text}>Time Drank</Text>
             </View>
             <View style={containerStyles.centerWhiteContainer}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -32,7 +32,7 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
                         placeholder="Hour"
                         placeholderTextColor={'grey'}
                     />
-                    <Text> : </Text>
+                    <Text style={textStyles.text}> : </Text>
                     <TextInput
                         style={[textInputStyles.textInput, textInputStyles.smallTextInput]}
                         value={minuteInputValue}
@@ -45,14 +45,14 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
                         style={timeOfDay === 'AM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
                         onPress={() => setTimeOfDay('AM')}
                     >
-                        <Text>AM</Text>
+                        <Text style={textStyles.text}>AM</Text>
                     </Pressable>
                     <Pressable
                         value="PM"
                         style={timeOfDay === 'PM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
                         onPress={() => setTimeOfDay('PM')}
                     >
-                        <Text>PM</Text>
+                        <Text style={textStyles.text}>PM</Text>
                     </Pressable>
                 </View>
             </View>

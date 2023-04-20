@@ -38,9 +38,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // Import fonts
 import { useFonts } from 'expo-font';
 
-// Import styles
-import { styles } from './components/styles.js';
-
 // creating navigators for each of our sections
 // ob = onboarding
 // info = information hub

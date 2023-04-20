@@ -14,7 +14,7 @@ const PersonalDetailsIncorrect = ({ navigation }) => {
             <Image style={imageStyles.largeCenterImage} source={require('../../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
             <Text style={{ marginBottom: '10%' }}>Add in your height, weight and sex to use the BAC Calculator</Text>
             <Pressable style={[buttonStyles.alignCenter, buttonStyles.defaultButton, buttonStyles.redButton]} onPress={() => navigation.navigate('EditProfilePage')}><Text style={textStyles.whiteSemiBoldText}>Add My Details</Text></Pressable>
-            {/* <Text>Personal Details aren't ready! Try again soooon!</Text> */}
+            {/* <Text style={textStyles.text}>Personal Details aren't ready! Try again soooon!</Text> */}
         </View>
     )
 }

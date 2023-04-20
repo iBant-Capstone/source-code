@@ -114,7 +114,7 @@ const EditProfilePage = ({ navigation }) => {
                 navigation.goBack()
             } catch (err) {
                 console.log(err)
-            }    
+            }
         } else {
             console.log("invalid input")
             setShowInvalidInputText(true)
@@ -143,16 +143,16 @@ const EditProfilePage = ({ navigation }) => {
                     </View>
                     <View >
                         <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
-                            <Text>Add your height:  </Text>
+                            <Text style={textStyles.text}>Add your height:  </Text>
 
                             <Pressable
                                 style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setHeightUnitValueChecked('ft')}
-                            ><Text>ft</Text></Pressable>
+                            ><Text style={textStyles.text}>ft</Text></Pressable>
                             <Pressable
                                 style={heightUnitValueChecked === 'cm' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setHeightUnitValueChecked('cm')}
-                            ><Text>cm</Text></Pressable>
+                            ><Text style={textStyles.text}>cm</Text></Pressable>
                         </View>
 
                         {heightUnitValueChecked === "ft" ?
@@ -193,16 +193,16 @@ const EditProfilePage = ({ navigation }) => {
                         }
 
                         <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
-                            <Text>Add your weight:  </Text>
+                            <Text style={textStyles.text}>Add your weight:  </Text>
                             <Pressable
                                 style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setWeightUnitValueChecked('lbs')}
                             >
-                                <Text>lbs</Text></Pressable>
+                                <Text style={textStyles.text}>lbs</Text></Pressable>
                             <Pressable
                                 style={weightUnitValueChecked === 'kg' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setWeightUnitValueChecked('kg')}
-                            ><Text>kg</Text></Pressable>
+                            ><Text style={textStyles.text}>kg</Text></Pressable>
                         </View>
                         <View>
                             <Text style={textInputStyles.label}>{weightUnitValueChecked}</Text>
@@ -217,22 +217,23 @@ const EditProfilePage = ({ navigation }) => {
 
                         <View style={[{ paddingLeft: 15, paddingTop: 15 }]}>
                             <View style={containerStyles.row}>
-                                <Text>Biological Sex*</Text>
+                                <Text style={textStyles.text}>Biological Sex*</Text>
                             </View>
 
                             <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15 }]}>
                                 <Pressable
                                     style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setSexValueChecked('female')}
-                                ><Text>Female</Text></Pressable>
+                                ><Text style={textStyles.text}>Female</Text></Pressable>
                                 <Pressable
                                     style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setSexValueChecked('male')}
-                                ><Text>Male</Text></Pressable>
+                                ><Text style={textStyles.text}>Male</Text></Pressable>
                             </View>
                         </View>
-                        {showInvalidInputText && <Text>Invalid Input, Try Again</Text>} 
-                        <View>
+
+                        <View style={containerStyles.centerContainer}>
+                            {showInvalidInputText && <Text style={textStyles.text}>Invalid Input, Try Again</Text>}
                             <Pressable
                                 onPress={handleAddPersonalDetails}
                                 style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
@@ -240,15 +241,15 @@ const EditProfilePage = ({ navigation }) => {
                         </View>
                         <View style={[containerStyles.row, { paddingHorizontal: 15, paddingVertical: 15 }]}>
                             <Text style={textStyles.redSemiBoldText}>Please note: </Text>
-                            <Text>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
+                            <Text style={textStyles.text}>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
                         </View>
                     </View>
 
-                   
+
                 </ScrollView>
 
                 :
-                <Text>Loading...</Text>
+                <Text style={textStyles.text}>Loading...</Text>
             }
         </View >
     )
