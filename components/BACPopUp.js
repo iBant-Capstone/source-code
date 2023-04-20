@@ -3,8 +3,6 @@ import { Pressable, View, Text } from 'react-native';
 import Modal from "react-native-modal";
 
 // Import styles
-import { styles } from './styles';
-import { containerStyles } from './styles/containerStyles';
 import { buttonStyles } from './styles/buttonStyles';
 import { textStyles } from './styles/textStyles';
 import { popupStyles } from './styles/popupStyles';

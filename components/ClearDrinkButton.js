@@ -4,6 +4,7 @@ import { Pressable, Text } from 'react-native';
 
 // Import styles
 import { buttonStyles } from "./styles/buttonStyles";
+import { textStyles } from "./styles/textStyles";
 
 const ClearDrinksButton = () => {
     return (
@@ -14,7 +15,7 @@ const ClearDrinksButton = () => {
         accessibilityLabel="Add a drink"
         style={[buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.defaultButton]}
         >
-            <Text>Clear Drinks</Text>
+            <Text style={textStyles.text}>Clear Drinks</Text>
         </Pressable>
     )
 }

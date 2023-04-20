@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import GetHomeSafelyButton from './GetHomeSafelyButton';
 
 // Import styles
-import { styles } from '../styles'
 import { containerStyles } from '../styles/containerStyles';
 
 const GetHomeSafelyButtons = () => {

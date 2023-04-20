@@ -10,8 +10,8 @@ import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButto
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
 
-import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
+import { textStyles } from '../components/styles/textStyles';
 
 
 const BACCalc = ({ navigation, route }) => {
@@ -117,7 +117,7 @@ const BACCalc = ({ navigation, route }) => {
                 <View style={containerStyles.fillToBottomContainer}>
                     <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
-                    <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer]}>
+                    <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer, { justifyContent: undefined}]}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
                         <CalcDrinkCards drinks={drinks} navigation={navigation} changeDrinksReady={handleChangeDrinksReady} />
                         <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
@@ -131,7 +131,7 @@ const BACCalc = ({ navigation, route }) => {
     } else {
         return (
             <View>
-                <Text>Loading</Text>
+                <Text style={textStyles.text}>Loading</Text>
             </View>
         )
     }

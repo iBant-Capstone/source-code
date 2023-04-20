@@ -6,7 +6,6 @@ import Popup from "../components/AlcoholPopUp";
 import TitleText from '../components/Title';
 
 // Import styles
-import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
 

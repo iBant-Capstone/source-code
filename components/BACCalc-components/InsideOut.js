@@ -8,7 +8,6 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import BACLevelsEffects from '../../json/bac-levels-and-effects.json'
 
 // Import styles
-import { styles } from '../styles';
 import { textStyles } from '../styles/textStyles';
 import { containerStyles } from '../styles/containerStyles';
 import { buttonStyles } from '../styles/buttonStyles';
@@ -35,7 +34,7 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
         }
 
         return (
-            <Text>{toReturn}</Text>
+            <Text style={textStyles.text}>{toReturn}</Text>
         )
     }
 
@@ -59,7 +58,7 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
         }
 
         return (
-            <Text>{toReturn}</Text>
+            <Text style={textStyles.text}>{toReturn}</Text>
         )
     }
 

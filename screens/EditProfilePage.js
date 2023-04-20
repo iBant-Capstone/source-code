@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, TextInput, Pressable } from 'react-native';
+import { Text, View, ScrollView, TextInput, Pressable, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 import validateHeightInput from '../components/inputValidationPersonalDetails/validateHeightInput';
 import validateWeightInput from '../components/inputValidationPersonalDetails/validateWeightInput';
 import validateSexInput from '../components/inputValidationPersonalDetails/validateSexInput';
+import TitleText from '../components/Title';
 
 // Import styles
-import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
 import { textStyles } from '../components/styles/textStyles';
-import { textInputStyles } from '../components/styles/textInput';
+import { textInputStyles } from '../components/styles/textInputStyles';
+import { imageStyles } from '../components/styles/imageStyles';
 
 const EditProfilePage = ({ navigation }) => {
 
@@ -114,7 +115,7 @@ const EditProfilePage = ({ navigation }) => {
                 navigation.goBack()
             } catch (err) {
                 console.log(err)
-            }    
+            }
         } else {
             console.log("invalid input")
             setShowInvalidInputText(true)
@@ -138,21 +139,22 @@ const EditProfilePage = ({ navigation }) => {
             {/* Only loads once the personal details have loaded */}
             {hasFocused ?
                 <ScrollView style={{ minWidth: '100%' }}>
-                    <View style={containerStyles.leftContainer}>
-                        <Text style={[textStyles.redSemiBoldText, { fontSize: 32, marginBottom: '5%' }]}>Edit</Text>
+                    <View style={[containerStyles.row, containerStyles.titleContainer]}>
+                        <TitleText name={"Edit"} />
+                        <Image style={imageStyles.rightImage} source={require('../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
                     </View>
                     <View >
-                        <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
-                            <Text>Add your height:  </Text>
+                        <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
+                            <Text style={textStyles.text}>Add your height:  </Text>
 
                             <Pressable
                                 style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setHeightUnitValueChecked('ft')}
-                            ><Text>ft</Text></Pressable>
+                            ><Text style={textStyles.text}>ft</Text></Pressable>
                             <Pressable
                                 style={heightUnitValueChecked === 'cm' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setHeightUnitValueChecked('cm')}
-                            ><Text>cm</Text></Pressable>
+                            ><Text style={textStyles.text}>cm</Text></Pressable>
                         </View>
 
                         {heightUnitValueChecked === "ft" ?
@@ -192,17 +194,17 @@ const EditProfilePage = ({ navigation }) => {
                             </View>
                         }
 
-                        <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
-                            <Text>Add your weight:  </Text>
+                        <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
+                            <Text style={textStyles.text}>Add your weight:  </Text>
                             <Pressable
                                 style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setWeightUnitValueChecked('lbs')}
                             >
-                                <Text>lbs</Text></Pressable>
+                                <Text style={textStyles.text}>lbs</Text></Pressable>
                             <Pressable
                                 style={weightUnitValueChecked === 'kg' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setWeightUnitValueChecked('kg')}
-                            ><Text>kg</Text></Pressable>
+                            ><Text style={textStyles.text}>kg</Text></Pressable>
                         </View>
                         <View>
                             <Text style={textInputStyles.label}>{weightUnitValueChecked}</Text>
@@ -215,24 +217,25 @@ const EditProfilePage = ({ navigation }) => {
 
                         </View>
 
-                        <View style={[{ paddingLeft: 15, paddingTop: 15 }]}>
+                        <View style={containerStyles.leftTopPadding}>
                             <View style={containerStyles.row}>
-                                <Text>Biological Sex*</Text>
+                                <Text style={textStyles.text}>Biological Sex*</Text>
                             </View>
 
                             <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15 }]}>
                                 <Pressable
                                     style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setSexValueChecked('female')}
-                                ><Text>Female</Text></Pressable>
+                                ><Text style={textStyles.text}>Female</Text></Pressable>
                                 <Pressable
                                     style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setSexValueChecked('male')}
-                                ><Text>Male</Text></Pressable>
+                                ><Text style={textStyles.text}>Male</Text></Pressable>
                             </View>
                         </View>
-                        {showInvalidInputText && <Text>Invalid Input, Try Again</Text>} 
-                        <View>
+
+                        <View style={containerStyles.centerContainer}>
+                            {showInvalidInputText && <Text style={textStyles.text}>Invalid Input, Try Again</Text>}
                             <Pressable
                                 onPress={handleAddPersonalDetails}
                                 style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
@@ -240,15 +243,15 @@ const EditProfilePage = ({ navigation }) => {
                         </View>
                         <View style={[containerStyles.row, { paddingHorizontal: 15, paddingVertical: 15 }]}>
                             <Text style={textStyles.redSemiBoldText}>Please note: </Text>
-                            <Text>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
+                            <Text style={textStyles.text}>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
                         </View>
                     </View>
 
-                   
+
                 </ScrollView>
 
                 :
-                <Text>Loading...</Text>
+                <Text style={textStyles.text}>Loading...</Text>
             }
         </View >
     )

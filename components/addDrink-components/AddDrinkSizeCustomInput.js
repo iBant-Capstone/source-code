@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
 
 // Import styles
-import { styles } from '../styles';
 import { containerStyles } from '../styles/containerStyles';
 import { buttonStyles } from '../styles/buttonStyles';
 import { textStyles } from '../styles/textStyles';
-import { textInputStyles } from '../styles/textInput';
+import { textInputStyles } from '../styles/textInputStyles';
 
 const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
 
@@ -24,7 +23,7 @@ const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
     return (
         <View>
             <View style={containerStyles.leftContainer}>
-                <Text>Drink Size (ml)</Text>
+                <Text style={textStyles.text}>Drink Size (ml)</Text>
             </View>
             <TextInput
                 style={[textInputStyles.textInput, textInputStyles.largeTextInput]}

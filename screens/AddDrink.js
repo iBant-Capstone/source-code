@@ -4,11 +4,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 // Import styles
-import { styles } from '../components/styles';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
 import { textStyles } from '../components/styles/textStyles';
-import { textInputStyles } from '../components/styles/textInput';
+import { textInputStyles } from '../components/styles/textInputStyles';
 
 const AddDrink = ({ route, navigation }) => {
 
@@ -96,7 +95,7 @@ const AddDrink = ({ route, navigation }) => {
             <View style={containerStyles.centerWhiteContainer}>
                 <View style={{ minWidth: '100%' }}>
                     <View style={containerStyles.leftContainer}>
-                        <Text>Drink name</Text>
+                        <Text style={textStyles.text}>Drink name</Text>
                     </View>
                     <TextInput
                         style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
@@ -106,7 +105,7 @@ const AddDrink = ({ route, navigation }) => {
                         placeholderTextColor={'grey'}
                     />
                     <View style={containerStyles.leftContainer}>
-                        <Text>Drink Size (ml)</Text>
+                        <Text style={textStyles.text}>Drink Size (ml)</Text>
                     </View>
                     <TextInput
                         style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
@@ -116,7 +115,7 @@ const AddDrink = ({ route, navigation }) => {
                         placeholderTextColor={'grey'}
                     />
                     <View style={containerStyles.leftContainer}>
-                        <Text>Drink Strength (ABV) (example: 2.3 for 2.3%)</Text>
+                        <Text style={textStyles.text}>Drink Strength (ABV) (example: 2.3 for 2.3%)</Text>
                     </View>
                     <TextInput
                         style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
@@ -126,7 +125,7 @@ const AddDrink = ({ route, navigation }) => {
                         placeholderTextColor={'grey'}
                     />
                     <View style={containerStyles.leftContainer}>
-                        <Text>Hunger Level</Text>
+                        <Text style={textStyles.text}>Hunger Level</Text>
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Pressable
@@ -134,14 +133,14 @@ const AddDrink = ({ route, navigation }) => {
                             style={hungerValueSelected === '6' ? [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.alignCenter] : [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.hungerButtonNotSelected, buttonStyles.alignCenter]}
                             onPress={() => setHungerValueSelected('6')}
                         >
-                            <Text>Very Hungry</Text>
+                            <Text style={textStyles.text}>Very Hungry</Text>
                         </Pressable>
                         <Pressable
                             value="9"
                             style={hungerValueSelected === '9' ? [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.alignCenter] : [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.hungerButtonNotSelected, buttonStyles.alignCenter]}
                             onPress={() => setHungerValueSelected('9')}
                         >
-                            <Text>Hungry</Text>
+                            <Text style={textStyles.text}>Hungry</Text>
                         </Pressable>
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -150,19 +149,19 @@ const AddDrink = ({ route, navigation }) => {
                             style={hungerValueSelected === '12' ? [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.alignCenter] : [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.hungerButtonNotSelected, buttonStyles.alignCenter]}
                             onPress={() => setHungerValueSelected('12')}
                         >
-                            <Text>Not Hungry</Text>
+                            <Text style={textStyles.text}>Not Hungry</Text>
                         </Pressable>
                         <Pressable
                             value="15"
                             style={hungerValueSelected === '15' ? [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.alignCenter] : [buttonStyles.hungerButton, buttonStyles.defaultButton, buttonStyles.hungerButtonNotSelected, buttonStyles.alignCenter]}
                             onPress={() => setHungerValueSelected('15')}
                         >
-                            <Text>Full</Text>
+                            <Text style={textStyles.text}>Full</Text>
                         </Pressable>
                     </View>
 
                     <View style={containerStyles.leftContainer}>
-                        <Text>Time Drank</Text>
+                        <Text style={textStyles.text}>Time Drank</Text>
                     </View>
                     <View style={containerStyles.centerWhiteContainer}>
                         {/* Displays custom time input for web and DateTimePickerModal library for IOS/Android */}
@@ -175,7 +174,7 @@ const AddDrink = ({ route, navigation }) => {
                                     placeholder="Hour"
                                     placeholderTextColor={'grey'}
                                 />
-                                <Text> : </Text>
+                                <Text style={textStyles.text}> : </Text>
                                 <TextInput
                                     style={[textInputStyles.textInput, textInputStyles.smallTextInput]}
                                     value={minuteInputValue}
@@ -188,14 +187,14 @@ const AddDrink = ({ route, navigation }) => {
                                     style={timeOfDay === 'AM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setTimeOfDay('AM')}
                                 >
-                                    <Text>AM</Text>
+                                    <Text style={textStyles.text}>AM</Text>
                                 </Pressable>
                                 <Pressable
                                     value="PM"
                                     style={timeOfDay === 'PM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
                                     onPress={() => setTimeOfDay('PM')}
                                 >
-                                    <Text>PM</Text>
+                                    <Text style={textStyles.text}>PM</Text>
                                 </Pressable>
                             </View>
                             :

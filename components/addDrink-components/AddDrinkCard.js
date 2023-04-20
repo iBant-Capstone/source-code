@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
 
-import { styles } from '../styles';
 import { containerStyles } from '../styles/containerStyles';
 import { textStyles } from '../styles/textStyles';
 import { drinkCardStyles } from '../styles/drinkCardStyles';

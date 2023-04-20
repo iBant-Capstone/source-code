@@ -5,7 +5,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
 // Import styles
-import { styles } from '../components/styles';
 import TitleText from '../components/Title';
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
@@ -104,7 +103,7 @@ const Profile = (props) => {
                     </View>
                 </View>
                 :
-                <View><Text>Loading...</Text></View>
+                <View><Text style={textStyles.text}>Loading...</Text></View>
             }
 
             <View style={containerStyles.centerContainer}>

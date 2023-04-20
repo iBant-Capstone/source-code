@@ -17,7 +17,7 @@ export const imageStyles = StyleSheet.create({
     rightImage: {
         width: '38%',
         marginRight: '5%',
-        marginVertical: '10%'
+        marginBottom: '2%'
     },
     largeCenterImage:{
         width: "80%",
@@ -40,7 +40,7 @@ export const imageStyles = StyleSheet.create({
     // Icons
     dropdownIcon: {
         paddingHorizontal: 15,
-        paddingVertical: 10,
+        paddingVertical: 5,
         width: '10%',
         color: '#606070',
         fontSize: 16

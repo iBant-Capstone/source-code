@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Text, View, LayoutAnimation, ScrollView, UIManager, Platform, Image } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component'
 
+// Import icons
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 // Import json data of topic q and as
 import data from '../json/topics.json'
 import BACeffects from '../json/bac-levels.json'
@@ -11,7 +14,6 @@ import TitleText from './Title';
 import Expandable from './Expandable';
 
 // Import styles
-import { styles } from './styles';
 import { containerStyles } from './styles/containerStyles';
 import { imageStyles } from './styles/imageStyles';
 import { textStyles } from './styles/textStyles';
@@ -48,10 +50,12 @@ const InfoTopicPage = ({ route }) => {
             // Return View component with Text and Image
             return (
                 <ScrollView>
-                    <Text style={[textStyles.text, textStyles.questionText, textStyles.specialInfoItem]}>Standard Drink Sizes Visualized</Text>
+                    <View style={[containerStyles.row, containerStyles.specialInfoItem]}>
+                        <Text style={[textStyles.text, textStyles.questionText]}>Standard Drink Sizes Visualized</Text>
+                    </View>
                     <Image
                         source={imageUrl}
-                        style={[imageStyles.standardDrinksImage, textStyles.specialInfoItem]}
+                        style={imageStyles.standardDrinksImage}
                         resizeMode='cover'
                     />
                 </ScrollView>
@@ -65,8 +69,8 @@ const InfoTopicPage = ({ route }) => {
             const headTable = ['BAC Level', 'Effects'];
             return (
                 <View>
-                        <Text style={[textStyles.text, textStyles.questionText, textStyles.specialInfoItem]}>BAC Levels: Table</Text>
-                    <Table borderStyle={tableStyles.border} style={textStyles.specialInfoItem}>
+                    <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>BAC Levels: Table</Text>
+                    <Table borderStyle={tableStyles.border} style={containerStyles.specialInfoItem}>
                         <Row data={headTable} style={tableStyles.head} textStyle={tableStyles.headText} widthArr={[100, undefined]} />
                         <Rows data={BACeffects} textStyle={tableStyles.text} widthArr={[100, undefined]} />
                     </Table>
