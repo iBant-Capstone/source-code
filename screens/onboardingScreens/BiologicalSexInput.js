@@ -52,7 +52,7 @@ const BiologicalSex = ({ navigation, route }) => {
                 <Text>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
             </View>
             {showInvalidInputText && <InvalidInputWarning />}
-            <Footer rightButtonLabel="Next" rightButtonPress={handleSexInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
+            <Footer rightButtonLabel="Next" rightButtonPress={handleSexInput} />
         </View>
 
     );

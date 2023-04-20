@@ -14,13 +14,12 @@ import { textInputStyles } from '../../components/styles/textInput';
 
 const HeightInput = ({ navigation }) => {
 
+    // ______ User Input ________
     const [cmInputValue, setCmInputValue] = useState('')
     const [ftInputValue, setFtInputValue] = useState('')
     const [inInputValue, setInInputValue] = useState('')
-
     const [heightUnitValueChecked, setHeightUnitValueChecked] = useState('cm');
 
-    // ______ Invalid input text ________
     const [showInvalidInputText, setShowInvalidInputText] = useState(false);
 
     // Sets the infomration neede for the handlePersonalDetailsInput function below
@@ -30,7 +29,6 @@ const HeightInput = ({ navigation }) => {
 
     // Formats the height data before sending off to add to the personalDetailsSoFar object and navigating to the next page
     const handleHeightInput = () => {
-        console.log('you clicked?')
         let heightValue = heightUnitValueChecked === "cm" ? Number(cmInputValue) : (Number(ftInputValue) * 12) + Number(inInputValue)
         let heightData = {
             unit: heightUnitValueChecked,
@@ -83,7 +81,7 @@ const HeightInput = ({ navigation }) => {
                     />
                 </View>}
             {showInvalidInputText && <InvalidInputWarning />}
-            <Footer rightButtonLabel="Save" rightButtonPress={handleHeightInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('WeightInput'); }} />
+            <Footer rightButtonLabel="Save" rightButtonPress={handleHeightInput} />
         </View>
     );
 };

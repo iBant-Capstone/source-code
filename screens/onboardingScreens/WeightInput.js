@@ -67,7 +67,7 @@ const WeightInput = ({ navigation, route}) => {
                 />
             </View>
             {showInvalidInputText && <InvalidInputWarning />}
-            <Footer rightButtonLabel="Save" rightButtonPress={handleWeightInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
+            <Footer rightButtonLabel="Save" rightButtonPress={handleWeightInput} />
         </View>
 
     );
