@@ -3,6 +3,8 @@ import { Text, View, TextInput, Pressable } from 'react-native';
 import Footer from '../../components/Footer';
 
 import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';
+import validateHeightInput from '../../components/inputValidationPersonalDetails/validateHeightInput'
+import InvalidInputWarning from '../../components/InvalidInputWarning';
 
 // Import styles
 import { textStyles } from '../../components/styles/textStyles';
@@ -18,28 +20,33 @@ const HeightInput = ({ navigation }) => {
 
     const [heightUnitValueChecked, setHeightUnitValueChecked] = useState('cm');
 
-     // Sets the infomration neede for the handlePersonalDetailsInput function below
+    // ______ Invalid input text ________
+    const [showInvalidInputText, setShowInvalidInputText] = useState(false);
+
+    // Sets the infomration neede for the handlePersonalDetailsInput function below
     let personalDetailsSoFar = {}
     let newKey = "height"
     let nextPage = "WeightInput"
 
     // Formats the height data before sending off to add to the personalDetailsSoFar object and navigating to the next page
     const handleHeightInput = () => {
-        let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
+        console.log('you clicked?')
+        let heightValue = heightUnitValueChecked === "cm" ? Number(cmInputValue) : (Number(ftInputValue) * 12) + Number(inInputValue)
         let heightData = {
             unit: heightUnitValueChecked,
             value: heightValue
         }
-        let newValue = heightData
-        handlePersonaDetailInput(personalDetailsSoFar, newKey, newValue, nextPage, navigation)
+        if (validateHeightInput(heightData)) {
+            let newValue = heightData
+            handlePersonaDetailInput(personalDetailsSoFar, newKey, newValue, nextPage, navigation)
+        } else {
+            setShowInvalidInputText(true)
+        }
     }
 
     return (
         <View style={containerStyles.centerWhiteContainer}>
             <Text style={[textStyles.text, textStyles.headerText]}>Select Height</Text>
-            <View style={{ paddingHorizontal: 15 }}>
-                <Text>Input your height here in cm or ft/inches</Text>
-            </View>
 
             <View style={[containerStyles.row, containerStyles.centerContainer, { paddingTop: 15, flexWrap: 'nowrap' }]}>
                 <Pressable
@@ -75,6 +82,7 @@ const HeightInput = ({ navigation }) => {
                         placeholder={"cm"}
                     />
                 </View>}
+            {showInvalidInputText && <InvalidInputWarning />}
             <Footer rightButtonLabel="Save" rightButtonPress={handleHeightInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('WeightInput'); }} />
         </View>
     );

@@ -28,19 +28,6 @@ const BiologicalSex = ({ navigation, route }) => {
     return (
         <View style={containerStyles.centerWhiteContainer}>
             <Text style={[textStyles.text, textStyles.headerText]}>Select Biological Sex</Text>
-
-            <View style={{ paddingHorizontal: 15 }}>
-                <Text style={textStyles.redSemiBoldText}>Please note:</Text>
-                <Text>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
-            </View>
-
-            <View style={{ padding: 15 }}>
-                <Text>Input your biological sex here</Text>
-            </View>
-
-            <View style={[containerStyles.row, containerStyles.centerContainer, { padding: 15 }]}>
-                <Text>Chosen Sex: {sexValueChecked}</Text>
-            </View>
             <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15, flexWrap: 'nowrap' }]}>
                 <Pressable
                     style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
@@ -50,6 +37,10 @@ const BiologicalSex = ({ navigation, route }) => {
                     style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setSexValueChecked('male')}
                 ><Text>Male</Text></Pressable>
+            </View>
+            <View style={{ paddingHorizontal: 15 }}>
+                <Text style={textStyles.redSemiBoldText}>Please note:</Text>
+                <Text>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
             </View>
             <Footer rightButtonLabel="Next" rightButtonPress={handleSexInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>

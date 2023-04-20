@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';
 
 // Import styles
+import { styles } from '../../components/styles';
 import { textStyles } from '../../components/styles/textStyles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
@@ -33,10 +34,9 @@ const WeightInput = ({ navigation, route}) => {
     return (
         <View style={containerStyles.centerWhiteContainer}>
             <Text style={[textStyles.text, textStyles.headerText]}>Select Weight</Text>
-            <View style={{ paddingHorizontal: 15 }}>
+            {/* <View style={{ paddingHorizontal: 15 }}>
                 <Text>Input your weight here in lbs or kg</Text>
-            </View>
-
+            </View> */}
             <View style={[containerStyles.row, containerStyles.centerContainer, { paddingTop: 15, flexWrap: 'nowrap' }]}>
                 <Pressable
                     style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
@@ -54,7 +54,7 @@ const WeightInput = ({ navigation, route}) => {
                     style={styles.textInput}
                     value={weightInputValue}
                     onChangeText={setWeightInputValue}
-                    placeholder={''}
+                    placeholder={'test'}
                 />
             </View>
             <Footer rightButtonLabel="Save" rightButtonPress={handleWeightInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />

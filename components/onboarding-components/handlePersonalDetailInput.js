@@ -1,8 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
+//   This function adds an element to the personal details object we're building and moves us to the next page.
+//   Once we're done building it we will send the finished object to async storage and move us to a new page.
+
 const handlePersonaDetailInput = async ( personalDetailsSoFar, newKey, newValue, nextPage, navigation ) => {
   try {
-    console.log("newValue", newValue)
     personalDetailsSoFar[newKey] = newValue
 
     // If we've reached the end we push what we've pade to Async Storage
