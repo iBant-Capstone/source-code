@@ -3,6 +3,8 @@ import { Text, View, Pressable } from 'react-native';
 import Footer from '../../components/Footer';
 
 import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';
+import validateSexInput from '../../components/inputValidationPersonalDetails/validateSexInput'
+import InvalidInputWarning from '../../components/InvalidInputWarning';
 
 // Import styles
 import { styles } from '../../components/styles';
@@ -15,14 +17,21 @@ const BiologicalSex = ({ navigation, route }) => {
 
     const [sexValueChecked, setSexValueChecked] = useState('');
 
+    // ______ Invalid input text ________
+    const [showInvalidInputText, setShowInvalidInputText] = useState(false);
+
     let personalDetailsSoFar = route.params.personalDetailsSoFar
     let newKey = "sex"
     let nextPage = "Welcome"
 
     const handleSexInput = () => {
         let sex = sexValueChecked
-        let newValue = sex
-        handlePersonaDetailInput( personalDetailsSoFar, newKey, newValue, nextPage, navigation)
+        if (validateSexInput(sex)) {
+            let newValue = sex
+            handlePersonaDetailInput( personalDetailsSoFar, newKey, newValue, nextPage, navigation)
+        } else {
+            setShowInvalidInputText(true)
+        }
     }
 
     return (
@@ -42,6 +51,7 @@ const BiologicalSex = ({ navigation, route }) => {
                 <Text style={textStyles.redSemiBoldText}>Please note:</Text>
                 <Text>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
             </View>
+            {showInvalidInputText && <InvalidInputWarning />}
             <Footer rightButtonLabel="Next" rightButtonPress={handleSexInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
 

@@ -3,6 +3,8 @@ import { Text, View, TextInput, Pressable } from 'react-native';
 import Footer from '../../components/Footer';
 
 import handlePersonaDetailInput from '../../components/onboarding-components/handlePersonalDetailInput';
+import validateWeightInput from '../../components/inputValidationPersonalDetails/validateWeightInput'
+import InvalidInputWarning from '../../components/InvalidInputWarning';
 
 // Import styles
 import { styles } from '../../components/styles';
@@ -16,6 +18,9 @@ const WeightInput = ({ navigation, route}) => {
     const [weightInputValue, setWeightInputValue] = useState('')
     const [weightUnitValueChecked, setWeightUnitValueChecked] = useState('kg');
 
+    // ______ Invalid input text ________
+    const [showInvalidInputText, setShowInvalidInputText] = useState(false);
+
     // Sets the infomration neede for the handlePersonalDetailsInput function below
     let personalDetailsSoFar = route.params.personalDetailsSoFar
     let newKey = "weight"
@@ -27,8 +32,12 @@ const WeightInput = ({ navigation, route}) => {
             unit: weightUnitValueChecked,
             value: Number(weightInputValue)
         }
-        let newValue = weightData
-        handlePersonaDetailInput( personalDetailsSoFar, newKey, newValue, nextPage, navigation)
+        if (validateWeightInput(weightData)) {
+            let newValue = weightData
+            handlePersonaDetailInput( personalDetailsSoFar, newKey, newValue, nextPage, navigation)
+        } else {
+            setShowInvalidInputText(true)
+        }
     }
 
     return (
@@ -51,12 +60,13 @@ const WeightInput = ({ navigation, route}) => {
 
             <View style={[containerStyles.row, containerStyles.centerContainer]}>
                 <TextInput
-                    style={styles.textInput}
+                    style={textInputStyles.textInput}
                     value={weightInputValue}
                     onChangeText={setWeightInputValue}
                     placeholder={'test'}
                 />
             </View>
+            {showInvalidInputText && <InvalidInputWarning />}
             <Footer rightButtonLabel="Save" rightButtonPress={handleWeightInput} leftButtonLabel="Skip" leftButtonPress={() => { navigation.navigate('Welcome'); }} />
         </View>
 
