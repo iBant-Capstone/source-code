@@ -137,9 +137,7 @@ const EditProfilePage = ({ navigation }) => {
             {/* Only loads once the personal details have loaded */}
             {hasFocused ?
                 <ScrollView style={{ minWidth: '100%' }}>
-                    <View style={containerStyles.leftContainer}>
-                        <Text style={[textStyles.redSemiBoldText, { fontSize: 32, marginBottom: '5%' }]}>Edit</Text>
-                    </View>
+                    <Text style={[textStyles.title, textStyles.redSemiBoldText, { paddingTop: 15 }]}>Edit</Text>
                     <View >
                         <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
                             <Text style={textStyles.text}>Add your height:  </Text>

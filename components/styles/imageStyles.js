@@ -17,7 +17,7 @@ export const imageStyles = StyleSheet.create({
     rightImage: {
         width: '38%',
         marginRight: '5%',
-        marginVertical: '10%'
+        marginBottom: '2%'
     },
     largeCenterImage:{
         width: "80%",
