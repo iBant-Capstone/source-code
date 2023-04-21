@@ -27,7 +27,7 @@ const LoginScreen4 = ({ navigation }) => {
                         {"\n"}{"\n"}<Text style={textStyles.boldText}>This app is not meant to substitute the advice of a licensed medical professional. Please use this resource with caution!</Text>
                     </Text>
                 </View>
-                <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('HeightInput'); }} leftButtonLabel="Back" leftButtonPress={() => { navigation.navigate('Login3'); }} />
+                <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('PersonalDetailsInput'); }} leftButtonLabel="Back" leftButtonPress={() => { navigation.navigate('Login3'); }} />
             </View>
         </ScrollView>
     );
