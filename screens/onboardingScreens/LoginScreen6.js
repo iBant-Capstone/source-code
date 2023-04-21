@@ -25,7 +25,7 @@ const LoginScreen6 = ({ navigation }) => {
                     Are you ready to get started?
                 </Text>
             </View>
-            <Footer rightButtonLabel="Get Started!" rightButtonPress={() => { navigation.navigate('HeightInput'); }} leftButtonLabel="Back" leftButtonPress={() => { navigation.navigate('Login5'); }} />
+            <Footer rightButtonLabel="Get Started!" rightButtonPress={() => { navigation.navigate('PersonalDetailsInput'); }} leftButtonLabel="Back" leftButtonPress={() => { navigation.navigate('Login5'); }} />
         </View>
 
     );

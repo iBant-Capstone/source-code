@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, TextInput, Pressable, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useFocusEffect } from '@react-navigation/native'
 
 import validateHeightInput from '../../components/inputValidationPersonalDetails/validateHeightInput';
 import validateWeightInput from '../../components/inputValidationPersonalDetails/validateWeightInput';
@@ -15,7 +14,7 @@ import { textStyles } from '../../components/styles/textStyles';
 import { textInputStyles } from '../../components/styles/textInputStyles';
 import { imageStyles } from '../../components/styles/imageStyles';
 
-const HeightInput = ({ navigation }) => {
+const PersonalDetailsInput = ({ navigation }) => {
 
     // ______ TEXT INPUTS __________
     const [cmInputValue, setCmInputValue] = useState('')
@@ -27,9 +26,9 @@ const HeightInput = ({ navigation }) => {
     // ______ RADIO BUTTONS ________
 
     // Keeps track of what height unit we're using
-    const [heightUnitValueChecked, setHeightUnitValueChecked] = useState('cm');
+    const [heightUnitValueChecked, setHeightUnitValueChecked] = useState('ft');
     // Keeps track of what weight unit we're using
-    const [weightUnitValueChecked, setWeightUnitValueChecked] = useState('kg');
+    const [weightUnitValueChecked, setWeightUnitValueChecked] = useState('lbs');
     // Keeps track of what sex value is selected
     const [sexValueChecked, setSexValueChecked] = useState('');
 
@@ -87,21 +86,26 @@ const HeightInput = ({ navigation }) => {
         <View style={containerStyles.centerWhiteContainer}>
         <ScrollView style={{ minWidth: '100%' }}>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
-                <TitleText name={"Edit"} />
+                <TitleText name={"Add In..."} />
                 <Image style={imageStyles.rightImage} source={require('../../assets/avatars/Casual_Rosie_shadow.png')} resizeMode='contain' />
-                {/* <Text>Enter your information to enable the BAC calculator</Text> */}
+                
             </View>
             <View >
-                <View style={[containerStyles.row, containerStyles.leftTopPadding, containerStyles.flexAndAlignItemsCenter]}>
-                    <Text style={textStyles.text}>Add your height:  </Text>
-                    <Pressable
-                        style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                        onPress={() => setHeightUnitValueChecked('ft')}
-                    ><Text style={textStyles.text}>ft</Text></Pressable>
-                    <Pressable
-                        style={heightUnitValueChecked === 'cm' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                        onPress={() => setHeightUnitValueChecked('cm')}
-                    ><Text style={textStyles.text}>cm</Text></Pressable>
+                <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
+                    <Text>Enter your information to enable the BAC calculator</Text>
+                </View>
+                <View style={[containerStyles.row, containerStyles.leftTopPadding, {display: "flex", justifyContent: "space-between", paddingRight:24, alignItems: "center"}]}>
+                    <Text style={textStyles.boldText}>Height</Text>
+                    <View style={{display: "flex", flexDirection: "row"}}>
+                        <Pressable
+                            style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                            onPress={() => setHeightUnitValueChecked('ft')}
+                        ><Text style={textStyles.text}>ft</Text></Pressable>
+                        <Pressable
+                            style={heightUnitValueChecked === 'cm' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                            onPress={() => setHeightUnitValueChecked('cm')}
+                        ><Text style={textStyles.text}>cm</Text></Pressable>
+                    </View>
                 </View>
 
                 {heightUnitValueChecked === "ft" ?
@@ -132,7 +136,7 @@ const HeightInput = ({ navigation }) => {
                         </View>
                         <View style={containerStyles.row}>
                             <TextInput
-                                style={textInputStyles.textInput}
+                                style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
                                 value={cmInputValue}
                                 onChangeText={setCmInputValue}
                                 //placeholder={"cm"}
@@ -141,35 +145,34 @@ const HeightInput = ({ navigation }) => {
                     </View>
                 }
 
-                <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
-                    <Text style={textStyles.text}>Add your weight:  </Text>
-                    <Pressable
-                        style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                        onPress={() => setWeightUnitValueChecked('lbs')}
-                    >
-                        <Text style={textStyles.text}>lbs</Text></Pressable>
-                    <Pressable
-                        style={weightUnitValueChecked === 'kg' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                        onPress={() => setWeightUnitValueChecked('kg')}
-                    ><Text style={textStyles.text}>kg</Text></Pressable>
+                <View style={[containerStyles.row, containerStyles.leftTopPadding, {display: "flex", justifyContent: "space-between", paddingRight:24, alignItems: "center"}]}>
+                    <Text style={textStyles.boldText}>Weight</Text>
+                    <View style={{display: "flex", flexDirection: "row"}}>
+                        <Pressable
+                            style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                            onPress={() => setWeightUnitValueChecked('lbs')}
+                        >
+                            <Text style={textStyles.text}>lbs</Text></Pressable>
+                        <Pressable
+                            style={weightUnitValueChecked === 'kg' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                            onPress={() => setWeightUnitValueChecked('kg')}
+                        ><Text style={textStyles.text}>kg</Text></Pressable>
+                    </View>
                 </View>
                 <View>
                     <Text style={textInputStyles.label}>{weightUnitValueChecked}</Text>
                     <TextInput
-                        style={textInputStyles.textInput}
+                        style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
                         value={weightInputValue}
                         onChangeText={setWeightInputValue}
-                        //placeholder={"weight (" + weightUnitValueChecked + ")"}
+                        //placeholder={weightUnitValueChecked}
                     />
 
                 </View>
 
-                <View style={containerStyles.leftTopPadding}>
-                    <View style={containerStyles.row}>
-                        <Text style={textStyles.text}>Biological Sex*</Text>
-                    </View>
-
-                    <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15 }]}>
+                <View style={[containerStyles.row, containerStyles.leftTopPadding, {display: "flex", justifyContent: "space-between", paddingRight:50, alignItems: "center", paddingBottom: 25}]}>
+                    <Text style={textStyles.boldText}>Biological Sex*</Text>
+                    <View style={{display: "flex", flexDirection: "row"}}>
                         <Pressable
                             style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                             onPress={() => setSexValueChecked('female')}
@@ -189,7 +192,7 @@ const HeightInput = ({ navigation }) => {
                     ><Text style={textStyles.whiteSemiBoldText}>Save</Text></Pressable>
                 </View>
                 <View style={[containerStyles.row, { paddingHorizontal: 15, paddingVertical: 15 }]}>
-                    <Text style={textStyles.redSemiBoldText}>Please note: </Text>
+                    <Text style={textStyles.redSemiBoldText}>* Please note: </Text>
                     <Text style={textStyles.text}>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
                 </View>
             </View>
@@ -198,4 +201,4 @@ const HeightInput = ({ navigation }) => {
     )
 };
 
-export default HeightInput
+export default PersonalDetailsInput

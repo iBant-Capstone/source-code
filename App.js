@@ -9,13 +9,12 @@ import Profile from './screens/Profile.js'
 import BACCalc from './screens/BACCalc.js'
 import { InformationHub } from './screens/InformationHub.js'
 import InfoTopicPage from './components/InfoTopicPage.js';
-import AddDrinkPage from './screens/AddDrink.js'
 import CommonAlcoholTypes from './screens/CommonAlcoholTypes.js'
 import HowToUse from './screens/aboutScreens/HowToUse.js';
 import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import EditProfilePage from './screens/EditProfilePage.js';
-import AddDrinkType from './screens/addDrinkScreens/AddDrinkType.js';
+import AddDrinkType from './screens/addDrinkScreens/AddDrinkType.js'
 import AddDrinkSize from './screens/addDrinkScreens/AddDrinkSize.js';
 import AddDrinkStrength from './screens/addDrinkScreens/AddDrinkStrength.js'
 import AddDrinkHunger from './screens/addDrinkScreens/AddDrinkHunger.js';
@@ -28,9 +27,7 @@ import LoginScreen3 from './screens/onboardingScreens/LoginScreen3';
 import LoginScreen4 from './screens/onboardingScreens/LoginScreen4';
 import LoginScreen5 from './screens/onboardingScreens/LoginScreen5';
 import LoginScreen6 from './screens/onboardingScreens/LoginScreen6';
-import BiologicalSex from './screens/onboardingScreens/BiologicalSexInput';
-import HeightInput from './screens/onboardingScreens/HeightInput';
-import WeightInput from './screens/onboardingScreens/WeightInput';
+import PersonalDetailsInput from './screens/onboardingScreens/PersonalDetailsInput.js';
 
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -264,18 +261,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <obStack.Screen
-          name='HeightInput'
-          component={HeightInput}
-          options={{ headerShown: false }}
-        />
-        <obStack.Screen
-          name='WeightInput'
-          component={WeightInput}
-          options={{ headerShown: false }}
-        />
-        <obStack.Screen
-          name='BiologicalSex'
-          component={BiologicalSex}
+          name='PersonalDetailsInput'
+          component={PersonalDetailsInput}
           options={{ headerShown: false }}
         />
         <obStack.Screen
