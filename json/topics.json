@@ -48,7 +48,7 @@
                     {"key": "With little or no alcohol tolerance, *general impairment levels* are observed at the following BAC levels:"},
                     {"key": "   - 0.05% = detectible"},
                     {"key": "   - 0.07% = driving impaired"},
-                    {"key": "      NOTE: 0.08% is the *federal limit* to legally drive in the United States, but you can be impaired and arrested even if your BAC is under 0.08%"},
+                    {"key": "**NOTE**: 0.08% is the *federal limit* to legally drive in the United States, but you can be impaired and arrested even if your BAC is under 0.08%"},
                     {"key": "   - 0.10% = intoxicated"},
                     {"key": "   - 0.20% = decreased consciousness"},
                     {"key": "   - 0.30% = unconscious"},
@@ -287,48 +287,33 @@
             {
                 "question": "Resources if you or a loved one is struggling with alcohol abuse",
                 "answerArr": [
-                    {"key": "   1. Alcohol Rehab Guide: "},
-                    {"key": "   https://www.alcoholrehabguide.org/"},                    
-                    {"key": "   2. Treatment for Alcohol Addiction: "},
-                    {"key": "   https://alcohol.org/treatment/"},
-                    {"key": "   3. Alcohol Treatment Navigator (National Institute on Alcohol Abuse and Alcoholism): "},
-                    {"key": "   https://alcoholtreatment.niaaa.nih.gov/"}
+                    {"key": "   1. Alcohol Rehab Guide:    [https://www.alcoholrehabguide.org/](https://www.alcoholrehabguide.org/)"},                    
+                    {"key": "   2. Treatment for Alcohol Addiction:    [https://alcohol.org/treatment/](https://alcohol.org/treatment/)"},
+                    {"key": "   3. Alcohol Treatment Navigator (National Institute on Alcohol Abuse and Alcoholism):    [https://alcoholtreatment.niaaa.nih.gov/](https://alcoholtreatment.niaaa.nih.gov/)"}
                 ],
                 "sources": []
             },
             {
                 "question": "Resources about basic alcohol information and consumption",
                 "answerArr": [
-                    {"key": "   1. Alcohol Facts and Statistics (National Institute on Alcohol Abuse and Alcoholism): "},
-                    {"key": "   https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/alcohol-facts-and-statistics"},
-                    {"key": "   2. Alcohol By Volume Guide: "},
-                    {"key": "   https://alcohol.org/statistics-information/abv/"},
-                    {"key": "   3. Blood Alcohol Concentration Guide: "},
-                    {"key": "   https://vaden.stanford.edu/super/learn/alcohol-drug-info/reduce-your-risk/what-blood-alcohol-concentration-bac"},
-                    {"key": "   4. Types of Alcohol Guide:"},
-                    {"key": "   https://home.binwise.com/guides/types-of-alcohol"},
-                    {"key": "   5. Alcohol Percentage Contents by Beverage Type: "},
-                    {"key": "   https://sunrisehouse.com/stop-drinking-alcohol/percentage-contents/"},
-                    {"key": "   6. Why Biology Matters When it Comes to Drinking Alcohol: "},
-                    {"key": "   https://health.cornell.edu/sites/health/files/pdf-library/Why-Biology-Matters-Drinking.pdf"}
+                    {"key": "1. Alcohol Facts and Statistics (National Institute on Alcohol Abuse and Alcoholism): [https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/alcohol-facts-and-statistics](https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/alcohol-facts-and-statistics)"},
+                    {"key": "2. Alcohol By Volume Guide:    [https://alcohol.org/statistics-information/abv/](https://alcohol.org/statistics-information/abv/)"},
+                    {"key": "3. Blood Alcohol Concentration Guide:    [https://vaden.stanford.edu/super/learn/alcohol-drug-info/reduce-your-risk/what-blood-alcohol-concentration-bac](https://vaden.stanford.edu/super/learn/alcohol-drug-info/reduce-your-risk/what-blood-alcohol-concentration-bac)"},
+                    {"key": "4. Types of Alcohol Guide:   [https://home.binwise.com/guides/types-of-alcohol](https://home.binwise.com/guides/types-of-alcohol)"},
+                    {"key": "5. Alcohol Percentage Contents by Beverage Type:    [https://sunrisehouse.com/stop-drinking-alcohol/percentage-contents/](https://sunrisehouse.com/stop-drinking-alcohol/percentage-contents/)"},
+                    {"key": "6. Why Biology Matters When it Comes to Drinking Alcohol:    [https://health.cornell.edu/sites/health/files/pdf-library/Why-Biology-Matters-Drinking.pdf](https://health.cornell.edu/sites/health/files/pdf-library/Why-Biology-Matters-Drinking.pdf)"}
                 ],
                 "sources": []
             },
             {
                 "question": "Resources about alcohol safety",
                 "answerArr": [
-                    {"key": "   1. Alcohol Safety Guide (RAINN)"},
-                    {"key": "   https://www.rainn.org/articles/alcohol-safety"},
-                    {"key": "   2. Alcohol Poisoning Guide (Mayo Clinic): "},
-                    {"key": "   https://www.mayoclinic.org/diseases-conditions/alcohol-poisoning/symptoms-causes/syc-20354386"},
-                    {"key": "   3. What To Do if Someone is Intoxicated: "},
-                    {"key": "   https://www.northstartransitions.com/post/what-to-do-if-someone-is-intoxicated"},
-                    {"key": "   4. State DUI Laws: "},
-                    {"key": "   https://www.findlaw.com/dui/laws-resources/comparing-state-dui-laws.html"},
-                    {"key": "   5. Drink Spiking and Date Rape Drugs: "},
-                    {"key": "   https://www.drinkaware.co.uk/advice/staying-safe-while-drinking/drink-spiking-and-date-rape-drugs"},
-                    {"key": "   6. Student's Guide to Drinking Responsibly in College: "},
-                    {"key": "   https://www.edumed.org/resources/student-guide-to-drinking-responsibly/"}
+                    {"key": "   1. Alcohol Safety Guide (RAINN): [https://www.rainn.org/articles/alcohol-safety](https://www.rainn.org/articles/alcohol-safety)"},
+                    {"key": "   2. Alcohol Poisoning Guide (Mayo Clinic): [https://www.mayoclinic.org/diseases-conditions/alcohol-poisoning/symptoms-causes/syc-20354386](https://www.mayoclinic.org/diseases-conditions/alcohol-poisoning/symptoms-causes/syc-20354386)"},
+                    {"key": "   3. What To Do if Someone is Intoxicated: [https://www.northstartransitions.com/post/what-to-do-if-someone-is-intoxicated](https://www.northstartransitions.com/post/what-to-do-if-someone-is-intoxicated)"},
+                    {"key": "   4. State DUI Laws:    [https://www.findlaw.com/dui/laws-resources/comparing-state-dui-laws.html](https://www.findlaw.com/dui/laws-resources/comparing-state-dui-laws.html)"},
+                    {"key": "   5. Drink Spiking and Date Rape Drugs:    [https://www.drinkaware.co.uk/advice/staying-safe-while-drinking/drink-spiking-and-date-rape-drugs](https://www.drinkaware.co.uk/advice/staying-safe-while-drinking/drink-spiking-and-date-rape-drugs)"},
+                    {"key": "   6. Student's Guide to Drinking Responsibly in College:    [https://www.edumed.org/resources/student-guide-to-drinking-responsibly/](https://www.edumed.org/resources/student-guide-to-drinking-responsibly/)"}
                 ],
                 "sources": []
             }

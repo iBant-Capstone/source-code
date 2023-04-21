@@ -1,4 +1,7 @@
 import { StyleSheet } from 'react-native'
+import { Dimensions } from 'react-native';
+
+const windowWidth = Dimensions.get('window').width;
 
 export const textStyles = StyleSheet.create({
     text: {
@@ -56,12 +59,33 @@ export const textStyles = StyleSheet.create({
         width: '80%',
     },
     answerText: {
-        body: {
+        paragraph: {
             fontFamily: 'Roboto',
             fontSize: 14,
             paddingHorizontal: 15,
             paddingVertical: 10,
-            backgroundColor: '#F2C0C5'
+            backgroundColor: '#F2C0C5',
+            marginTop: 0,
+            marginBottom: 0
+        },
+        bullet_list: {
+            fontFamily: 'Roboto',
+            fontSize: 14,
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            backgroundColor: '#F2C0C5',
+            marginTop: 0,
+            marginBottom: 0
+        },
+        ordered_list: {
+            fontFamily: 'Roboto',
+            fontSize: 14,
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            width: windowWidth * 0.92,
+            backgroundColor: '#F2C0C5',
+            marginTop: 0,
+            marginBottom: 0,
         },
         link: {
             textDecorationLine: 'underline',
