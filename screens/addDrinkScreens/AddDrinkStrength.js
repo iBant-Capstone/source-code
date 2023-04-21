@@ -15,7 +15,7 @@ const AddDrinkSize = ({ route, navigation }) => {
 
     const [data, setData] = useState(null)
     let newKey = "strength"
-    let nextPage = "AddDrinkHunger"
+    let nextPage = "AddDrinkSize"
 
     // Finds the sizes we need to display based on what type we selected in the screen before
     useEffect(() => {

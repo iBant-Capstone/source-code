@@ -21,8 +21,22 @@
         "value": 350
     },
     {
-        "id": "large-bottle",
-        "title": "Large Bottle",
+        "id": "sake-cup",
+        "title": "Sake Cup",
+        "subtitle": "1.5oz/44ml",
+        "icon": "",
+        "value": 44
+    },
+    {
+        "id": "sake-flask",
+        "title": "Sake Flask",
+        "subtitle": "6oz/177ml",
+        "icon": "",
+        "value": 177
+    },
+    {
+        "id": "large-wine-bottle",
+        "title": "Large Wine Bottle",
         "subtitle": "25oz/750ml",
         "icon": "",
         "value": 750
@@ -33,6 +47,13 @@
         "subtitle": "1.5oz/44ml",
         "icon": "",
         "value": 44
+    },
+    {
+        "id": "double-shot",
+        "title": "Double Shot",
+        "subtitle": "3oz/88ml",
+        "icon": "",
+        "value": 88
     },
     {
         "id": "pint",

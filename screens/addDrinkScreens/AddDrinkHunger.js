@@ -13,7 +13,7 @@ const AddDrinkHunger = ({ route, navigation }) => {
 
     let data = hungerValues
     let newKey = "halfLife"
-    let nextPage = "AddDrinkTime"
+    let nextPage = "BACCalc"
 
     const handleAddDrinksInput = (hungerValue) => {
         let newValue = Number(hungerValue)
