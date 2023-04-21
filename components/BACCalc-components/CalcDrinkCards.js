@@ -28,18 +28,19 @@ const CalcDrinkCards = ({ drinks, navigation, changeDrinksReady } ) => {
     }
   }
 
+  // var dateToDisplay = new Date(drink.timeOfDrink).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
   return (
     <View style={{ width: '100%' }}>
       {drinks.length !== 0 ?
         <View style={containerStyles.row}>
           {drinks.map((drink, index) => (
             <View key={index} style={[drinkCardStyles.drinkCard, containerStyles.row]}>
-              <Text style={[drinkCardStyles.timeContainer, textStyles.redSemiBoldText, textStyles.smallText]}>{new Date(drink.timeOfDrink).getHours()}:{new Date(drink.timeOfDrink).getMinutes()}</Text>
+              <Text style={[drinkCardStyles.timeContainer, textStyles.redSemiBoldText, textStyles.smallText]}>{new Date(drink.timeOfDrink).toLocaleString('en-US', { month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}</Text>
               <View style={drinkCardStyles.infoContainer}>
                 <Text style={textStyles.boldText}>{drink.name} ({(drink.strength * 100).toFixed(1)}%)</Text>
                 <Text style={[textStyles.text, textStyles.smallText]}>{drink.size.value * 1e3} ml</Text>
               </View>
-              {/* Commented out individual drink deletion for now: */}
               <Pressable style={drinkCardStyles.timeContainer} onPress={() => handleDelete(drink)}>
                 <Ionicons name='close' style={imageStyles.deleteIcon}  />
               </Pressable>
