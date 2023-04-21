@@ -25,7 +25,6 @@ If you have any questions or run into any issues, please feel free to contact an
 - [Images directory:](./assets/images/) Contains other image files used in our app
 
 [Components Directory:](./components/) Contains shared components used across all of the screens (such as modules and reusable parts)
-- [styles.js:](./components/styles.js) Contains all of our styling rules within one constant to be imported to all screens
 - [AlcoholPopUp.js:](./components/AlcoholPopUp.js) Popup component displaying information on common alcohol drink types
 - [CalcDrinkCards.js:](./components/CalcDrinkCards.js) Component displaying drinks stored in async storage when calculating BAC
 - [InfoTopicPage.js:](./components/InfoTopicPage.js) Page component outlining topic pages within information hub

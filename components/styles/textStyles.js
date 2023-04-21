@@ -56,10 +56,19 @@ export const textStyles = StyleSheet.create({
         width: '80%',
     },
     answerText: {
-        fontSize: 14,
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-        backgroundColor: '#F2C0C5'
+        body: {
+            fontFamily: 'Roboto',
+            fontSize: 14,
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            backgroundColor: '#F2C0C5'
+        },
+        link: {
+            textDecorationLine: 'underline',
+            color: '#387780',
+            margin: 5
+        }
+
     },
 
     // For current BAC page

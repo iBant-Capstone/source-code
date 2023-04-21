@@ -44,14 +44,14 @@ export const InfoPage = (props) => {
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
-          title="Standard Drink Sizes"
-          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Standard Drink Sizes' })}>
-          <Text style={textStyles.whiteSemiBoldText}>Standard Drink Sizes</Text>
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Measuring Alcohol Content' })}>
+          <Text style={textStyles.whiteSemiBoldText}>Measuring Alcohol Content</Text>
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
-          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Measuring Alcohol Content' })}>
-          <Text style={textStyles.whiteSemiBoldText}>Measuring Alcohol Content</Text>
+          title="Standard Drink Sizes"
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Standard Drink Sizes' })}>
+          <Text style={textStyles.whiteSemiBoldText}>Standard Drink Sizes</Text>
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}

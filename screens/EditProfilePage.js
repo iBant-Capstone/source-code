@@ -144,9 +144,9 @@ const EditProfilePage = ({ navigation }) => {
                         <Image style={imageStyles.rightImage} source={require('../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
                     </View>
                     <View >
-                        <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
-                            <Text style={textStyles.text}>Add your height:  </Text>
 
+                        <Text style={[textStyles.text, containerStyles.leftTopPadding]}>Add your height:  </Text>
+                        <View style={[containerStyles.row, containerStyles.centerContainer, { padding: 0 }]}>
                             <Pressable
                                 style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setHeightUnitValueChecked('ft')}
@@ -194,8 +194,8 @@ const EditProfilePage = ({ navigation }) => {
                             </View>
                         }
 
-                        <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
-                            <Text style={textStyles.text}>Add your weight:  </Text>
+                        <Text style={[textStyles.text, containerStyles.leftTopPadding]}>Add your weight:  </Text>
+                        <View style={[containerStyles.row, containerStyles.centerContainer, { padding: 0 }]}>
                             <Pressable
                                 style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                                 onPress={() => setWeightUnitValueChecked('lbs')}
@@ -217,21 +217,16 @@ const EditProfilePage = ({ navigation }) => {
 
                         </View>
 
-                        <View style={containerStyles.leftTopPadding}>
-                            <View style={containerStyles.row}>
-                                <Text style={textStyles.text}>Biological Sex*</Text>
-                            </View>
-
-                            <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15 }]}>
-                                <Pressable
-                                    style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                                    onPress={() => setSexValueChecked('female')}
-                                ><Text style={textStyles.text}>Female</Text></Pressable>
-                                <Pressable
-                                    style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                                    onPress={() => setSexValueChecked('male')}
-                                ><Text style={textStyles.text}>Male</Text></Pressable>
-                            </View>
+                        <Text style={[textStyles.text, containerStyles.leftTopPadding]}>Biological Sex*:  </Text>
+                        <View style={[containerStyles.row, containerStyles.centerContainer]}>
+                            <Pressable
+                                style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                                onPress={() => setSexValueChecked('female')}
+                            ><Text style={textStyles.text}>Female</Text></Pressable>
+                            <Pressable
+                                style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                                onPress={() => setSexValueChecked('male')}
+                            ><Text style={textStyles.text}>Male</Text></Pressable>
                         </View>
 
                         <View style={containerStyles.centerContainer}>

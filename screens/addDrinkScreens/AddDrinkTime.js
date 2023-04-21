@@ -1,12 +1,12 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 
-import ExactTimeInput from "../../components/AddDrink-components/ExactTimeInput"
-import AddDrinkCards from '../../components/AddDrink-components/AddDrinkCards';
+import ExactTimeInput from "../../components/addDrink-components/ExactTimeInput"
+import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
 import relativeTimeValues from "../../json/AddDrink-pages/relativeTimeValues.json"
 
-import handleInput from '../../components/AddDrink-components/handleInput';
+import handleInput from '../../components/addDrink-components/handleInput';
 
 const AddDrinkTime = ({ route, navigation }) => {
     let drinks = route.params.drinks
