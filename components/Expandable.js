@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, TouchableOpacity, FlatList } from 'react-native';
 import Hyperlink from 'react-native-hyperlink';
-import Markdown, { MarkdownIt, tokensToAST, stringToTokens } from 'react-native-markdown-display';
-
-
+import Markdown, { MarkdownIt } from 'react-native-markdown-display';
 
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -19,16 +17,14 @@ import { expandableStyles } from './styles/expandableStyles';
 
 // Creates an expandable component
 const Expandable = ({ item, onClickFunction }) => {
-    //console.log(item);
     const markdownItInstance = MarkdownIt({ typographer: true });
 
 
     // Custom Component for the Expandable List
     const [layoutHeight, setLayoutHeight] = useState(0);
     const Md = (itemText) => {
-        console.log(itemText.itemText);
         return (
-            <Markdown>
+            <Markdown style={textStyles.answerText}>
                 {itemText.itemText}
             </Markdown>
 
@@ -50,13 +46,10 @@ const Expandable = ({ item, onClickFunction }) => {
     let keyCount = 1;
 
     // Function to detect and create clickable hyperlinks in topic answers
-    // NEED TO ADD SOME FORMATTING
     const hyperlink = (itemText) => {
-        console.log("hyperlink", itemText);
-        return ( // linkStyle={{color: '#CF5361', fontSize: 14}}
+        return ( 
             <Hyperlink linkDefault={true} linkStyle={[textStyles.text, textStyles.link]}>
-                {/* <Text style={[textStyles.text, textStyles.answerText]}>{itemText}</Text> */}
-                <Md itemText={itemText} style={textStyles.answerText } />
+                <Md itemText={itemText}/>
             </Hyperlink>
         );
     }
@@ -82,9 +75,9 @@ const Expandable = ({ item, onClickFunction }) => {
                 <FlatList data={item.answerArr} renderItem={({ item }) => hyperlink(item.key)}>
                 </FlatList>
 
-                {/* TO-DO: add conditioning so superscripts only appear if item.sources is not empty */}
-                <Text style={[textStyles.text, textStyles.answerText]}>
-                    <Text style={{ fontSize: 8, lineHeight: 4 }}>Source(s): </Text>
+                <Text style={[textStyles.text, textStyles.answerText.paragraph]}>
+                    {item.sources.length == 0 ? "" : <Text style={{ fontSize: 8, lineHeight: 4 }}>Source(s): </Text>}
+                    
                     {item.sources.map((source) => {
                         keyCount++;
                         return (
