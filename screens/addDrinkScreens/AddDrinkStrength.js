@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native';
 
-import AddDrinkCards from '../../components/AddDrink-components/AddDrinkCards';
+import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
-import displayBasedOnType from '../../components/AddDrink-components/displayBasedOnType';
-import handleInput from '../../components/AddDrink-components/handleInput';
+import displayBasedOnType from '../../components/addDrink-components/displayBasedOnType';
+import handleInput from '../../components/addDrink-components/handleInput';
 
 import strengths from "../../json/AddDrink-pages/drinkStrengths.json"
 import types from "../../json/AddDrink-pages/drinkTypes.json"

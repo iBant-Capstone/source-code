@@ -22,6 +22,7 @@
     "crypto": "^1.0.1",
     "expo": "^47.0.13",
     "expo-font": "~11.0.1",
+    "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
     "flatpickr": "^4.6.13",
     "navigationbar-react-native": "^0.0.5",
