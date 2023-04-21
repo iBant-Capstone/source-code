@@ -13,7 +13,7 @@ import InvalidInputWarning from '../../components/InvalidInputWarning';
 import { textStyles } from '../../components/styles/textStyles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
-import { textInputStyles } from '../../components/styles/textInput';
+import { textInputStyles } from '../../components/styles/textInputStyles';
 
 const HeightInput = ({ navigation }) => {
 
@@ -85,118 +85,106 @@ const HeightInput = ({ navigation }) => {
 
     return (
         <View style={containerStyles.centerWhiteContainer}>
-            <ScrollView style={{ minWidth: '100%' }}>
-                {/* Insert picture of Rosie to the left of the text in the view below */}
-                <View style={containerStyles.leftContainer}>
-                    <Text style={[textStyles.redSemiBoldText, { fontSize: 32, marginBottom: '5%' }]}>Add In...</Text>
-                    <Text style={[textStyles.redSemiBoldText, { fontSize: 12, marginBottom: '5%' }]}>Enter your information to enable the Blood Alcohol Concentration calculator</Text>
-                </View>
-                <View >
-                    <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
-                        <Text>Add your height:  </Text>
+            <Text style={[textStyles.text, textStyles.headerText]}>Select Height</Text>
 
-                        <Pressable
-                            style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                            onPress={() => setHeightUnitValueChecked('ft')}
-                        ><Text>ft</Text></Pressable>
-                        <Pressable
-                            style={heightUnitValueChecked === 'cm' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                            onPress={() => setHeightUnitValueChecked('cm')}
-                        ><Text>cm</Text></Pressable>
+            <View style={[containerStyles.row, containerStyles.centerContainer, { paddingTop: 15, flexWrap: 'nowrap' }]}>
+                <Pressable
+                    style={heightUnitValueChecked === 'ft' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                    onPress={() => setHeightUnitValueChecked('ft')}
+                ><Text style={textStyles.text}>ft</Text></Pressable>
+                <Pressable
+                    style={heightUnitValueChecked === 'cm' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                    onPress={() => setHeightUnitValueChecked('cm')}
+                ><Text style={textStyles.text}>cm</Text></Pressable>
+            </View>
+            {heightUnitValueChecked === "ft" ?
+                <View>
+                    <View style={containerStyles.row}>
+                        <Text style={textInputStyles.label}>feet</Text>
+                        <Text style={textInputStyles.label}>inches</Text>
                     </View>
-
-                    {heightUnitValueChecked === "ft" ?
-                        <View>
-                            <View style={containerStyles.row}>
-                                <Text style={textInputStyles.label}>feet</Text>
-                                <Text style={textInputStyles.label}>inches</Text>
-                            </View>
-                            <View style={containerStyles.row}>
-                                <TextInput
-                                    style={textInputStyles.textInput}
-                                    value={ftInputValue}
-                                    onChangeText={setFtInputValue}
-                                    // placeholder={"feet"}
-                                />
-                                <TextInput
-                                    style={textInputStyles.textInput}
-                                    value={inInputValue}
-                                    onChangeText={setInInputValue}
-                                    //placeholder={"inches"}
-                                />
-                            </View>
-                        </View>
-                        :
-                        <View>
-                            <View style={containerStyles.row}>
-                                <Text style={textInputStyles.label}>cm</Text>
-                            </View>
-                            <View style={containerStyles.row}>
-                                <TextInput
-                                    style={textInputStyles.textInput}
-                                    value={cmInputValue}
-                                    onChangeText={setCmInputValue}
-                                    placeholder={"cm"}
-                                />
-                            </View>
-                        </View>
-                    }
-
-                    <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
-                        <Text>Add your weight:  </Text>
-                        <Pressable
-                            style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                            onPress={() => setWeightUnitValueChecked('lbs')}
-                        >
-                            <Text>lbs</Text></Pressable>
-                        <Pressable
-                            style={weightUnitValueChecked === 'kg' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                            onPress={() => setWeightUnitValueChecked('kg')}
-                        ><Text>kg</Text></Pressable>
-                    </View>
-                    <View>
-                        <Text style={textInputStyles.label}>{weightUnitValueChecked}</Text>
+                    <View style={containerStyles.row}>
                         <TextInput
                             style={textInputStyles.textInput}
-                            value={weightInputValue}
-                            onChangeText={setWeightInputValue}
-                            placeholder={"weight (" + weightUnitValueChecked + ")"}
+                            value={ftInputValue}
+                            onChangeText={setFtInputValue}
+                            // placeholder={"feet"}
                         />
-
-                    </View>
-
-                    <View style={[{ paddingLeft: 15, paddingTop: 15 }]}>
-                        <View style={containerStyles.row}>
-                            <Text>Biological Sex*</Text>
-                        </View>
-
-                        <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15 }]}>
-                            <Pressable
-                                style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                                onPress={() => setSexValueChecked('female')}
-                            ><Text>Female</Text></Pressable>
-                            <Pressable
-                                style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
-                                onPress={() => setSexValueChecked('male')}
-                            ><Text>Male</Text></Pressable>
-                        </View>
-                    </View>
-                    {showInvalidInputText && <Text>Invalid Input, Try Again</Text>} 
-                    <View>
-                        <Pressable
-                            onPress={handleAddPersonalDetails}
-                            style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
-                        ><Text style={textStyles.whiteSemiBoldText}>Save</Text></Pressable>
-                    </View>
-                    <View style={[containerStyles.row, { paddingHorizontal: 15, paddingVertical: 15 }]}>
-                        <Text style={textStyles.redSemiBoldText}>Please note: </Text>
-                        <Text>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
+                        <TextInput
+                            style={textInputStyles.textInput}
+                            value={inInputValue}
+                            onChangeText={setInInputValue}
+                            //placeholder={"inches"}
+                        />
                     </View>
                 </View>
+                :
+                <View>
+                    <View style={containerStyles.row}>
+                        <Text style={textInputStyles.label}>cm</Text>
+                    </View>
+                    <View style={containerStyles.row}>
+                        <TextInput
+                            style={textInputStyles.textInput}
+                            value={cmInputValue}
+                            onChangeText={setCmInputValue}
+                            placeholder={"cm"}
+                        />
+                    </View>
+                </View>
+            }
 
-                
-            </ScrollView>
-        </View >
+            <View style={[containerStyles.row, { paddingLeft: 15, paddingTop: 15 }]}>
+                <Text>Add your weight:  </Text>
+                <Pressable
+                    style={weightUnitValueChecked === 'lbs' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                    onPress={() => setWeightUnitValueChecked('lbs')}
+                >
+                    <Text>lbs</Text></Pressable>
+                <Pressable
+                    style={weightUnitValueChecked === 'kg' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                    onPress={() => setWeightUnitValueChecked('kg')}
+                ><Text>kg</Text></Pressable>
+            </View>
+            <View>
+                <Text style={textInputStyles.label}>{weightUnitValueChecked}</Text>
+                <TextInput
+                    style={textInputStyles.textInput}
+                    value={weightInputValue}
+                    onChangeText={setWeightInputValue}
+                    placeholder={"weight (" + weightUnitValueChecked + ")"}
+                />
+
+            </View>
+
+            <View style={[{ paddingLeft: 15, paddingTop: 15 }]}>
+                <View style={containerStyles.row}>
+                    <Text>Biological Sex*</Text>
+                </View>
+
+                <View style={[containerStyles.row, { justifyContent: 'center', paddingVertical: 15 }]}>
+                    <Pressable
+                        style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                        onPress={() => setSexValueChecked('female')}
+                    ><Text>Female</Text></Pressable>
+                    <Pressable
+                        style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
+                        onPress={() => setSexValueChecked('male')}
+                    ><Text>Male</Text></Pressable>
+                </View>
+            </View>
+            {showInvalidInputText && <Text>Invalid Input, Try Again</Text>} 
+            <View>
+                <Pressable
+                    onPress={handleAddPersonalDetails}
+                    style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
+                ><Text style={textStyles.whiteSemiBoldText}>Save</Text></Pressable>
+            </View>
+            <View style={[containerStyles.row, { paddingHorizontal: 15, paddingVertical: 15 }]}>
+                <Text style={textStyles.redSemiBoldText}>Please note: </Text>
+                <Text>We are using a BAC algorithm that distinguishes between male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Unfortunately, current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
+            </View>
+        </View>
     )
 };
 

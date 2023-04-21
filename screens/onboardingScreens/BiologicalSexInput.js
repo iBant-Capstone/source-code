@@ -7,7 +7,6 @@ import validateSexInput from '../../components/inputValidationPersonalDetails/va
 import InvalidInputWarning from '../../components/InvalidInputWarning';
 
 // Import styles
-import { styles } from '../../components/styles';
 import { containerStyles } from '../../components/styles/containerStyles';
 import { buttonStyles } from '../../components/styles/buttonStyles';
 import { textStyles } from '../../components/styles/textStyles';
@@ -41,15 +40,15 @@ const BiologicalSex = ({ navigation, route }) => {
                 <Pressable
                     style={sexValueChecked === 'female' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setSexValueChecked('female')}
-                ><Text>Female</Text></Pressable>
+                ><Text style={textStyles.text}>Female</Text></Pressable>
                 <Pressable
                     style={sexValueChecked === 'male' ? [buttonStyles.radioButton, buttonStyles.alignCenter] : [buttonStyles.radioButton, buttonStyles.radioButtonNotSelected, buttonStyles.alignCenter]}
                     onPress={() => setSexValueChecked('male')}
-                ><Text>Male</Text></Pressable>
+                ><Text style={textStyles.text}>Male</Text></Pressable>
             </View>
-            <View style={{ paddingHorizontal: 15 }}>
+            <View style={containerStyles.horizontalPadding}>
                 <Text style={textStyles.redSemiBoldText}>Please note:</Text>
-                <Text>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
+                <Text style={textStyles.text}>We are using an algorithm that uses male-bodied and female-bodied individuals as a shortcut for defining body mass, fat distribution, and enzymes. Current research on BAC calculation for trans or intersex individuals is greatly lacking.</Text>
             </View>
             {showInvalidInputText && <InvalidInputWarning />}
             <Footer rightButtonLabel="Next" rightButtonPress={handleSexInput} />

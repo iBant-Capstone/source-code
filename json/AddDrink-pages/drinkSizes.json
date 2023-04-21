@@ -1,23 +1,51 @@
 [
     {
         "id": "wine-glass",
-        "title": "Glass",
+        "title": "Wine Glass",
         "subtitle": "5oz/148ml",
         "icon": "",
         "value": 148
     },
     {
-        "id": "large-bottle",
-        "title": "Large Bottle",
-        "subtitle": "25oz/750ml",
+        "id": "champagne-flute",
+        "title": "Champagne Flute",
+        "subtitle": "6oz/177ml",
         "icon": "",
-        "value": 148
+        "value": 177
     },
     {
         "id": "solo-cup",
         "title": "Solo Cup",
         "subtitle": "12oz/350ml",
         "icon": "",
-        "value": 148
+        "value": 350
+    },
+    {
+        "id": "large-bottle",
+        "title": "Large Bottle",
+        "subtitle": "25oz/750ml",
+        "icon": "",
+        "value": 750
+    },    
+    {
+        "id": "shot",
+        "title": "Shot",
+        "subtitle": "1.5oz/44ml",
+        "icon": "",
+        "value": 44
+    },
+    {
+        "id": "pint",
+        "title": "Pint",
+        "subtitle": "16oz/473ml",
+        "icon": "",
+        "value": 473
+    },
+    {
+        "id": "cocktail-glass",
+        "title": "Standard Cocktail Glass",
+        "subtitle": "8oz/236ml",
+        "icon": "",
+        "value": 236
     }
 ]

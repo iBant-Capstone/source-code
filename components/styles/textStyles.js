@@ -61,10 +61,6 @@ export const textStyles = StyleSheet.create({
         paddingVertical: 10,
         backgroundColor: '#F2C0C5'
     },
-    specialInfoItem: {
-        marginHorizontal: 15, 
-        marginVertical: 10
-      },
 
     // For current BAC page
     currentBACText: {

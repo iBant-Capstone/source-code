@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native'
 import { Dimensions } from 'react-native';
 
 const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 
 export const containerStyles = StyleSheet.create({
     centerWhiteContainer: {
@@ -18,7 +19,7 @@ export const containerStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start'
     },
-    redContainer: { 
+    redContainer: {
         backgroundColor: '#CF5260',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
@@ -63,6 +64,23 @@ export const containerStyles = StyleSheet.create({
         alignContent: "center",
         paddingVertical: '6%'
     },
+
+    // For special topics
+    specialInfoItem: {
+        marginHorizontal: 15, 
+        paddingVertical: 10,
+        width: windowWidth * 0.84
+      },
+
+    // Extra padding
+    leftTopPadding: {
+        paddingLeft: 15,
+        paddingTop: 15
+    },
+    horizontalPadding: {
+        paddingHorizontal: 15
+    },
+
     alignTextCenter: {
         textAlign: 'center'
     }

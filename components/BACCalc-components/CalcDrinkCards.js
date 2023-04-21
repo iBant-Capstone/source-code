@@ -4,7 +4,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Import styles
-import { styles } from '../styles';
 import { containerStyles } from '../styles/containerStyles';
 import { imageStyles } from '../styles/imageStyles';
 import { textStyles } from '../styles/textStyles';

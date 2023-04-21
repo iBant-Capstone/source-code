@@ -1,72 +1,142 @@
 [
     {
         "id": "red/white-wine",
-        "title": "Red/White Wine",
-        "subtitle": "12% ABV",
+        "title": "Standard Wine (Red, White, Rose, Dessert, Sparkling)",
+        "subtitle": "10-15% ABV (average 12.5%)",
         "icon": "",
-        "value": ".12"
+        "value": ".125"
     },
     {
         "id": "sake",
         "title": "Sake",
-        "subtitle": "15% ABV",
+        "subtitle": "13-17% ABV (average 15%)",
         "icon": "",
         "value": ".15"
     },
     {
-        "id": "light-beer",
-        "title": "Light-Beer",
-        "subtitle": "4% ABV",
+        "id": "champagne",
+        "title": "Champagne",
+        "subtitle": "16-24% ABV (average 20%)",
         "icon": "",
-        "value": ".04"
+        "value": ".20"
+    },
+    {
+        "id": "light-beer",
+        "title": "Light Beer",
+        "subtitle": "2-4% ABV (average 3%)",
+        "icon": "",
+        "value": ".03"
     },
     {
         "id": "dark-beer",
-        "title": "Dark-Beer",
-        "subtitle": "6% ABV",
+        "title": "Dark Beer",
+        "subtitle": "6-8% ABV (average 7%)",
+        "icon": "",
+        "value": ".07"
+    },
+    {
+        "id": "hard-cider",
+        "title": "Hard Cider",
+        "subtitle": "5-7% ABV (average 6%)",
         "icon": "",
         "value": ".06"
     },
     {
         "id": "whiskey",
         "title": "Whiskey",
-        "subtitle": "45% ABV",
+        "subtitle": "40-50% ABV (average 45%)",
         "icon": "",
         "value": ".45"
     },
     {
         "id": "brandy",
         "title": "Brandy",
-        "subtitle": "47.5% ABV",
+        "subtitle": "35-60% ABV (average 47.5%)",
         "icon": "",
         "value": ".475"
     },
     {
         "id": "vodka",
         "title": "Vodka",
-        "subtitle": "45% ABV",
+        "subtitle": "40-50% ABV (average 45%)",
         "icon": "",
         "value": ".45"
     },
     {
         "id": "rum",
         "title": "Rum",
-        "subtitle": "57.5% ABV",
+        "subtitle": "40-75% ABV (average 57.5%)",
         "icon": "",
         "value": ".575"
     },
     {
         "id": "gin",
         "title": "Gin",
-        "subtitle": "47.5% ABV",
+        "subtitle": "35-60% ABV (average 47.5%)",
         "icon": "",
         "value": ".475"
     },
     {
         "id": "tequila",
         "title": "Tequila",
-        "subtitle": "47.5% ABV",
+        "subtitle": "40-55% ABV (average 47.5%)",
         "icon": "",
         "value": ".475"
+    },
+    {
+        "id": "martini",
+        "title": "Martini",
+        "subtitle": "Average 30% ABV",
+        "icon": "",
+        "value": ".30"
+    },
+    {
+        "id": "margarita",
+        "title": "Margarita",
+        "subtitle": "Average 33% ABV",
+        "icon": "",
+        "value": ".33"
+    },
+    {
+        "id": "old-fashioned",
+        "title": "Old Fashioned",
+        "subtitle": "Average 37% ABV",
+        "icon": "",
+        "value": ".37"
+    },
+    {
+        "id": "mimosa",
+        "title": "Mimosa",
+        "subtitle": "Average 10% ABV",
+        "icon": "",
+        "value": ".10"
+    },
+    {
+        "id": "bloody-mary",
+        "title": "Bloody Mary",
+        "subtitle": "Average 10% ABV",
+        "icon": "",
+        "value": ".10"
+    },
+    {
+        "id": "cosmopolitan",
+        "title": "Cosmopolitan",
+        "subtitle": "Average 27% ABV",
+        "icon": "",
+        "value": ".27"
+    },
+    {
+        "id": "manhattan",
+        "title": "Manhattan",
+        "subtitle": "Average 30% ABV",
+        "icon": "",
+        "value": ".30"
+    },
+    {
+        "id": "long-island-iced-tea",
+        "title": "Long Island Iced Tea",
+        "subtitle": "Average 22% ABV",
+        "icon": "",
+        "value": ".22"
     }
 ]

@@ -5,7 +5,7 @@
             {
                 "question": "When will I start to feel the effects of alcohol?",
                 "answerArr": [
-                    {"key": "In healthy people, blood circulates through the body in 90 seconds, which means they can begin to feel the effects of alcohol *within 15 to 45 minutes* after the first drink."}
+                    {"key": "In healthy people, blood circulates through the body in 90 seconds, which means they can begin to feel the effects of alcohol **within 15 to 45 minutes** after the first drink."}
                 ],
                 "sources": [
                     14

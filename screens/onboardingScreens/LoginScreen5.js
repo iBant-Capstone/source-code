@@ -15,8 +15,8 @@ const LoginScreen5 = ({ navigation }) => {
     return (
         <View style={containerStyles.centerWhiteContainer}>
             <Text style={[textStyles.text, textStyles.headerText]}><Ionicons name='alert-outline' style={{ color: '#CF5260', fontSize: 30 }} />Disclaimer<Ionicons name='alert-outline' style={{ color: '#CF5260', fontSize: 30 }} /></Text>
-            <View style={{ paddingHorizontal: 15 }}>
-                <Text>The alcohol-focused algorithms used in this application are based on currently available information. This means that they may <Text style={textStyles.redSemiBoldText}>not</Text> be completely accurate and can change over time.
+            <View style={containerStyles.horizontalPadding}>
+                <Text style={textStyles.text}>The alcohol-focused algorithms used in this application are based on currently available information. This means that they may <Text style={textStyles.redSemiBoldText}>not</Text> be completely accurate and can change over time.
                     {"\n"}{"\n"}<Text style={textStyles.redSemiBoldText}>This app is not meant to substitute the advice of a licensed medical professional. Please use this resource with caution!</Text>
                 </Text>
             </View>

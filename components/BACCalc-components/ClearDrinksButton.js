@@ -5,8 +5,8 @@ import { Text, Pressable } from 'react-native';
 //import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Import styles
-import { styles } from '../styles'
 import { buttonStyles } from '../styles/buttonStyles';
+import { textStyles } from '../styles/textStyles';
 
 const ClearDrinksButton = ({ setBAC, changeDrinksReady }) => {
     return (
@@ -19,7 +19,7 @@ const ClearDrinksButton = ({ setBAC, changeDrinksReady }) => {
             accessibilityLabel="Add a drink"
             style={[buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.defaultButton]}
         >
-            <Text>Clear Drinks</Text>
+            <Text style={textStyles.text}>Clear Drinks</Text>
         </Pressable>
     )
 }
