@@ -26,8 +26,6 @@ import LoginScreen1 from './screens/onboardingScreens/LoginScreen1';
 import LoginScreen2 from './screens/onboardingScreens/LoginScreen2';
 import LoginScreen3 from './screens/onboardingScreens/LoginScreen3';
 import LoginScreen4 from './screens/onboardingScreens/LoginScreen4';
-import LoginScreen5 from './screens/onboardingScreens/LoginScreen5';
-import LoginScreen6 from './screens/onboardingScreens/LoginScreen6';
 import BiologicalSex from './screens/onboardingScreens/BiologicalSexInput';
 import HeightInput from './screens/onboardingScreens/HeightInput';
 import WeightInput from './screens/onboardingScreens/WeightInput';
@@ -251,16 +249,6 @@ export default function App() {
         <obStack.Screen
           name='Login4'
           component={LoginScreen4}
-          options={{ headerShown: false }}
-        />
-        <obStack.Screen
-          name='Login5'
-          component={LoginScreen5}
-          options={{ headerShown: false }}
-        />
-        <obStack.Screen
-          name='Login6'
-          component={LoginScreen6}
           options={{ headerShown: false }}
         />
         <obStack.Screen

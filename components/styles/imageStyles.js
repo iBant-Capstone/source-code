@@ -24,6 +24,11 @@ export const imageStyles = StyleSheet.create({
         minHeight: "50%",
         marginBottom: "10%"
     },
+    medCenterImage: {
+        minHeight: "25%",
+        minWidth: "35%",
+        marginVertical: "10%"
+    },
     // Standard drink image
     standardDrinksImage: {
         width: windowWidth*0.9, // use dimensions? 340
