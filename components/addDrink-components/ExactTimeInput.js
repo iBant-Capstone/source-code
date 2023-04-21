@@ -62,7 +62,7 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
                     accessibilityLabel="Next"
                     style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
                 >
-                    <Text style={textStyles.whiteSemiBoldText}>Next</Text>
+                    <Text style={textStyles.whiteSemiBoldText}>Add Custom Time</Text>
                 </Pressable>
             </View>
         </View>

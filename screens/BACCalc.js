@@ -96,21 +96,6 @@ const BACCalc = ({ navigation, route }) => {
         }
     }, [personalDetails])
 
-
-    // BAC pop-up functions:
-    // Call the popup with given BAC
-    /*function callPopUp(BAC) {
-        console.log("called BAC pop-up");
-        console.log("BAC: ", BAC);
-        return (
-            <View>
-                <Popup BAC={BAC} />
-                //modalVisible={modalVisible}
-                //setModalVisible={setModalVisible}
-            </View>
-        );
-    }*/
-
     if (drinksReady && pdReady) {
         return (
             <ScrollView>
