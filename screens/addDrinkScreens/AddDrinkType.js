@@ -1,11 +1,11 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 
-import AddDrinkCards from '../../components/AddDrink-components/AddDrinkCards';
+import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
 import types from "../../json/AddDrink-pages/drinkTypes.json"
 
-import handleInput from '../../components/AddDrink-components/handleInput';
+import handleInput from '../../components/addDrink-components/handleInput';
 
 const AddDrinkType = ({ route, navigation }) => {
     let drinks = route.params.drinks

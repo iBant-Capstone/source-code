@@ -37,6 +37,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // Import fonts
 import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback } from 'react';
 
 // creating navigators for each of our sections
 // ob = onboarding
@@ -214,6 +216,16 @@ export default function App() {
     'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
     'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf')
   });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   // app starts with the onboarding stack and then links to the welcome/infohub page
   return (
