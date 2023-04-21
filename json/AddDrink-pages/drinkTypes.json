@@ -4,7 +4,7 @@
         "subtitle": "ex. red or white wine, champagne...",
         "icon": "",
         "value": "Wine/Sake",
-        "sizes": ["wine-glass", "champagne-flute", "solo-cup", "large-bottle"],
+        "sizes": ["wine-glass", "champagne-flute", "solo-cup", "sake-cup", "sake-flask", "large-wine-bottle"],
         "strengths": ["red/white-wine", "champagne", "sake"]
     },
     {
@@ -20,7 +20,7 @@
         "subtitle": "ex. whiskey, vodka, gin, tequila...",
         "icon": "",
         "value": "Liquor",
-        "sizes": ["shot", "pint"],
+        "sizes": ["shot", "double-shot", "pint"],
         "strengths": ["whiskey", "brandy", "vodka", "rum", "gin", "tequila"]
     },
     {

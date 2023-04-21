@@ -12,12 +12,8 @@ const AddDrinkSizeCustomInput = ({ handleAddDrinksInput }) => {
     const [sizeInputValue, setSizeInputValue] = useState(0)
 
     const handlePress = () => {
-        // TODO add in checks here
         // TODO add in option for oz here
-        handleAddDrinksInput({
-            unit: "ml",
-            size: sizeInputValue
-        })
+        handleAddDrinksInput(sizeInputValue)
     }
 
     return (

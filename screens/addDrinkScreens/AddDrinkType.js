@@ -13,7 +13,7 @@ const AddDrinkType = ({ route, navigation }) => {
 
     let data = types
     let newKey = "name"
-    let nextPage = "AddDrinkSize"
+    let nextPage = "AddDrinkStrength"
 
     const handleAddDrinksInput = (newValue) => {
         handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)

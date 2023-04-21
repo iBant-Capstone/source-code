@@ -14,7 +14,7 @@ const AddDrinkTime = ({ route, navigation }) => {
 
     let data = relativeTimeValues
     let newKey = "timeOfDrink"
-    let nextPage = "BACCalc"
+    let nextPage = "AddDrinkHunger"
 
     const handleRelativeTimeInput = (minAgo) => {
         let date = new Date();
