@@ -120,7 +120,7 @@ const BACCalc = ({ navigation, route }) => {
                     <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer, { justifyContent: undefined}]}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
                         <CalcDrinkCards drinks={drinks} navigation={navigation} changeDrinksReady={handleChangeDrinksReady} />
-                        <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
+                        {/* <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} /> */}
                         <GetHomeSafelySection BAC={BAC} />
                     </View>
                 </View>

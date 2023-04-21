@@ -83,5 +83,10 @@ export const containerStyles = StyleSheet.create({
 
     alignTextCenter: {
         textAlign: 'center'
+    },
+
+    flexAndAlignItemsCenter: {
+        display: "flex",
+        alignItems: "center"
     }
 })

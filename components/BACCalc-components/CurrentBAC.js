@@ -16,6 +16,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
     let [drinksPDState, setDrinksPDState] = useState(false)
 
     useEffect(() => {
+        console.log('drinksPassedIn', drinks)
         async function addToAsyncDataWrapped() {
             await addToAsyncData();
             setDrinksPDState(true)
@@ -61,6 +62,9 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
                 widmarkFactor: widmarkFactor
             }
             await setFullPersonalDetails(fleshedOutPersonalDetails)
+
+            console.log('processed drinks', fleshedOutDrinksList)
+            console.log('processed personalDetails', fleshedOutPersonalDetails)
         } catch (err) {
             console.log(err)
         }
