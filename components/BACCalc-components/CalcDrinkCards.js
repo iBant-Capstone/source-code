@@ -28,20 +28,23 @@ const CalcDrinkCards = ({ drinks, navigation, changeDrinksReady } ) => {
     }
   }
 
-  // var dateToDisplay = new Date(drink.timeOfDrink).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-
   return (
     <View style={{ width: '100%' }}>
       {drinks.length !== 0 ?
         <View style={containerStyles.row}>
           {drinks.map((drink, index) => (
-            <View key={index} style={[drinkCardStyles.drinkCard, containerStyles.row]}>
-              <Text style={[drinkCardStyles.timeContainer, textStyles.redSemiBoldText, textStyles.smallText]}>{new Date(drink.timeOfDrink).toLocaleString('en-US', { month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}</Text>
-              <View style={drinkCardStyles.infoContainer}>
-                <Text style={textStyles.boldText}>{drink.name} ({(drink.strength * 100).toFixed(1)}%)</Text>
-                <Text style={[textStyles.text, textStyles.smallText]}>{drink.size.value * 1e3} ml</Text>
+            <View key={index} style={[drinkCardStyles.drinkCard, containerStyles.row, {display: "flex", justifyContent:"space-between"}]}>
+              <View style={{display:"flex", flexDirection:"row"}}>
+                <View style={{display: "flex", alignItems: 'center', flexDirection:'column', justifyContent:'center'}}>
+                  <Text style={[textStyles.redSemiBoldText, textStyles.smallText]}>{new Date(drink.timeOfDrink).toLocaleString('en-US', { month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }).split(', ')[0]}</Text>
+                  <Text style={[textStyles.redSemiBoldText, textStyles.smallText]}>{new Date(drink.timeOfDrink).toLocaleString('en-US', { month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }).split(', ')[1]}</Text>
+                </View>
+                <View style={{display: "flex", justifyContent:'center', marginLeft: 10}}>
+                  <Text style={textStyles.boldText}>{drink.name} ({(drink.strength * 100).toFixed(1)}%)</Text>
+                  <Text style={[textStyles.text, textStyles.smallText]}>{drink.size.value * 1e3} ml</Text>
+                </View>
               </View>
-              <Pressable style={drinkCardStyles.timeContainer} onPress={() => handleDelete(drink)}>
+              <Pressable onPress={() => handleDelete(drink)}>
                 <Ionicons name='close' style={imageStyles.deleteIcon}  />
               </Pressable>
             </View>

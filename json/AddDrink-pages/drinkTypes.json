@@ -2,7 +2,7 @@
     {
         "title": "Wine/Sake",
         "subtitle": "ex. red or white wine, champagne...",
-        "icon": "",
+        "icon": "cocktail.png",
         "value": "Wine/Sake",
         "sizes": ["wine-glass", "champagne-flute", "solo-cup", "sake-cup", "sake-flask", "large-wine-bottle"],
         "strengths": ["red/white-wine", "champagne", "sake"]
@@ -10,7 +10,7 @@
     {
         "title": "Beer/Cider",
         "subtitle": "ex. IPA, Hops, hard cider...",
-        "icon": "",
+        "icon": "cocktail.png",
         "value": "Beer/Cider",
         "sizes": ["solo-cup"],
         "strengths": ["light-beer", "dark-beer", "hard-cider"]
@@ -18,7 +18,7 @@
     {
         "title": "Liquor",
         "subtitle": "ex. whiskey, vodka, gin, tequila...",
-        "icon": "",
+        "icon": "cocktail.png",
         "value": "Liquor",
         "sizes": ["shot", "double-shot", "pint"],
         "strengths": ["whiskey", "brandy", "vodka", "rum", "gin", "tequila"]
@@ -26,7 +26,7 @@
     {
         "title": "Cocktails/Mixed Drinks",
         "subtitle": "ex. martini, margarita, mimosa...",
-        "icon": "",
+        "icon": "cocktail.png",
         "value": "Cocktails/Mixed Drinks",
         "sizes": ["shot", "cocktail-glass"],
         "strengths": ["martini", "margarita", "old-fashioned", "mimosa", "bloody-mary", "cosmopolitan", "manhattan", "long-island-iced-tea"]

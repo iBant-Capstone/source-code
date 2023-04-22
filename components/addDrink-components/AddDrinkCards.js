@@ -5,7 +5,7 @@ import AddDrinkCard from './AddDrinkCard';
 
 const AddDrinkCards = ({ data, handleAddDrinksInput }) => {
     return (
-        <View>
+        <View style={{paddingTop: 10}}>
             {data.map((option, index) => {
                 return <AddDrinkCard key={index} option={option} handleAddDrinksInput={handleAddDrinksInput}/>
             })}

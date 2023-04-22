@@ -108,4 +108,14 @@ export const textStyles = StyleSheet.create({
         paddingVertical: '15px'
     },
 
+    // For addDrinkCards
+    addDrinkCardTitle: {
+        fontSize: 16,
+        color: "#383838"
+    },
+    addDrinkCardSubtitle: {
+        fontSize: 12,
+        color: "#383838"
+    }
+
 })

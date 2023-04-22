@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, Image } from 'react-native';
+
 
 import { containerStyles } from '../styles/containerStyles';
 import { textStyles } from '../styles/textStyles';
@@ -13,12 +14,15 @@ const AddDrinkCard = ({ option, handleAddDrinksInput }) => {
 
     return (
         <Pressable
-            style={[drinkCardStyles.drinkCard, containerStyles.row]}
+            style={[containerStyles.row, drinkCardStyles.addDrinkCard]}
             onPress={handlePress}
         >
-            <View style={drinkCardStyles.infoContainer}>
-                <Text style={textStyles.boldText}>{option.title}</Text>
-                <Text style={textStyles.smallText}>{option.subtitle}</Text>
+            <View style={{display: "flex", flexDirection:"row", alignContent:'center'}} >
+                <Image style={{height: 40, width: 40, marginLeft: 16}} source={require('../../assets/alcohol-icons/' + option.icon)} />
+                <View style={{marginLeft: 28, display:"flex", justifyContent:"center"}} >
+                    <Text style={[textStyles.boldText, textStyles.addDrinkCardTitle]}>{option.title}</Text>
+                    <Text style={[textStyles.smallText, textStyles.addDrinkCardSubtitle]}>{option.subtitle}</Text>
+                </View>
             </View>
         </Pressable>
     )

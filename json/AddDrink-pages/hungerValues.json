@@ -1,22 +1,22 @@
 [
     {
         "title": "Full",
-        "icon": "",
+        "icon": "cocktail.png",
         "value": "15"
     },
     {
         "title": "Not Hungry",
-        "icon": "",
+        "icon": "cocktail.png",
         "value": "12"
     },
     {
         "title": "Hungry",
-        "icon": "",
+        "icon": "cocktail.png",
         "value": "19"
     },
     {
         "title": "Very Hungry",
-        "icon": "",
+        "icon": "cocktail.png",
         "value": "6"
     }
 ]
