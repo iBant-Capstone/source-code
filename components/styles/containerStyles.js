@@ -23,6 +23,7 @@ export const containerStyles = StyleSheet.create({
         backgroundColor: '#CF5260',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
+        justifyContent: "flex-start"
     },
     centerContainer: {
         alignItems: 'center',

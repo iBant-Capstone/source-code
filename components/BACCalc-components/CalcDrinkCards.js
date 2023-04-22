@@ -29,7 +29,7 @@ const CalcDrinkCards = ({ drinks, navigation, changeDrinksReady } ) => {
   }
 
   return (
-    <View style={{ width: '100%' }}>
+    <View style={{ width: '100%' , marginTop:32}}>
       {drinks.length !== 0 ?
         <View style={containerStyles.row}>
           {drinks.map((drink, index) => (
