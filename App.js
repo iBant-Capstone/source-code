@@ -114,11 +114,6 @@ function BACStackComponent() {
       options={({ route }) => ({ title: 'BAC Calculator', headerShown: false })}
     />
     <bacStack.Screen
-      name='AddDrinkPage'
-      component={AddDrinkPage}
-      options={({ route }) => ({ title: 'Add Drink' })}
-    />
-    <bacStack.Screen
       name='AddDrinkType'
       component={AddDrinkType}
       options={({ route }) => ({ title: 'Add Drink' })}
