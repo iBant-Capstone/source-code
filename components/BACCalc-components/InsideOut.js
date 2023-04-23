@@ -16,6 +16,7 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
 
     // Function to determine BAC inside effects based on given BAC -> need to make async to update when BAC changes?
     const displayInsideBACEffects = (BAC) => {
+
         let i = 0;
         let toReturn = "";
 
@@ -79,7 +80,7 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
                 <Text style={onInside ? textStyles.text : [textStyles.text, textStyles.selectedOption]}>External Effects</Text>
             </Pressable>
 
-            <Text style={{ paddingBottom: 20 }}>{onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>
+            <Text style={{ paddingBottom: 40 }}>{onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>
         </View>
     )
 }

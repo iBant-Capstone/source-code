@@ -97,8 +97,14 @@ export const textStyles = StyleSheet.create({
 
     // For current BAC page
     currentBACText: {
-        fontSize: 32,
-        paddingVertical: '8%'
+        fontSize: 14,
+        // paddingVertical: '8%',
+        fontWeight: 600
+    },
+    currentBACNumber: {
+        fontSize: 40,
+        // paddingVertical: '8%',
+        fontWeight: 600
     },
 
     // For How to Use page

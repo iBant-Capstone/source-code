@@ -19,7 +19,7 @@ const BACCalc = ({ navigation, route }) => {
     const [drinks, setDrinks] = useState(route && route.drinks ? route.drinks : null)
     const [personalDetails, setPersonalDetails] = useState(route && route.personalDetails ? route.personalDetails : null)
 
-    const [BAC, setBAC] = useState(0)
+    const [BAC, setBAC] = useState(null)
     const [onInside, setOnInside] = useState(true)
 
     const [drinksReady, changeDrinksReady] = useState(false)
@@ -104,7 +104,7 @@ const BACCalc = ({ navigation, route }) => {
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
                     <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer ]}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
-                        <CalcDrinkCards drinks={drinks} navigation={navigation} changeDrinksReady={handleChangeDrinksReady} />
+                        <CalcDrinkCards drinks={drinks} setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
                         {/* <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} /> */}
                         <GetHomeSafelySection BAC={BAC} />
                     </View>

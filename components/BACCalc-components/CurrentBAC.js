@@ -16,7 +16,6 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
     let [drinksPDState, setDrinksPDState] = useState(false)
 
     useEffect(() => {
-        console.log('drinksPassedIn', drinks)
         async function addToAsyncDataWrapped() {
             await addToAsyncData();
             setDrinksPDState(true)
@@ -43,7 +42,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
                     drinkUnits: 1, // only one drink, TODO try and remove this being needed later
                 })
             })
-            await setDrinksConsumed(fleshedOutDrinksList)
+            setDrinksConsumed(fleshedOutDrinksList)
 
             // ___ PERSONAL DETAILS ___
             // get the right measures for caluclating the widmark factor
@@ -61,10 +60,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
                 ...personalDetails,
                 widmarkFactor: widmarkFactor
             }
-            await setFullPersonalDetails(fleshedOutPersonalDetails)
-
-            console.log('processed drinks', fleshedOutDrinksList)
-            console.log('processed personalDetails', fleshedOutPersonalDetails)
+            setFullPersonalDetails(fleshedOutPersonalDetails)
         } catch (err) {
             console.log(err)
         }
@@ -178,12 +174,10 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
         return .62544 + .13664 * heightInMeters - weightInKilograms * (.00189 + .002425 / (heightInMeters * heightInMeters)) + 1 / (weightInKilograms * (.57986 + 2.54 * heightInMeters - .02255 * 30))
     }
 
-    // We first check that there are drinks to calculate and then we check to see if the BAC is calculated
     return (
-        <View>
-            <View style={containerStyles.centerContainer}>
-                <Text style={textStyles.currentBACText}>Current BAC: <Text style={textStyles.redSemiBoldText}>{Number(BAC).toFixed(2)}%</Text></Text>
-            </View>
+        <View style={[containerStyles.centerContainer, {paddingTop: 64, paddingBottom: 40}]}>
+            <Text style={textStyles.currentBACText}>CURRENT BAC</Text>
+            <Text style={[textStyles.redSemiBoldText, textStyles.currentBACNumber]}>{Number(BAC).toFixed(2)}%</Text>
         </View>
     )
 }

@@ -9,7 +9,7 @@ import { imageStyles } from '../styles/imageStyles';
 import { textStyles } from '../styles/textStyles';
 import { drinkCardStyles } from '../styles/drinkCardStyles';
 
-const CalcDrinkCards = ({ drinks, navigation, changeDrinksReady } ) => {
+const CalcDrinkCards = ({ drinks, setBAC, changeDrinksReady } ) => {
   // console.log(drinks);
   // console.log(typeof(drinks));
   // console.log(drinks.filter(item => !item.hasOwnProperty('name') || item.name !== 'Wine/Sake (15.0%)'))
@@ -21,7 +21,11 @@ const CalcDrinkCards = ({ drinks, navigation, changeDrinksReady } ) => {
       let drinksToSend = JSON.stringify(drinksDelete)
       await AsyncStorage.setItem('drinks', drinksToSend)
       changeDrinksReady(false)
-      //navigation.navigate('BAC Calc')
+
+      // makes sure we set the BAC to zero if we're at the last one
+      if (drinksToSend == "[]") {
+        setBAC(0)
+      }
     }
     catch (error) {
       console.log(error);
@@ -51,7 +55,7 @@ const CalcDrinkCards = ({ drinks, navigation, changeDrinksReady } ) => {
           ))}
         </View>
         :
-        <Text style={{ color: 'white' }}>Add in drinks to see cards</Text>
+        <Text style={{ color: 'white' }}></Text>
       }
     </View>
   )
