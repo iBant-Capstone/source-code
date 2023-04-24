@@ -19,7 +19,9 @@ const AddDrinkSize = ({ route, navigation }) => {
 
     // Finds the sizes we need to display based on what type we selected in the screen before
     useEffect(() => {
-        setData(displayBasedOnType(types, newDrink, 'strengths', strengths))
+        let filteredData = displayBasedOnType(types, newDrink, 'strengths', strengths)
+        let sortedData = filteredData.sort((a, b) => (a.title > b.title) ? 1 : -1);
+        setData(sortedData)
     }, [])
 
     const handleAddDrinksInput = (strengthValue) => {
