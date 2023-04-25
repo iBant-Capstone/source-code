@@ -1,22 +1,22 @@
 [
     {
         "title": "10 minutes ago",
-        "icon": "cocktail.png",
+        "icon": "10-min.png",
         "value": "10"
     },
     {
         "title": "30 minutes ago",
-        "icon": "cocktail.png",
+        "icon": "30-min.png",
         "value": "30"
     },
     {
         "title": "1 hour ago",
-        "icon": "cocktail.png",
+        "icon": "1-hour.png",
         "value": "60"
     },
     {
         "title": "2 hours ago",
-        "icon": "cocktail.png",
+        "icon": "2-hours.png",
         "value": "120"
     }
 ]
