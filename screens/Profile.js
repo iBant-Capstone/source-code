@@ -63,8 +63,7 @@ const Profile = (props) => {
             {/* Waits for the personaldetails to have been gathered and set before we show the profile section */}
             {hasFocused ?
                 <View style={containerStyles.centerContainer}>
-                    <Text style={{ marginBottom: 15 }}>Edit your profile information or learn more about BACtracker!</Text>
-                    <View style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]} >
+                    <View style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton, {marginTop: 32}]} >
                         <Table>
                             <TableWrapper style={{ flexDirection: 'row' }}>
                                 <Cell data={"Height: "} width={100} textStyle={textStyles.whiteSemiBoldText} />

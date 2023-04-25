@@ -8,7 +8,7 @@ import { textStyles } from '../../components/styles/textStyles';
 
 const PersonalDetailsSaveButton = ({ handleAddPersonalDetails }) => {
     return (
-        <View style={containerStyles.centerContainer}>
+        <View style={[containerStyles.centerContainer, {paddingTop: 32}]}>
             <Pressable
                 onPress={handleAddPersonalDetails}
                 style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]}
