@@ -18,9 +18,9 @@ const SectionHeaderWithRadioButtons = ({ headerText, unitValueChecked, setUnitVa
     }
 
     return (
-        <View style={[containerStyles.row, containerStyles.leftTopPadding, {display: "flex", justifyContent: "space-between", paddingRight:24, alignItems: "center"}]}>
+        <View style={[containerStyles.row, containerStyles.leftTopPadding, {display: "flex", justifyContent: "space-between", paddingHorizontal:24, alignItems: "center"}]}>
             <Text style={textStyles.boldText}>{headerText}</Text>
-            <View style={{display: "flex", flexDirection: "row"}}>
+            <View style={{display: "flex", flexDirection: "row", paddingRight: 8}}>
                 <CustomRadioButton unitValueChecked={unitValueChecked} setUnitValue={setUnitValue} unitOption={unitOption1} />
                 <CustomRadioButton unitValueChecked={unitValueChecked} setUnitValue={setUnitValue} unitOption={unitOption2} />
             </View>

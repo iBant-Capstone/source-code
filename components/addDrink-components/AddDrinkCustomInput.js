@@ -29,7 +29,7 @@ const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPress
                 unitOption2={"ml"}
             />
             <TextInput
-                style={[textInputStyles.textInput, textInputStyles.largeTextInput]}
+                style={[textInputStyles.textInput, textInputStyles.largeTextInput, {marginTop: 8}]}
                 value={inputValue}
                 onChangeText={setInputValue}
                 placeholder={placeholderText}

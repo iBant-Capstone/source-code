@@ -153,10 +153,7 @@ const EditProfilePage = ({ navigation }) => {
                         <TitleText name={"Edit"} />
                         <Image style={imageStyles.rightImage} source={require('../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
                     </View>
-                    <View >
-                        <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
-                            <Text>Enter your information to enable the BAC calculator</Text>
-                        </View>
+                    <View style={{paddingTop: 16}}>
 
                         {/* Height Header */}
                         <SectionHeaderWithRadioButtons 
