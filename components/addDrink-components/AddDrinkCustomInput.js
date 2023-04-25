@@ -20,7 +20,7 @@ const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPress
     }
 
     return (
-        <View>
+        <View style={{background: "white"}}>
             <SectionHeaderWithRadioButtons
                 headerText={"Custom " + inputDescriptor}
                 unitValueChecked={unitValueChecked}
@@ -29,13 +29,13 @@ const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPress
                 unitOption2={"ml"}
             />
             <TextInput
-                style={[textInputStyles.textInput, textInputStyles.largeTextInput, {marginTop: 8}]}
+                style={[textInputStyles.textInput, textInputStyles.largeTextInput, {marginTop: 8, marginBottom: 8}]}
                 value={inputValue}
                 onChangeText={setInputValue}
                 placeholder={placeholderText}
                 placeholderTextColor={'grey'}
             />
-            <View style={containerStyles.centerContainer}>
+            <View style={[containerStyles.centerContainer]}>
                 <Pressable
                     onPress={handlePress}
                     accessibilityLabel={"Button to add custom " + inputDescriptor}
