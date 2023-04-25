@@ -11,6 +11,7 @@ import { drinkCardStyles } from '../styles/drinkCardStyles';
 
 const CalcDrinkCards = ({ drinks, setBAC, changeDrinksReady } ) => {
 
+  
   const handleDelete = async (drink) => {
     //console.log("inside handleDelete", drink);
     try {
