@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native';
 
 import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
-import AddDrinkSizeCustomInput from '../../components/addDrink-components/AddDrinkSizeCustomInput';
+import AddDrinkCustomInput from '../../components/addDrink-components/AddDrinkCustomInput';
 
 import displayBasedOnType from '../../components/addDrink-components/displayBasedOnType';
 import handleInput from '../../components/addDrink-components/handleInput';
@@ -35,7 +35,12 @@ const AddDrinkSize = ({ route, navigation }) => {
         return (
             <ScrollView>
                 <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
-                <AddDrinkSizeCustomInput handleAddDrinksInput={handleAddDrinksInput} />
+                <AddDrinkCustomInput 
+                    inputDescriptor={"Size"}
+                    placeholderText={"125, 54, ..."}
+                    presetUnitPressed={"ml"}
+                    handleAddDrinksInput={handleAddDrinksInput} 
+                />
             </ScrollView>
         )
     } else {
