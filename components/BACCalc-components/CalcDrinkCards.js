@@ -10,9 +10,6 @@ import { textStyles } from '../styles/textStyles';
 import { drinkCardStyles } from '../styles/drinkCardStyles';
 
 const CalcDrinkCards = ({ drinks, setBAC, changeDrinksReady } ) => {
-  // console.log(drinks);
-  // console.log(typeof(drinks));
-  // console.log(drinks.filter(item => !item.hasOwnProperty('name') || item.name !== 'Wine/Sake (15.0%)'))
 
   const handleDelete = async (drink) => {
     //console.log("inside handleDelete", drink);
@@ -32,6 +29,16 @@ const CalcDrinkCards = ({ drinks, setBAC, changeDrinksReady } ) => {
     }
   }
 
+  const mlToOz = (valueInMl) => {
+    let valueInOz = (valueInMl * 1e3 / 29.5735296875).toFixed(1)
+    return valueInOz
+  }
+
+  const mlToFixed = (valueInMl) => {
+    let mlFixed = (valueInMl * 1e3).toFixed(1)
+    return mlFixed
+  }
+
   return (
     <View style={{ width: '100%' , marginTop:32}}>
       {drinks.length !== 0 ?
@@ -45,7 +52,7 @@ const CalcDrinkCards = ({ drinks, setBAC, changeDrinksReady } ) => {
                 </View>
                 <View style={{display: "flex", justifyContent:'center', marginLeft: 10}}>
                   <Text style={textStyles.boldText}>{drink.name} ({(drink.strength * 100).toFixed(1)}%)</Text>
-                  <Text style={[textStyles.text, textStyles.smallText]}>{drink.size.value * 1e3} ml</Text>
+                  <Text style={[textStyles.text, textStyles.smallText]}>{mlToOz(drink.size.value)}oz/{mlToFixed(drink.size.value)}ml</Text>
                 </View>
               </View>
               <Pressable onPress={() => handleDelete(drink)}>
