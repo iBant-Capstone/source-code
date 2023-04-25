@@ -87,56 +87,56 @@
         "id": "martini",
         "title": "Martini",
         "subtitle": "Average 30% ABV",
-        "icon": "cocktail.png",
+        "icon": "martini.png",
         "value": ".30"
     },
     {
         "id": "margarita",
         "title": "Margarita",
         "subtitle": "Average 33% ABV",
-        "icon": "cocktail.png",
+        "icon": "margarita.png",
         "value": ".33"
     },
     {
         "id": "old-fashioned",
         "title": "Old Fashioned",
         "subtitle": "Average 37% ABV",
-        "icon": "cocktail.png",
+        "icon": "old-fashioned.png",
         "value": ".37"
     },
     {
         "id": "mimosa",
         "title": "Mimosa",
         "subtitle": "Average 10% ABV",
-        "icon": "cocktail.png",
+        "icon": "mimosa.png",
         "value": ".10"
     },
     {
         "id": "bloody-mary",
         "title": "Bloody Mary",
         "subtitle": "Average 10% ABV",
-        "icon": "cocktail.png",
+        "icon": "bloody-mary.png",
         "value": ".10"
     },
     {
         "id": "cosmopolitan",
         "title": "Cosmopolitan",
         "subtitle": "Average 27% ABV",
-        "icon": "cocktail.png",
+        "icon": "cosmopolitan.png",
         "value": ".27"
     },
     {
         "id": "manhattan",
         "title": "Manhattan",
         "subtitle": "Average 30% ABV",
-        "icon": "cocktail.png",
+        "icon": "manhattan.png",
         "value": ".30"
     },
     {
         "id": "long-island-iced-tea",
         "title": "Long Island Iced Tea",
         "subtitle": "Average 22% ABV",
-        "icon": "cocktail.png",
+        "icon": "long-island.png",
         "value": ".22"
     }
 ]

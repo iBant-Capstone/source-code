@@ -3,70 +3,70 @@
         "id": "wine-glass",
         "title": "Wine Glass",
         "subtitle": "5oz/148ml",
-        "icon": "cocktail.png",
+        "icon": "wine-glass.png",
         "value": 148
     },
     {
         "id": "champagne-flute",
         "title": "Champagne Flute",
         "subtitle": "6oz/177ml",
-        "icon": "cocktail.png",
+        "icon": "champagne-flute.png",
         "value": 177
     },
     {
         "id": "solo-cup",
         "title": "Solo Cup",
         "subtitle": "12oz/350ml",
-        "icon": "cocktail.png",
+        "icon": "solo-cup.png",
         "value": 350
     },
     {
         "id": "sake-cup",
         "title": "Sake Cup",
         "subtitle": "1.5oz/44ml",
-        "icon": "cocktail.png",
+        "icon": "sake-cup.png",
         "value": 44
     },
     {
         "id": "sake-flask",
         "title": "Sake Flask",
         "subtitle": "6oz/177ml",
-        "icon": "cocktail.png",
+        "icon": "sake-flask.png",
         "value": 177
     },
     {
         "id": "large-wine-bottle",
         "title": "Large Wine Bottle",
         "subtitle": "25oz/750ml",
-        "icon": "cocktail.png",
+        "icon": "wine-bottle.png",
         "value": 750
     },    
     {
         "id": "shot",
         "title": "Shot",
         "subtitle": "1.5oz/44ml",
-        "icon": "cocktail.png",
+        "icon": "shot.png",
         "value": 44
     },
     {
         "id": "double-shot",
         "title": "Double Shot",
         "subtitle": "3oz/88ml",
-        "icon": "cocktail.png",
+        "icon": "double-shot.png",
         "value": 88
     },
     {
         "id": "pint",
         "title": "Pint",
         "subtitle": "16oz/473ml",
-        "icon": "cocktail.png",
+        "icon": "pint-glass.png",
         "value": 473
     },
     {
         "id": "cocktail-glass",
         "title": "Standard Cocktail Glass",
         "subtitle": "8oz/236ml",
-        "icon": "cocktail.png",
+        "icon": "cocktail-glass.png",
         "value": 236
     }
 ]
