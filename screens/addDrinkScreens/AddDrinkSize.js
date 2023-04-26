@@ -23,10 +23,18 @@ const AddDrinkSize = ({ route, navigation }) => {
         setData(displayBasedOnType(types, newDrink, 'sizes', sizes))
     }, [])
 
-    const handleAddDrinksInput = (sizeInMl) => {
-        let newValue = {
-            unit: "ml",
-            value: sizeInMl / 1e3
+    const handleAddDrinksInput = (inputValue, unitValue) => {
+        let newValue = {}
+        if (unitValue == 'oz') {
+            newValue = {
+                unit: 'ml',
+                value: inputValue * 29.5735296 / 1e3
+            }
+        } else {
+            newValue = {
+                unit: unitValue,
+                value: inputValue / 1e3
+            }
         }
         handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
     }

@@ -28,7 +28,7 @@
         "subtitle": "ex. martini, margarita, mimosa...",
         "icon": "cocktail.png",
         "value": "Cocktails/Mixed Drinks",
-        "sizes": ["shot", "cocktail-glass"],
+        "sizes": ["cocktail-glass"],
         "strengths": ["martini", "margarita", "old-fashioned", "mimosa", "bloody-mary", "cosmopolitan", "manhattan", "long-island-iced-tea"]
     }
 ]

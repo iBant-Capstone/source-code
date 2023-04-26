@@ -34,6 +34,13 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
         try {
             // ___ DRINKS CONSUMED ___
             const fleshedOutDrinksList = drinks.map((drink) => {
+                // change from floz to ml if needed 
+                if (drink.size.unit == 'oz') {
+                    drink.size = {
+                        unit: 'ml',
+                        value: drink.size.value * 29.5735296
+                    }
+                }
                 return ({
                     ...drink,
                     drinkFullLife: getDrinkFullLife(drink.halfLife), // TODO evaluate if we need this drinkFullLife if we don't actually touch it
