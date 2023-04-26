@@ -2,9 +2,9 @@ import React from 'react';
 import { Text, View, Pressable } from 'react-native';
 
 // Import styles
-import { containerStyles } from '../../components/styles/containerStyles';
-import { buttonStyles } from '../../components/styles/buttonStyles';
-import { textStyles } from '../../components/styles/textStyles';
+import { containerStyles } from './styles/containerStyles';
+import { buttonStyles } from './styles/buttonStyles';
+import { textStyles } from './styles/textStyles';
 
 const SectionHeaderWithRadioButtons = ({ headerText, unitValueChecked, setUnitValue, unitOption1, unitOption2 }) => {
 
