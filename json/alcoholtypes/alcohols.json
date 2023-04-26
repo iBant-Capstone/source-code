@@ -9,7 +9,8 @@
         ],
         "tags": [
             "Undistilled/Fermented"
-        ]
+        ],
+        "icon": "beer-1.png"
     },
     {
         "alcoholid": "Champagne",
@@ -22,7 +23,8 @@
         "tags": [
             "Undistilled/Fermented",
             "Wine"
-        ]
+        ],
+        "icon": "champagne.png"
     },
 
     {
@@ -35,7 +37,8 @@
         ],
         "tags": [
             "Undistilled/Fermented"
-        ]
+        ],
+        "icon": "hard-cider.png"
     },
     {
         "alcoholid": "Mead",
@@ -47,7 +50,8 @@
         ],
         "tags": [
             "Undistilled/Fermented"
-        ]
+        ],
+        "icon": "hard-cider.png"
     },
     {
         "alcoholid": "Saké",
@@ -60,10 +64,11 @@
         ],
         "tags": [
             "Undistilled/Fermented"
-        ]
+        ],
+        "icon": "sake.png"
     },
     {
-        "alcoholid": "Standard Wine",
+        "alcoholid": "Wine",
         "description": "Made by fermentation from grapes, fruits, berries, rice, or honey.",
         "abv": "10-15%",
         "funFact": "The most common standard wine types are: red wine, white wine, rose, dessert wine, and sparkling wine.",
@@ -73,7 +78,8 @@
         "tags": [
             "Undistilled/Fermented",
             "Wine"
-        ]
+        ],
+        "icon": "wine.png"
     },
     {
         "alcoholid": "Gin",
@@ -85,7 +91,8 @@
         ],
         "tags": [
             "Distilled"
-        ]
+        ],
+        "icon": "gin.png"
     },
     {
         "alcoholid": "Brandy",
@@ -97,7 +104,8 @@
         ],
         "tags": [
             "Distilled"
-        ]
+        ],
+        "icon": "brandy.png"
     },
     {
         "alcoholid": "Whiskey",
@@ -109,7 +117,8 @@
         ],
         "tags": [
             "Distilled"
-        ]
+        ],
+        "icon": "whiskey.png"
     },
     {
         "alcoholid": "Rum",
@@ -121,7 +130,8 @@
         ],
         "tags": [
             "Distilled"
-        ]
+        ],
+        "icon": "rum.png"
     },
     {
         "alcoholid": "Tequila",
@@ -133,7 +143,8 @@
         ],
         "tags": [
             "Distilled"
-        ]
+        ],
+        "icon": "tequila.png"
     },
     {
         "alcoholid": "Vodka",
@@ -145,7 +156,8 @@
         ],
         "tags": [
             "Distilled"
-        ]
+        ],
+        "icon": "vodka.png"
     },
     {
         "alcoholid": "Absinthe",
@@ -158,7 +170,8 @@
         "tags": [
             "Distilled",
             "Highly potent"
-        ]
+        ],
+        "icon": "vodka.png"
     },
     {
         "alcoholid": "Everclear",
@@ -172,6 +185,7 @@
         "tags": [
             "Distilled",
             "Highly potent"
-        ]
+        ],
+        "icon": "vodka.png"
     }
 ]
