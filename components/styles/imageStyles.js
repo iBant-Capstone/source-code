@@ -57,5 +57,11 @@ export const imageStyles = StyleSheet.create({
         fontSize: 'xx-large',
         color: '#CF5260'
     },
+    // Info hub page
+    hubIcon: {
+        width: '35%',
+        marginBottom: '10%',
+        tintColor: 'white'
+    }
 
 })

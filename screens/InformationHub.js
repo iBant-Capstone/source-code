@@ -1,4 +1,4 @@
-import { Pressable, Text, View, Image } from 'react-native';
+import { Pressable, Text, View, Image, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ClearDrinksButton from '../components/ClearDrinkButton';
 
@@ -16,7 +16,7 @@ import { textStyles } from '../components/styles/textStyles';
 export const InfoPage = (props) => {
 
   return (
-    <View>
+    <ScrollView>
       <View style={[containerStyles.row, containerStyles.titleContainer]}>
         <TitleText name={"Information Hub"}></TitleText>
         <Image style={imageStyles.rightImage} source={require('../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
@@ -28,57 +28,80 @@ export const InfoPage = (props) => {
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           onPress={() => props.navigation.navigate('CommonAlcoholTypes')}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/alcoholic-drink.png')} resizeMode='contain' />
+          </View>
           <Text style={textStyles.whiteSemiBoldText}>Common Alcohol Types</Text>
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           title="Alcohol Physical Effects"
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Alcohol Physical Effects' })}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/endocrine-system.png')} resizeMode='contain' />
+          </View>
           <Text style={textStyles.whiteSemiBoldText}>Alcohol Physical Effects</Text>
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           title="BAC Levels and Effects"
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'BAC Levels and Effects' })}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/drunk.png')} resizeMode='contain' />
+          </View>
           <Text style={textStyles.whiteSemiBoldText}>BAC Levels and Effects</Text>
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Measuring Alcohol Content' })}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/alcohol-free.png')} resizeMode='contain' />
+          </View>
           <Text style={textStyles.whiteSemiBoldText}>Measuring Alcohol Content</Text>
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           title="Standard Drink Sizes"
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Standard Drink Sizes' })}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/volume.png')} resizeMode='contain' />
+          </View>
           <Text style={textStyles.whiteSemiBoldText}>Standard Drink Sizes</Text>
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Social Drinking' })}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/cheers.png')} resizeMode='contain' />
+          </View>
           <Text style={textStyles.whiteSemiBoldText}>Social Drinking</Text>
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Drinking Safety Tips' })}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/protection.png')} resizeMode='contain' />
+          </View>
           <Text style={textStyles.whiteSemiBoldText}>Drinking Safety Tips</Text>
         </Pressable>
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Resources' })}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/search-worldwide.png')} resizeMode='contain' />
+          </View>
           <Text style={textStyles.whiteSemiBoldText}>Resources</Text>
         </Pressable>
       </View>
-    </View >
+    </ScrollView >
   );
 }
 
 
 export const InformationHub = ({ navigation }) => {
   return (
-    <View>
+    <ScrollView>
       <InfoPage navigation={navigation} />
-    </View>
-
+    </ScrollView>
   );
 };
