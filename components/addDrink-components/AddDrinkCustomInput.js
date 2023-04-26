@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
 
-import SectionHeaderWithRadioButtons from '../personalDetailsInput-components/SectionHeaderWithRadioButtons';
+import SectionHeaderWithRadioButtons from '../SectionHeaderWithRadioButtons';
 
 // Import styles
 import { containerStyles } from '../styles/containerStyles';
@@ -9,9 +9,9 @@ import { buttonStyles } from '../styles/buttonStyles';
 import { textStyles } from '../styles/textStyles';
 import { textInputStyles } from '../styles/textInputStyles';
 
-const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPressed, handleAddDrinksInput }) => {
+const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPressed, handleAddDrinksInput, includeButtons }) => {
 
-    const [inputValue, setInputValue] = useState(0)
+    const [inputValue, setInputValue] = useState()
     const [unitValueChecked, setUnitValue] = useState(presetUnitPressed)
 
     const handlePress = () => {
@@ -21,13 +21,19 @@ const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPress
 
     return (
         <View style={{background: "white"}}>
-            <SectionHeaderWithRadioButtons
-                headerText={"Custom " + inputDescriptor}
-                unitValueChecked={unitValueChecked}
-                setUnitValue={setUnitValue}
-                unitOption1={"oz"}
-                unitOption2={"ml"}
-            />
+            {includeButtons ?
+                <SectionHeaderWithRadioButtons
+                    headerText={"Custom " + inputDescriptor}
+                    unitValueChecked={unitValueChecked}
+                    setUnitValue={setUnitValue}
+                    unitOption1={"oz"}
+                    unitOption2={"ml"}
+                />
+            :
+                <View style={[containerStyles.row, containerStyles.leftTopPadding, {display: "flex", justifyContent: "space-between", paddingHorizontal:24, alignItems: "center"}]}>
+                    <Text style={textStyles.boldText}>{"Custom " + inputDescriptor}</Text>
+                </View>
+            }
             <TextInput
                 style={[textInputStyles.textInput, textInputStyles.largeTextInput, {marginTop: 8, marginBottom: 8}]}
                 value={inputValue}

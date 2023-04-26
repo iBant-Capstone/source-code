@@ -7,7 +7,7 @@ import validateWeightInput from '../../components/inputValidationPersonalDetails
 import validateSexInput from '../../components/inputValidationPersonalDetails/validateSexInput';
 
 import TitleText from '../../components/Title';
-import SectionHeaderWithRadioButtons from '../../components/personalDetailsInput-components/SectionHeaderWithRadioButtons';
+import SectionHeaderWithRadioButtons from '../../components/SectionHeaderWithRadioButtons';
 import PersonalDetailsSingleTextInput from '../../components/personalDetailsInput-components/PersonalDetailsSinlgeTextInput';
 import PersonalDetailsDoubleTextInput from '../../components/personalDetailsInput-components/PersonalDetailsDoubleTextInput';
 import PleaseNoteBioSexSection from '../../components/personalDetailsInput-components/PleaseNoteBioSexSection';

@@ -11,9 +11,7 @@ import { drinkCardStyles } from '../styles/drinkCardStyles';
 
 const CalcDrinkCards = ({ drinks, setBAC, changeDrinksReady } ) => {
 
-  
   const handleDelete = async (drink) => {
-    //console.log("inside handleDelete", drink);
     try {
       let drinksDelete = drinks.filter(obj => !Object.entries(drink).every(([key, value]) => obj[key] === value));
       let drinksToSend = JSON.stringify(drinksDelete)

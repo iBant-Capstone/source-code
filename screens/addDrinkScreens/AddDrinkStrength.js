@@ -26,7 +26,7 @@ const AddDrinkSize = ({ route, navigation }) => {
     }, [])
 
     const handleAddDrinksInput = (strengthValue) => {
-        let newValue = Number(strengthValue)
+        let newValue = Number(strengthValue) / 100
         handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
     }
 
@@ -34,6 +34,13 @@ const AddDrinkSize = ({ route, navigation }) => {
         return (
             <ScrollView>
                 <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
+                <AddDrinkCustomInput 
+                    inputDescriptor={"Strength"}
+                    handleAddDrinksInput={handleAddDrinksInput} 
+                    includeButtons={false}
+                    placeholderText={"e.g. 12 for 12%, 4 for 4%, ..."}
+                    presetUnitPressed={""}
+                />
             </ScrollView>
         )
     }

@@ -48,6 +48,7 @@ const AddDrinkSize = ({ route, navigation }) => {
                     placeholderText={"125, 54, ..."}
                     presetUnitPressed={"ml"}
                     handleAddDrinksInput={handleAddDrinksInput} 
+                    includeButtons={true}
                 />
             </ScrollView>
         )

@@ -1,12 +1,12 @@
 [
     [
         0.00,
-        0.00,
+        0.00499999,
         "N/A (No alcohol is in your system and BAC is 0.00).",
         "N/A (No alcohol is in your system and BAC is 0.00)."
     ],
     [
-        0.01,
+        0.005,
         0.0399,
         "No apparent effects. Slight mood elevation.",
         "In Washington, you will test as legally impaired at .02% BAC if you are under 21. It is illegal to drive or bike at this level. You may start to have poor judgment."
