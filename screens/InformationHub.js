@@ -24,7 +24,7 @@ export const InfoPage = (props) => {
       </View>
       {/* <ClearDrinksButton/> */}
       <View style={[containerStyles.row, containerStyles.centerContainer]}>
-        <Text style={{ marginBottom: 15 }}>Hi there, welcome to our Information Hub! What alcohol information are you looking for?</Text>
+        {/* <Text style={{ marginBottom: 15 }}>Hi there, welcome to our Information Hub! What alcohol information are you looking for?</Text> */}
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           onPress={() => props.navigation.navigate('CommonAlcoholTypes')}>

@@ -68,5 +68,26 @@
         "subtitle": "8oz/236ml",
         "icon": "cocktail-glass.png",
         "value": 236
+    },
+    {
+        "id": "beer-can",
+        "title": "Regular Beer Can",
+        "subtitle": "12oz/350ml",
+        "icon": "beer-can.png",
+        "value": 350
+    },
+    {
+        "id": "beer-bottle",
+        "title": "Beer Bottle",
+        "subtitle": "12oz/350ml",
+        "icon": "beer-bottle.png",
+        "value": 350
+    },
+    {
+        "id": "pint-glass",
+        "title": "Pint Glass",
+        "subtitle": "16oz/473ml",
+        "icon": "beer-2.png",
+        "value": 473
     }
 ]

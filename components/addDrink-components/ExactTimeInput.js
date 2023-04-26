@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import { View, Text, Pressable, TextInput } from 'react-native';
 
+import SectionHeaderWithRadioButtons from "../SectionHeaderWithRadioButtons";
+import PersonalDetailsDoubleTextInput from "../personalDetailsInput-components/PersonalDetailsDoubleTextInput";
+
 import { containerStyles } from "../styles/containerStyles";
 import { buttonStyles } from "../styles/buttonStyles";
 import { textStyles } from '../styles/textStyles';
@@ -17,45 +20,27 @@ const ExactTimeInput = ({ handleExactTimeInput }) => {
     }
 
     return (
-        <View>
-            {/* TODO Add header to own component */}
-            <View style={containerStyles.leftContainer}>
-                <Text style={textStyles.text}>Time Drank</Text>
+        <View style={{background: "white"}}>
+            <SectionHeaderWithRadioButtons
+                headerText={"Custom Time Input"}
+                unitValueChecked={timeOfDay}
+                setUnitValue={setTimeOfDay}
+                unitOption1={'AM'}
+                unitOption2={'PM'}
+            />
+            <View style={[containerStyles.row, {display: "flex", alignItems:"center", justifyContent:"center", marginTop: 12}]}>
+                <TextInput
+                    style={[textInputStyles.textInput, {maxWidth: "35%", marginBottom: 0}]}
+                    value={hoursInputValue}
+                    onChangeText={setHoursInputValue}
+                />
+                <Text> : </Text>
+                <TextInput
+                    style={[textInputStyles.textInput, {maxWidth: "35%", marginBottom: 0}]}
+                    value={minuteInputValue}
+                    onChangeText={setMinuteInputValue}
+                />
             </View>
-            <View style={containerStyles.centerWhiteContainer}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <TextInput
-                        style={[textInputStyles.textInput, textInputStyles.smallTextInput]}
-                        value={hoursInputValue}
-                        onChangeText={setHoursInputValue}
-                        placeholder="Hour"
-                        placeholderTextColor={'grey'}
-                    />
-                    <Text style={textStyles.text}> : </Text>
-                    <TextInput
-                        style={[textInputStyles.textInput, textInputStyles.smallTextInput]}
-                        value={minuteInputValue}
-                        onChangeText={setMinuteInputValue}
-                        placeholder="Minute"
-                        placeholderTextColor={'grey'}
-                    />
-                    <Pressable
-                        value="AM"
-                        style={timeOfDay === 'AM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
-                        onPress={() => setTimeOfDay('AM')}
-                    >
-                        <Text style={textStyles.text}>AM</Text>
-                    </Pressable>
-                    <Pressable
-                        value="PM"
-                        style={timeOfDay === 'PM' ? [buttonStyles.AMPMButton, buttonStyles.alignCenter] : [buttonStyles.AMPMButton, buttonStyles.AMPMButtonNotSelected, buttonStyles.alignCenter]}
-                        onPress={() => setTimeOfDay('PM')}
-                    >
-                        <Text style={textStyles.text}>PM</Text>
-                    </Pressable>
-                </View>
-            </View>
-            {/* TODO Add next button to own component */}
             <View style={containerStyles.centerContainer}>
                 <Pressable
                     onPress={handlePress}
