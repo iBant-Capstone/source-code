@@ -16,7 +16,7 @@ const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPress
 
     const handlePress = () => {
         // TODO add in option for oz here
-        handleAddDrinksInput(inputValue)
+        handleAddDrinksInput(inputValue, unitValueChecked)
     }
 
     return (
@@ -25,7 +25,7 @@ const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPress
                 headerText={"Custom " + inputDescriptor}
                 unitValueChecked={unitValueChecked}
                 setUnitValue={setUnitValue}
-                unitOption1={"floz"}
+                unitOption1={"oz"}
                 unitOption2={"ml"}
             />
             <TextInput

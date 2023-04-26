@@ -34,6 +34,10 @@ export const containerStyles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap'
     },
+    reverseRow: {
+        flexDirection: 'row-reverse',
+        minHeight: windowHeight*0.075
+    },
     fillToBottomContainer: {
         flex: 1,
         flexDirection: 'column',
