@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Text, View, ScrollView, Alert } from 'react-native';
+import { Text, View, ScrollView, Pressable } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// Import components
 import CalcDrinkCards from '../components/BACCalc-components/CalcDrinkCards';
 import CurrentBAC from '../components/BACCalc-components/CurrentBAC';
 import InsideOut from '../components/BACCalc-components/InsideOut';
@@ -10,9 +11,12 @@ import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButto
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
 
+// Import styles
 import { containerStyles } from '../components/styles/containerStyles';
 import { textStyles } from '../components/styles/textStyles';
 
+// Import icons
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const BACCalc = ({ navigation, route }) => {
 
@@ -100,9 +104,14 @@ const BACCalc = ({ navigation, route }) => {
         return (
             <ScrollView>
                 <View style={containerStyles.fillToBottomContainer}>
+                    <View style={[containerStyles.reverseRow, { height: 36, padding: 16, paddingBottom: 0 }]}>
+                        <Pressable>
+                            <Ionicons name={"help-circle-outline"} size={40} color={"black"} />
+                        </Pressable>
+                    </View>
                     <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
-                    <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer ]}>
+                    <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer]}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
                         <CalcDrinkCards drinks={drinks} setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
                         {/* <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} /> */}
