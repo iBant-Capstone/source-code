@@ -32,7 +32,7 @@ const AddDrinkSize = ({ route, navigation }) => {
             }
         } else {
             newValue = {
-                unit: unitValue,
+                unit: 'ml',
                 value: inputValue / 1e3
             }
         }

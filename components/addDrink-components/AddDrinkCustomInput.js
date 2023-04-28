@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
 
 import SectionHeaderWithRadioButtons from '../SectionHeaderWithRadioButtons';
+import InvalidInputWarning from '../InvalidInputWarning';
 
 // Import styles
 import { containerStyles } from '../styles/containerStyles';
@@ -9,14 +10,39 @@ import { buttonStyles } from '../styles/buttonStyles';
 import { textStyles } from '../styles/textStyles';
 import { textInputStyles } from '../styles/textInputStyles';
 
+
 const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPressed, handleAddDrinksInput, includeButtons }) => {
 
     const [inputValue, setInputValue] = useState()
     const [unitValueChecked, setUnitValue] = useState(presetUnitPressed)
 
+    const [showInvalidInputText, setShowInvalidInputText] = useState(false)
+
     const handlePress = () => {
-        // TODO add in option for oz here
-        handleAddDrinksInput(inputValue, unitValueChecked)
+        // Start checks
+        let passes = false
+
+        // Check if it's Strength
+        if (inputDescriptor == 'Strength' && inputValue < 100) {
+                passes = true
+
+        // Check if it's Size
+        } else if (inputDescriptor == "Size") {
+            // 20 cans of beer in ml is 7097.6471
+            if (unitValueChecked == 'ml' && inputValue < 7097.6471) {
+                    passes = true
+            // 240 oz is 20 cans of beer
+            } else if (unitValueChecked == "oz" && inputValue < 240) {
+                    passes = true
+            }
+        }
+
+        // If the checks pass then we move on, otherwise show the error
+        if (passes == true) {
+            handleAddDrinksInput(inputValue, unitValueChecked)
+        } else {
+            setShowInvalidInputText(true)
+        }
     }
 
     return (
@@ -41,6 +67,7 @@ const AddDrinkCustomInput = ({ inputDescriptor, placeholderText, presetUnitPress
                 placeholder={placeholderText}
                 placeholderTextColor={'grey'}
             />
+            {showInvalidInputText && <InvalidInputWarning />}
             <View style={[containerStyles.centerContainer]}>
                 <Pressable
                     onPress={handlePress}
