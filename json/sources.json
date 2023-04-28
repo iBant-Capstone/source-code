@@ -158,6 +158,46 @@
         "id" : 32,
         "name": "Drunk Calc About Page",
         "url": "https://drunkcalc.com/info/how-does-a-bac-calculator-work"
+    },
+    {
+        "id" : 33,
+        "name": "Alcohol icons created by wanicon - Flaticon",
+        "url": "https://www.flaticon.com/free-icons/alcohol"
+    },
+    {
+        "id" : 34,
+        "name": "Drink icons created by Freepik - Flaticon",
+        "url": "https://www.flaticon.com/free-icons/drinks"
+    },
+    {
+        "id" : 35,
+        "name": "Alcohol free icons created by Freepik - Flaticon",
+        "url": "https://www.flaticon.com/free-icons/alcohol-free"
+    },
+    {
+        "id" : 36,
+        "name": "Drunk icons created by Darius Dan - Flaticon",
+        "url": "https://www.flaticon.com/free-icons/drunk"
+    },
+    {
+        "id" : 37,
+        "name": "Human body icons created by Freepik - Flaticon",
+        "url": "https://www.flaticon.com/free-icons/human-body"
+    },
+    {
+        "id" : 38,
+        "name": "Healthcare icons created by Kalashnyk - Flaticon",
+        "url": "https://www.flaticon.com/free-icons/healthcare"
+    },
+    {
+        "id" : 39,
+        "name": "Sourcing icons created by Freepik - Flaticon",
+        "url": "https://www.flaticon.com/free-icons/sourcing"
+    },
+    {
+        "id" : 40,
+        "name": "Litre icons created by Freepik - Flaticon",
+        "url": "https://www.flaticon.com/free-icons/litre"
     }
     
 ]
