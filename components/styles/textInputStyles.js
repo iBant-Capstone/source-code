@@ -9,7 +9,8 @@ export const textInputStyles = StyleSheet.create({
         marginBottom: '5%',
         borderWidth: 1,
         padding: 10,
-        borderRadius: 12
+        borderRadius: 8,
+        borderColor: "#ababab"
     },
     // Different sizes
     largeTextInput: {
