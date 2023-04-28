@@ -51,7 +51,7 @@ const CalcDrinkCards = ({ drinks, setBAC, changeDrinksReady } ) => {
                 </View>
                 <View style={{display: "flex", justifyContent:'center', marginLeft: 10}}>
                   <Text style={textStyles.boldText}>{drink.name} ({(drink.strength * 100).toFixed(1)}%)</Text>
-                  <Text style={[textStyles.text, textStyles.smallText]}>{mlToOz(drink.size.value)}oz/{mlToFixed(drink.size.value)}ml</Text>
+                  <Text style={[textStyles.text, textStyles.smallText]}>{mlToOz(drink.size.value)}oz / {mlToFixed(drink.size.value)}ml</Text>
                 </View>
               </View>
               <Pressable onPress={() => handleDelete(drink)}>
