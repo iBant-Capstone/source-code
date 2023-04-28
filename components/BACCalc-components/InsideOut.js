@@ -70,14 +70,14 @@ const InsideOut = ({ onInside, setOnInside, BAC }) => {
                 accessibilityLabel="Change the description to the inside version"
                 style={[buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.defaultButton]}
             >
-                <Text style={onInside ? [textStyles.text, textStyles.selectedOption] : textStyles.text}>Internal Effects</Text>
+                <Text style={onInside ? [textStyles.text, textStyles.selectedOption] : [textStyles.text, textStyles.unselectedOption]}>Internal Effects</Text>
             </Pressable>
             <Pressable
                 onPress={() => setOnInside(false)}
                 accessibilityLabel="Change the description to the outside version"
                 style={[buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.defaultButton]}
             >
-                <Text style={onInside ? textStyles.text : [textStyles.text, textStyles.selectedOption]}>External Effects</Text>
+                <Text style={onInside ? [textStyles.text, textStyles.unselectedOption] : [textStyles.text, textStyles.selectedOption]}>External Effects</Text>
             </Pressable>
 
             <Text style={{ paddingBottom: 40 }}>{onInside ? displayInsideBACEffects(BAC) : displayOutsideBACEffects(BAC)}</Text>

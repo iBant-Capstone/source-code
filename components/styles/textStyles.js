@@ -50,6 +50,11 @@ export const textStyles = StyleSheet.create({
         borderBottomWidth: 3
     },
 
+    unselectedOption: {
+        borderBottomColor: '#FFFFFF',
+        borderBottomWidth: 3
+    },
+
     // For information hub topic pages
     questionText: {
         fontSize: 16,
