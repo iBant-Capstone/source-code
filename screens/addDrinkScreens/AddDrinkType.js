@@ -16,6 +16,13 @@ const AddDrinkType = ({ route, navigation }) => {
     let nextPage = "AddDrinkStrength"
 
     const handleAddDrinksInput = (newValue) => {
+        // If they click the custom card we don't start building the newDrink yet and head them over to
+        //      the custom building page
+        if (newValue == 'custom') {
+            navigation.navigate("__", { drinks: drinks, newDrink: newDrink })
+        }
+
+        // Otherwise we proceed as normal
         handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
     }
 
