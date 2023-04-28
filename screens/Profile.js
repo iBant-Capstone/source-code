@@ -124,6 +124,12 @@ const Profile = (props) => {
                 >
                     <Text style={textStyles.whiteSemiBoldText}>Our Sources</Text>
                 </Pressable>
+                <Pressable
+                    style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton, buttonStyles.largeButton]}
+                    onPress={() => props.navigation.navigate('Disclaimers')}
+                >
+                    <Text style={textStyles.whiteSemiBoldText}>Notes and Disclaimers</Text>
+                </Pressable>
             </View>
         </View>
     );
