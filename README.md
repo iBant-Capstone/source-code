@@ -14,40 +14,17 @@ Through this project, our group has created and implemented a mobile application
 If you have any questions or run into any issues, please feel free to contact any members of our team!
 
 ## About the GitHub
-[App.js:](./App.js) Serves as the home file of the app. Holds imports to all pages... 
-
-[License File:](./LICENSE) Outlines copyright and other software permissions of our project. 
-
-[Assets Directory:](./assets/) Contains more specific directories that contain visual elements used in our application
-<img align="right" height="200" src="./assets/avatars/Curious_Rosie.png">
-- [Avatars directory:](./assets/avatars/) Contains image files of our avatar: Rosie
-- [Icons directory:](./assets/icons/) Contains image files of our logo
-- [Images directory:](./assets/images/) Contains other image files used in our app
-
-[Components Directory:](./components/) Contains shared components used across all of the screens (such as modules and reusable parts)
-- [AlcoholPopUp.js:](./components/AlcoholPopUp.js) Popup component displaying information on common alcohol drink types
-- [CalcDrinkCards.js:](./components/CalcDrinkCards.js) Component displaying drinks stored in async storage when calculating BAC
-- [InfoTopicPage.js:](./components/InfoTopicPage.js) Page component outlining topic pages within information hub
-- [Superscript.js:](./components/Superscript.js) Text component linking source and is superscripted for citation purposes
-
-[JSON Directory:](./json/) Contains JSON files containing data used to create pages and calculate BAC
-- [alcoholtypes directory:](./json/alcoholtypes/) Contains separate JSON files for each alcohol type explained in app
-- [bac-levels.json:](./json/bac-levels.json) Contains data on different BAC levels and effects felt
-- [sources.json:](./json/sources.json) Contains list of sources
-- [topics.json:](./json/topics.json) Contains data and information on different topics within information hub
-
-[Screens Directory:](./screens/) Contains JavaScript files of all individual screens of our app
-- [aboutScreens directory:](./screens/aboutScreens/) Contains Javascript files of pages in the About section of our app
-    - [HowToUse.js:](./screens/aboutScreens/HowToUse.js) Contains page explaining how users can use and navigate our app
-    - [OurMission.js:](./screens/aboutScreens/OurMission.js) Contains page outlining project mission and team
-    - [OurSources.js:](./screens/aboutScreens/OurSources.js) Contains page listing the sources used to create this toolkit
-- [onboardingScreens directory:](./screens/onboardingScreens/) Contains Javascript files of onboarding pages that only show up at the beginning of the user's journey
-- [AddDrink.js:](./screens/AddDrink.js) Contains page navigated through the BAC Calculator page that allows user to add drink to the calculator
-- [BACCalc.js:](./screens/BACCalc.js) Contains the BAC calculator page
-- [CommonAlcoholTypes.js:](./screens/CommonAlcoholTypes.js) Contains page listing different common alcohol types - a sub page of the information hub
-- [InformationHub.js:](./screens/InformationHub.js) Contains the main home page of the app - an information hub
-- [Profile.js:](./screens/Profile.js) Contains the profile page where users can change personal information and read about project and app
-
+Below, we describe the main files in this app. Each directory includes it's own README file that further describes its contents. <br>
+| File name | Contents | 
+|-----------|----------|
+| [App.js:](./App.js) | Serves as the home file of the app. Holds imports to all pages and necessary assets (ie. fonts) |
+| [License File:](./LICENSE) | Outlines copyright and other software permissions of our project.  |
+| [Assets Directory:](./assets/) | Contains more specific directories that contain visual elements and other assets used in our application |
+| [Components Directory:](./components/) | Contains shared components used across different screens and pages (such as modules and reusable parts) |
+| [JSON Directory:](./json/) | Contains JSON files containing data used to create pages, provide information and calculate BAC |
+| [Screens Directory:](./screens/) | Contains JavaScript files of all individual unique screens of our app |
+| [app.json](./app.json) | Includes backend information about app, including React Native properties used when running app |
+| [package-lock.json](./package-lock.json) and [package.json](./package.json) | Describe different versions of and names of packages/dependencies used to create this app |
 
 ## How to Contribute to Code
 TO BE ADDED
@@ -65,3 +42,7 @@ Emiri Nishizawa: emirin1@uw.edu
 Roshni Srikanth: rsrika@uw.edu
 <br>
 Gisele Fox: gjfox@uw.edu
+
+<div>
+<img align="left" height="100" src="./assets/avatars/iBant/Melina avatar.png"> <img align="left" height="100" src="./assets/avatars/iBant/Emiri avatar.png"> <img align="left" height="100" src="./assets/avatars/iBant/Roshni avatar.png"> <img align="left" height="100" src="./assets/avatars/iBant/Gisele avatar.png"> 
+</div>
