@@ -10,6 +10,7 @@ import AddDrinkButton from '../components/BACCalc-components/AddDrinkButton';
 import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButton';
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
+import BACHowToPopUp from '../components/BACHowToPopUp';
 
 // Import styles
 import { containerStyles } from '../components/styles/containerStyles';
@@ -29,7 +30,6 @@ const BACCalc = ({ navigation, route }) => {
     const [drinksReady, changeDrinksReady] = useState(false)
     const [pdReady, changePDReady] = useState(false)
 
-    // const [modalVisible, setModalVisible] = useState(true); // ADDED
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
     }, [])
@@ -42,11 +42,15 @@ const BACCalc = ({ navigation, route }) => {
         changeDrinksReady(state)
     })
 
+    const [modalVisible, setModalVisible] = useState(false); // setting states for BACHowToPopUp
+    function handleModal() {
+        setModalVisible(!modalVisible);
+    }
+
     // When the route changes we reset the states that determine whether or not we render components
     useEffect(() => {
         changeDrinksReady(false)
         changePDReady(false)
-        // callPopUp(BAC)
     }, [route])
 
     // useEffects update the drinks or personal details state if needed
@@ -105,9 +109,11 @@ const BACCalc = ({ navigation, route }) => {
             <ScrollView>
                 <View style={containerStyles.fillToBottomContainer}>
                     <View style={[containerStyles.reverseRow, { height: 36, padding: 16, paddingBottom: 0 }]}>
-                        <Pressable>
+                        <Pressable onPress={handleModal}>
                             <Ionicons name={"help-circle-outline"} size={40} color={"black"} />
                         </Pressable>
+                        <BACHowToPopUp modalVisible={modalVisible}
+                            handleModal={handleModal} />
                     </View>
                     <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
                     <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
