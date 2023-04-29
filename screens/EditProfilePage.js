@@ -100,25 +100,23 @@ const EditProfilePage = ({ navigation }) => {
 
     // Adds the personal details to async storage
     const handleAddPersonalDetails = async () => {
-
-        // calculate height value (converting to inches if input was ft)
-        let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
-
-        // Set up the personal details to send
-        let newPersonalDetails = {
-            height: {
-                unit: heightUnitValueChecked,
-                value: heightValue
-            },
-            weight: {
-                unit: weightUnitValueChecked,
-                value: Number(weightInputValue)
-            },
-            sex: sexValueChecked
-        }
-
         // Go through the checks
-        if (passesChecks(newPersonalDetails)) {
+        if (passesChecks()) {
+            // calculate height value (converting to inches if input was ft)
+            let heightValue = heightUnitValueChecked === "cm" ? cmInputValue : (Number(ftInputValue) * 12) + Number(inInputValue)
+
+            // Set up the personal details to send
+            let newPersonalDetails = {
+                height: {
+                    unit: heightUnitValueChecked,
+                    value: heightValue
+                },
+                weight: {
+                    unit: weightUnitValueChecked,
+                    value: Number(weightInputValue)
+                },
+                sex: sexValueChecked
+            }
             try {
                 await AsyncStorage.setItem('personalDetails', JSON.stringify(newPersonalDetails));
                 setShowInvalidInputText(false)
@@ -134,9 +132,31 @@ const EditProfilePage = ({ navigation }) => {
 
     };
 
-    const passesChecks = (personalDetails) => {
+    const passesChecks = () => {
         let passes = true
-        if (validateHeightInput(personalDetails.height) && validateWeightInput(personalDetails.weight) && validateSexInput(personalDetails.sex)) {
+
+        // Format height data for validateHeightInput()
+        let heightData = {}
+        if (heightUnitValueChecked == "ft") {
+            heightData = {
+                unit: heightUnitValueChecked,
+                ft: ftInputValue,
+                in: inInputValue
+            }
+        } else {
+            heightData = {
+                unit: heightUnitValueChecked,
+                cm: cmInputValue
+            }
+        }
+
+        // Format weight data for validateWeightInput()
+        let weightData = {
+            unit: weightUnitValueChecked,
+            value: weightInputValue
+        }
+
+        if (validateHeightInput(heightData) && validateWeightInput(weightData) && validateSexInput(sexValueChecked)) {
             passes = true
         } else {
             passes = false
