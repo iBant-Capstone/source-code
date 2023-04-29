@@ -5,12 +5,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // Import components
 import CalcDrinkCards from '../components/BACCalc-components/CalcDrinkCards';
 import CurrentBAC from '../components/BACCalc-components/CurrentBAC';
-import InsideOut from '../components/BACCalc-components/InsideOut';
 import BACDetails from '../components/BACCalc-components/BACDetails'
 import AddDrinkButton from '../components/BACCalc-components/AddDrinkButton';
-import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButton';
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
-import PersonalDetailsIncorrect from '../components/BACCalc-components/PersonalDetailsIncorrect';
 import BACHowToPopUp from '../components/BACHowToPopUp';
 
 // Import styles
@@ -126,8 +123,6 @@ const BACCalc = ({ navigation, route }) => {
                 </View>
             </ScrollView >
         );
-    } else if (drinksReady && !pdReady) {
-        return (<PersonalDetailsIncorrect navigation={navigation} />)
     } else {
         return (
             <View>
