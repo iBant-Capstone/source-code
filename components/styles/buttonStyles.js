@@ -96,5 +96,8 @@ export const buttonStyles = StyleSheet.create({
     },
     alignCenter: {
         textAlign: 'center'
+    },
+    alignRight: {
+        textAlign: 'right'
     }
 })

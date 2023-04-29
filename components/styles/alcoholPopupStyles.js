@@ -1,16 +1,16 @@
 import { StyleSheet } from "react-native"
 
-// SHOULD CREATE SEPARATE STYLES for BACHowToPopUp vs AlcoholPopUp modals
-export const popupStyles = StyleSheet.create({
+// styling for Common Alcohol Types popups (AlcoholPopUp.js)
+export const alcoholPopupStyles = StyleSheet.create({
     modal: {
-        // flex: 0.75,
+        flex: 0.55,
         backgroundColor: '#fff',
         padding: 0.25,
         borderRadius: 20,
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     content: {
-        padding: 25,
+        padding: 25
     },
     // Text within
     title: {
@@ -18,7 +18,7 @@ export const popupStyles = StyleSheet.create({
         fontSize: 24,
         fontFamily: 'Roboto-Bold',
         marginRight: '5%',
-        width: '80%',
+        width: '80%'
     },
     text: {
         fontSize: 16,
