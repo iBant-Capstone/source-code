@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import CalcDrinkCards from '../components/BACCalc-components/CalcDrinkCards';
 import CurrentBAC from '../components/BACCalc-components/CurrentBAC';
 import InsideOut from '../components/BACCalc-components/InsideOut';
+import BACDetails from '../components/BACCalc-components/BACDetails'
 import AddDrinkButton from '../components/BACCalc-components/AddDrinkButton';
 import ClearDrinksButton from '../components/BACCalc-components/ClearDrinksButton';
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
@@ -110,17 +111,16 @@ const BACCalc = ({ navigation, route }) => {
                 <View style={containerStyles.fillToBottomContainer}>
                     <View style={[containerStyles.reverseRow, { height: 36, padding: 16, paddingBottom: 0 }]}>
                         <Pressable onPress={handleModal}>
-                            <Ionicons name={"help-circle-outline"} size={40} color={"black"} />
+                            <Ionicons name={"help-circle-outline"} size={24} color={"#9e9e9e"} />
                         </Pressable>
                         <BACHowToPopUp modalVisible={modalVisible}
                             handleModal={handleModal} />
                     </View>
                     <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
-                    <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} />
+                    <BACDetails BAC={BAC} />
                     <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer]}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
                         <CalcDrinkCards drinks={drinks} setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
-                        {/* <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} /> */}
                         <GetHomeSafelySection BAC={BAC} />
                     </View>
                 </View>

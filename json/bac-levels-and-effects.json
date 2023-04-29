@@ -2,8 +2,8 @@
     [
         0.00,
         0.00499999,
-        "N/A (No alcohol is in your system and BAC is 0.00).",
-        "N/A (No alcohol is in your system and BAC is 0.00)."
+        "Add a drink to change the BAC",
+        "Right now there is no alcohol in your system"
     ],
     [
         0.005,
@@ -19,6 +19,12 @@
     ],
     [
         0.07,
+        0.079999,
+        "Mild impairment of balance, speech, vision and control. You believe you are functioning better than you actually are, making it difficult to determine whether or not to keep drinking.",
+        "In all 50 states, you are considered legally intoxicated and it is illegal to drive or bike at 0.08%."
+    ],
+    [
+        0.08,
         0.0999,
         "Mild impairment of balance, speech, vision and control. You believe you are functioning better than you actually are, making it difficult to determine whether or not to keep drinking.",
         "In all 50 states, you are considered legally intoxicated and it is illegal to drive or bike at 0.08%."

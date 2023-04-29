@@ -1,12 +1,17 @@
 
 const validateHeightInput = (heightData) => {
-    let passes = true
+    let passes = false
 
-    let heightInMeters = heightData.unit === "cm" ? heightData.value / 100 : heightData.value * 0.0254
-    // max height -> 8ft 11 inches
-    // min height -> 2ft
-    if ((heightInMeters == 0) || (heightInMeters > 2.7) || (heightInMeters < 0.61)) {
-      passes = false
+    if (heightData.unit == "ft") {
+      if (heightData.ft < 8 && heightData.ft > 2 && heightData.in <= 12 && heightData.in >0) {
+        passes = true
+      }
+    }
+
+    if (heightData.unit == "cm") {
+      if (heightData.cm > 61 && heightData.cm < 270) {
+        passes = true
+      }
     }
 
     return passes

@@ -20,7 +20,7 @@
         "subtitle": "ex. whiskey, vodka, gin, tequila...",
         "icon": "liquor.png",
         "value": "Liquor",
-        "sizes": ["shot", "double-shot", "pint"],
+        "sizes": ["shot", "double-shot"],
         "strengths": ["whiskey", "brandy", "vodka", "rum", "gin", "tequila"]
     },
     {
