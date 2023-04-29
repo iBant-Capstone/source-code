@@ -111,7 +111,7 @@ const BACCalc = ({ navigation, route }) => {
                 <View style={containerStyles.fillToBottomContainer}>
                     <View style={[containerStyles.reverseRow, { height: 36, padding: 16, paddingBottom: 0 }]}>
                         <Pressable onPress={handleModal}>
-                            <Ionicons name={"help-circle-outline"} size={40} color={"black"} />
+                            <Ionicons name={"help-circle-outline"} size={24} color={"#9e9e9e"} />
                         </Pressable>
                         <BACHowToPopUp modalVisible={modalVisible}
                             handleModal={handleModal} />
