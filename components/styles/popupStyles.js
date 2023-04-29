@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native"
 
+// SHOULD CREATE SEPARATE STYLES for BACHowToPopUp vs AlcoholPopUp modals
 export const popupStyles = StyleSheet.create({
     modal: {
-        flex: 0.75,
+        // flex: 0.75,
         backgroundColor: '#fff',
         padding: 0.25,
         borderRadius: 20,

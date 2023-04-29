@@ -76,7 +76,7 @@ const Expandable = ({ item, onClickFunction }) => {
                 </FlatList>
 
                 <Text style={[textStyles.text, textStyles.answerText.paragraph]}>
-                    {item.sources.length == 0 ? "" : <Text style={{ fontSize: 8, lineHeight: 4 }}>Source(s): </Text>}
+                    {item.sources.length == 0 ? "" : <Text style={{ fontSize: 10, lineHeight: 4 }}>Source(s): </Text>}
                     
                     {item.sources.map((source) => {
                         keyCount++;

@@ -1,6 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Pressable, Text } from 'react-native';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -13,8 +12,9 @@ import CommonAlcoholTypes from './screens/CommonAlcoholTypes.js'
 import HowToUse from './screens/aboutScreens/HowToUse.js';
 import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
+import Disclaimers from './screens/aboutScreens/Disclaimers.js';
 import EditProfilePage from './screens/EditProfilePage.js';
-import AddDrinkType from './screens/addDrinkScreens/AddDrinkType.js'
+import AddDrinkType from './screens/addDrinkScreens/AddDrinkType.js';
 import AddDrinkSize from './screens/addDrinkScreens/AddDrinkSize.js';
 import AddDrinkStrength from './screens/addDrinkScreens/AddDrinkStrength.js'
 import AddDrinkHunger from './screens/addDrinkScreens/AddDrinkHunger.js';
@@ -100,45 +100,50 @@ function ProfileStackComponent() {
         component={EditProfilePage}
         options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
       />
+      <profileStack.Screen
+        name='Disclaimers'
+        component={Disclaimers}
+        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
+      />
     </profileStack.Navigator>
   );
 }
 
 // the info stack contains all the pages that cannot be accessed from the BACCalc -- do not include pages that are linked through InfoHub or Profile
 function BACStackComponent() {
-  return(
-  <bacStack.Navigator>
-    <bacStack.Screen
-      name='BACCalc'
-      component={BACCalc}
-      options={({ route }) => ({ title: 'BAC Calculator', headerShown: false })}
-    />
-    <bacStack.Screen
-      name='AddDrinkType'
-      component={AddDrinkType}
-      options={({ route }) => ({ title: 'Add Drink' })}
-    />
-    <bacStack.Screen
-      name='AddDrinkSize'
-      component={AddDrinkSize}
-      options={({ route }) => ({ title: 'Add Drink' })}
-    />
-    <bacStack.Screen
-      name='AddDrinkStrength'
-      component={AddDrinkStrength}
-      options={({ route }) => ({ title: 'Add Drink' })}
-    />
-    <bacStack.Screen
-      name='AddDrinkHunger'
-      component={AddDrinkHunger}
-      options={({ route }) => ({ title: 'Add Drink' })}
-    />
-    <bacStack.Screen
-      name='AddDrinkTime'
-      component={AddDrinkTime}
-      options={({ route }) => ({ title: 'Add Drink' })}
-    />
-  </bacStack.Navigator>
+  return (
+    <bacStack.Navigator>
+      <bacStack.Screen
+        name='BACCalc'
+        component={BACCalc}
+        options={({ route }) => ({ title: 'BAC Calculator', headerShown: false })}
+      />
+      <bacStack.Screen
+        name='AddDrinkType'
+        component={AddDrinkType}
+        options={({ route }) => ({ title: 'Add Drink: Type' })}
+      />
+      <bacStack.Screen
+        name='AddDrinkSize'
+        component={AddDrinkSize}
+        options={({ route }) => ({ title: 'Add Drink: Size' })}
+      />
+      <bacStack.Screen
+        name='AddDrinkStrength'
+        component={AddDrinkStrength}
+        options={({ route }) => ({ title: 'Add Drink: ABV Strength' })}
+      />
+      <bacStack.Screen
+        name='AddDrinkHunger'
+        component={AddDrinkHunger}
+        options={({ route }) => ({ title: 'Add Drink: Hunger Level' })}
+      />
+      <bacStack.Screen
+        name='AddDrinkTime'
+        component={AddDrinkTime}
+        options={({ route }) => ({ title: 'Add Drink: Time' })}
+      />
+    </bacStack.Navigator>
   );
 }
 

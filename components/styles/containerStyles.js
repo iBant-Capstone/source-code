@@ -49,11 +49,11 @@ export const containerStyles = StyleSheet.create({
         marginLeft: '2%',
         marginVertical: 50
     },
-    threeColumnContainer: {
-        minWidth: '25%',
-        marginLeft: '5%',
-        marginVertical: 10,
-        height: 100
+    fourColumnContainer: {
+        minWidth: '20%',
+        marginHorizontal: '2.5%',
+        marginVertical: '5%',
+        minHeight: '10%'
     },
     // For titles on pages
     titleContainer: {

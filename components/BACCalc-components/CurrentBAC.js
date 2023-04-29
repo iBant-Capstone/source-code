@@ -182,7 +182,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
     }
 
     return (
-        <View style={[containerStyles.centerContainer, {paddingTop: 64, paddingBottom: 40}]}>
+        <View style={[containerStyles.centerContainer, {paddingTop: 48, paddingBottom: 40}]}>
             <Text style={textStyles.currentBACText}>CURRENT BAC</Text>
             <Text style={[textStyles.redSemiBoldText, textStyles.currentBACNumber]}>{Number(BAC).toFixed(2)}%</Text>
         </View>
