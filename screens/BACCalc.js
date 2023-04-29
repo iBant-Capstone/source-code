@@ -117,12 +117,10 @@ const BACCalc = ({ navigation, route }) => {
                             handleModal={handleModal} />
                     </View>
                     <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
-                    {/* <InsideOut onInside={onInside} setOnInside={handleSetOnInside} BAC={BAC} /> */}
                     <BACDetails BAC={BAC} />
                     <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer]}>
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
                         <CalcDrinkCards drinks={drinks} setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
-                        {/* <ClearDrinksButton setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} /> */}
                         <GetHomeSafelySection BAC={BAC} />
                     </View>
                 </View>
