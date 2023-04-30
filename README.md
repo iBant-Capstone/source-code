@@ -10,8 +10,7 @@ Through this project, our group has created and implemented a mobile application
 - To run our app, type and enter the command `npm run web`. This will open our app in your browser via localhost. 
     - To view our app as it would appear on a mobile device, open up Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_ or right click and select 'Inspect') and set the screen dimensions to **iPhone SE**. 
 <br>
-*Note: By the end of spring quarter, our goal is to fully deploy our project and publish our app to the App Store and Google Play Store to make it accessible and downloadable to the public.
-If you have any questions or run into any issues, please feel free to contact any members of our team!
+If you have any questions or run into any issues, please feel free to contact any members of our team! Our team email is TeamiBant@gmail.com.
 
 ## About the GitHub
 Below, we describe the main files in this app. Each directory includes it's own README file that further describes its contents. <br>
