@@ -15,11 +15,10 @@ const Popup = (props) => {
     if (props.data != undefined) {
         data = props.data[0];
     }
-    // let icon = data.icon;
     return (
         <Modal isVisible={props.isOpen} style={alcoholPopupStyles.modal}>
             <View style={alcoholPopupStyles.content} >
-                
+
                 <Pressable style={buttonStyles.alignRight} onPress={props.onChangeModal}>
                     <Ionicons name={"close"} size={30} color={"gray"} />
                 </Pressable>

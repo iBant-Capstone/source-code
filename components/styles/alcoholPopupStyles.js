@@ -14,21 +14,12 @@ export const alcoholPopupStyles = StyleSheet.create({
     },
     // Text within
     title: {
-        // display: 'inline-block',
         fontSize: 35,
         fontFamily: 'Roboto-Bold',
         marginLeft: '5%'
-        // marginRight: '5%',
-        // width: '80%'
     },
     text: {
         fontSize: 16,
         fontFamily: 'Roboto'
-    },
-    redText: {
-        fontSize: 16,
-        // fontFamily: 'Roboto-Bold',
-        color: '#CF5260'
     }
-
 })
