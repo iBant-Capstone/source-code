@@ -51,7 +51,7 @@
         "tags": [
             "Undistilled/Fermented"
         ],
-        "icon": "hard-cider.png"
+        "icon": "mead.png"
     },
     {
         "alcoholid": "Saké",
@@ -171,7 +171,7 @@
             "Distilled",
             "Highly potent"
         ],
-        "icon": "vodka.png"
+        "icon": "absinthe.png"
     },
     {
         "alcoholid": "Everclear",
@@ -186,6 +186,6 @@
             "Distilled",
             "Highly potent"
         ],
-        "icon": "vodka.png"
+        "icon": "everclear.png"
     }
 ]

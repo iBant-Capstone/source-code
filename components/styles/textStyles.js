@@ -24,6 +24,11 @@ export const textStyles = StyleSheet.create({
         fontFamily: 'Roboto-Medium',
         color: '#CF5260'
     },
+    redSemiBoldLargeText: {
+        fontFamily: 'Roboto-Medium',
+        color: '#CF5260',
+        fontSize: 17
+    },
     title: {
         fontSize: 32,
         color: 'white',
