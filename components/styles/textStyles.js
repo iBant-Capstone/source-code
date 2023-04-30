@@ -16,6 +16,10 @@ export const textStyles = StyleSheet.create({
         fontFamily: 'Roboto-Medium',
         color: 'white'
     },
+    whiteText: {
+        fontFamily: 'Roboto',
+        color: 'white'
+    },
     redSemiBoldText: {
         fontFamily: 'Roboto-Medium',
         color: '#CF5260'

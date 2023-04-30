@@ -54,7 +54,7 @@ export const imageStyles = StyleSheet.create({
         fontSize: 'xxx-large'
     },
     deleteIcon: { 
-        fontSize: 'xx-large',
+        fontSize: 'x-large',
         color: '#CF5260'
     },
     // Info hub page
