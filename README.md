@@ -1,5 +1,5 @@
 # BACtracker Source Code
-This GitHub repository contains the code for our Capstone project. This README is not fully complete.
+This GitHub repository contains the code for our Capstone project. 
 <img align="right" width="150" height="150" src="./assets/icons/BACtracker_logo.png">
 ## About the Project
 Through this project, our group has created and implemented a mobile application that serves as a toolkit on safe alcohol consumption practices for our fellow peers. The app provides a hub of information regarding alcohol consumption, safety practices, and general resources. Using user specific demographics and information, the app can also calculate the BAC (Blood Alcohol Content) of the user as they input the different drinks they have consumed. 
@@ -26,14 +26,16 @@ Below, we describe the main files in this app. Each directory includes it's own 
 | [package-lock.json](./package-lock.json) and [package.json](./package.json) | Describe different versions of and names of packages/dependencies used to create this app |
 
 ## How to Contribute to Code
-TO BE ADDED
+If you would like to build upon our open-source project and contribute to our code repository, please read through each of our README files (listed above) to fully familiarize yourself with our project. Then send an email to TeamiBant@gmail.com introducing yourself and proposing how you would like to contribute to the project. Please include your contact information and GitHub profile in this email, and we will be in touch with you about next steps!
 
 ## About Us
-Hello! We're iBant, a group of four Informatics students studying at the University of Washington. Through this Capstone Project, we aim to utilize and reflect our education at the iSchool to produce a product that fills an information gap and creates positive social impact.<img align="right" height="200" src="./assets/avatars/Casual_Rosie.png"> 
+Hello! We're iBant, a group of four Informatics students studying at the University of Washington. Through this Capstone Project, we aim to utilize and reflect our education at the iSchool to produce a product that fills an information gap and creates positive social impact.<img align="right" height="150" src="./assets/avatars/Casual_Rosie.png"> 
 <br>
 Upon reflecting on our personal and fellow peer's experiences, we decided to create a toolkit to help our fellow students with safe alcohol consumption practices. Overuse of alcohol and abuse that leads to unsafe drinking can be both dangerous in the moment and long term among young adults. Through this, we hope to fill the information gap and address misinformation regarding safe alcohol consumption.
 
-### Project Group Member Contact Information
+### Project Contact Information
+Team iBant email: TeamiBant@gmail.com
+<br>
 Melina Perraut: mperraut@uw.edu
 <br>
 Emiri Nishizawa: emirin1@uw.edu
@@ -43,5 +45,5 @@ Roshni Srikanth: rsrika@uw.edu
 Gisele Fox: gjfox@uw.edu
 
 <div>
-<img align="left" height="100" src="./assets/avatars/iBant/Melina avatar.png"> <img align="left" height="100" src="./assets/avatars/iBant/Emiri avatar.png"> <img align="left" height="100" src="./assets/avatars/iBant/Roshni avatar.png"> <img align="left" height="100" src="./assets/avatars/iBant/Gisele avatar.png"> 
+<img align="left" height="150" src="./assets/avatars/iBant/Melina avatar.png"> <img align="left" height="150" src="./assets/avatars/iBant/Emiri avatar.png"> <img align="left" height="150" src="./assets/avatars/iBant/Roshni avatar.png"> <img align="left" height="150" src="./assets/avatars/iBant/Gisele avatar.png"> 
 </div>
