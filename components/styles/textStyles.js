@@ -116,7 +116,7 @@ export const textStyles = StyleSheet.create({
         fontWeight: 600
     },
     currentBACNumber: {
-        fontSize: 40,
+        fontSize: 44,
         // paddingVertical: '8%',
         fontWeight: 600
     },
