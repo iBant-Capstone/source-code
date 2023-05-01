@@ -5,7 +5,7 @@ This GitHub repository contains the code for our Capstone project.
 ## About the Project
 Through this project, our group has created and implemented a mobile application that serves as a toolkit on safe alcohol consumption practices for our fellow peers. The app provides a hub of information regarding alcohol consumption, safety practices, and general resources. Using user specific demographics and information, the app can also calculate the BAC (Blood Alcohol Content) of the user as they input the different drinks they have consumed. 
 ### Additional Links:
-- [Capstone Presentation Deck](https://www.canva.com/design/DAFhnHvY0HM/Y1D7R6rDM-K-T79HhyUXFA/edit?utm_content=DAFhnHvY0HM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- [Capstone Presentation Deck](https://www.canva.com/design/DAFhnHvY0HM/_0y8v7NEwaUma2l0Glvkgw/view?utm_content=DAFhnHvY0HM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 - Final Product/Landing Page
 
 ## How to Build and Deploy Code
