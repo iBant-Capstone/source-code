@@ -1,6 +1,4 @@
 import { Pressable, Text, View, Image, ScrollView } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import ClearDrinksButton from '../components/ClearDrinkButton';
 
 // Import components
 import TitleText from '../components/Title';
@@ -100,7 +98,7 @@ export const InfoPage = (props) => {
 
 export const InformationHub = ({ navigation }) => {
   return (
-    <ScrollView>
+    <ScrollView style={containerStyles.phoneScreen}>
       <InfoPage navigation={navigation} />
     </ScrollView>
   );

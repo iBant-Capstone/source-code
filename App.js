@@ -30,6 +30,8 @@ import PersonalDetailsInput from './screens/onboardingScreens/PersonalDetailsInp
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import { containerStyles } from './components/styles/containerStyles.js';
+
 // Import fonts
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
@@ -169,9 +171,9 @@ function NavBar() {
           }
           return (
             <Ionicons name={iconName} size={size} color={color} />
-
           );
         },
+        tabBarStyle: { width: 375, alignSelf: 'center' },
         tabBarActiveTintColor: '#CF5260',
         tabBarInactiveTintColor: 'black',
         tabBarLabel: () => { return null },

@@ -87,7 +87,7 @@ const CommonAlcoholTypes = ({ navigation }) => {
 
     // Page to return
     return (
-        <View>
+        <View style={containerStyles.phoneScreen}>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Common Alcohol Types"} />
             </View>

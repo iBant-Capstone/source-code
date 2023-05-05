@@ -93,5 +93,12 @@ export const containerStyles = StyleSheet.create({
     flexAndAlignItemsCenter: {
         display: "flex",
         alignItems: "center"
+    },
+
+    // Phone screen
+    phoneScreen: {
+        height: 667,
+        width: 375,
+        alignSelf: 'center'
     }
 })

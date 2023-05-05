@@ -54,7 +54,7 @@ const Profile = (props) => {
     );
 
     return (
-        <View>
+        <View style={containerStyles.phoneScreen}>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Profile"} />
                 <Image style={imageStyles.rightImage} source={require('../assets/avatars/Curious_Rosie.png')} resizeMode='contain' />

@@ -62,6 +62,9 @@ export const imageStyles = StyleSheet.create({
         width: '35%',
         marginBottom: '10%',
         tintColor: 'white'
+    },
+    topicIcon: {
+        tintColor: 'white'
     }
 
 })

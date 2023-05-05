@@ -8,6 +8,8 @@ import relativeTimeValues from "../../json/AddDrink-pages/relativeTimeValues.jso
 
 import handleInput from '../../components/addDrink-components/handleInput';
 
+import { containerStyles } from '../../components/styles/containerStyles';
+
 const AddDrinkTime = ({ route, navigation }) => {
     let drinks = route.params.drinks
     let newDrink = route.params.newDrink
@@ -29,7 +31,7 @@ const AddDrinkTime = ({ route, navigation }) => {
     }
 
     return (
-        <ScrollView>
+        <ScrollView style={containerStyles.phoneScreen}>
             <AddDrinkCards data={data} handleAddDrinksInput={handleRelativeTimeInput} />
             <ExactTimeInput handleExactTimeInput={handleExactTimeInput} />
         </ScrollView>

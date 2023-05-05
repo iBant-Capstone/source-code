@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { Text, View, LayoutAnimation, ScrollView, UIManager, Platform, Image } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component'
 
-// Import icons
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
 // Import json data of topic q and as
 import data from '../json/topics.json'
 import BACeffects from '../json/bac-levels.json'
@@ -25,7 +22,10 @@ const InfoTopicPage = ({ route }) => {
     const topicData = data.find(object => {
         return object.topicid === route.params.title
     })
+    // Set q and a
     const CONTENT = topicData.qa
+    // Get topic icon
+    const topicIcon = topicData.icon
 
     const [listDataSource, setListDataSource] = useState(CONTENT);
 
@@ -81,9 +81,10 @@ const InfoTopicPage = ({ route }) => {
 
     // Return page view
     return (
-        <ScrollView>
+        <ScrollView style={containerStyles.phoneScreen}>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={route.params.title} />
+                <Image style={[imageStyles.rightImage, imageStyles.topicIcon]} source={require('../assets/info-icons/' + topicIcon)} resizeMode='contain'/>
             </View>
             <View style={containerStyles.centerContainer}>
                 {listDataSource.map((item, key) => (

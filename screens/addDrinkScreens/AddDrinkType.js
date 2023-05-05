@@ -7,6 +7,8 @@ import types from "../../json/AddDrink-pages/drinkTypes.json"
 
 import handleInput from '../../components/addDrink-components/handleInput';
 
+import { containerStyles } from '../../components/styles/containerStyles';
+
 const AddDrinkType = ({ route, navigation }) => {
     let drinks = route.params.drinks
     let newDrink = {}
@@ -27,7 +29,7 @@ const AddDrinkType = ({ route, navigation }) => {
     }
 
     return (
-        <ScrollView>
+        <ScrollView style={containerStyles.phoneScreen}>
             <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
         </ScrollView>
     )

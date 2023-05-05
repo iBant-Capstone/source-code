@@ -21,9 +21,9 @@ const GetHomeSafelySection = (props) => {
 
     let warningTextSection;
     if (warningText != "") {
-        warningTextSection = <View style={{backgroundColor : "#CF5260", opacity: 0.75, borderRadius: 5, padding: 10}}>
+        warningTextSection = <View style={{ backgroundColor: "#CF5260", opacity: 0.75, borderRadius: 5, padding: 10 }}>
             <Text style={textStyles.whiteText}>{warningText}</Text>
-        </View> 
+        </View>
     } else {
         warningTextSection = <Text style={textStyles.whiteText}>{warningText}</Text>
     }
@@ -32,7 +32,6 @@ const GetHomeSafelySection = (props) => {
         <View style={{ backgroundColor: '#FFFFFF', padding: 15, maxWidth: '90%', borderRadius: 15 }}>
             <Text style={textStyles.redSemiBoldLargeText}>Get Home Safely</Text>
             {warningTextSection}
-            <Text style={textStyles.text}>For your own safety and for the safety of everyone else on the road, please don't drink and drive regardless of whether your BAC is below the federal limit. We recommend getting an Uber, riding with a designated driver, calling someone you trust, walking, or using public transit instead.</Text>
             <GetHomeSafelyButtons />
         </View>
     )

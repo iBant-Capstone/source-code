@@ -6,13 +6,14 @@ import Modal from "react-native-modal";
 import { buttonStyles } from './styles/buttonStyles';
 import { textStyles } from './styles/textStyles';
 import { BACPopupStyles } from './styles/BACPopupStyles';
+import { containerStyles } from './styles/containerStyles';
 
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const BACHowToPopUp = (props) => {
     return (
-        <Modal isVisible={props.modalVisible} style={BACPopupStyles.modal}>
+        <Modal isVisible={props.modalVisible} style={[BACPopupStyles.modal, containerStyles.phoneScreen]}>
             <View style={BACPopupStyles.content} >
                 <Pressable style={buttonStyles.alignRight} onPress={props.handleModal}>
                     <Ionicons name={"close"} size={30} color={"gray"} />

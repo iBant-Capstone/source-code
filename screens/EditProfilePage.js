@@ -17,9 +17,7 @@ import InvalidInputWarning from '../components/InvalidInputWarning';
 
 // Import styles
 import { containerStyles } from '../components/styles/containerStyles';
-import { buttonStyles } from '../components/styles/buttonStyles';
 import { textStyles } from '../components/styles/textStyles';
-import { textInputStyles } from '../components/styles/textInputStyles';
 import { imageStyles } from '../components/styles/imageStyles';
 
 const EditProfilePage = ({ navigation }) => {
@@ -165,7 +163,7 @@ const EditProfilePage = ({ navigation }) => {
     }
 
     return (
-        <View style={containerStyles.centerWhiteContainer}>
+        <View style={[containerStyles.centerWhiteContainer, containerStyles.phoneScreen]}>
             {/* Only loads once the personal details have loaded */}
             {hasFocused ?
                 <ScrollView style={{ minWidth: '100%' }}>
@@ -240,7 +238,7 @@ const EditProfilePage = ({ navigation }) => {
                 :
                 <Text style={textStyles.text}>Loading...</Text>
             }
-        </View >
+        </View>
     )
 }
 

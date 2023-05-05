@@ -10,6 +10,8 @@ import handleInput from '../../components/addDrink-components/handleInput';
 import strengths from "../../json/AddDrink-pages/drinkStrengths.json"
 import types from "../../json/AddDrink-pages/drinkTypes.json"
 
+import { containerStyles } from '../../components/styles/containerStyles';
+
 const AddDrinkSize = ({ route, navigation }) => {
     let drinks = route.params.drinks
     let newDrink = route.params.newDrink
@@ -32,7 +34,7 @@ const AddDrinkSize = ({ route, navigation }) => {
 
     if (data !== null) {
         return (
-            <ScrollView>
+            <ScrollView style={containerStyles.phoneScreen}>
                 <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
                 <AddDrinkCustomInput 
                     inputDescriptor={"Strength"}

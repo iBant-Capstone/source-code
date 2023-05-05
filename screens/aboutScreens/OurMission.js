@@ -11,7 +11,7 @@ import { textStyles } from '../../components/styles/textStyles';
 // Create and return page that displays mission and about team
 const OurMission = () => {
     return (
-        <ScrollView>
+        <ScrollView style={containerStyles.phoneScreen}>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Our Mission"} />
                 <Image style={imageStyles.rightImage} source={require('../../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />

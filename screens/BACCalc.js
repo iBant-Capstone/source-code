@@ -104,7 +104,7 @@ const BACCalc = ({ navigation, route }) => {
 
     if (drinksReady && pdReady) {
         return (
-            <ScrollView>
+            <ScrollView style={containerStyles.phoneScreen}>
                 <View style={containerStyles.fillToBottomContainer}>
                     <View style={[containerStyles.reverseRow, { height: 36, padding: 16, paddingBottom: 0 }]}>
                         <Pressable onPress={handleModal}>
@@ -125,7 +125,7 @@ const BACCalc = ({ navigation, route }) => {
         );
     } else {
         return (
-            <View>
+            <View style={containerStyles.phoneScreen}>
                 <Text style={textStyles.text}>Loading</Text>
             </View>
         )

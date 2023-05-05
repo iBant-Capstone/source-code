@@ -11,7 +11,7 @@ import { imageStyles } from '../../components/styles/imageStyles';
 // Second Login Screen: "Welcome to BACtracker" text and slogan
 const LoginScreen2 = ({ navigation }) => {
     return (
-        <View style={containerStyles.centerWhiteContainer}>
+        <View style={[containerStyles.centerWhiteContainer, containerStyles.phoneScreen]}>
             <Text style={[textStyles.text, textStyles.headerText]}>Welcome to BACtracker!</Text>
             <Text style={textStyles.redSemiBoldText}>We've got your BACk.</Text>
             <Image style={imageStyles.medCenterImage} source={require('../../assets/avatars/Casual_Rosie_shadow.png')} resizeMode='contain' />

@@ -11,7 +11,7 @@ import { textStyles } from '../../components/styles/textStyles';
 const Disclaimers = () => {
     return (
         <ScrollView>
-            <View style={{ backgroundColor: '#fff' }}>
+            <View style={[containerStyles.phoneScreen, { backgroundColor: '#fff' }]}>
                 <View style={[containerStyles.row, containerStyles.titleContainer]}>
                     <TitleText name={"Notes & disclaimers"} />
                     <Image style={imageStyles.rightImage} source={require('../../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />

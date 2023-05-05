@@ -19,7 +19,7 @@ const Footer = ({
   const HEIGHT = windowHeight * 0.21;
 
   return (
-    <View style={[containerStyles.row, containerStyles.centerContainer, { height: HEIGHT, minWidth: windowWidth, position: 'absolute', top: windowHeight - HEIGHT }]}>
+    <View style={[containerStyles.row, containerStyles.centerContainer, { height: HEIGHT, minWidth: '100%', position: 'absolute', top: windowHeight - HEIGHT }]}>
       {leftButtonLabel && (<Pressable style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]} onPress={leftButtonPress}><Text style={textStyles.whiteSemiBoldText}>{leftButtonLabel}</Text></Pressable>)}
       {rightButtonLabel && (<Pressable style={[buttonStyles.alignCenter, buttonStyles.redButton, buttonStyles.defaultButton]} onPress={rightButtonPress}><Text style={textStyles.whiteSemiBoldText}>{rightButtonLabel}</Text></Pressable>)}
     </View>

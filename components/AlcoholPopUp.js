@@ -4,11 +4,12 @@ import Modal from "react-native-modal";
 
 // Import styles
 import { buttonStyles } from './styles/buttonStyles';
-import { textStyles } from './styles/textStyles';
 import { alcoholPopupStyles } from './styles/alcoholPopupStyles';
 
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import { containerStyles } from './styles/containerStyles';
 
 const Popup = (props) => {
     let data = undefined;
@@ -16,7 +17,7 @@ const Popup = (props) => {
         data = props.data[0];
     }
     return (
-        <Modal isVisible={props.isOpen} style={alcoholPopupStyles.modal}>
+        <Modal isVisible={props.isOpen} style={[alcoholPopupStyles.modal, containerStyles.phoneScreen]}>
             <View style={alcoholPopupStyles.content} >
 
                 <Pressable style={buttonStyles.alignRight} onPress={props.onChangeModal}>

@@ -7,6 +7,8 @@ import handleInput from '../../components/addDrink-components/handleInput';
 
 import hungerValues from "../../json/AddDrink-pages/hungerValues.json"
 
+import { containerStyles } from '../../components/styles/containerStyles';
+
 const AddDrinkHunger = ({ route, navigation }) => {
     let drinks = route.params.drinks
     let newDrink = route.params.newDrink
@@ -21,7 +23,7 @@ const AddDrinkHunger = ({ route, navigation }) => {
     }
 
     return (
-        <ScrollView>
+        <ScrollView style={containerStyles.phoneScreen}>
             <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
         </ScrollView>
     )

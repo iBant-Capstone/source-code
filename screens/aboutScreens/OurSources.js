@@ -40,7 +40,7 @@ const URLLink = ({ id, name, url }) => {
 // Page to return
 const OurSources = () => {
     return (
-        <ScrollView>
+        <ScrollView style={containerStyles.phoneScreen}>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Our Sources"} />
                 <Image style={imageStyles.rightImage} source={require('../../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
