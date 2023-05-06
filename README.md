@@ -6,16 +6,20 @@ This GitHub repository contains the code for our Capstone project.
 Through this project, our group has created and implemented a mobile application that serves as a toolkit on safe alcohol consumption practices for our fellow peers. The app provides a hub of information regarding alcohol consumption, safety practices, and general resources. Using user specific demographics and information, the app can also calculate the BAC (Blood Alcohol Content) of the user as they input the different drinks they have consumed. 
 ### Additional Links:
 - [Capstone Presentation Deck](https://www.canva.com/design/DAFhnHvY0HM/_0y8v7NEwaUma2l0Glvkgw/view?utm_content=DAFhnHvY0HM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
-- [Final Product/Landing Page](https://bactracker-be654.web.app/)
-    - Please note: We are working on publishing our project to the web, so the current link to our final product is just our landing page.
+- [Final Product](https://bactracker-be654.web.app/)
+- [Product Video]()
 
 ## How to Build and Deploy Code
 - Currently, to run our code on your own laptop, please clone our repository by using the command `git clone`. 
 - In your IDE, open a new terminal. To install all of the code packages, type and enter the command `npm install`. 
 - To run our app, type and enter the command `npm run web`. This will open our app in your browser via localhost. 
-    - To view our app as it would appear on a mobile device, open up Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_ or right click and select 'Inspect') and set the screen dimensions to **iPhone SE**. 
+    - Due to the implementation being done from a mobile-first approach, we suggest viewing this app in a phone-type view. To best replicate this, we have set our app size to be the dimensions of a iPhone SE (375 x 667 pixels).
+    - Another option is to open Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_ or right click and select 'Inspect') and set the screen dimensions to **iPhone SE**. 
     
 If you have any questions or run into any issues, please feel free to contact any members of our team! Our team email is: TeamiBant@gmail.com
+
+## How to Contribute to Code
+If you would like to build upon our open-source project and contribute to our code repository, please read through each of our README files (listed above) to fully familiarize yourself with our project. Then send an email to TeamiBant@gmail.com introducing yourself and proposing how you would like to contribute to the project. Please include your contact information and GitHub profile in this email, and we will be in touch with you about next steps!
 
 ## About the GitHub
 Below, we describe the main files in this app. Each directory includes it's own README file that further describes its contents. <br>
@@ -29,9 +33,6 @@ Below, we describe the main files in this app. Each directory includes it's own 
 | [Screens Directory](./screens/) | Contains JavaScript files of all individual unique screens of our app |
 | [app.json](./app.json) | Includes backend information about app, including React Native properties used when running app |
 | [package-lock.json](./package-lock.json) and [package.json](./package.json) | Describe different versions of and names of packages/dependencies used to create this app |
-
-## How to Contribute to Code
-If you would like to build upon our open-source project and contribute to our code repository, please read through each of our README files (listed above) to fully familiarize yourself with our project. Then send an email to TeamiBant@gmail.com introducing yourself and proposing how you would like to contribute to the project. Please include your contact information and GitHub profile in this email, and we will be in touch with you about next steps!
 
 ## About Us
 <img align="right" height="170" src="./assets/avatars/Casual_Rosie_flipped.png"> 
