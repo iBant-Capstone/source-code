@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Pressable, Image } from 'react-native';
+import { Text, View, Pressable, Image, ScrollView } from 'react-native';
 
 // Import components
 import Popup from "../components/AlcoholPopUp";
@@ -88,7 +88,7 @@ const CommonAlcoholTypes = ({ navigation }) => {
 
     // Page to return
     return (
-        <View style={containerStyles.phoneScreen}>
+        <ScrollView style={containerStyles.phoneScreen}>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Common Alcohol Types"} />
                 <Image style={[imageStyles.rightImage, imageStyles.topicIcon]} source={require('../assets/info-icons/alcoholic-drink.png')} resizeMode='contain' />
@@ -96,7 +96,7 @@ const CommonAlcoholTypes = ({ navigation }) => {
             <View style={[containerStyles.row, containerStyles.centerContainer]}>
                 {PressableArrays}
             </View>
-        </View>
+        </ScrollView>
     );
 
 };

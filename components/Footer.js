@@ -15,8 +15,8 @@ const Footer = ({
   rightButtonPress = false
 }) => {
   const windowWidth = useWindowDimensions().width;
-  const windowHeight = useWindowDimensions().height;
-  const HEIGHT = windowHeight * 0.21;
+  const windowHeight = 667; // useWindowDimensions().height;
+  const HEIGHT = windowHeight * 0.11;
 
   return (
     <View style={[containerStyles.row, containerStyles.centerContainer, { height: HEIGHT, minWidth: '100%', position: 'absolute', top: windowHeight - HEIGHT }]}>
