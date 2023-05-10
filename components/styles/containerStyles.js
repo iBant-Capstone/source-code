@@ -1,9 +1,10 @@
 // This is the stylesheet with container styles
 import { StyleSheet } from 'react-native'
-import { Dimensions } from 'react-native';
+// Currently commented out, but should be used in future when app is available on mobile
+// import { Dimensions } from 'react-native';
 
-const windowHeight = Dimensions.get('window').height;
-const windowWidth = Dimensions.get('window').width;
+const windowHeight = 667; // Dimensions.get('window').height;
+const windowWidth = 375; // Dimensions.get('window').width;
 
 export const containerStyles = StyleSheet.create({
     centerWhiteContainer: {
@@ -74,7 +75,7 @@ export const containerStyles = StyleSheet.create({
     specialInfoItem: {
         marginHorizontal: 15, 
         paddingVertical: 10,
-        width: windowWidth * 0.84
+        minWidth: windowWidth * 0.792
       },
 
     // Extra padding

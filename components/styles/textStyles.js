@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native'
-import { Dimensions } from 'react-native';
+// Currently commented out, but should be used in future when app is available on mobile
+// import { Dimensions } from 'react-native';
 
-const windowWidth = Dimensions.get('window').width;
+const windowWidth = 375; // Dimensions.get('window').width;
 
 export const textStyles = StyleSheet.create({
     text: {

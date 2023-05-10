@@ -56,7 +56,6 @@ const InfoTopicPage = ({ route }) => {
                     <Image
                         source={imageUrl}
                         style={imageStyles.standardDrinksImage}
-                        resizeMode='cover'
                     />
                 </ScrollView>
             )
@@ -84,7 +83,7 @@ const InfoTopicPage = ({ route }) => {
         <ScrollView style={containerStyles.phoneScreen}>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={route.params.title} />
-                <Image style={[imageStyles.rightImage, imageStyles.topicIcon]} source={require('../assets/info-icons/' + topicIcon)} resizeMode='contain'/>
+                <Image style={[imageStyles.rightImage, imageStyles.topicIcon]} source={require('../assets/info-icons/' + topicIcon)} resizeMode='contain' />
             </View>
             <View style={containerStyles.centerContainer}>
                 {listDataSource.map((item, key) => (

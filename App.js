@@ -37,6 +37,10 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
 
+import { Dimensions } from 'react-native';
+import { textStyles } from './components/styles/textStyles.js';
+const width = Dimensions.get('window').width;
+
 // creating navigators for each of our sections
 // ob = onboarding
 // info = information hub
@@ -61,12 +65,22 @@ function InfoStackComponent() {
       <infoStack.Screen
         name='InfoTopicPage'
         component={InfoTopicPage}
-        options={({ route }) => ({ title: "", headerTransparent: true, headerTintColor: 'white' })}
+        options={({ route }) => ({
+          title: "",
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
       />
       <infoStack.Screen
         name='CommonAlcoholTypes'
         component={CommonAlcoholTypes}
-        options={({ route }) => ({ title: "", headerTransparent: true, headerTintColor: 'white' })}
+        options={({ route }) => ({
+          title: "",
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
       />
 
     </infoStack.Navigator>
@@ -85,27 +99,52 @@ function ProfileStackComponent() {
       <profileStack.Screen
         name='OurMission'
         component={OurMission}
-        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
+        options={({ route }) => ({
+          title: '',
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
       />
       <profileStack.Screen
         name='HowToUse'
         component={HowToUse}
-        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
+        options={({ route }) => ({
+          title: '',
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
       />
       <profileStack.Screen
         name='OurSources'
         component={OurSources}
-        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
+        options={({ route }) => ({
+          title: '',
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
       />
       <profileStack.Screen
         name='EditProfilePage'
         component={EditProfilePage}
-        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
+        options={({ route }) => ({
+          title: '',
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
       />
       <profileStack.Screen
         name='Disclaimers'
         component={Disclaimers}
-        options={({ route }) => ({ title: '', headerTransparent: true, headerTintColor: 'white' })}
+        options={({ route }) => ({
+          title: '',
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
       />
     </profileStack.Navigator>
   );
@@ -123,27 +162,37 @@ function BACStackComponent() {
       <bacStack.Screen
         name='AddDrinkType'
         component={AddDrinkType}
-        options={({ route }) => ({ title: 'Add Drink: Type' })}
+        options={({ route }) => ({
+          title: '',
+          // headerStyle: { alignItems: 'center'}, 
+          // headerTitleContainerStyle : { width: width, alignItems: 'center', backgroundColor: 'red' },
+          // headerTitleAlign: 'center',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
+          headerBackTitle: 'Add Drink: Type',
+          headerBackTitleVisible: true,
+          headerBackTitleStyle: [textStyles.boldText, { paddingLeft: 8 }]
+          // headerBackgroundContainerStyle: { width: width, alignContent: 'center' }
+        })}
       />
       <bacStack.Screen
         name='AddDrinkSize'
         component={AddDrinkSize}
-        options={({ route }) => ({ title: 'Add Drink: Size' })}
+        options={({ route }) => ({ title: 'Add Drink: Size', headerStyle: { width: 375, alignSelf: 'center' } })}
       />
       <bacStack.Screen
         name='AddDrinkStrength'
         component={AddDrinkStrength}
-        options={({ route }) => ({ title: 'Add Drink: ABV Strength' })}
+        options={({ route }) => ({ title: 'Add Drink: ABV Strength', headerStyle: { width: 375, alignSelf: 'center' } })}
       />
       <bacStack.Screen
         name='AddDrinkHunger'
         component={AddDrinkHunger}
-        options={({ route }) => ({ title: 'Add Drink: Hunger Level' })}
+        options={({ route }) => ({ title: 'Add Drink: Hunger Level', headerStyle: { width: 375, alignSelf: 'center' } })}
       />
       <bacStack.Screen
         name='AddDrinkTime'
         component={AddDrinkTime}
-        options={({ route }) => ({ title: 'Add Drink: Time' })}
+        options={({ route }) => ({ title: 'Add Drink: Time', headerStyle: { width: 375, alignSelf: 'center' } })}
       />
     </bacStack.Navigator>
   );

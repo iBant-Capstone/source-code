@@ -47,15 +47,15 @@ const Expandable = ({ item, onClickFunction }) => {
 
     // Function to detect and create clickable hyperlinks in topic answers
     const hyperlink = (itemText) => {
-        return ( 
+        return (
             <Hyperlink linkDefault={true} linkStyle={[textStyles.text, textStyles.link]}>
-                <Md itemText={itemText}/>
+                <Md itemText={itemText} />
             </Hyperlink>
         );
     }
 
     return (
-        <View>
+        <View style={{ width: 327 }}>
             {/*Header of the Expandable List Item*/}
             <TouchableOpacity
                 activeOpacity={0.8}
@@ -77,7 +77,7 @@ const Expandable = ({ item, onClickFunction }) => {
 
                 <Text style={[textStyles.text, textStyles.answerText.paragraph]}>
                     {item.sources.length == 0 ? "" : <Text style={{ fontSize: 10, lineHeight: 4 }}>Source(s): </Text>}
-                    
+
                     {item.sources.map((source) => {
                         keyCount++;
                         return (

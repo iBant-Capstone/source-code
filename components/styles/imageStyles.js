@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native'
-import { Dimensions } from 'react-native';
+// Currently commented out, but should be used in future when app is available on mobile
+// import { Dimensions } from 'react-native';
 
 // Get height dimension of window
-const windowHeight = Dimensions.get('window').height;
-const windowWidth = Dimensions.get('window').width;
+const windowHeight = 667; // Dimensions.get('window').height;
+const windowWidth = 375; // Dimensions.get('window').width;
 
 // Styling for images - Rosie, logo, icons, and other visual elements included
 export const imageStyles = StyleSheet.create({
@@ -31,8 +32,9 @@ export const imageStyles = StyleSheet.create({
     },
     // Standard drink image
     standardDrinksImage: {
-        width: windowWidth*0.9, // use dimensions? 340
-        height: windowHeight*0.64, // 425
+        width: windowWidth*0.792, 
+        minHeight: windowHeight*0.64,
+        alignSelf: 'center',
         marginTop: '5%'
     },
 

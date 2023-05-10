@@ -105,7 +105,7 @@ const PersonalDetailsInput = ({ navigation }) => {
     }
 
     return (
-        <View style={containerStyles.centerWhiteContainer}>
+        <View style={[containerStyles.centerWhiteContainer, containerStyles.phoneScreen]}>
             <ScrollView style={{ minWidth: '100%' }}>
                 <View style={[containerStyles.row, containerStyles.titleContainer]}>
                     <TitleText name={"Add In..."} />

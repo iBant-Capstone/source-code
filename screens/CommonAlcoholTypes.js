@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Pressable } from 'react-native';
+import { Text, View, Pressable, Image } from 'react-native';
 
 // Import components
 import Popup from "../components/AlcoholPopUp";
@@ -8,6 +8,7 @@ import TitleText from '../components/Title';
 // Import styles
 import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
+import { imageStyles } from '../components/styles/imageStyles';
 
 // Import json data of alcohols
 import data from '../json/alcoholtypes/alcohols.json';
@@ -90,6 +91,7 @@ const CommonAlcoholTypes = ({ navigation }) => {
         <View style={containerStyles.phoneScreen}>
             <View style={[containerStyles.row, containerStyles.titleContainer]}>
                 <TitleText name={"Common Alcohol Types"} />
+                <Image style={[imageStyles.rightImage, imageStyles.topicIcon]} source={require('../assets/info-icons/alcoholic-drink.png')} resizeMode='contain' />
             </View>
             <View style={[containerStyles.row, containerStyles.centerContainer]}>
                 {PressableArrays}
