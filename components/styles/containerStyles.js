@@ -99,6 +99,7 @@ export const containerStyles = StyleSheet.create({
     // Phone screen
     phoneScreen: {
         height: 667,
+        maxHeight: 667,
         width: 375,
         alignSelf: 'center'
     }
