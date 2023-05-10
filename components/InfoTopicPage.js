@@ -67,7 +67,7 @@ const InfoTopicPage = ({ route }) => {
         if (topicData.topicid === "BAC Levels and Effects") {
             const headTable = ['BAC Level', 'Effects'];
             return (
-                <View>
+                <View style={{ width: 327 }}>
                     <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>BAC Levels: Table</Text>
                     <Table borderStyle={tableStyles.border} style={containerStyles.specialInfoItem}>
                         <Row data={headTable} style={tableStyles.head} textStyle={tableStyles.headText} widthArr={[100, undefined]} />
