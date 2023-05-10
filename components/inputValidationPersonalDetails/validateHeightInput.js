@@ -3,7 +3,7 @@ const validateHeightInput = (heightData) => {
     let passes = false
 
     if (heightData.unit == "ft") {
-      if (heightData.ft < 8 && heightData.ft > 2 && heightData.in <= 12 && heightData.in >0) {
+      if (heightData.ft < 8 && heightData.ft > 2 && heightData.in < 12 && heightData.in >= 0) {
         passes = true
       }
     }

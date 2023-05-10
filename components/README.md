@@ -1,6 +1,6 @@
 # Components directory
 
-This directory includes the different components that used to style our application. Each of these files are imported into other components and screens to be used.<br>
+This directory includes the different components that used to build our application. Each of these files are imported into other components and screens to be used.<br>
 
 The directory includes the following:
 | File name | Contents |
