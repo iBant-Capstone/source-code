@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native'
 // Currently commented out, but should be used in future when app is available on mobile
-// import { Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 
 // Get height dimension of window
-const windowHeight = 667; // Dimensions.get('window').height;
+const windowHeight = Dimensions.get('window').height;
 const windowWidth = 375; // Dimensions.get('window').width;
 
 // Styling for images - Rosie, logo, icons, and other visual elements included

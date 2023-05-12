@@ -105,7 +105,7 @@ const BACCalc = ({ navigation, route }) => {
     if (drinksReady && pdReady) {
         return (
             <ScrollView style={containerStyles.phoneScreen}>
-                <View style={containerStyles.fillToBottomContainer}>
+                <View style={[containerStyles.fillToBottomContainer, containerStyles.phoneScreen]}>
                     <View style={[containerStyles.reverseRow, { height: 36, padding: 16, paddingBottom: 0 }]}>
                         <Pressable onPress={handleModal}>
                             <Ionicons name={"help-circle-outline"} size={30} color={"#9e9e9e"} />

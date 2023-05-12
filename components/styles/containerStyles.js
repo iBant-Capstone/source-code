@@ -1,9 +1,9 @@
 // This is the stylesheet with container styles
 import { StyleSheet } from 'react-native'
 // Currently commented out, but should be used in future when app is available on mobile
-// import { Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 
-const windowHeight = 667; // Dimensions.get('window').height;
+const windowHeight = Dimensions.get('window').height;
 const windowWidth = 375; // Dimensions.get('window').width;
 
 export const containerStyles = StyleSheet.create({
@@ -98,8 +98,7 @@ export const containerStyles = StyleSheet.create({
 
     // Phone screen
     phoneScreen: {
-        height: 667,
-        maxHeight: 667,
+        height: windowHeight,
         width: 375,
         alignSelf: 'center'
     }

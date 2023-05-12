@@ -14,8 +14,8 @@ Through this project, our group has created and implemented a mobile application
 - In your IDE, open a new terminal. To install all of the code packages, type and enter the command `npm install`. 
     - Occassionally, you may run into errors. If you do, try `npm install --force` to get these packages installed.
 - To run our app, type and enter the command `npm run web`. This will open our app in your browser via localhost. 
-    - Due to the implementation being done from a mobile-first approach, we suggest viewing this app in a phone-type view. To best replicate this, we have set our app size to be the dimensions of a iPhone SE (375 x 667 pixels).
-    - Another option is to open Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_ or right click and select 'Inspect') and set the screen dimensions to **iPhone SE**. 
+    - Due to the implementation being done from a mobile-first approach, we suggest viewing this app in a phone-type view. To best replicate this, we have set our app size to be the width of a iPhone SE (375 pixels). However, due to limitations technically, we are unable to set our app's height to a hard value. This will differ depending on the device you are on. 
+    - **Recommendation**: Another option is to open Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_ or right click and select 'Inspect') and set the screen dimensions to **iPhone SE**. 
         - If you do this, make sure to **refresh** your screen for the app to refresh window dimensions!
     
 If you have any questions or run into any issues, please feel free to contact any members of our team! Our team email is: TeamiBant@gmail.com
