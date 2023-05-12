@@ -33,9 +33,9 @@ export const imageStyles = StyleSheet.create({
     // Standard drink image
     standardDrinksImage: {
         width: windowWidth*0.792, 
-        minHeight: windowHeight*0.64,
+        minHeight: windowHeight*0.55,
         alignSelf: 'center',
-        marginTop: '5%'
+        resizeMode: 'center'
     },
 
     // Logos

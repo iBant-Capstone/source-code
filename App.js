@@ -164,10 +164,9 @@ function BACStackComponent() {
         component={AddDrinkType}
         options={({ route }) => ({
           title: '',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
-          headerBackTitle: 'Add Drink: Type',
-          headerBackTitleVisible: true,
-          headerBackTitleStyle: [textStyles.boldText, { paddingLeft: 8 }]
+          headerTransparent: true,
+          headerTintColor: 'black',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
         })}
       />
       <bacStack.Screen
@@ -175,10 +174,9 @@ function BACStackComponent() {
         component={AddDrinkSize}
         options={({ route }) => ({
           title: '',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
-          headerBackTitle: 'Add Drink: Size',
-          headerBackTitleVisible: true,
-          headerBackTitleStyle: [textStyles.boldText, { paddingLeft: 8 }]
+          headerTransparent: true,
+          headerTintColor: 'black',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
         })}
       />
       <bacStack.Screen
@@ -186,33 +184,30 @@ function BACStackComponent() {
         component={AddDrinkStrength}
         options={({ route }) => ({
           title: '',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
-          headerBackTitle: 'Add Drink: Strength',
-          headerBackTitleVisible: true,
-          headerBackTitleStyle: [textStyles.boldText, { paddingLeft: 8 }]
+          headerTransparent: true,
+          headerTintColor: 'black',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
         })}
       />
       <bacStack.Screen
         name='AddDrinkHunger'
         component={AddDrinkHunger}
-        options={({ route }) => ({ 
+        options={({ route }) => ({
           title: '',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
-          headerBackTitle: 'Add Drink: Hunger',
-          headerBackTitleVisible: true,
-          headerBackTitleStyle: [textStyles.boldText, { paddingLeft: 8 }]
-         })}
+          headerTransparent: true,
+          headerTintColor: 'black',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
       />
       <bacStack.Screen
         name='AddDrinkTime'
         component={AddDrinkTime}
-        options={({ route }) => ({ 
+        options={({ route }) => ({
           title: '',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
-          headerBackTitle: 'Add Drink: Time',
-          headerBackTitleVisible: true,
-          headerBackTitleStyle: [textStyles.boldText, { paddingLeft: 8 }]
-         })}
+          headerTransparent: true,
+          headerTintColor: 'black',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
       />
     </bacStack.Navigator>
   );
