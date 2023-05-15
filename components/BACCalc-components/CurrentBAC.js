@@ -54,9 +54,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
             // ___ PERSONAL DETAILS ___
             // get the right measures for caluclating the widmark factor
             let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value / 100 : personalDetails.height.value * 0.0254
-            let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
-            console.log("weight value before conversion: ", personalDetails.weight.value); // working on debugging
-            console.log("weight in kg: ", weightInKilograms);
+            let weightInKilograms = calculateWeightKilograms(personalDetails.weight.unit, personalDetails.weight.value)
             let widmarkFactor = 0
 
             // Calculate the widmark factor based off of sex
@@ -124,13 +122,14 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
         let drinkAlcoholGrams = Number(drink.drinkAlcoholGrams)
         let percentAlcoholAbsorbedByMinute = calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin, drink.halfLife)
         let percentAlcoholAbsorbedByMinute2 = calculatePercentAlcoholAbsorbedByMinute(timeDiffinMin - 1, drink.halfLife)
+        let weightInKilograms = calculateWeightKilograms(fullPersonalDetails.weight.unit, fullPersonalDetails.weight.value)
         return (
-            (percentAlcoholAbsorbedByMinute - percentAlcoholAbsorbedByMinute2) * drinkAlcoholGrams / (fullPersonalDetails.widmarkFactor * calculateWeightKilograms(fullPersonalDetails.weight.units, fullPersonalDetails.weight.value) * 1e3) * 100
+            (percentAlcoholAbsorbedByMinute - percentAlcoholAbsorbedByMinute2) * drinkAlcoholGrams / (fullPersonalDetails.widmarkFactor * weightInKilograms * 1e3) * 100
         )
     }
 
     function calculateWeightKilograms(units, value) {
-        return "kg" === units ? value : value / 2.205
+        return "kg" === units ? value : value * 0.45359237
 
     }
 
@@ -153,7 +152,7 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
         return timeDiffInMin
     }
 
-    function getTimeOfFirstDrinkAsDateObject() { // TODO sort array and figure out actual first drink
+    function getTimeOfFirstDrinkAsDateObject() { 
         const firstDrink = drinksConsumed[0]
         const timeOfFirstDrink = firstDrink.timeOfDrink
         return timeOfFirstDrink
