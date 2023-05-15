@@ -10,13 +10,13 @@ import { textStyles } from '../../components/styles/textStyles';
 
 const Disclaimers = () => {
     return (
-        <ScrollView>
-            <View style={[containerStyles.phoneScreen, { backgroundColor: '#fff' }]}>
+        <ScrollView style={[containerStyles.phoneScreen, { backgroundColor: '#FFF' }]}>
+            <View>
                 <View style={[containerStyles.row, containerStyles.titleContainer]}>
                     <TitleText name={"Notes & disclaimers"} />
                     <Image style={imageStyles.rightImage} source={require('../../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
                 </View>
-                <View style={[containerStyles.centerWhiteContainer, {marginTop: 15}]}>
+                <View style={[containerStyles.centerWhiteContainer, { marginTop: 10 }]}>
                     <Text style={[textStyles.redSemiBoldText, textStyles.size16]}>Data Privacy:</Text>
                     <Text style={containerStyles.centerContainer}>We want to protect the privacy of your information, so <Text style={textStyles.boldText}>all data is stored locally</Text>. {"\n"}{"\n"}If this app is deleted, your data will be lost.
                         We will only collect information on an as-needed basis!</Text>

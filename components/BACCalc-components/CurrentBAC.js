@@ -53,8 +53,10 @@ const CurrentBAC = ({ BAC, setBAC, drinks, personalDetails }) => {
 
             // ___ PERSONAL DETAILS ___
             // get the right measures for caluclating the widmark factor
-            let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value * 100 : personalDetails.height.value * 0.0254
+            let heightInMeters = personalDetails.height.unit === "cm" ? personalDetails.height.value / 100 : personalDetails.height.value * 0.0254
             let weightInKilograms = personalDetails.weight.unit === "kg" ? personalDetails.weight.value : personalDetails.weight.value * 0.45359237
+            console.log("weight value before conversion: ", personalDetails.weight.value); // working on debugging
+            console.log("weight in kg: ", weightInKilograms);
             let widmarkFactor = 0
 
             // Calculate the widmark factor based off of sex

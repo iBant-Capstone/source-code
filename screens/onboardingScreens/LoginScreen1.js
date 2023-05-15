@@ -49,7 +49,7 @@ const LoginScreen1 = ({ navigation }) => {
             <View style={[containerStyles.centerWhiteContainer, { minWidth: '100%' }]}>
                 <Image style={[imageStyles.largeCenterImage, imageStyles.largeLogo]} source={require('../../assets/icons/BACtracker_logo.png')} resizeMode='contain' />
             </View>
-            <View style={containerStyles.centerWhiteContainer}>
+            {/* <View style={containerStyles.centerWhiteContainer}>
                 <Pressable
                     style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
                     onPress={async () => {
@@ -62,7 +62,7 @@ const LoginScreen1 = ({ navigation }) => {
                     }} >
                     <Text style={textStyles.whiteSemiBoldText}>Clear Async Storage</Text>
                 </Pressable>
-            </View>
+            </View> */}
 
             <Footer rightButtonLabel="Next" rightButtonPress={() => {
             
