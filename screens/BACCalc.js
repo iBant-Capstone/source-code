@@ -23,7 +23,6 @@ const BACCalc = ({ navigation, route }) => {
     const [personalDetails, setPersonalDetails] = useState(route && route.personalDetails ? route.personalDetails : null)
 
     const [BAC, setBAC] = useState(null)
-    const [onInside, setOnInside] = useState(true)
 
     const [drinksReady, changeDrinksReady] = useState(false)
     const [pdReady, changePDReady] = useState(false)
@@ -31,10 +30,6 @@ const BACCalc = ({ navigation, route }) => {
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
     }, [])
-
-    const handleSetOnInside = useCallback((state) => {
-        setOnInside(state)
-    })
 
     const handleChangeDrinksReady = useCallback((state) => {
         changeDrinksReady(state)
