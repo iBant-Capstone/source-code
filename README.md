@@ -8,7 +8,6 @@ Through this project, our group has created and implemented a mobile application
 - [Final Product](https://bactrackerapp.web.app/)
 - [Project Landing Page](https://bactracker-be654.web.app/)
 - [Capstone Presentation Deck](https://www.canva.com/design/DAFhnHvY0HM/_0y8v7NEwaUma2l0Glvkgw/view?utm_content=DAFhnHvY0HM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
-- [Product Video]()
 
 ## How to Build and Deploy Code
 - To access our app on the web, naviagate to [this link](https://bactrackerapp.web.app/).
