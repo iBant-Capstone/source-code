@@ -113,7 +113,7 @@ const PersonalDetailsInput = ({ navigation }) => {
                 </View>
                 <View >
                     <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
-                        <Text style={textStyles.text}>Enter your information to enable the BAC calculator</Text>
+                        <Text style={textStyles.text}>Enter your information to enable personalized Blood Alcohol Concentration (BAC) calculations:</Text>
                     </View>
 
                     {/* Height Header */}

@@ -17,19 +17,21 @@ const OurMission = () => {
                 <Image style={imageStyles.rightImage} source={require('../../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
             </View>
             <View style={[containerStyles.centerWhiteContainer, { justifyContent: 'flex-start' }]}>
-                <Text style={containerStyles.centerContainer}>Our goal is to increase the user's knowledge and understanding of safe alcohol consumption practices so you can be as informed as possible!</Text>
-                <Text style={containerStyles.centerContainer}>This is an application built by young adults, for young adults! Drinking can be intimidating especially if you don't know how it affects you!</Text>
+                <Text style={containerStyles.centerContainer}>Our goal with this app is to <Text style={textStyles.redSemiBoldText}>increase alcohol health literacy in young adults</Text>, particularly those who identify within marginalized and vulnerable genders. We aim to accomplish this through increasing our users' knowledge and understanding of safe alcohol consumption practices. We're here to support you in becoming as informed as possible!</Text>                
+                <Text style={containerStyles.centerContainer}>This is an application built by young adults, for young adults! Drinking can be intimidating, especially if you don't know how alcohol affects you, and BACtracker is here to help.</Text>
                 <Text style={[textStyles.redSemiBoldText, textStyles.size16]}>About the Creators:</Text>
-                <Text style={containerStyles.centerContainer}>We are a group of four undergraduate students at the University of Washington Information School. For our Capstone project, we decided to create a toolkit to help our fellow students with safe alcohol consumption practices.</Text>
+                <Text style={containerStyles.centerContainer}>We are <Text style={textStyles.redSemiBoldText}>Team iBant</Text>, a group of four undergraduate students at the University of Washington Information School. For our Capstone project, we decided to create a convenient and comprehensive toolkit to bridge the current information gap in alcohol education and support young adults like us.</Text>
+                <Text style={[textStyles.redSemiBoldText, containerStyles.centerContainer]}>From left to right below: Melina Perraut, Emiri Nishizawa, Roshni Srikanth, and Gisele Fox. </Text>
                 <View style={[containerStyles.row, { width: '100%', height: '125px' }]}>
                     <Image style={containerStyles.fourColumnContainer} source={require('../../assets/avatars/iBant/Melina avatar.png')} />
                     <Image style={containerStyles.fourColumnContainer} source={require('../../assets/avatars/iBant/Emiri avatar.png')} />
                     <Image style={containerStyles.fourColumnContainer} source={require('../../assets/avatars/iBant/Roshni avatar.png')} />
                     <Image style={containerStyles.fourColumnContainer} source={require('../../assets/avatars/iBant/Gisele avatar.png')} />
                 </View>
-                <Text style={[textStyles.redSemiBoldText, textStyles.size16]}>Our Findings and Goals:</Text>
-                <Text style={containerStyles.centerContainer}>Overuse of alcohol and abuse that leads to unsafe drinking can be both dangerous in the moment and create unhealthy habits among young adults. Lack of alcohol knowledge, social pressures, and underdeveloped brains can lead to poor decision making contributing to these results. The information is out there. This generation needs an easy way to access it.</Text>
-                <Text style={containerStyles.centerContainer}>Through this, we hope to fill the information gap and address dangerous misinformation regarding alcohol consumption and safety practices. Many aspects and information regarding alcohol consumption are available online, but difficult for young adults to access and remember. As a generation that has grown with technology and smartphones, through the creation of our mobile application, we hope to cater a solution to our specific audience.</Text>
+                <Text style={[textStyles.redSemiBoldText, textStyles.size16]}>Our Findings and Solution Approach:</Text>
+                <Text style={containerStyles.centerContainer}>Overuse of alcohol at a young age can lead to dangerous in-the-moment and long-term consequences. However, current legal restrictions and preventive approaches are <Text style={textStyles.redSemiBoldText}>not sufficient</Text> to reduce alcohol abuse; information gaps and misinformation regarding alcohol safety remain. 
+                Lack of alcohol knowledge, social pressures, and underdeveloped brains also contribute to this issue. The information is out there, but this generation needs an easy way to access it.</Text>
+                <Text style={containerStyles.centerContainer}>To address this problem space, we created <Text style={textStyles.redSemiBoldText}>BACtracker</Text>, an app providing easy-to-access information about alcohol and safe drinking practices to young adults, especially those within gender minorities. Our app is specifically catered to our audience and helps our users make more informed, accurate decisions about alcohol consumption to keep them and their communities safe.</Text>                
             </View>
         </ScrollView>
     );

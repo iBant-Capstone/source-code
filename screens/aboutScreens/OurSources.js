@@ -46,7 +46,7 @@ const OurSources = () => {
                 <Image style={imageStyles.rightImage} source={require('../../assets/avatars/Scientist_Rosie.png')} resizeMode='contain' />
             </View>
             <View style={containerStyles.centerContainer}>
-                <Text style={{ marginBottom: 10 }}>Below are a list of our sources used to create this app</Text>
+                <Text style={{ marginBottom: 10 }}>Below is the list of sources we used to create this app:</Text>
                 <Table>
                     {sources.map((source) => {
                         return (
