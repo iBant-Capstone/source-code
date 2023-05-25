@@ -5,18 +5,20 @@ This GitHub repository contains the code for our Capstone project.
 ## About the Project
 Through this project, our group has created and implemented a mobile application that serves as a toolkit on safe alcohol consumption practices for our fellow peers. The app provides a hub of information regarding alcohol consumption, safety practices, and general resources. Using user specific demographics and information, the app can also calculate the BAC (Blood Alcohol Content) of the user as they input the different drinks they have consumed. 
 ### Additional Links:
+- [Final Product](https://bactrackerapp.web.app/)
+- [Project Landing Page](https://bactracker-be654.web.app/)
 - [Capstone Presentation Deck](https://www.canva.com/design/DAFhnHvY0HM/_0y8v7NEwaUma2l0Glvkgw/view?utm_content=DAFhnHvY0HM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
-- [Final Product](https://bactracker-be654.web.app/)
-- [Product Video]()
 
 ## How to Build and Deploy Code
-- Currently, to run our code on your own laptop, please clone our repository by using the command `git clone`. 
+- To access our app on the web, naviagate to [this link](https://bactrackerapp.web.app/).
+    - **Recommendation**: For the best viewing experience, open Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_ or right click and select 'Inspect') and set the screen dimensions to **iPhone SE**. 
+        - If you do this, make sure to **refresh** your screen for the app to refresh window dimensions! However, keep in mind that this may result in a loss of your existing profile personal information, which is a limitation of making our app publicly available by publishing it to the web. 
+- Alternatively, to run our code on your own laptop, please clone our repository by using the command `git clone`. 
 - In your IDE, open a new terminal. To install all of the code packages, type and enter the command `npm install`. 
     - Occassionally, you may run into errors. If you do, try `npm install --force` to get these packages installed.
 - To run our app, type and enter the command `npm run web`. This will open our app in your browser via localhost. 
     - Due to the implementation being done from a mobile-first approach, we suggest viewing this app in a phone-type view. To best replicate this, we have set our app size to be the width of a iPhone SE (375 pixels). However, due to limitations technically, we are unable to set our app's height to a hard value. This will differ depending on the device you are on. 
-    - **Recommendation**: Another option is to open Inspector Tools (in Chrome on a Windows laptop, the shortcut is _Ctrl + Shift + I_ or right click and select 'Inspect') and set the screen dimensions to **iPhone SE**. 
-        - If you do this, make sure to **refresh** your screen for the app to refresh window dimensions!
+    - Follow the **screen size recommendation** detailed above for the best viewing experience.
     
 If you have any questions or run into any issues, please feel free to contact any members of our team! Our team email is: TeamiBant@gmail.com
 

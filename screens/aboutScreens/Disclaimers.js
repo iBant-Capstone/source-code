@@ -21,9 +21,14 @@ const Disclaimers = () => {
                     <Text style={containerStyles.centerContainer}>We want to protect the privacy of your information, so <Text style={textStyles.boldText}>all data is stored locally</Text>. {"\n"}{"\n"}If this app is deleted, your data will be lost.
                         We will only collect information on an as-needed basis!</Text>
                     <Text style={[textStyles.redSemiBoldText, textStyles.size16]}>Medical advice:</Text>
-                    <Text style={containerStyles.centerContainer}>The alcohol-focused algorithms used in this application are based on currently available information. This means that they may <Text style={textStyles.boldText}>not</Text> be completely accurate and can change over time.
-                        {"\n"}{"\n"}<Text style={textStyles.boldText}>This app is not meant to substitute the advice of a licensed medical professional. Please use this resource with caution!</Text>
+                    <Text style={containerStyles.centerContainer}>The alcohol-focused algorithms used in this application are based on currently available information. This means that they may <Text style={textStyles.boldText}>not</Text> be completely accurate and can change over time. {"\n"}{"\n"}
                     </Text>
+                    <View style={containerStyles.horizontalPadding}>
+                        <View style={{ backgroundColor: "#CF5260", opacity: 0.75, borderRadius: 5, padding: 8 }}>
+                            <Text style={[textStyles.whiteText, containerStyles.alignTextLeft]}>This app is not meant to substitute the advice of a licensed medical professional. <Text style={textStyles.boldText}>Please use this resource with caution!</Text></Text>
+                        </View>
+                    </View>
+
                 </View>
             </View>
         </ScrollView>

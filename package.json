@@ -6,13 +6,16 @@
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && expo start ",
     "android": "set NODE_OPTIONS=--openssl-legacy-provider && expo start --android",
     "ios": "set NODE_OPTIONS=--openssl-legacy-provider && expo start --ios",
-    "web": "set NODE_OPTIONS=--openssl-legacy-provider && expo start --web"
+    "web": "set NODE_OPTIONS=--openssl-legacy-provider && expo start --web",
+    "predeploy": "expo build:web",
+    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
   },
   "dependencies": {
     "@expo/config": "^7.0.3",
     "@expo/webpack-config": "^0.17.2",
     "@react-native-async-storage/async-storage": "~1.17.3",
     "@react-native-community/datetimepicker": "6.5.2",
+    "@react-native-firebase/app": "^17.4.3",
     "@react-navigation/bottom-tabs": "^6.5.5",
     "@react-navigation/elements": "^1.3.17",
     "@react-navigation/material-top-tabs": "^6.5.3",

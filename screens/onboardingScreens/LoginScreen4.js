@@ -24,9 +24,13 @@ const LoginScreen4 = ({ navigation }) => {
                         We will only collect information on an as-needed basis!</Text>
                     <Text style={[textStyles.redSemiBoldText, textStyles.size16, { marginBottom: "2%" }]}>Medical Advice:</Text>
                     <Text style={textStyles.text}>The alcohol-focused algorithms used in this application are based on currently available information. This means that they may <Text style={textStyles.boldText}>not</Text> be completely accurate and can change over time.
-                        {"\n"}{"\n"}<Text style={textStyles.boldText}>This app is not meant to substitute the advice of a licensed medical professional. Please use this resource with caution!</Text>
+                        {"\n"}{"\n"}
                     </Text>
+                    <View style={{ backgroundColor: "#CF5260", opacity: 0.75, borderRadius: 5, padding: 8 }}>
+                        <Text style={[textStyles.whiteText, containerStyles.alignTextLeft]}>This app is not meant to substitute the advice of a licensed medical professional. <Text style={textStyles.boldText}>Please use this resource with caution!</Text></Text>
+                    </View>
                 </View>
+
                 <Footer rightButtonLabel="Next" rightButtonPress={() => { navigation.navigate('PersonalDetailsInput'); }} leftButtonLabel="Back" leftButtonPress={() => { navigation.navigate('Login3'); }} />
             </View>
         </ScrollView>

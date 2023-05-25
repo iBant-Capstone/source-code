@@ -12,7 +12,7 @@ import { imageStyles } from '../../components/styles/imageStyles';
 const LoginScreen2 = ({ navigation }) => {
     return (
         <View style={[containerStyles.centerWhiteContainer, containerStyles.phoneScreen]}>
-            <Text style={[textStyles.text, textStyles.headerText]}>Welcome to BACtracker!</Text>
+            <Text style={[textStyles.text, textStyles.headerText]}>Welcome to <Text style={[textStyles.boldText, textStyles.headerText]}>BAC</Text>tracker!</Text>
             <Text style={textStyles.redSemiBoldText}>We've got your BACk.</Text>
             <Image style={imageStyles.medCenterImage} source={require('../../assets/avatars/Casual_Rosie_shadow.png')} resizeMode='contain' />
             <Text style={[textStyles.text, textStyles.headerText, textStyles.redSemiBoldText, { marginBottom: "5%" }]}>Hi, I'm Rosie!</Text>
