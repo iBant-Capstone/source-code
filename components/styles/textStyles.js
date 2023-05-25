@@ -49,7 +49,7 @@ export const textStyles = StyleSheet.create({
         fontSize: 24,
         marginBottom: '10%'
     },
-    link: { // here atm
+    link: { 
         textDecorationLine: 'underline',
         color: '#387780',
         margin: 5
@@ -97,7 +97,6 @@ export const textStyles = StyleSheet.create({
             fontSize: 14,
             paddingHorizontal: 15,
             paddingVertical: 10,
-            width: windowWidth * 0.92,
             backgroundColor: '#F2C0C5',
             marginTop: 0,
             marginBottom: 0,
@@ -107,18 +106,15 @@ export const textStyles = StyleSheet.create({
             color: '#387780',
             margin: 5
         }
-
     },
 
     // For current BAC page
     currentBACText: {
         fontSize: 14,
-        // paddingVertical: '8%',
         fontWeight: 600
     },
     currentBACNumber: {
         fontSize: 44,
-        // paddingVertical: '8%',
         fontWeight: 600
     },
 
@@ -138,5 +134,4 @@ export const textStyles = StyleSheet.create({
         fontSize: 12,
         color: "#383838"
     }
-
 })
