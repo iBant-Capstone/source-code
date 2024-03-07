@@ -331,60 +331,89 @@
         "icon": "endocrine-system.png",
         "qa": [
             {
-                "question": "When will I start to feel the effects of alcohol?",
+                "question": "Hydration",
                 "answerArr": [
-                    {"key": "In healthy people, blood circulates through the body in 90 seconds, which means they can begin to feel the effects of alcohol **within 15 to 45 minutes** after the first drink."}
+                    {"key": "Drink plenty of water to rehydrate your body and help alleviate any symptoms of dehydration caused by alcohol."}
                 ],
                 "sources": [
-                    14
+                    
                 ]
             },
             {
-                "question": "How long does alcohol metabolism take?",
+                "question": "Rest",
                 "answerArr": [
-                    {"key": "The liver can metabolize **one standard drink an hour**."},
-                    {"key": "Factors such as age, weight, gender, personal metabolism, and amount of food eaten also play a role in how fast the body can process alcohol."},
-                    {"key": "A person's blood alcohol concentration (BAC) level is *reduced by 0.015 per hour* or at an average rate of .015 g/100mL/hour."},
-                    {"key": "This process cannot be sped up with time, sleep, food, or other methods."},
-                    {"key": "*You cannot flush alcohol out of your system once it's in!*"}
+                    {"key": "Get plenty of rest to allow your body to recover from the effects of alcohol. Aim for 7-9 hours of sleep if possible."}
                 ],
                 "sources": [
-                    14
+    
 
                 ]
             },
             {
-                "question": "How long does alcohol stay in my system?",
+                "question": "Nutrition",
                 "answerArr": [
-                    {"key": "This is how long alcohol can be detected in a person's system (depending on how the alcohol is being measured):"},
-                    {"key": "   - Blood: Up to 6 hours"},
-                    {"key": "   - Breath: 12-24 hours"},
-                    {"key": "   - Saliva: 12-24 hours"},
-                    {"key": "   - Urine: 12-24 hours"},
-                    {"key": "   - Hair: 90 Days"}
+                    {"key": "Eat a balanced meal rich in vitamins and minerals to replenish your body's nutrients. Focus on foods that are easy to digest, such as fruits, vegetables, lean proteins, and whole grains."}
                 ],
                 "sources": [
-                    14
+    
+
                 ]
             },
             {
-                "question": "How do I know when I'm drunk?",
+                "question": "Avoid caffeine and sugary drinks",
                 "answerArr": [
-                    {"key": "The effects of alcohol vary from person to person, and it may take some people a quicker or longer time to start seeing signs of intoxication when drinking the same amount of alcohol."},
-                    {"key": "Typically, for *males* with little to no tolerance, they may begin to show some signs of intoxication when their BAC reaches *0.05%*."},
-                    {"key": "A *woman* who weighs 150 pounds will reach a BAC of 0.10% after drinking about 4 drinks in an hour."},
-                    {"key": "With little or no alcohol tolerance, *general impairment levels* are observed at the following BAC levels:"},
-                    {"key": "   - 0.05% = detectible"},
-                    {"key": "   - 0.07% = driving impaired (**NOTE**: 0.08% is the *federal limit* to legally drive in the United States, but you can be impaired and arrested even if your BAC is under 0.08%.)"},
-                    {"key": "   - 0.10% = intoxicated"},
-                    {"key": "   - 0.20% = decreased consciousness"},
-                    {"key": "   - 0.30% = unconscious"},
-                    {"key": "   - 0.40% = fatal"},
-                    {"key": "When a person with BAC levels between 0.10% and 0.20% does not show obvious signs of intoxication, it typically means they've *developed a tolerance for alcohol*. This means they most likely are regularly drinking heavily and are showing characteristics of dependence."}
+                    {"key": "While caffeine may temporarily make you feel more alert, it can also worsen dehydration and contribute to anxiety or jitteriness. Similarly, sugary drinks can exacerbate dehydration and may lead to energy crashes later on"}
                 ],
                 "sources": [
-                    14,
-                    15
+    
+
+                ]
+            },
+            {
+                "question": "Gentle exercise",
+                "answerArr": [
+                    {"key": "Engage in light exercise such as walking or gentle stretching to improve circulation and help your body process alcohol more efficiently. However, avoid strenuous activities that could further strain your body."}
+                ],
+                "sources": [
+    
+
+                ]
+            },
+            {
+                "question": "Seek support",
+                "answerArr": [
+                    {"key": "If you're feeling overwhelmed or experiencing negative emotions after drinking, reach out to friends, family, or a mental health professional for support. Talking about your feelings can help you process them and feel more grounded."}
+                ],
+                "sources": [
+    
+
+                ]
+            },
+            {
+                "question": "Practice mindfulness or relaxation techniques",
+                "answerArr": [
+                    {"key": "Engage in activities such as meditation, deep breathing exercises, or progressive muscle relaxation to help reduce stress and promote relaxation."}
+                ],
+                "sources": [
+
+                ]
+            },
+            {
+                "question": "Take over-the-counter remedies",
+                "answerArr": [
+                    {"key": "Over-the-counter medications such as ibuprofen or antacids may help alleviate headache or stomach discomfort caused by alcohol consumption. However, be cautious not to exceed the recommended dosage and consult with a healthcare professional if you have any concerns."}
+                ],
+                "sources": [
+                    
+                ]
+            },
+            {
+                "question": "Reflect on your drinking habits",
+                "answerArr": [
+                    {"key": "Use this experience as an opportunity to reflect on your drinking habits and consider making healthier choices in the future. Set limits for yourself, alternate alcoholic drinks with water, and know when to say no to additional drinks."}
+                ],
+                "sources": [
+                    
                 ]
             }
         ],
@@ -395,25 +424,33 @@
         "icon": "drunk.png",
         "qa": [
             {
-                "question": "What is Blood Alcohol Concentration (BAC)?",
+                "question": "Alcohol with Caffeinated Beverages",
                 "answerArr": [
-                    {"key": "Blood Alcohol Concentration (BAC) refers to the percent of alcohol (ethyl alcohol or ethanol) in a person's blood stream."},
-                    {"key": "A BAC of .10% means that an individual's blood supply contains one part alcohol for every 1000 parts blood."}
+                    {"key": "Between-subjects analyses found that alcohol–caffeine consumers consumed more alcohol and had higher objective and subjective intoxication than those who consumed alcohol-only"}
                 ],
                 "sources": [
-                    20
+                    42
                 ]
             },
             {
-                "question": "How do we calculate BAC?",
+                "question": "Alcohol with Energy Drinks",
                 "answerArr": [
-                    {"key": "In this application, we calculate BAC by using the algorithm implemented by drunkcalc.com. This algorithm uses the *improved Widmark factor* first proposed by Posey and Mozayani in the journal article \"The estimation of blood alcohol concentration: Widmark revisited\", published in 2007, in order to more accurately calculate blood alcohol concentration. It includes absorption rate based on how much food you already have in your stomach."}
+                    {"key": "The results of the meta-analysis confirm that AMED(Mixing Alcohol with Energy Drinks) consumers drink significantly more alcohol than AO(Alcohol Only) consumers on a typical drinking occasion."}
                 ],
                 "sources": [
-                    32
+                    43
+                ]
+            },
+            {
+                "question": "Alcohol with Medicines",
+                "answerArr": [
+                    {"key": "Alcohol and medicines can interact harmfully even if they are not taken at the same time. "}
+                ],
+                "sources": [
+                    41
                 ]
             }
         ],
-        "imgUrl": ""
+        "imgUrl": "../assets/images/Medication.png"
     }
 ]
