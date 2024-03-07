@@ -90,6 +90,27 @@ export const InfoPage = (props) => {
           </View>
           <Text style={textStyles.whiteSemiBoldText}>Resources</Text>
         </Pressable>
+        {/* test */}
+         <Pressable
+          style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
+          title="Self Care"
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Self Care' })}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/endocrine-system.png')} resizeMode='contain' />
+          </View>
+          <Text style={textStyles.whiteSemiBoldText}>Self Care</Text>
+        </Pressable>
+
+
+
+        <Pressable
+          style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
+          onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Mixology' })}>
+          <View style={containerStyles.reverseRow}>
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/search-worldwide.png')} resizeMode='contain' />
+          </View>
+          <Text style={textStyles.whiteSemiBoldText}>Mixology</Text>
+        </Pressable>
       </View>
     </ScrollView >
   );
