@@ -14,6 +14,7 @@ import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import Disclaimers from './screens/aboutScreens/Disclaimers.js';
 import EditProfilePage from './screens/EditProfilePage.js';
+import AddDrinkEmotion from './screens/addDrinkScreens/AddDrinkEmotion.js';
 import AddDrinkType from './screens/addDrinkScreens/AddDrinkType.js';
 import AddDrinkSize from './screens/addDrinkScreens/AddDrinkSize.js';
 import AddDrinkStrength from './screens/addDrinkScreens/AddDrinkStrength.js'
@@ -40,6 +41,7 @@ import { useCallback } from 'react';
 import { Dimensions } from 'react-native';
 import { textStyles } from './components/styles/textStyles.js';
 const width = Dimensions.get('window').width;
+
 
 // creating navigators for each of our sections
 // ob = onboarding
@@ -155,58 +157,72 @@ function BACStackComponent() {
   return (
     <bacStack.Navigator>
       <bacStack.Screen
-        name='BACCalc'
+        name="BACCalc"
         component={BACCalc}
-        options={({ route }) => ({ title: 'BAC Calculator', headerShown: false })}
+        options={({ route }) => ({
+          title: "BAC Calculator",
+          headerShown: false,
+        })}
+      />
+      {/* test */}
+      <bacStack.Screen
+        name="AddDrinkEmotion"
+        component={AddDrinkEmotion}
+        options={({ route }) => ({
+          title: "",
+          headerTransparent: true,
+          headerTintColor: "black",
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
+        })}
       />
       <bacStack.Screen
-        name='AddDrinkType'
+        name="AddDrinkType"
         component={AddDrinkType}
         options={({ route }) => ({
-          title: '',
+          title: "",
           headerTransparent: true,
-          headerTintColor: 'black',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+          headerTintColor: "black",
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
         })}
       />
       <bacStack.Screen
-        name='AddDrinkSize'
+        name="AddDrinkSize"
         component={AddDrinkSize}
         options={({ route }) => ({
-          title: '',
+          title: "",
           headerTransparent: true,
-          headerTintColor: 'black',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+          headerTintColor: "black",
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
         })}
       />
       <bacStack.Screen
-        name='AddDrinkStrength'
+        name="AddDrinkStrength"
         component={AddDrinkStrength}
         options={({ route }) => ({
-          title: '',
+          title: "",
           headerTransparent: true,
-          headerTintColor: 'black',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+          headerTintColor: "black",
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
         })}
       />
       <bacStack.Screen
-        name='AddDrinkHunger'
+        name="AddDrinkHunger"
         component={AddDrinkHunger}
         options={({ route }) => ({
-          title: '',
+          title: "",
           headerTransparent: true,
-          headerTintColor: 'black',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+          headerTintColor: "black",
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
         })}
       />
       <bacStack.Screen
-        name='AddDrinkTime'
+        name="AddDrinkTime"
         component={AddDrinkTime}
         options={({ route }) => ({
-          title: '',
+          title: "",
           headerTransparent: true,
-          headerTintColor: 'black',
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+          headerTintColor: "black",
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
         })}
       />
     </bacStack.Navigator>

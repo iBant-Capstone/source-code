@@ -1,13 +1,17 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text, Pressable, Image } from "react-native";
 
 import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
 
 import types from "../../json/AddDrink-pages/drinkTypes.json"
 
+// import { textStyles } from "../styles/textStyles";
+
 import handleInput from '../../components/addDrink-components/handleInput';
 
 import { containerStyles } from '../../components/styles/containerStyles';
+
+
 
 const AddDrinkType = ({ route, navigation }) => {
     let drinks = route.params.drinks
@@ -29,10 +33,17 @@ const AddDrinkType = ({ route, navigation }) => {
     }
 
     return (
-        <ScrollView style={containerStyles.phoneScreen}>
-            <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
-        </ScrollView>
-    )
+      <ScrollView style={containerStyles.phoneScreen}>
+        <p>Add Your Feelings</p>
+        
+        {/* <Text style={[textStyles.text, textStyles.boldText]}>Add Drink</Text> */}
+
+        <AddDrinkCards
+          data={data}
+          handleAddDrinksInput={handleAddDrinksInput}
+        />
+      </ScrollView>
+    );
 }
 
 export default AddDrinkType
