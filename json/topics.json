@@ -325,5 +325,95 @@
             }
         ],
         "imgUrl": ""
+    },
+    {
+        "topicid": "Self Care",
+        "icon": "endocrine-system.png",
+        "qa": [
+            {
+                "question": "When will I start to feel the effects of alcohol?",
+                "answerArr": [
+                    {"key": "In healthy people, blood circulates through the body in 90 seconds, which means they can begin to feel the effects of alcohol **within 15 to 45 minutes** after the first drink."}
+                ],
+                "sources": [
+                    14
+                ]
+            },
+            {
+                "question": "How long does alcohol metabolism take?",
+                "answerArr": [
+                    {"key": "The liver can metabolize **one standard drink an hour**."},
+                    {"key": "Factors such as age, weight, gender, personal metabolism, and amount of food eaten also play a role in how fast the body can process alcohol."},
+                    {"key": "A person's blood alcohol concentration (BAC) level is *reduced by 0.015 per hour* or at an average rate of .015 g/100mL/hour."},
+                    {"key": "This process cannot be sped up with time, sleep, food, or other methods."},
+                    {"key": "*You cannot flush alcohol out of your system once it's in!*"}
+                ],
+                "sources": [
+                    14
+
+                ]
+            },
+            {
+                "question": "How long does alcohol stay in my system?",
+                "answerArr": [
+                    {"key": "This is how long alcohol can be detected in a person's system (depending on how the alcohol is being measured):"},
+                    {"key": "   - Blood: Up to 6 hours"},
+                    {"key": "   - Breath: 12-24 hours"},
+                    {"key": "   - Saliva: 12-24 hours"},
+                    {"key": "   - Urine: 12-24 hours"},
+                    {"key": "   - Hair: 90 Days"}
+                ],
+                "sources": [
+                    14
+                ]
+            },
+            {
+                "question": "How do I know when I'm drunk?",
+                "answerArr": [
+                    {"key": "The effects of alcohol vary from person to person, and it may take some people a quicker or longer time to start seeing signs of intoxication when drinking the same amount of alcohol."},
+                    {"key": "Typically, for *males* with little to no tolerance, they may begin to show some signs of intoxication when their BAC reaches *0.05%*."},
+                    {"key": "A *woman* who weighs 150 pounds will reach a BAC of 0.10% after drinking about 4 drinks in an hour."},
+                    {"key": "With little or no alcohol tolerance, *general impairment levels* are observed at the following BAC levels:"},
+                    {"key": "   - 0.05% = detectible"},
+                    {"key": "   - 0.07% = driving impaired (**NOTE**: 0.08% is the *federal limit* to legally drive in the United States, but you can be impaired and arrested even if your BAC is under 0.08%.)"},
+                    {"key": "   - 0.10% = intoxicated"},
+                    {"key": "   - 0.20% = decreased consciousness"},
+                    {"key": "   - 0.30% = unconscious"},
+                    {"key": "   - 0.40% = fatal"},
+                    {"key": "When a person with BAC levels between 0.10% and 0.20% does not show obvious signs of intoxication, it typically means they've *developed a tolerance for alcohol*. This means they most likely are regularly drinking heavily and are showing characteristics of dependence."}
+                ],
+                "sources": [
+                    14,
+                    15
+                ]
+            }
+        ],
+        "imgUrl": ""
+    },
+     {
+        "topicid": "Mixology",
+        "icon": "drunk.png",
+        "qa": [
+            {
+                "question": "What is Blood Alcohol Concentration (BAC)?",
+                "answerArr": [
+                    {"key": "Blood Alcohol Concentration (BAC) refers to the percent of alcohol (ethyl alcohol or ethanol) in a person's blood stream."},
+                    {"key": "A BAC of .10% means that an individual's blood supply contains one part alcohol for every 1000 parts blood."}
+                ],
+                "sources": [
+                    20
+                ]
+            },
+            {
+                "question": "How do we calculate BAC?",
+                "answerArr": [
+                    {"key": "In this application, we calculate BAC by using the algorithm implemented by drunkcalc.com. This algorithm uses the *improved Widmark factor* first proposed by Posey and Mozayani in the journal article \"The estimation of blood alcohol concentration: Widmark revisited\", published in 2007, in order to more accurately calculate blood alcohol concentration. It includes absorption rate based on how much food you already have in your stomach."}
+                ],
+                "sources": [
+                    32
+                ]
+            }
+        ],
+        "imgUrl": ""
     }
 ]
