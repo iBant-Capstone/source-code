@@ -14,7 +14,6 @@ import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import Disclaimers from './screens/aboutScreens/Disclaimers.js';
 import EditProfilePage from './screens/EditProfilePage.js';
-import AddDrinkEmotion from './screens/addDrinkScreens/AddDrinkEmotion.js';
 import AddDrinkType from './screens/addDrinkScreens/AddDrinkType.js';
 import AddDrinkSize from './screens/addDrinkScreens/AddDrinkSize.js';
 import AddDrinkStrength from './screens/addDrinkScreens/AddDrinkStrength.js'
@@ -162,17 +161,6 @@ function BACStackComponent() {
         options={({ route }) => ({
           title: "BAC Calculator",
           headerShown: false,
-        })}
-      />
-      {/* test */}
-      <bacStack.Screen
-        name="AddDrinkEmotion"
-        component={AddDrinkEmotion}
-        options={({ route }) => ({
-          title: "",
-          headerTransparent: true,
-          headerTintColor: "black",
-          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
         })}
       />
       <bacStack.Screen

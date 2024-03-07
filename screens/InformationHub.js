@@ -90,24 +90,22 @@ export const InfoPage = (props) => {
           </View>
           <Text style={textStyles.whiteSemiBoldText}>Resources</Text>
         </Pressable>
-        {/* test */}
+        {/* self-care */}
          <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           title="Self Care"
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Self Care' })}>
           <View style={containerStyles.reverseRow}>
-            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/endocrine-system.png')} resizeMode='contain' />
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/self-care-icon-2.png')} resizeMode='contain' />
           </View>
           <Text style={textStyles.whiteSemiBoldText}>Self Care</Text>
         </Pressable>
-
-
-
+        {/* mixology */}
         <Pressable
           style={[buttonStyles.alignLeft, buttonStyles.redButton, buttonStyles.defaultButton]}
           onPress={() => props.navigation.navigate('InfoTopicPage', { title: 'Mixology' })}>
           <View style={containerStyles.reverseRow}>
-            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/search-worldwide.png')} resizeMode='contain' />
+            <Image style={imageStyles.hubIcon} source={require('../assets/info-icons/mixology-icon.png')} resizeMode='contain' />
           </View>
           <Text style={textStyles.whiteSemiBoldText}>Mixology</Text>
         </Pressable>

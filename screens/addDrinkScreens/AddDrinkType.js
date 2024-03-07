@@ -1,49 +1,77 @@
-import React from 'react';
-import { ScrollView, Text, Pressable, Image } from "react-native";
+import React, { useState } from "react";
 
-import AddDrinkCards from '../../components/addDrink-components/AddDrinkCards';
+import { ScrollView, Text, View} from "react-native";
 
-import types from "../../json/AddDrink-pages/drinkTypes.json"
+import Slider from "@react-native-community/slider";
 
-// import { textStyles } from "../styles/textStyles";
+import AddDrinkCards from "../../components/addDrink-components/AddDrinkCards";
 
-import handleInput from '../../components/addDrink-components/handleInput';
+import types from "../../json/AddDrink-pages/drinkTypes.json";
 
-import { containerStyles } from '../../components/styles/containerStyles';
+import handleInput from "../../components/addDrink-components/handleInput";
 
+import { containerStyles } from "../../components/styles/containerStyles";
 
+import { EmotionalSliderStyles } from "../../components/styles/emotionalSliderStyles";
 
 const AddDrinkType = ({ route, navigation }) => {
-    let drinks = route.params.drinks
-    let newDrink = {}
+  let drinks = route.params.drinks;
+  let newDrink = {};
 
-    let data = types
-    let newKey = "name"
-    let nextPage = "AddDrinkStrength"
+  let data = types;
+  let newKey = "name";
+  let nextPage = "AddDrinkStrength";
 
-    const handleAddDrinksInput = (newValue) => {
-        // If they click the custom card we don't start building the newDrink yet and head them over to
-        //      the custom building page
-        if (newValue == 'custom') {
-            navigation.navigate("__", { drinks: drinks, newDrink: newDrink })
-        }
+  const [emotionValue, setEmotionValue] = useState(50);
+  const emotions = [
+    "Very Unhappy",
+    "Unhappy",
+    "Neutral",
+    "Happy",
+    "Very Happy",
+    ];
 
-        // Otherwise we proceed as normal
-        handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation)
+  const handleAddDrinksInput = (newValue) => {
+    if (newValue == "custom") {
+      navigation.navigate("__", { drinks: drinks, newDrink: newDrink });
+    } else {
+      handleInput(drinks, newDrink, newKey, newValue, nextPage, navigation);
     }
+  };
 
-    return (
-      <ScrollView style={containerStyles.phoneScreen}>
-        <p>Add Your Feelings</p>
-        
-        {/* <Text style={[textStyles.text, textStyles.boldText]}>Add Drink</Text> */}
+  // Function to map slider value to an emotion
+  const getEmotion = (value) => {
+    // Map the value from 0-100 to one of the five emotions
+    const index = Math.floor((value / 100) * (emotions.length - 1));
+    return emotions[index];
+  };
 
-        <AddDrinkCards
-          data={data}
-          handleAddDrinksInput={handleAddDrinksInput}
+  return (
+    <ScrollView style={containerStyles.phoneScreen}>
+      <Text
+        style={[
+          EmotionalSliderStyles.text,
+          EmotionalSliderStyles.content,
+        ]}
+      >
+        Add Your Feelings
+      </Text>
+      <View>
+        <Slider
+          style={{ width: "100%", height: 40 }}
+          minimumValue={0}
+          maximumValue={100}
+          step={1}
+          value={emotionValue}
+          onValueChange={setEmotionValue}
+          minimumTrackTintColor="#CF5260"
+          maximumTrackTintColor="#FFFFFF"
         />
-      </ScrollView>
-    );
-}
+        <Text>Emotion: {getEmotion(emotionValue)}</Text>
+      </View>
+      <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
+    </ScrollView>
+  );
+};
 
-export default AddDrinkType
+export default AddDrinkType;
