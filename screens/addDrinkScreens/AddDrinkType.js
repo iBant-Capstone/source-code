@@ -67,7 +67,7 @@ const AddDrinkType = ({ route, navigation }) => {
           minimumTrackTintColor="#CF5260"
           maximumTrackTintColor="#FFFFFF"
         />
-        <Text>Emotion: {getEmotion(emotionValue)}</Text>
+        <Text>Your Current Feelings: {getEmotion(emotionValue)}</Text>
       </View>
       <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
     </ScrollView>
