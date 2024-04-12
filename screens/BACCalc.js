@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Text, View, ScrollView, Pressable } from 'react-native';
+import { Text, View, ScrollView, Pressable, Image, ImageBackground } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Import components
@@ -9,10 +9,12 @@ import BACDetails from '../components/BACCalc-components/BACDetails'
 import AddDrinkButton from '../components/BACCalc-components/AddDrinkButton';
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import BACHowToPopUp from '../components/BACHowToPopUp';
+import EmergencyContactButton from '../components/EmergencyContact_button';
 
 // Import styles
 import { containerStyles } from '../components/styles/containerStyles';
 import { textStyles } from '../components/styles/textStyles';
+import { imageStyles } from '../components/styles/imageStyles';
 
 // Import icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -99,6 +101,37 @@ const BACCalc = ({ navigation, route }) => {
 
     if (drinksReady && pdReady) {
         return (
+<<<<<<< Updated upstream
+          <ScrollView style={containerStyles.phoneScreen}>
+            <View
+              style={[
+                containerStyles.fillToBottomContainer,
+                containerStyles.phoneScreen,
+              ]}
+            >
+              <ImageBackground
+                source={require("../assets/images/Frame.png")}
+                style={{ width: "375", height: "163" }}
+                resizeMode="cover"
+              >
+                <View
+                  style={[
+                    containerStyles.reverseRow,
+                    { height: 36, padding: 16, paddingBottom: 0 },
+                  ]}
+                >
+                  <Pressable onPress={handleModal}>
+                    <Ionicons
+                      name={"help-circle-outline"}
+                      size={30}
+                      color={"#9e9e9e"}
+                    />
+                  </Pressable>
+                  <BACHowToPopUp
+                    modalVisible={modalVisible}
+                    handleModal={handleModal}
+                  />
+=======
             <ScrollView style={containerStyles.phoneScreen}>
                 <View style={[containerStyles.fillToBottomContainer, containerStyles.phoneScreen]}>
                     <View style={[containerStyles.reverseRow, { height: 36, padding: 16, paddingBottom: 0 }]}>
@@ -111,12 +144,39 @@ const BACCalc = ({ navigation, route }) => {
                     <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
                     <BACDetails BAC={BAC} />
                     <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer]}>
+                        <EmergencyContactButton onPress={yourEmergencyHandlerFunction} />
                         <AddDrinkButton navigation={navigation} drinks={drinks} />
+                        <></>
                         <CalcDrinkCards drinks={drinks} setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
                         <GetHomeSafelySection BAC={BAC} />
                     </View>
+>>>>>>> Stashed changes
                 </View>
-            </ScrollView >
+              {/* </ImageBackground> */}
+              <CurrentBAC
+                setBAC={handleSetBAC}
+                BAC={BAC}
+                drinks={drinks}
+                personalDetails={personalDetails}
+              />
+              </ImageBackground>
+              <BACDetails BAC={BAC} />
+              <View
+                style={[
+                  containerStyles.centerWhiteContainer,
+                  containerStyles.redContainer,
+                ]}
+              >
+                <AddDrinkButton navigation={navigation} drinks={drinks} />
+                <CalcDrinkCards
+                  drinks={drinks}
+                  setBAC={handleSetBAC}
+                  changeDrinksReady={handleChangeDrinksReady}
+                />
+                <GetHomeSafelySection BAC={BAC} />
+              </View>
+            </View>
+          </ScrollView>
         );
     } else {
         return (

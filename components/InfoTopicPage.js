@@ -92,7 +92,7 @@ const InfoTopicPage = ({ route }) => {
     // show Mix
     const showMixology = () => {
         if (topicData.topicid === "Mixology") {
-            const headTable = ['Alcohol Mix', 'Effects'];
+            const headTable = ['Medication', 'Effects'];
             return (
                 <View style={{ width: 327 }}>
                     <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>Mixology: Table</Text>
@@ -131,6 +131,7 @@ const InfoTopicPage = ({ route }) => {
             {showTable()}
             {/* {showSelfcare()} */}
             {showMixology()}
+            
           </View>
         </View>
       </ScrollView>

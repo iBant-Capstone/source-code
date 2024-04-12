@@ -1,10 +1,14 @@
 [
     [
-        "test",
-        "testing"
+        "Isordil® Isosorbide Nitroglycerin",
+        "Rapid heartbeat, sudden changes in blood pressure, dizziness, fainting"
     ],
     [
-        "test2",
-        "testing"
+        "Tylenol® Cold & Flu Chlorpheniramine",
+        "Drowsiness, dizziness; increased risk for overdose"
+    ],
+    [
+        "Advil® Ibuprofen",
+        "Stomach upset, bleeding and ulcers; liver damage (acetaminophen); rapid heartbeat"
     ]
 ]
