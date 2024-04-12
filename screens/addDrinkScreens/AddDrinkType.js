@@ -48,12 +48,7 @@ const AddDrinkType = ({ route, navigation }) => {
 
   return (
     <ScrollView style={containerStyles.phoneScreen}>
-      <Text
-        style={[
-          EmotionalSliderStyles.text,
-          EmotionalSliderStyles.content,
-        ]}
-      >
+      <Text style={[EmotionalSliderStyles.text, EmotionalSliderStyles.content]}>
         Add Your Feelings
       </Text>
       <View>
@@ -69,6 +64,9 @@ const AddDrinkType = ({ route, navigation }) => {
         />
         <Text>Your Current Feelings: {getEmotion(emotionValue)}</Text>
       </View>
+      <Text style={[EmotionalSliderStyles.text, EmotionalSliderStyles.content]}>
+        Add your Drink Type
+      </Text>
       <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
     </ScrollView>
   );
