@@ -7,7 +7,7 @@ const EmergencyContactButton = ({ onPress }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.text}>Emergency Contact</Text>
-      <Ionicons name={"help-circle-outline"} size={30} color={"white"} />
+      <Ionicons name={"help-circle-outline"} size={20} color={"white"} />
     </TouchableOpacity>
   );
 };
@@ -15,10 +15,10 @@ const EmergencyContactButton = ({ onPress }) => {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: '#E57373',
-    paddingVertical: 12,
+    paddingVertical: 10,
     paddingHorizontal: 30,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     flexDirection: 'row',
     borderRadius: 4,
     elevation: 3,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 13,
     marginRight: 10,
   },
 });
