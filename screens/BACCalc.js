@@ -29,6 +29,10 @@ const BACCalc = ({ navigation, route }) => {
     const [drinksReady, changeDrinksReady] = useState(false)
     const [pdReady, changePDReady] = useState(false)
 
+    const navigateToEmergencyContact = () => {
+      navigation.navigate('EmergencyContactScreen'); // Replace with your actual screen name
+    };
+
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
     }, [])
@@ -101,7 +105,6 @@ const BACCalc = ({ navigation, route }) => {
 
     if (drinksReady && pdReady) {
         return (
-<<<<<<< Updated upstream
           <ScrollView style={containerStyles.phoneScreen}>
             <View
               style={[
@@ -131,26 +134,6 @@ const BACCalc = ({ navigation, route }) => {
                     modalVisible={modalVisible}
                     handleModal={handleModal}
                   />
-=======
-            <ScrollView style={containerStyles.phoneScreen}>
-                <View style={[containerStyles.fillToBottomContainer, containerStyles.phoneScreen]}>
-                    <View style={[containerStyles.reverseRow, { height: 36, padding: 16, paddingBottom: 0 }]}>
-                        <Pressable onPress={handleModal}>
-                            <Ionicons name={"help-circle-outline"} size={30} color={"#9e9e9e"} />
-                        </Pressable>
-                        <BACHowToPopUp modalVisible={modalVisible}
-                            handleModal={handleModal} />
-                    </View>
-                    <CurrentBAC setBAC={handleSetBAC} BAC={BAC} drinks={drinks} personalDetails={personalDetails} />
-                    <BACDetails BAC={BAC} />
-                    <View style={[containerStyles.centerWhiteContainer, containerStyles.redContainer]}>
-                        <EmergencyContactButton onPress={yourEmergencyHandlerFunction} />
-                        <AddDrinkButton navigation={navigation} drinks={drinks} />
-                        <></>
-                        <CalcDrinkCards drinks={drinks} setBAC={handleSetBAC} changeDrinksReady={handleChangeDrinksReady} />
-                        <GetHomeSafelySection BAC={BAC} />
-                    </View>
->>>>>>> Stashed changes
                 </View>
               {/* </ImageBackground> */}
               <CurrentBAC
@@ -168,6 +151,7 @@ const BACCalc = ({ navigation, route }) => {
                 ]}
               >
                 <AddDrinkButton navigation={navigation} drinks={drinks} />
+                <EmergencyContactButton onPress={navigateToEmergencyContact} />
                 <CalcDrinkCards
                   drinks={drinks}
                   setBAC={handleSetBAC}
