@@ -29,6 +29,10 @@ const BACCalc = ({ navigation, route }) => {
     const [drinksReady, changeDrinksReady] = useState(false)
     const [pdReady, changePDReady] = useState(false)
 
+    const navigateToEmergencyContact = () => {
+      navigation.navigate('EmergencyContactScreen'); // Replace with your actual screen name
+    };
+
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
     }, [])
