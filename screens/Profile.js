@@ -10,6 +10,7 @@ import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
 import { imageStyles } from '../components/styles/imageStyles';
 import { textStyles } from '../components/styles/textStyles';
+import NotificationSettings from "./aboutScreens/NotificationSettings";
 
 const Profile = (props) => {
 
@@ -194,6 +195,18 @@ const Profile = (props) => {
         )}
 
         <View style={containerStyles.centerContainer}>
+          <Pressable
+            style={[
+              buttonStyles.alignCenter,
+              buttonStyles.redButton,
+              buttonStyles.defaultButton,
+              buttonStyles.largeButton,
+            ]}
+            onPress={() => props.navigation.navigate("NotificationSettings")}
+          >
+            <Text style={textStyles.whiteSemiBoldText}>Notification Settings</Text>
+          </Pressable>
+
           <Pressable
             style={[
               buttonStyles.alignCenter,
