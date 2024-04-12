@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Pressable, Image, ScrollView } from 'react-native';
+import { Text, View, Pressable, Image, ScrollView, ImageBackground } from 'react-native';
 
 // Import components
 import Popup from "../components/AlcoholPopUp";
@@ -88,15 +88,25 @@ const CommonAlcoholTypes = ({ navigation }) => {
 
     // Page to return
     return (
-        <ScrollView style={containerStyles.phoneScreen}>
-            <View style={[containerStyles.row, containerStyles.titleContainer]}>
-                <TitleText name={"Common Alcohol Types"} />
-                <Image style={[imageStyles.rightImage, imageStyles.topicIcon]} source={require('../assets/info-icons/alcoholic-drink.png')} resizeMode='contain' />
-            </View>
-            <View style={[containerStyles.row, containerStyles.centerContainer]}>
-                {PressableArrays}
-            </View>
-        </ScrollView>
+      <ScrollView style={containerStyles.phoneScreen}>
+        <ImageBackground
+          source={require("../assets/images/Frame.png")}
+          style={imageStyles.backgroundHeading}
+          resizeMode="cover"
+        >
+          <View style={[containerStyles.row]}>
+            <TitleText name={"Common Alcohol Types"} />
+            <Image
+              style={[imageStyles.rightImage, imageStyles.topicIcon]}
+              source={require("../assets/info-icons/alcoholic-drink.png")}
+              resizeMode="contain"
+            />
+          </View>
+        </ImageBackground>
+        <View style={[containerStyles.row, containerStyles.centerContainer]}>
+          {PressableArrays}
+        </View>
+      </ScrollView>
     );
 
 };

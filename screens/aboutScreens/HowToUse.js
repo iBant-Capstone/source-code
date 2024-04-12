@@ -26,7 +26,7 @@ const HowToUse = ({ navigation }) => {
       <ScrollView style={{ minWidth: "100%"}}>
         <ImageBackground
         source={require("../../assets/images/Frame.png")}
-       style={{ width: "375", height: "163" }}
+        style={{ width: "375", height: "163" }}
         resizeMode='cover'
         >
             <View style={[containerStyles.row]}>
