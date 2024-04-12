@@ -10,6 +10,7 @@ import { InformationHub } from './screens/InformationHub.js'
 import InfoTopicPage from './components/InfoTopicPage.js';
 import CommonAlcoholTypes from './screens/CommonAlcoholTypes.js'
 import HowToUse from './screens/aboutScreens/HowToUse.js';
+import NotificationSettings from './screens/aboutScreens/NotificationSettings.js';
 import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import Disclaimers from './screens/aboutScreens/Disclaimers.js';
@@ -110,6 +111,16 @@ function ProfileStackComponent() {
       <profileStack.Screen
         name='HowToUse'
         component={HowToUse}
+        options={({ route }) => ({
+          title: '',
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
+      />
+      <profileStack.Screen
+        name='NotificationSettings'
+        component={NotificationSettings}
         options={({ route }) => ({
           title: '',
           headerTransparent: true,
