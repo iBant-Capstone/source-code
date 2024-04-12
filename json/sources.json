@@ -198,6 +198,21 @@
         "id" : 40,
         "name": "Litre icons created by Freepik - Flaticon",
         "url": "https://www.flaticon.com/free-icons/litre"
+    },
+    {
+        "id" : 41,
+        "name": "Alcohol with Medicines",
+        "url": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/harmful-interactions-mixing-alcohol-with-medicines#:~:text=Mixing%20Alcohol%20With%20Medicines&text=The%20danger%20is%20real.,problems%2C%20and%20difficulties%20in%20breathing."
+    },
+    {
+        "id" : 42,
+        "name": "Alcohol with Caffeinated Beverages",
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/brb3.2445"
+    },
+    {
+        "id" : 43,
+        "name": "Alcohol with Energy Drinks",
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/hup.2513"
     }
     
 ]
