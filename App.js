@@ -40,6 +40,7 @@ import { useCallback } from 'react';
 
 import { Dimensions } from 'react-native';
 import { textStyles } from './components/styles/textStyles.js';
+import AddDrinkEmotion from './screens/addDrinkScreens/AddDrinkEmotion.js';
 const width = Dimensions.get('window').width;
 
 
@@ -172,6 +173,16 @@ function BACStackComponent() {
         options={({ route }) => ({
           title: "BAC Calculator",
           headerShown: false,
+        })}
+      />
+      <bacStack.Screen
+        name="AddDrinkEmotion"
+        component={AddDrinkEmotion}
+        options={({ route }) => ({
+          title: "",
+          headerTransparent: true,
+          headerTintColor: "black",
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
         })}
       />
       <bacStack.Screen
