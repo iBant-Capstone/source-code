@@ -10,6 +10,7 @@ import { InformationHub } from './screens/InformationHub.js'
 import InfoTopicPage from './components/InfoTopicPage.js';
 import CommonAlcoholTypes from './screens/CommonAlcoholTypes.js'
 import HowToUse from './screens/aboutScreens/HowToUse.js';
+import NotificationSettings from './screens/aboutScreens/NotificationSettings.js';
 import OurMission from './screens/aboutScreens/OurMission.js';
 import OurSources from './screens/aboutScreens/OurSources.js';
 import Disclaimers from './screens/aboutScreens/Disclaimers.js';
@@ -39,6 +40,7 @@ import { useCallback } from 'react';
 
 import { Dimensions } from 'react-native';
 import { textStyles } from './components/styles/textStyles.js';
+import AddDrinkEmotion from './screens/addDrinkScreens/AddDrinkEmotion.js';
 const width = Dimensions.get('window').width;
 
 
@@ -118,6 +120,16 @@ function ProfileStackComponent() {
         })}
       />
       <profileStack.Screen
+        name='NotificationSettings'
+        component={NotificationSettings}
+        options={({ route }) => ({
+          title: '',
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 }
+        })}
+      />
+      <profileStack.Screen
         name='OurSources'
         component={OurSources}
         options={({ route }) => ({
@@ -161,6 +173,16 @@ function BACStackComponent() {
         options={({ route }) => ({
           title: "BAC Calculator",
           headerShown: false,
+        })}
+      />
+      <bacStack.Screen
+        name="AddDrinkEmotion"
+        component={AddDrinkEmotion}
+        options={({ route }) => ({
+          title: "",
+          headerTransparent: true,
+          headerTintColor: "black",
+          headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
         })}
       />
       <bacStack.Screen

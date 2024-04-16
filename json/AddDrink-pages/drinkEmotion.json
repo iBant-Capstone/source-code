@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Very Unpleasant",
+        "value": "0"
+    },
+    {
+        "title": "Unpleasant",
+        "value": "25"
+    },
+    {
+        "title": "Neutral",
+        "value": "50"
+    },
+    {
+        "title": "Pleasant",
+        "value": "75"
+    },
+    {
+        "title": "Very Pleasant",
+        "value": "100"
+    }
+]

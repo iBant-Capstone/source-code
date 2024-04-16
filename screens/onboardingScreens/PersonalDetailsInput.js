@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, TextInput, Image } from 'react-native';
+import { Text, View, ScrollView, TextInput, Pressable, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import validateHeightInput from '../../components/inputValidationPersonalDetails/validateHeightInput';
@@ -124,87 +124,69 @@ const PersonalDetailsInput = ({ navigation }) => {
                         <Text style={textStyles.text}>Enter your information to enable personalized Blood Alcohol Concentration (BAC) calculations:</Text>
                     </View>
 
-                    {/* Date of Birth Header */}
-                    <SectionHeaderWithRadioButtons
-                        headerText={"Date of Birth"}
-                    />
+            {/* Height Header */}
+            <SectionHeaderWithRadioButtons
+              headerText={"Height"}
+              unitValueChecked={heightUnitValueChecked}
+              setUnitValue={setHeightUnitValueChecked}
+              unitOption1={"ft"}
+              unitOption2={"cm"}
+            />
 
-                    {/* Date of Birth Input Section */}
-                    <TextInput
-                        value={ageInputValue}
-                        placeholder="YYYY/MM/DD"
-                        keyboardType="numeric"
-                        maxLength={10}
-                        onChangeText={setAgeInputValue}
-                        style={textStyles.input}
-                    />
-                    {validateAgeInput(ageInputValue) && new Date().getFullYear() - new Date(ageInputValue).getFullYear() < 21 && (
-                        <View style={{ paddingHorizontal: 25 }}>
-                        <Text style={textStyles.errorText}><b>Warning: You must be at least 21 years old to drink alcohol.</b></Text>
-                        </View>
-                    )}
+            {/* Height Input Section */}
+            {heightUnitValueChecked === "ft" ? (
+              <PersonalDetailsDoubleTextInput
+                label1={"feet"}
+                label2={"inches"}
+                inputValue1={ftInputValue}
+                setInputValue1={setFtInputValue}
+                inputValue2={inInputValue}
+                setInputValue2={setInInputValue}
+              />
+            ) : (
+              <PersonalDetailsSingleTextInput
+                unitValueChecked={heightUnitValueChecked}
+                inputValue={cmInputValue}
+                setInputValue={setCmInputValue}
+              />
+            )}
 
-                    {/* Height Header */}
-                    <SectionHeaderWithRadioButtons
-                        headerText={"Height"}
-                        unitValueChecked={heightUnitValueChecked}
-                        setUnitValue={setHeightUnitValueChecked}
-                        unitOption1={"ft"}
-                        unitOption2={"cm"}
-                    />
+            {/* Weight Header */}
+            <SectionHeaderWithRadioButtons
+              headerText={"Weight"}
+              unitValueChecked={weightUnitValueChecked}
+              setUnitValue={setWeightUnitValueChecked}
+              unitOption1={"lbs"}
+              unitOption2={"kg"}
+            />
 
-                    {/* Height Input Section */}
-                    {heightUnitValueChecked === "ft" ?
-                        <PersonalDetailsDoubleTextInput
-                            label1={"feet"}
-                            label2={"inches"}
-                            inputValue1={ftInputValue}
-                            setInputValue1={setFtInputValue}
-                            inputValue2={inInputValue}
-                            setInputValue2={setInInputValue}
-                        />
-                        :
-                        <PersonalDetailsSingleTextInput
-                            unitValueChecked={heightUnitValueChecked}
-                            inputValue={cmInputValue}
-                            setInputValue={setCmInputValue}
-                        />
-                    }
+            {/* Weight Input Section */}
+            <PersonalDetailsSingleTextInput
+              unitValueChecked={weightUnitValueChecked}
+              inputValue={weightInputValue}
+              setInputValue={setWeightInputValue}
+            />
 
-                    {/* Weight Header */}
-                    <SectionHeaderWithRadioButtons
-                        headerText={"Weight"}
-                        unitValueChecked={weightUnitValueChecked}
-                        setUnitValue={setWeightUnitValueChecked}
-                        unitOption1={"lbs"}
-                        unitOption2={"kg"}
-                    />
+            {/* Biological Sex Input Section */}
+            <SectionHeaderWithRadioButtons
+              headerText={"Biological Sex*"}
+              unitValueChecked={sexValueChecked}
+              setUnitValue={setSexValueChecked}
+              unitOption1={"female"}
+              unitOption2={"male"}
+            />
 
-                    {/* Weight Input Section */}
-                    <PersonalDetailsSingleTextInput
-                        unitValueChecked={weightUnitValueChecked}
-                        inputValue={weightInputValue}
-                        setInputValue={setWeightInputValue}
-                    />
+            {showInvalidInputText && <InvalidInputWarning />}
 
-                    {/* Biological Sex Input Section */}
-                    <SectionHeaderWithRadioButtons
-                        headerText={"Biological Sex*"}
-                        unitValueChecked={sexValueChecked}
-                        setUnitValue={setSexValueChecked}
-                        unitOption1={"female"}
-                        unitOption2={"male"}
-                    />
+            <PersonalDetailsSaveButton
+              handleAddPersonalDetails={handleAddPersonalDetails}
+            />
 
-                    {showInvalidInputText && <InvalidInputWarning />}
-
-                    <PersonalDetailsSaveButton handleAddPersonalDetails={handleAddPersonalDetails} />
-
-                    <PleaseNoteBioSexSection />
-                </View>
-            </ScrollView>
-        </View>
-    )
+            <PleaseNoteBioSexSection />
+          </View>
+        </ScrollView>
+      </View>
+    );
 };
 
 export default PersonalDetailsInput;
