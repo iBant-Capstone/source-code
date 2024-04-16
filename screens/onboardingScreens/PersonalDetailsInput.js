@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, TextInput, Pressable, Image } from 'react-native';
+import { Text, View, ScrollView, TextInput, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import validateHeightInput from '../../components/inputValidationPersonalDetails/validateHeightInput';
 import validateWeightInput from '../../components/inputValidationPersonalDetails/validateWeightInput';
 import validateSexInput from '../../components/inputValidationPersonalDetails/validateSexInput';
+import validateAgeInput from '../../components/inputValidationPersonalDetails/validateAgeInput'; // Import validateAgeInput
 
 import TitleText from '../../components/Title';
 import SectionHeaderWithRadioButtons from '../../components/SectionHeaderWithRadioButtons';
@@ -26,7 +27,7 @@ const PersonalDetailsInput = ({ navigation }) => {
     const [ftInputValue, setFtInputValue] = useState('')
     const [inInputValue, setInInputValue] = useState('')
     const [weightInputValue, setWeightInputValue] = useState('')
-
+    const [ageInputValue, setAgeInputValue] = useState(''); // State for date of birth input value
 
     // ______ RADIO BUTTONS ________
 
@@ -36,7 +37,6 @@ const PersonalDetailsInput = ({ navigation }) => {
     const [weightUnitValueChecked, setWeightUnitValueChecked] = useState('lbs');
     // Keeps track of what sex value is selected
     const [sexValueChecked, setSexValueChecked] = useState('');
-
 
     // ______ Invalid input text ________
     const [showInvalidInputText, setShowInvalidInputText] = useState(false);
@@ -57,7 +57,8 @@ const PersonalDetailsInput = ({ navigation }) => {
                 unit: weightUnitValueChecked,
                 value: Number(weightInputValue)
             },
-            sex: sexValueChecked
+            sex: sexValueChecked,
+            dob: ageInputValue // Include date of birth
         }
 
         // Go through the checks
@@ -75,6 +76,7 @@ const PersonalDetailsInput = ({ navigation }) => {
         }
     };
 
+    // Validation function for inputs
     const passesChecks = () => {
         let passes = true
         // Format height data for validateHeightInput()
@@ -96,7 +98,13 @@ const PersonalDetailsInput = ({ navigation }) => {
             unit: weightUnitValueChecked,
             value: weightInputValue
         }
-        if (validateHeightInput(heightData) && validateWeightInput(weightData) && validateSexInput(sexValueChecked)) {
+        // Validate all inputs
+        if (
+            validateHeightInput(heightData) &&
+            validateWeightInput(weightData) &&
+            validateSexInput(sexValueChecked) &&
+            validateAgeInput(ageInputValue) // Validate date of birth
+        ) {
             passes = true
         } else {
             passes = false
@@ -115,6 +123,26 @@ const PersonalDetailsInput = ({ navigation }) => {
                     <View style={[containerStyles.row, containerStyles.leftTopPadding]}>
                         <Text style={textStyles.text}>Enter your information to enable personalized Blood Alcohol Concentration (BAC) calculations:</Text>
                     </View>
+
+                    {/* Date of Birth Header */}
+                    <SectionHeaderWithRadioButtons
+                        headerText={"Date of Birth"}
+                    />
+
+                    {/* Date of Birth Input Section */}
+                    <TextInput
+                        value={ageInputValue}
+                        placeholder="YYYY/MM/DD"
+                        keyboardType="numeric"
+                        maxLength={10}
+                        onChangeText={setAgeInputValue}
+                        style={textStyles.input}
+                    />
+                    {validateAgeInput(ageInputValue) && new Date().getFullYear() - new Date(ageInputValue).getFullYear() < 21 && (
+                        <View style={{ paddingHorizontal: 25 }}>
+                        <Text style={textStyles.errorText}><b>Warning: You must be at least 21 years old to drink alcohol.</b></Text>
+                        </View>
+                    )}
 
                     {/* Height Header */}
                     <SectionHeaderWithRadioButtons
@@ -179,4 +207,4 @@ const PersonalDetailsInput = ({ navigation }) => {
     )
 };
 
-export default PersonalDetailsInput
+export default PersonalDetailsInput;
