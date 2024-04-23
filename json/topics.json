@@ -452,5 +452,61 @@
             }
         ],
         "imgUrl": "../assets/images/Medication.png"
+    },
+    {
+        "topicid": "FAQs About Hangovers",
+        "icon": "endocrine-system.png",
+        "qa": [
+            {
+                "question": "What causes a hangover?",
+                "answerArr": [
+                    {"key": "Hangovers are caused by several factors related to alcohol consumption including dehydration, immune system effects, disturbances in electrolytes, stomach irritation, and the toxic impact of alcohol metabolism (acetaldehyde). Additionally, poor sleep quality and congeners in darker alcoholic beverages can worsen symptoms."}
+                ],
+                "sources": [
+                    
+                ]
+            },
+            {
+                "question": "Can I prevent a hangover?",
+                "answerArr": [
+                    {"key": "While avoiding alcohol is the most surefire way to prevent a hangover, moderate drinking, staying hydrated by alternating water with alcoholic beverages, eating a good meal before drinking, and choosing lighter-colored alcohols can reduce the likelihood of a severe hangover."}
+                ],
+                "sources": [
+    
+
+                ]
+            },
+            {
+                "question": "Are hangover cures effective?",
+                "answerArr": [
+                    {"key": "No, cure can eliminate a hangover, as time is the only definitive cure. However, methods like staying hydrated, eating properly, taking certain supplements like B vitamins and zinc, and resting can help alleviate symptoms more comfortably."}
+                ],
+                "sources": [
+    
+
+                ]
+            },
+            {
+                "question": "Is it safe to take pain relievers for a hangover?",
+                "answerArr": [
+                    {"key": "It is generally safe to take certain over-the-counter pain relievers like ibuprofen or aspirin for hangover-related headaches and muscle aches. However, it is crucial to avoid acetaminophen (Tylenol) when alcohol may still be in your system as it can lead to severe liver damage."}
+                ],
+                "sources": [
+    
+
+                ]
+            },
+            {
+                "question": "What should I eat or drink to recover from a hangover?",
+                "answerArr": [
+                    {"key": "Drinking plenty of fluids to combat dehydration and eating bland, carbohydrate-rich foods can help stabilize your blood sugar and soothe your stomach. Foods like toast, crackers, and bananas are ideal. Some people find relief with electrolyte-rich drinks or gentle teas like ginger tea to help with nausea."}
+                ],
+                "sources": [
+    
+
+                ]
+            }
+        ],
+        "imgUrl": ""
     }
 ]
