@@ -10,6 +10,7 @@ import AddDrinkButton from '../components/BACCalc-components/AddDrinkButton';
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import BACHowToPopUp from '../components/BACHowToPopUp';
 import EmergencyContactButton from '../components/EmergencyContact_button';
+import ContactList from '../components/BACCalc-components/ContactList';
 
 // Import styles
 import { containerStyles } from '../components/styles/containerStyles';
@@ -29,9 +30,6 @@ const BACCalc = ({ navigation, route }) => {
     const [drinksReady, changeDrinksReady] = useState(false)
     const [pdReady, changePDReady] = useState(false)
 
-    const navigateToEmergencyContact = () => {
-      navigation.navigate('EmergencyContactScreen'); // Replace with your actual screen name
-    };
 
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
@@ -149,13 +147,13 @@ const BACCalc = ({ navigation, route }) => {
                 containerStyles.redContainer,
               ]}
             >
-              <EmergencyContactButton onPress={EmergencyContactButton} />
               <AddDrinkButton navigation={navigation} drinks={drinks} />
               <CalcDrinkCards
                 drinks={drinks}
                 setBAC={handleSetBAC}
                 changeDrinksReady={handleChangeDrinksReady}
               />
+              <EmergencyContactButton onPress={() => navigation.navigate('ContactList')} />
               <GetHomeSafelySection BAC={BAC} />
             </View>
           </View>
