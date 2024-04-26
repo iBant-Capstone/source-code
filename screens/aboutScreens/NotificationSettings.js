@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, Switch, StyleSheet, SafeAreaView } from 'react-native';
+import { ScrollView, View, Text, Switch, StyleSheet, SafeAreaView, ImageBackground } from 'react-native';
+import { containerStyles } from "../../components/styles/containerStyles";
+
+import TitleText from "../../components/Title";
+import { imageStyles } from '../../components/styles/imageStyles';
 
 const NotificationSettings = () => {
   const [hourlyReminder, setHourlyReminder] = useState(false);
@@ -7,50 +11,68 @@ const NotificationSettings = () => {
   const [twentyFourHourReminder, setTwentyFourHourReminder] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Notifications</Text>
-      </View>
-      <View style={styles.setting}>
-        <Text style={styles.settingText}>Hourly Reminder</Text>
-        <Switch
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={hourlyReminder ? "#f5dd4b" : "#f4f3f4"}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={() => setHourlyReminder(previousState => !previousState)}
-          value={hourlyReminder}
-        />
-      </View>
-      <Text style={styles.description}>
-        When turned on, you will be notified every 1 hour to be reminded to log their alcohol consumption throughout the night.
-      </Text>
-      <View style={styles.setting}>
-        <Text style={styles.settingText}>2-hr Reminder</Text>
-        <Switch
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={twoHourReminder ? "#f5dd4b" : "#f4f3f4"}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={() => setTwoHourReminder(previousState => !previousState)}
-          value={twoHourReminder}
-        />
-      </View>
-      <Text style={styles.description}>
-        When turned on, you will be notified every 2 hour to be reminded to log their alcohol consumption throughout the night.
-      </Text>
-      <View style={styles.setting}>
-        <Text style={styles.settingText}>24-hr Reminder</Text>
-        <Switch
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={twentyFourHourReminder ? "#f5dd4b" : "#f4f3f4"}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={() => setTwentyFourHourReminder(previousState => !previousState)}
-          value={twentyFourHourReminder}
-        />
-      </View>
-      <Text style={styles.description}>
-        When turned on, you will be notified every 1 hour to be reminded to log their alcohol consumption throughout the night.
-      </Text>
-    </SafeAreaView>
+    <ScrollView style={containerStyles.phoneScreen}>
+      <SafeAreaView style={styles.container}>
+        <ImageBackground
+          source={require("../../assets/images/Frame.png")}
+          style={imageStyles.backgroundHeading}
+          resizeMode="cover"
+        >
+          <View style={[containerStyles.row]}>
+            <TitleText name={"Notifications"}/>
+          </View>
+        </ImageBackground>
+
+        <View style={styles.setting}>
+          <Text style={styles.settingText}>Hourly Reminder</Text>
+          <Switch
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+            thumbColor={hourlyReminder ? "#f5dd4b" : "#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={() =>
+              setHourlyReminder((previousState) => !previousState)
+            }
+            value={hourlyReminder}
+          />
+        </View>
+        <Text style={styles.description}>
+          When turned on, you will be notified every 1 hour to be reminded to
+          log their alcohol consumption throughout the night.
+        </Text>
+        <View style={styles.setting}>
+          <Text style={styles.settingText}>2-hr Reminder</Text>
+          <Switch
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+            thumbColor={twoHourReminder ? "#f5dd4b" : "#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={() =>
+              setTwoHourReminder((previousState) => !previousState)
+            }
+            value={twoHourReminder}
+          />
+        </View>
+        <Text style={styles.description}>
+          When turned on, you will be notified every 2 hour to be reminded to
+          log their alcohol consumption throughout the night.
+        </Text>
+        <View style={styles.setting}>
+          <Text style={styles.settingText}>24-hr Reminder</Text>
+          <Switch
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+            thumbColor={twentyFourHourReminder ? "#f5dd4b" : "#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={() =>
+              setTwentyFourHourReminder((previousState) => !previousState)
+            }
+            value={twentyFourHourReminder}
+          />
+        </View>
+        <Text style={styles.description}>
+          When turned on, you will be notified every 24 hour to be reminded to
+          log their alcohol consumption throughout the night.
+        </Text>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 
