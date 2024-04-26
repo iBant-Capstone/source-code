@@ -20,6 +20,7 @@ import AddDrinkSize from './screens/addDrinkScreens/AddDrinkSize.js';
 import AddDrinkStrength from './screens/addDrinkScreens/AddDrinkStrength.js'
 import AddDrinkHunger from './screens/addDrinkScreens/AddDrinkHunger.js';
 import AddDrinkTime from './screens/addDrinkScreens/AddDrinkTime.js';
+import ContactList from './components/BACCalc-components/ContactList.js';
 
 // Import onboarding pages
 import LoginScreen1 from './screens/onboardingScreens/LoginScreen1';
@@ -234,6 +235,16 @@ function BACStackComponent() {
           headerTintColor: "black",
           headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
         })}
+      />
+      <bacStack.Screen
+      name="ContactList"
+      component={ContactList}
+      options={({ route }) => ({
+        title: "",
+        headerTransparent: true,
+        headerTintColor: "black",
+        headerLeftContainerStyle: { paddingLeft: (width - 375) / 2 },
+      })}
       />
     </bacStack.Navigator>
   );
