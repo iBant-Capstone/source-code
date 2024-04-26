@@ -318,7 +318,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <obStack.Navigator>
-        <obStack.Screen
+        {/* <obStack.Screen
           name='Login1'
           component={LoginScreen1}
           options={{
@@ -353,7 +353,7 @@ export default function App() {
             headerShown: false,
             navigation: navigation
           })}
-        />
+        /> */}
         <obStack.Screen
           name='InformationHub'
           component={NavBar}

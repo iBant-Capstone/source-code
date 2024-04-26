@@ -37,6 +37,7 @@ const CalcDrinkCards = ({ drinks, setBAC, changeDrinksReady } ) => {
     let mlFixed = (valueInMl * 1e3).toFixed(1)
     return mlFixed
   }
+  console.log(drinks)
 
   return (
     <View style={{ width: '100%' , marginTop:32}}>

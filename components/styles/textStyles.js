@@ -139,4 +139,9 @@ export const textStyles = StyleSheet.create({
     fontSize: 16,
     color: "#CF5260",
   },
+
+  // for additional margin
+  margin: {
+    marginTop: 50,
+  },
 });

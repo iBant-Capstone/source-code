@@ -30,7 +30,7 @@ const AddDrinkType = ({ route, navigation }) => {
 
   return (
     <ScrollView style={containerStyles.phoneScreen}>
-      <Text style={[EmotionalSliderStyles.text, EmotionalSliderStyles.content]}>
+      <Text style={[EmotionalSliderStyles.title, EmotionalSliderStyles.content]}>
         Add your Drink Type
       </Text>
       <AddDrinkCards data={data} handleAddDrinksInput={handleAddDrinksInput} />
