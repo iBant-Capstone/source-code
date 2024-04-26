@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, TextInput, Pressable, Image } from 'react-native';
+import { Text, View, ScrollView, TextInput, Pressable, Image, ImageBackground } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'
 
@@ -163,83 +163,101 @@ const EditProfilePage = ({ navigation }) => {
     }
 
     return (
-        <View style={[containerStyles.centerWhiteContainer, containerStyles.phoneScreen]}>
-            {/* Only loads once the personal details have loaded */}
-            {hasFocused ?
-                <ScrollView style={{ minWidth: '100%' }}>
-                    <View style={[containerStyles.row, containerStyles.titleContainer]}>
-                        <TitleText name={"Edit"} />
-                        <Image style={imageStyles.rightImage} source={require('../assets/avatars/Casual_Rosie.png')} resizeMode='contain' />
-                    </View>
-                    <View style={{paddingTop: 16}}>
+      <View
+        style={[
+          containerStyles.centerWhiteContainer,
+          containerStyles.phoneScreen,
+        ]}
+      >
+        {/* Only loads once the personal details have loaded */}
+        {hasFocused ? (
+          <ScrollView style={{ minWidth: "100%" }}>
+            <ImageBackground
+              source={require("../assets/images/Frame.png")}
+              style={{ width: "375", height: "163" }}
+              resizeMode="cover"
+            >
+              <View
+                style={[containerStyles.row, containerStyles.titleContainer]}
+              >
+                <TitleText name={"Edit"} />
+                <Image
+                  style={imageStyles.rightImage}
+                  source={require("../assets/avatars/Casual_Rosie.png")}
+                  resizeMode="contain"
+                />
+              </View>
+            </ImageBackground>
+            <View style={{ paddingTop: 16 }}>
+              {/* Height Header */}
+              <SectionHeaderWithRadioButtons
+                headerText={"Height"}
+                unitValueChecked={heightUnitValueChecked}
+                setUnitValue={setHeightUnitValueChecked}
+                unitOption1={"ft"}
+                unitOption2={"cm"}
+                includeButtons={true}
+              />
 
-                        {/* Height Header */}
-                        <SectionHeaderWithRadioButtons 
-                            headerText={"Height"} 
-                            unitValueChecked={heightUnitValueChecked} 
-                            setUnitValue={setHeightUnitValueChecked} 
-                            unitOption1={"ft"} 
-                            unitOption2={"cm"} 
-                            includeButtons={true}
-                        />
+              {/* Height Input Section */}
+              {heightUnitValueChecked === "ft" ? (
+                <PersonalDetailsDoubleTextInput
+                  label1={"feet"}
+                  label2={"inches"}
+                  inputValue1={ftInputValue}
+                  setInputValue1={setFtInputValue}
+                  inputValue2={inInputValue}
+                  setInputValue2={setInInputValue}
+                />
+              ) : (
+                <PersonalDetailsSingleTextInput
+                  unitValueChecked={heightUnitValueChecked}
+                  inputValue={cmInputValue}
+                  setInputValue={setCmInputValue}
+                />
+              )}
 
-                        {/* Height Input Section */}
-                        {heightUnitValueChecked === "ft" ?
-                            <PersonalDetailsDoubleTextInput
-                                label1={"feet"}
-                                label2={"inches"}
-                                inputValue1={ftInputValue}
-                                setInputValue1={setFtInputValue}
-                                inputValue2={inInputValue}
-                                setInputValue2={setInInputValue}
-                            />
-                            :
-                            <PersonalDetailsSingleTextInput
-                                unitValueChecked={heightUnitValueChecked}
-                                inputValue={cmInputValue}
-                                setInputValue={setCmInputValue}
-                            />
-                        }
+              {/* Weight Header */}
+              <SectionHeaderWithRadioButtons
+                headerText={"Weight"}
+                unitValueChecked={weightUnitValueChecked}
+                setUnitValue={setWeightUnitValueChecked}
+                unitOption1={"lbs"}
+                unitOption2={"kg"}
+                includeButtons={true}
+              />
 
-                        {/* Weight Header */}
-                        <SectionHeaderWithRadioButtons 
-                            headerText={"Weight"} 
-                            unitValueChecked={weightUnitValueChecked} 
-                            setUnitValue={setWeightUnitValueChecked} 
-                            unitOption1={"lbs"} 
-                            unitOption2={"kg"} 
-                            includeButtons={true}
-                        />
+              {/* Weight Input Section */}
+              <PersonalDetailsSingleTextInput
+                unitValueChecked={weightUnitValueChecked}
+                inputValue={weightInputValue}
+                setInputValue={setWeightInputValue}
+              />
 
-                        {/* Weight Input Section */}
-                        <PersonalDetailsSingleTextInput
-                            unitValueChecked={weightUnitValueChecked}
-                            inputValue={weightInputValue}
-                            setInputValue={setWeightInputValue}
-                        />
+              {/* Biological Sex Input Section */}
+              <SectionHeaderWithRadioButtons
+                headerText={"Biological Sex*"}
+                unitValueChecked={sexValueChecked}
+                setUnitValue={setSexValueChecked}
+                unitOption1={"female"}
+                unitOption2={"male"}
+                includeButtons={true}
+              />
 
-                        {/* Biological Sex Input Section */}
-                        <SectionHeaderWithRadioButtons 
-                            headerText={"Biological Sex*"} 
-                            unitValueChecked={sexValueChecked} 
-                            setUnitValue={setSexValueChecked} 
-                            unitOption1={"female"} 
-                            unitOption2={"male"} 
-                            includeButtons={true}
-                        />
+              {showInvalidInputText && <InvalidInputWarning />}
 
-                        {showInvalidInputText && <InvalidInputWarning />}
+              <PersonalDetailsSaveButton
+                handleAddPersonalDetails={handleAddPersonalDetails}
+              />
 
-                        <PersonalDetailsSaveButton handleAddPersonalDetails={handleAddPersonalDetails}/>
-
-                        <PleaseNoteBioSexSection />
-                    </View>
-                </ScrollView>
-                :
-                <Text style={textStyles.text}>Loading...</Text>
-            }
-        </View>
-    )
+              <PleaseNoteBioSexSection />
+            </View>
+          </ScrollView>
+        ) : (
+          <Text style={textStyles.text}>Loading...</Text>
+        )}
+      </View>
+    );
 }
 
 export default EditProfilePage

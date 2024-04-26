@@ -10,7 +10,7 @@ import { containerStyles } from '../components/styles/containerStyles';
 import { buttonStyles } from '../components/styles/buttonStyles';
 import { imageStyles } from '../components/styles/imageStyles';
 import { textStyles } from '../components/styles/textStyles';
-import NotificationSettings from "./aboutScreens/NotificationSettings";
+
 
 const Profile = (props) => {
 
@@ -55,7 +55,7 @@ const Profile = (props) => {
     );
 
     return (
-      <View style={containerStyles.phoneScreen}>
+      <View style={[containerStyles.phoneScreen, ]}>
 
         <ScrollView style={{ minWidth: "100%" }}>
 
