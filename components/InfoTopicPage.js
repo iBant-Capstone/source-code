@@ -81,7 +81,7 @@ const InfoTopicPage = ({ route }) => {
     }
     const showSelfcare = () => {
         if (topicData.topicid === "Self Care") {
-            const headTable = ['Alcohol Mix', 'Effects'];
+            const headTable = ['Method', 'description', 'Tips'];
             return (
                 <View style={{ width: 327 }}>
                     <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>Self care: Table</Text>
