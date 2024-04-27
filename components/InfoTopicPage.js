@@ -6,6 +6,7 @@ import { Table, Row, Rows } from 'react-native-table-component'
 import data from '../json/topics.json'
 import BACeffects from '../json/bac-levels.json'
 import mixlogy from "../json/mixology/mixology.json";
+import selfcare from "../json/selfcareTips/selfcareTips.json"
 
 // Import components
 import TitleText from './Title';
@@ -78,16 +79,20 @@ const InfoTopicPage = ({ route }) => {
             )
         }
     }
-    // const showSelfcare = () => {
-    //     if (topicData.topicid === "Self Care") {
-    //         // const headTable = ['Alcohol Mix', 'Effects'];
-    //         return (
-    //             <View style={{ width: 327 }}>
-    //                 <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>Self Care</Text>
-    //             </View>
-    //         )
-    //     }
-    // }
+    const showSelfcare = () => {
+        if (topicData.topicid === "Self Care") {
+            const headTable = ['Alcohol Mix', 'Effects'];
+            return (
+                <View style={{ width: 327 }}>
+                    <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>Self care: Table</Text>
+                    <Table borderStyle={tableStyles.border} style={[containerStyles.specialInfoItem, { paddingTop: 0, paddingBottom: 0, marginBottom: '2%' }]}>
+                        <Row data={headTable} style={tableStyles.head} textStyle={tableStyles.headText} widthArr={[100, undefined]} />
+                        <Rows data={selfcare} textStyle={tableStyles.text} widthArr={[100, undefined]} />
+                    </Table>
+                </View>
+            )
+        }
+    }
 
     // show Mix
     const showMixology = () => {
@@ -135,7 +140,7 @@ const InfoTopicPage = ({ route }) => {
           <View style={containerStyles.centerWhiteContainer}>
             {showImage()}
             {showTable()}
-            {/* {showSelfcare()} */}
+            {showSelfcare()}
             {showMixology()}
           </View>
         </View>
