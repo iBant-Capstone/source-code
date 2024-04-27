@@ -84,7 +84,7 @@ const InfoTopicPage = ({ route }) => {
             const headTable = ['Method', 'description', 'Tips'];
             return (
                 <View style={{ width: 327 }}>
-                    <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>Self care: Table</Text>
+                    <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>Selfcare Tips</Text>
                     <Table borderStyle={tableStyles.border} style={[containerStyles.specialInfoItem, { paddingTop: 0, paddingBottom: 0, marginBottom: '2%' }]}>
                         <Row data={headTable} style={tableStyles.head} textStyle={tableStyles.headText} widthArr={[100, undefined]} />
                         <Rows data={selfcare} textStyle={tableStyles.text} widthArr={[100, undefined]} />
