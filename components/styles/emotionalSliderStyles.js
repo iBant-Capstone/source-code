@@ -9,13 +9,18 @@ export const EmotionalSliderStyles = StyleSheet.create({
   // Text within
   title: {
     display: "inline-block",
-    fontSize: 24,
+    fontSize: 16,
     fontFamily: "Roboto-Bold",
     marginRight: "5%",
     width: "80%",
   },
   text: {
-    fontSize: 16,
-    fontFamily: "Roboto-Bold",
+    fontSize: 14,
+    fontFamily: "Roboto-italic",
+    paddingBottom: 15,
+  },
+  sliderHeader: {
+    marginRight: "5%",
+    alignItems: "right",
   },
 });

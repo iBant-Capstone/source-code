@@ -10,6 +10,7 @@ import AddDrinkButton from '../components/BACCalc-components/AddDrinkButton';
 import GetHomeSafelySection from '../components/BACCalc-components/GetHomeSafelySection';
 import BACHowToPopUp from '../components/BACHowToPopUp';
 import EmergencyContactButton from '../components/EmergencyContact_button';
+import ContactList from '../components/BACCalc-components/ContactList';
 
 // Import styles
 import { containerStyles } from '../components/styles/containerStyles';
@@ -28,6 +29,7 @@ const BACCalc = ({ navigation, route }) => {
 
     const [drinksReady, changeDrinksReady] = useState(false)
     const [pdReady, changePDReady] = useState(false)
+
 
     const handleSetBAC = useCallback((newBAC) => {
         setBAC(newBAC)
@@ -100,63 +102,63 @@ const BACCalc = ({ navigation, route }) => {
     }, [personalDetails])
 
     if (drinksReady && pdReady) {
-        return (
-          <ScrollView style={containerStyles.phoneScreen}>
-            <View
-              style={[
-                containerStyles.fillToBottomContainer,
-                containerStyles.phoneScreen,
-              ]}
+      return (
+        <ScrollView style={containerStyles.phoneScreen}>
+          <View
+            style={[
+              containerStyles.fillToBottomContainer,
+              containerStyles.phoneScreen,
+            ]}
+          >
+            <ImageBackground
+              source={require("../assets/images/Frame.png")}
+              style={{ width: "375", height: "163" }}
+              resizeMode="cover"
             >
-              <ImageBackground
-                source={require("../assets/images/Frame.png")}
-                style={{ width: "375", height: "163" }}
-                resizeMode="cover"
+              <View
+                style={[
+                  containerStyles.reverseRow,
+                  { height: 36, padding: 16, paddingBottom: 0 },
+                ]}
               >
-                <View
-                  style={[
-                    containerStyles.reverseRow,
-                    { height: 36, padding: 16, paddingBottom: 0 },
-                  ]}
-                >
-                  <Pressable onPress={handleModal}>
-                    <Ionicons
-                      name={"help-circle-outline"}
-                      size={30}
-                      color={"#9e9e9e"}
-                    />
-                  </Pressable>
-                  <BACHowToPopUp
-                    modalVisible={modalVisible}
-                    handleModal={handleModal}
+                <Pressable onPress={handleModal}>
+                  <Ionicons
+                    name={"help-circle-outline"}
+                    size={30}
+                    color={"#9e9e9e"}
                   />
-                </View>
-              {/* </ImageBackground> */}
+                </Pressable>
+                <BACHowToPopUp
+                  modalVisible={modalVisible}
+                  handleModal={handleModal}
+                />
+              </View>
               <CurrentBAC
                 setBAC={handleSetBAC}
                 BAC={BAC}
                 drinks={drinks}
                 personalDetails={personalDetails}
               />
-              </ImageBackground>
-              <BACDetails BAC={BAC} />
-              <View
-                style={[
-                  containerStyles.centerWhiteContainer,
-                  containerStyles.redContainer,
-                ]}
-              >
-                <AddDrinkButton navigation={navigation} drinks={drinks} />
-                <CalcDrinkCards
-                  drinks={drinks}
-                  setBAC={handleSetBAC}
-                  changeDrinksReady={handleChangeDrinksReady}
-                />
-                <GetHomeSafelySection BAC={BAC} />
-              </View>
+            </ImageBackground>
+            <BACDetails BAC={BAC} />
+            <View
+              style={[
+                containerStyles.centerWhiteContainer,
+                containerStyles.redContainer,
+              ]}
+            >
+              <AddDrinkButton navigation={navigation} drinks={drinks} />
+              <CalcDrinkCards
+                drinks={drinks}
+                setBAC={handleSetBAC}
+                changeDrinksReady={handleChangeDrinksReady}
+              />
+              <EmergencyContactButton onPress={() => navigation.navigate('ContactList')} />
+              <GetHomeSafelySection BAC={BAC} />
             </View>
-          </ScrollView>
-        );
+          </View>
+        </ScrollView>
+      );
     } else {
         return (
             <View style={containerStyles.phoneScreen}>

@@ -10,7 +10,7 @@ const AddDrinkButton = ({ navigation, drinks }) => {
     return (
         <Pressable
             onPress={() => {
-                navigation.navigate('AddDrinkType', { drinks: drinks })
+                navigation.navigate('AddDrinkEmotion', { drinks: drinks })
             }}
             accessibilityLabel="Add a drink"
             style={[buttonStyles.alignCenter, buttonStyles.whiteButton, buttonStyles.defaultButton, {position:"absolute", top:-20, display: "flex", flexDirection: "row", justifyContent:"center", alignItems:'center'}]}

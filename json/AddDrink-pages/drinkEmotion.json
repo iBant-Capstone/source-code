@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Very Unpleasant",
+        "value": "Very Unpleasant",
+        "icon": "wine.png"
+    },
+    {
+        "title": "Unpleasant",
+        "value": "Unpleasant",
+        "icon": "wine.png"
+    },
+    {
+        "title": "Neutral",
+        "value": "Neutral",
+        "icon": "wine.png"
+    },
+    {
+        "title": "Pleasant",
+        "value": "Pleasant",
+        "icon": "wine.png"
+    },
+    {
+        "title": "Very Pleasant",
+        "value": "Very Pleasant",
+        "icon": "wine.png"
+    }
+]

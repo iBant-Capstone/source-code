@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Text, View, LayoutAnimation, ScrollView, UIManager, Platform, Image } from 'react-native';
+import { Text, View, LayoutAnimation, ScrollView, UIManager, Platform, Image, ImageBackground } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component'
 
 // Import json data of topic q and as
 import data from '../json/topics.json'
 import BACeffects from '../json/bac-levels.json'
 import mixlogy from "../json/mixology/mixology.json";
+import selfcare from "../json/selfcareTips/selfcareTips.json"
 
 // Import components
 import TitleText from './Title';
@@ -78,16 +79,20 @@ const InfoTopicPage = ({ route }) => {
             )
         }
     }
-    // const showSelfcare = () => {
-    //     if (topicData.topicid === "Self Care") {
-    //         // const headTable = ['Alcohol Mix', 'Effects'];
-    //         return (
-    //             <View style={{ width: 327 }}>
-    //                 <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>Self Care</Text>
-    //             </View>
-    //         )
-    //     }
-    // }
+    const showSelfcare = () => {
+        if (topicData.topicid === "Self Care") {
+            const headTable = ['Method', 'description', 'Tips'];
+            return (
+                <View style={{ width: 327 }}>
+                    <Text style={[textStyles.text, textStyles.questionText, containerStyles.specialInfoItem]}>Selfcare Tips</Text>
+                    <Table borderStyle={tableStyles.border} style={[containerStyles.specialInfoItem, { paddingTop: 0, paddingBottom: 0, marginBottom: '2%' }]}>
+                        <Row data={headTable} style={tableStyles.head} textStyle={tableStyles.headText} widthArr={[100, undefined]} />
+                        <Rows data={selfcare} textStyle={tableStyles.text} widthArr={[100, undefined]} />
+                    </Table>
+                </View>
+            )
+        }
+    }
 
     // show Mix
     const showMixology = () => {
@@ -108,14 +113,20 @@ const InfoTopicPage = ({ route }) => {
     // Return page view
     return (
       <ScrollView style={containerStyles.phoneScreen}>
-        <View style={[containerStyles.row, containerStyles.titleContainer]}>
-          <TitleText name={route.params.title} />
-          <Image
-            style={[imageStyles.rightImage, imageStyles.topicIcon]}
-            source={require("../assets/info-icons/" + topicIcon)}
-            resizeMode="contain"
-          />
-        </View>
+        <ImageBackground
+          source={require("../assets/images/Frame.png")}
+          style={imageStyles.backgroundHeading}
+          resizeMode="cover"
+        >
+          <View style={[containerStyles.row, containerStyles.titleContainer]}>
+            <TitleText name={route.params.title} />
+            <Image
+              style={[imageStyles.rightImage, imageStyles.topicIcon]}
+              source={require("../assets/info-icons/" + topicIcon)}
+              resizeMode="contain"
+            />
+          </View>
+        </ImageBackground>
         <View style={containerStyles.centerContainer}>
           {listDataSource.map((item, key) => (
             <Expandable
@@ -129,9 +140,8 @@ const InfoTopicPage = ({ route }) => {
           <View style={containerStyles.centerWhiteContainer}>
             {showImage()}
             {showTable()}
-            {/* {showSelfcare()} */}
+            {showSelfcare()}
             {showMixology()}
-            
           </View>
         </View>
       </ScrollView>

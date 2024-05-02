@@ -135,4 +135,13 @@ export const textStyles = StyleSheet.create({
     fontSize: 12,
     color: "#383838",
   },
+  logEmotionTittle: {
+    fontSize: 16,
+    color: "#CF5260",
+  },
+
+  // for additional margin
+  margin: {
+    marginTop: 50,
+  },
 });

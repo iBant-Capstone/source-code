@@ -11,6 +11,7 @@ import { buttonStyles } from '../components/styles/buttonStyles';
 import { imageStyles } from '../components/styles/imageStyles';
 import { textStyles } from '../components/styles/textStyles';
 
+
 const Profile = (props) => {
 
     const [personalDetails, setPersonalDetails] = useState({})
@@ -54,7 +55,7 @@ const Profile = (props) => {
     );
 
     return (
-      <View style={containerStyles.phoneScreen}>
+      <View style={[containerStyles.phoneScreen, ]}>
 
         <ScrollView style={{ minWidth: "100%" }}>
 
@@ -194,6 +195,18 @@ const Profile = (props) => {
         )}
 
         <View style={containerStyles.centerContainer}>
+          <Pressable
+            style={[
+              buttonStyles.alignCenter,
+              buttonStyles.redButton,
+              buttonStyles.defaultButton,
+              buttonStyles.largeButton,
+            ]}
+            onPress={() => props.navigation.navigate("NotificationSettings")}
+          >
+            <Text style={textStyles.whiteSemiBoldText}>Notification Settings</Text>
+          </Pressable>
+
           <Pressable
             style={[
               buttonStyles.alignCenter,

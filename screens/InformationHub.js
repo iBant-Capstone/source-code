@@ -250,6 +250,30 @@ export const InfoPage = (props) => {
           </View>
           <Text style={textStyles.whiteSemiBoldText}>Mixology</Text>
         </Pressable>
+        {/* FAQ */}
+        <Pressable
+          style={[
+            buttonStyles.alignLeft,
+            buttonStyles.redButton,
+            buttonStyles.defaultButton,
+          ]}
+          title="FAQs About Hangovers"
+          onPress={() =>
+            props.navigation.navigate("InfoTopicPage", {
+              title: "FAQs About Hangovers",
+            })
+          }
+        >
+          <View style={containerStyles.reverseRow}>
+            <Image
+              style={imageStyles.hubIcon}
+              // <a target="_blank" href="https://icons8.com/icon/15843/question-mark">Question Mark</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+              source={require("../assets/info-icons/question-mark.png")}
+              resizeMode="contain"
+            />
+          </View>
+          <Text style={textStyles.whiteSemiBoldText}>FAQs About Hangovers</Text>
+        </Pressable>
       </View>
     </ScrollView>
   );
